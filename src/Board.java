@@ -51,7 +51,7 @@ public class Board {
 
                 } else {
                     // Draws an empty tile if empty
-                    g.drawImage(assetServer.emptyImage, col * squareSize, row * squareSize, squareSize, squareSize, null);
+                    g.drawImage(assetServer.getImage("empty"), col * squareSize, row * squareSize, squareSize, squareSize, null);
                 }
             }
         }
