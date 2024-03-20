@@ -63,7 +63,7 @@ public class Board {
     }
 
 
-    // Check if win condition is met after laser tree
+    // Check if win condition is met after laser tree work
     public boolean checkWinCondition() {
         return false;
     }
