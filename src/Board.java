@@ -1,3 +1,5 @@
+
+
 public class Board {
     // Board size
     // Tiles array
@@ -8,6 +10,8 @@ public class Board {
 
     Tile cursorTile;
 
+    AssetServer assetServer;
+
     // Laser tree ???
 
 
@@ -15,10 +19,11 @@ public class Board {
         // Gets the board size
         // Initializes the tiles array based json file
         // Initializes the cursor tile
-    public Board(int boardSize, int squareSize, assetServer) {
+    public Board(int boardSize, int squareSize, AssetServer assetServer) {
         this.boardSize = boardSize;
         this.tiles = new Tile[boardSize][boardSize];
         this.cursorTile = new Tile();
+        this.assetServer = assetServer;
     }
 
     // Draw the board
@@ -33,12 +38,12 @@ public class Board {
 
     // Add the cursor tile to the board and check if placement is valid
     public void addTile(int x, int y) {
-        tiles[x,y] = cursorTile;
+        tiles[x][y] = cursorTile;
     }
 
     // Remove a tile
     public void removeTile(int x, int y) {
-        tiles[x,y] = null; //empty tile?
+        tiles[x][y] = null; //empty tile?
     }
 
     // Rotate the cursor tile
