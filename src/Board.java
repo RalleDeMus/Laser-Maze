@@ -1,4 +1,4 @@
-
+import java.awt.*;
 
 public class Board {
     // Board size
@@ -6,6 +6,7 @@ public class Board {
     // Cursor tile
 
     int boardSize;
+    int squareSize;
     Tile[][] tiles;
 
     Tile cursorTile;
@@ -15,21 +16,46 @@ public class Board {
     // Laser tree ???
 
 
-    // Constructor (json file)
+    // Constructor
         // Gets the board size
         // Initializes the tiles array based json file
         // Initializes the cursor tile
+        // Reads from the asset server
     public Board(int boardSize, int squareSize, AssetServer assetServer) {
         this.boardSize = boardSize;
         this.tiles = new Tile[boardSize][boardSize];
         this.cursorTile = new Tile();
         this.assetServer = assetServer;
+        this.squareSize = squareSize;
+
+        // Initialize the tiles array based on the json file
+        for (int row = 0; row < boardSize; row++) {
+            for (int col = 0; col < boardSize; col++) {
+                tiles[row][col] = null;
+                // This needs to be based on the json file
+            }
+        }
+
     }
 
     // Draw the board
         // Draw the tiles: Empty or with a mirror
         // Draw the selected tile
         // Draw the cursor tile
+    public void drawBoard(Graphics g) {
+        for (int row = 0; row < boardSize; row++) {
+            for (int col = 0; col < boardSize; col++) {
+                if (tiles[row][col] != null) {
+                    // Draws the tile if it is not empty
+                    g.drawImage(tiles[row][col].getImage(), row * squareSize, col * squareSize, squareSize, squareSize, null);
+
+                } else {
+                    // Draws an empty tile if empty
+                    g.drawImage(assetServer.emptyImage, col * squareSize, row * squareSize, squareSize, squareSize, null);
+                }
+            }
+        }
+    }
 
 
     // Construct laser tree
@@ -45,6 +71,7 @@ public class Board {
     public void removeTile(int x, int y) {
         tiles[x][y] = null; //empty tile?
     }
+
 
     // Rotate the cursor tile
 }
