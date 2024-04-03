@@ -1,30 +1,31 @@
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import javax.imageio.ImageIO;
 
+
 public class AssetServer {
-    private Map<String, BufferedImage> images = new HashMap<>();
+    public BufferedImage beamSplitterImage;
+    public BufferedImage cellBlockerImage;
+    public BufferedImage checkPointImage;
+    public BufferedImage doubleMirrorImage;
+    public BufferedImage emptyImage;
+    public BufferedImage laserImage;
+    public BufferedImage targetMirrorImage;
 
     public AssetServer() {
         try {
-            loadImages("beamSplitter", "cellBlocker", "checkPoint", "doubleMirror", "empty", "laser", "targetMirror", "laserRay");
+            this.beamSplitterImage = ImageIO.read(new File("src/assets/beamSplitter.png"));
+            this.cellBlockerImage = ImageIO.read(new File("src/assets/cellBlocker.png"));
+            this.checkPointImage = ImageIO.read(new File("src/assets/checkPoint.png"));
+            this.doubleMirrorImage = ImageIO.read(new File("src/assets/doubleMirror.png"));
+            this.emptyImage = ImageIO.read(new File("src/assets/empty.png"));
+            this.laserImage = ImageIO.read(new File("src/assets/laser.png"));
+            this.targetMirrorImage = ImageIO.read(new File("src/assets/targetMirror.png"));
+
         } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException("Failed to load assets", e);
         }
-    }
-
-    private void loadImages(String... assetNames) throws IOException {
-        for (String assetName : assetNames) {
-            BufferedImage image = ImageIO.read(new File("src/assets/" + assetName + ".png"));
-            images.put(assetName, image);
-        }
-    }
-
-    public BufferedImage getImage(String assetName) {
-        return images.get(assetName);
     }
 }
