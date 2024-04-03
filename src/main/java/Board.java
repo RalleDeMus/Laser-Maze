@@ -46,11 +46,21 @@ public class Board {
         // Draw the selected tile
         // Draw the cursor tile
     public void drawBoard(Graphics g) {
+        for (int row = 0; row < tiles.length; row++) {
+            for (int col = 0; col < tiles[row].length; col++) {
+                // Print 1 if tiles[row][col] is not null, 0 otherwise
+                System.out.print(tiles[row][col] != null ? "1 " : "0 ");
+            }
+            // Move to the next line after printing each row
+            System.out.println();
+        }
+
         for (int row = 0; row < boardSize; row++) {
             for (int col = 0; col < boardSize; col++) {
+
                 if (tiles[row][col] != null) {
                     // Draws the tile if it is not empty
-                    g.drawImage(tiles[row][col].getImage(), row * squareSize, col * squareSize, squareSize, squareSize, null);
+                    g.drawImage(tiles[row][col].getImage(), col * squareSize, row * squareSize, squareSize, squareSize, null);
 
                 } else {
                     // Draws an empty tile if empty
@@ -91,13 +101,14 @@ public class Board {
         Point p = getTile(x, y);
         System.out.println("Tile clicked: " + p);
         Tile selectedTile = getSelectedTile();
-        tiles[p.x][p.y] = selectedTile;
+        tiles[p.y][p.x] = selectedTile;
     }
 
 
     // Remove a tile
     public void removeTile(int x, int y) {
-        tiles[x][y] = null; //empty tile?
+        Point p = getTile(x, y);
+        tiles[p.y][p.x] = null; //empty tile?
     }
 
 
