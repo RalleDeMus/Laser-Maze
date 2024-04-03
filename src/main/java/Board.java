@@ -46,14 +46,6 @@ public class Board {
         // Draw the selected tile
         // Draw the cursor tile
     public void drawBoard(Graphics g) {
-        for (int row = 0; row < tiles.length; row++) {
-            for (int col = 0; col < tiles[row].length; col++) {
-                // Print 1 if tiles[row][col] is not null, 0 otherwise
-                System.out.print(tiles[row][col] != null ? "1 " : "0 ");
-            }
-            // Move to the next line after printing each row
-            System.out.println();
-        }
 
         for (int row = 0; row < boardSize; row++) {
             for (int col = 0; col < boardSize; col++) {
