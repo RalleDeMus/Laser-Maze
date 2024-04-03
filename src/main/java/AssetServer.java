@@ -19,7 +19,7 @@ public class AssetServer {
 
     private void loadImages(String... assetNames) throws IOException {
         for (String assetName : assetNames) {
-            BufferedImage image = ImageIO.read(new File("src/assets/" + assetName + ".png"));
+            BufferedImage image = ImageIO.read(new File("src/main/assets/" + assetName + ".png"));
             images.put(assetName, image);
         }
     }

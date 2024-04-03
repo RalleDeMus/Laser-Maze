@@ -11,10 +11,12 @@ public class Board {
 
     Tile cursorTile;
 
+    Cursor cursor;
+
     AssetServer assetServer;
 
     // Laser tree ???
-
+    boolean isDoubleMirror = true;
 
     // Constructor
         // Gets the board size
@@ -27,6 +29,7 @@ public class Board {
         this.cursorTile = new Tile();
         this.assetServer = assetServer;
         this.squareSize = squareSize;
+        this.cursor = new Cursor();
 
         // Initialize the tiles array based on the json file
         for (int row = 0; row < boardSize; row++) {
@@ -57,6 +60,20 @@ public class Board {
         }
     }
 
+    public Point getTile(int x, int y) {
+
+        return new Point(Math.min(x / squareSize,boardSize-1),  Math.min(y / squareSize,boardSize-1));
+    }
+
+    public Tile getSelectedTile() {
+        Tile selectedTile = new MirrorTile();
+        if (this.isDoubleMirror){
+
+            selectedTile.setImage(assetServer.getImage("doubleMirror"));
+
+        }
+        return selectedTile;
+    }
 
     // Construct laser tree
 
@@ -64,8 +81,12 @@ public class Board {
 
     // Add the cursor tile to the board and check if placement is valid
     public void addTile(int x, int y) {
-        tiles[x][y] = cursorTile;
+        Point p = getTile(x, y);
+        System.out.println("Tile clicked: " + p);
+        Tile selectedTile = getSelectedTile();
+        tiles[p.x][p.y] = selectedTile;
     }
+
 
     // Remove a tile
     public void removeTile(int x, int y) {
