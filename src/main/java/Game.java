@@ -21,8 +21,33 @@ public class Game extends JPanel {
         setPreferredSize(new Dimension(boardSize * squareSize, (boardSize) * squareSize+toolbarHeight));
         this.board = new Board(boardSize, squareSize,assetServer);
 
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if(e.getButton()==MouseEvent.BUTTON1){
+                    board.addTile(e.getX(), e.getY());
+
+                }
+                else if (e.getButton()==MouseEvent.BUTTON3) {
+                    board.removeTile(e.getX(), e.getY());
+                }
+                repaint();
+            }
+
+
+        });
+
+        addMouseMotionListener(new MouseAdapter() {
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                board.cursor.setCursorPos(e.getX(), e.getY());
+                repaint();
+            }
+        });
 
     }
+
+
 
     protected void paintComponent(Graphics g) {
         // Draw the board on repaint
