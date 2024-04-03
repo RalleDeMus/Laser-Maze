@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.awt.image.BufferedImage;
+
 //make singleton
 public class Board {
     // Board size
@@ -27,6 +29,7 @@ public class Board {
         this.boardSize = boardSize;
         this.tiles = new Tile[boardSize][boardSize];
         this.cursorTile = new Tile();
+        this.cursorPos = new Point(0, 0);
         this.assetServer = assetServer;
         this.squareSize = squareSize;
 
@@ -59,6 +62,9 @@ public class Board {
 
             }
         }
+
+        BufferedImage cursorImage = ImageHandler.transImage(selectedTile.getImage(), 0.6f);
+        g.drawImage(cursorImage, cursorPos.x * squareSize, cursorPos.y * squareSize, squareSize, squareSize, null);
     }
 
     public Point getTilePos(int x, int y) {
@@ -110,7 +116,7 @@ public class Board {
 
     // Add the cursor tile to the board and check if placement is valid
     public void addTile(Tile t) {
-        System.out.println("Tile clicked: " + cursorPos.x + " " + cursorPos.y);
+        //System.out.println("Tile clicked: " + cursorPos.x + " " + cursorPos.y);
 
         tiles[cursorPos.y][cursorPos.x] = t;
     }

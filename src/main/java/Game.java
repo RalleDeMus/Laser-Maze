@@ -54,7 +54,6 @@ public class Game extends JPanel {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_R) {
-                    System.out.println("Rotating the selected tile");
                     board.rotateSelectedTile();
 
                     repaint();

@@ -2,8 +2,29 @@ import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
+import java.awt.AlphaComposite;
 
 public class ImageHandler {
+
+    public static BufferedImage transImage(BufferedImage image, float alphaValue) {
+        // Create a new BufferedImage with the same dimensions and a format that supports alpha
+        BufferedImage transparentImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+
+        // Get the Graphics2D object of the new BufferedImage
+        Graphics2D g2d = transparentImage.createGraphics();
+
+        // Set the alpha composite to the alphaValue
+        g2d.setComposite(AlphaComposite.SrcOver.derive(alphaValue));
+
+        // Draw the original image onto the transparent image with the given transparency
+        g2d.drawImage(image, 0, 0, null);
+
+        // Dispose of the Graphics2D object
+        g2d.dispose();
+
+        // Return the image with adjusted transparency
+        return transparentImage;
+    }
 
     /**
      * Rotates an image by a specified number of degrees.
