@@ -1,5 +1,5 @@
 import java.awt.*;
-
+//make singleton
 public class Board {
     // Board size
     // Tiles array
@@ -11,12 +11,12 @@ public class Board {
 
     Tile cursorTile;
 
+    Tile selectedTile = new Tile();
     Cursor cursor;
 
     AssetServer assetServer;
 
     // Laser tree ???
-    boolean isDoubleMirror = true;
 
     // Constructor
         // Gets the board size
@@ -50,7 +50,7 @@ public class Board {
             for (int col = 0; col < boardSize; col++) {
                 if (tiles[row][col] != null) {
                     // Draws the tile if it is not empty
-                    g.drawImage(tiles[row][col].getImage(), row * squareSize, col * squareSize, squareSize, squareSize, null);
+                    g.drawImage(tiles[row][col].getImage(), col * squareSize, row * squareSize, squareSize, squareSize, null);
 
                 } else {
                     // Draws an empty tile if empty
@@ -66,13 +66,12 @@ public class Board {
     }
 
     public Tile getSelectedTile() {
-        Tile selectedTile = new MirrorTile();
-        //if (this.isDoubleMirror){
-
-            selectedTile.setImage(assetServer.getImage("doubleMirror"));
-
-        //}
         return selectedTile;
+    }
+
+    public void setSelectedTile(String imageName){
+        selectedTile = new Tile();
+        selectedTile.setImage(assetServer.getImage(imageName));
     }
 
     // Construct laser tree
@@ -87,17 +86,18 @@ public class Board {
 
 
     // Add the cursor tile to the board and check if placement is valid
-    public void addTile(int x, int y) {
+    public void addTile(int x, int y, Tile t) {
         Point p = getTile(x, y);
         System.out.println("Tile clicked: " + p);
-        Tile selectedTile = getSelectedTile();
-        tiles[p.x][p.y] = selectedTile;
+
+        tiles[p.y][p.x] = t;
     }
 
 
     // Remove a tile
     public void removeTile(int x, int y) {
-        tiles[x][y] = null; //empty tile?
+        Point p = getTile(x, y);
+        tiles[p.y][p.x] = null; //empty tile?
     }
 
 

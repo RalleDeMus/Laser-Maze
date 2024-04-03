@@ -7,7 +7,5 @@ public interface TileInterface {
     void setImage(BufferedImage image);
     boolean getIsRotateable();
     void setIsRotateable(boolean isRotateable);
-    void placeTile();
-    void removeTile();
 
 }

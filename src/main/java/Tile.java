@@ -39,15 +39,6 @@ public class Tile implements TileInterface{
         this.isRotateable = isRotateable;
     }
 
-    @Override
-    public void placeTile() {
-
-    }
-
-    @Override
-    public void removeTile() {
-
-    }
 }
 /*
 void getOrientation();
