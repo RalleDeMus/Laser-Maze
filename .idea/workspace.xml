@@ -4,26 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="kan jeg push">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LaserGameGroup4.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AssetServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TileInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/beamSplitter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/cellBlocker.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/checkPoint.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/doubleMirror.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/empty.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/laser.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/laserRay.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/targetMirror.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +20,7 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2eaBd3yjdmTl7RDxjkgjJlNxPQe" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -47,7 +31,7 @@
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Revamp-to-maven",
+    "git-widget-placeholder": "!2 on Revamp-to-maven",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Rasmu/Desktop/Agil/Exercises/LaserMazeProject",
     "node.js.detected.package.eslint": "true",
@@ -99,5 +83,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="kan jeg push" />
+    <option name="LAST_COMMIT_MESSAGE" value="kan jeg push" />
   </component>
 </project>
