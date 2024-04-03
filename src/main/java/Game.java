@@ -24,12 +24,15 @@ public class Game extends JPanel {
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
+                int x = board.cursor.getCursorPosX();
+                int y = board.cursor.getCursorPosY();
+
                 if(e.getButton()==MouseEvent.BUTTON1){
-                    board.addTile(e.getX(), e.getY());
+                    board.addTile(x, y);
 
                 }
                 else if (e.getButton()==MouseEvent.BUTTON3) {
-                    board.removeTile(e.getX(), e.getY());
+                    board.removeTile(x, y);
                 }
                 repaint();
             }
@@ -42,6 +45,25 @@ public class Game extends JPanel {
             public void mouseMoved(MouseEvent e) {
                 board.cursor.setCursorPos(e.getX(), e.getY());
                 repaint();
+            }
+        });
+
+        setFocusable(true);
+        addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                    System.out.println("Rotating the selected tile");
+                    //board.rotateSelectedTile();
+
+                    repaint();
+                }
+
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    //board.setPlacing();
+
+                    repaint();
+                }
             }
         });
 
