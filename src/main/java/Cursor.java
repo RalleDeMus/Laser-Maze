@@ -7,4 +7,9 @@ public class Cursor {
         cursorY = y;
     }
 
+    public int getCursorPosX(){return cursorX;}
+
+    public int getCursorPosY(){return cursorY;}
+
+
 }

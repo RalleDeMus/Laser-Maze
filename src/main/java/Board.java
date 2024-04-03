@@ -67,11 +67,11 @@ public class Board {
 
     public Tile getSelectedTile() {
         Tile selectedTile = new MirrorTile();
-        if (this.isDoubleMirror){
+        //if (this.isDoubleMirror){
 
             selectedTile.setImage(assetServer.getImage("doubleMirror"));
 
-        }
+        //}
         return selectedTile;
     }
 
