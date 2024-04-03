@@ -46,10 +46,8 @@ public class Board {
         // Draw the selected tile
         // Draw the cursor tile
     public void drawBoard(Graphics g) {
-
         for (int row = 0; row < boardSize; row++) {
             for (int col = 0; col < boardSize; col++) {
-
                 if (tiles[row][col] != null) {
                     // Draws the tile if it is not empty
                     g.drawImage(tiles[row][col].getImage(), col * squareSize, row * squareSize, squareSize, squareSize, null);
