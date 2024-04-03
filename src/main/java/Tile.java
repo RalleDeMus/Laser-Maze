@@ -1,10 +1,43 @@
 import java.awt.image.BufferedImage;
 
 public class Tile implements TileInterface{
+
+    public Tile() {
+        this.orientation = 0;
+    }
+
     private boolean isMoveable;
 
     private boolean isRotateable;
     private BufferedImage image;
+
+    private int orientation;
+
+    private boolean isLaser;
+
+    private int[] mirror;
+    private int[] pass;
+
+    private int[] target;
+
+    @Override
+    public boolean getLaser() {
+        return isLaser;
+    }
+
+    @Override
+    public int[] getMirror() {
+        return mirror;
+    }
+    @Override
+    public int[] getPass() {
+        return pass;
+    }
+    @Override
+    public int[] getTarget() {
+        return pass;
+    }
+
 
     // getter and setter of if the tile is moveable or not
     @Override
@@ -39,9 +72,19 @@ public class Tile implements TileInterface{
         this.isRotateable = isRotateable;
     }
 
-}
-/*
-void getOrientation();
-void setOrientation();
+    public int getOrientation() {
+        return orientation;
+    }
 
- */
+    public void setOrientation(int orientation) {
+        this.orientation = orientation;
+    }
+
+
+
+    public void rotate(){
+        orientation = (orientation + 1) % 4;
+        image = ImageHandler.rotateImage(image, 90);
+    }
+
+}

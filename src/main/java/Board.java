@@ -10,9 +10,9 @@ public class Board {
     Tile[][] tiles;
 
     Tile cursorTile;
+    Point cursorPos;
 
     Tile selectedTile = new Tile();
-    Cursor cursor;
 
     AssetServer assetServer;
 
@@ -29,7 +29,6 @@ public class Board {
         this.cursorTile = new Tile();
         this.assetServer = assetServer;
         this.squareSize = squareSize;
-        this.cursor = new Cursor();
 
         // Initialize the tiles array based on the json file
         for (int row = 0; row < boardSize; row++) {
@@ -56,11 +55,13 @@ public class Board {
                     // Draws an empty tile if empty
                     g.drawImage(assetServer.getImage("empty"), col * squareSize, row * squareSize, squareSize, squareSize, null);
                 }
+
+
             }
         }
     }
 
-    public Point getTile(int x, int y) {
+    public Point getTilePos(int x, int y) {
 
         return new Point(Math.min(x / squareSize,boardSize-1),  Math.min(y / squareSize,boardSize-1));
     }
@@ -69,13 +70,35 @@ public class Board {
         return selectedTile;
     }
 
-    public void setSelectedTile(String imageName){
-        selectedTile = new Tile();
-        selectedTile.setImage(assetServer.getImage(imageName));
+    public void setSelectedTile(Tile tile){
+        selectedTile = tile;
+        //selectedTile.setImage(assetServer.getImage(imageName));
+    }
+
+    // Get the first tile with tag
+    public Tile getLaserTile() {
+        for (int row = 0; row < boardSize; row++) {
+            for (int col = 0; col < boardSize; col++) {
+                if (tiles[row][col] != null && tiles[row][col].getLaser()) {
+                    return tiles[row][col];
+                }
+                //System.out.print(tiles[row][col]!=null?tiles[row][col].getLaser()? "L" : "N":"0");
+            }
+            //System.out.println();
+        }
+        return null;
     }
 
     // Construct laser tree
     public void constructLaserTree() {
+        Tile laserTile = getLaserTile();
+        if (laserTile != null) {
+            // Construct the laser tree
+            System.out.println("Constructing laser tree");
+
+        } else {
+            System.out.println("No laser tile found");
+        }
     }
 
 
@@ -86,22 +109,30 @@ public class Board {
 
 
     // Add the cursor tile to the board and check if placement is valid
-    public void addTile(int x, int y, Tile t) {
-        Point p = getTile(x, y);
-        System.out.println("Tile clicked: " + p);
+    public void addTile(Tile t) {
+        System.out.println("Tile clicked: " + cursorPos.x + " " + cursorPos.y);
 
-        tiles[p.y][p.x] = t;
+        tiles[cursorPos.y][cursorPos.x] = t;
     }
 
 
     // Remove a tile
-    public void removeTile(int x, int y) {
-        Point p = getTile(x, y);
-        tiles[p.y][p.x] = null; //empty tile?
+    public void removeTile() {
+        tiles[cursorPos.y][cursorPos.x] = null; //empty tile?
     }
 
 
-    // Rotate the cursor tile
+    public void setCursorPos(int x, int y) {
+        cursorPos = getTilePos(x, y);
+    }
+
+    public Point getCursorPos() {
+        return cursorPos;
+    }
+
+    public void rotateSelectedTile() {
+        selectedTile.rotate();
+    }
 }
 
 

@@ -1,23 +1,19 @@
 public class MirrorTile extends Tile {
 
-    private int orientation;
-
-    private int direction;
-
-    public int getOrientation() {
-        return orientation;
-    }
-    public int getDirection() {
-        return direction;
+    public MirrorTile(AssetServer as) {
+        super();
+        this.mirror = new int[]{0, 2};
+        this.pass = new int[]{};
+        this.target = new int[]{0};
+        this.setImage(as.getImage("targetMirror"));
     }
 
-    public void setOrientation(int orientation) {
-        this.orientation = orientation;
-    }
 
-    public void setDirection(int direction) {
-        this.direction = direction;
-    }
+    private int[] mirror;
+    private int[] pass;
+
+    private int[] target;
+
 
 
 }

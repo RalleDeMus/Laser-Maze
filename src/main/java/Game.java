@@ -10,29 +10,30 @@ import javax.swing.JPanel;
 public class Game extends JPanel {
     private final Board board;
     private JButton myButton;
-    //AssetServer assetServer;
+    AssetServer assetServer;
 
     public Game(){
-        //assetServer = new AssetServer();
+        assetServer = AssetServer.getInstance();
 
         int boardSize = 5;
         int squareSize = 120;
         int toolbarHeight = (int) Math.round(1.5*squareSize);
         setPreferredSize(new Dimension(boardSize * squareSize, (boardSize) * squareSize+toolbarHeight));
         this.board = new Board(boardSize, squareSize,AssetServer.getInstance());
-        board.setSelectedTile("doubleMirror"); //use double mirror as standard selection
+        board.setSelectedTile(new MirrorTile(assetServer)); //use double mirror as standard selection
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                int x = board.cursor.getCursorPosX();
-                int y = board.cursor.getCursorPosY();
 
                 if(e.getButton()==MouseEvent.BUTTON1){
-                    board.addTile(x, y, board.selectedTile);
+                    Tile addTile = new Tile();
+                    addTile.setImage(board.getSelectedTile().getImage());
+                    addTile.setOrientation(board.getSelectedTile().getOrientation());
+                    board.addTile(addTile);
 
                 }
                 else if (e.getButton()==MouseEvent.BUTTON3) {
-                    board.removeTile(x, y);
+                    board.removeTile();
                 }
                 repaint();
             }
@@ -43,7 +44,7 @@ public class Game extends JPanel {
         addMouseMotionListener(new MouseAdapter() {
             @Override
             public void mouseMoved(MouseEvent e) {
-                board.cursor.setCursorPos(e.getX(), e.getY());
+                board.setCursorPos(e.getX(), e.getY());
                 repaint();
             }
         });
@@ -52,9 +53,9 @@ public class Game extends JPanel {
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                if (e.getKeyCode() == KeyEvent.VK_R) {
                     System.out.println("Rotating the selected tile");
-                    //board.rotateSelectedTile();
+                    board.rotateSelectedTile();
 
                     repaint();
                 }
@@ -66,30 +67,40 @@ public class Game extends JPanel {
                 }
 
                 if (e.getKeyCode() == KeyEvent.VK_1) {
-                    board.setSelectedTile("doubleMirror");
+                    board.setSelectedTile(new LaserTile(assetServer));
                     repaint();
 
                 }
                 if (e.getKeyCode() == KeyEvent.VK_2) {
-                    board.setSelectedTile("beamSplitter");
-                    repaint();
-                }
-                if (e.getKeyCode() == KeyEvent.VK_3) {
-                    board.setSelectedTile("checkPoint");
+                    board.setSelectedTile(new MirrorTile(assetServer));
                     repaint();
 
                 }
-                if (e.getKeyCode() == KeyEvent.VK_4) {
-                    board.setSelectedTile("cellBlocker");
-                    repaint();
-                }
-                if (e.getKeyCode() == KeyEvent.VK_5) {
-                    board.setSelectedTile("laser");
-                    repaint();
+//                if (e.getKeyCode() == KeyEvent.VK_2) {
+//                    board.setSelectedTile("beamSplitter");
+//                    repaint();
+//                }
+//                if (e.getKeyCode() == KeyEvent.VK_3) {
+//                    board.setSelectedTile("checkPoint");
+//                    repaint();
+//
+//                }
+//                if (e.getKeyCode() == KeyEvent.VK_4) {
+//                    board.setSelectedTile("cellBlocker");
+//                    repaint();
+//                }
+//                if (e.getKeyCode() == KeyEvent.VK_5) {
+//                    board.setSelectedTile("laser");
+//                    repaint();
+//
+//                }
+//                if (e.getKeyCode() == KeyEvent.VK_6) {
+//                    board.setSelectedTile("targetMirror");
+//                    repaint();
+//                }
 
-                }
-                if (e.getKeyCode() == KeyEvent.VK_6) {
-                    board.setSelectedTile("targetMirror");
+                if (e.getKeyCode() == KeyEvent.VK_L) {
+                    board.constructLaserTree();
                     repaint();
                 }
 
