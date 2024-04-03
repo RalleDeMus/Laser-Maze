@@ -59,8 +59,14 @@ public class Board {
 
 
     // Construct laser tree
+    public void constructLaserTree() {
+    }
 
-    // Check if win condition is met after laser tree
+
+    // Check if win condition is met after laser tree work
+    public boolean checkWinCondition() {
+        return false;
+    }
 
 
     // Add the cursor tile to the board and check if placement is valid
