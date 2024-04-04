@@ -16,7 +16,6 @@ public class Board {
 
     Tile selectedTile = new Tile();
 
-    AssetServer assetServer;
 
     // Laser tree ???
 
@@ -25,12 +24,11 @@ public class Board {
         // Initializes the tiles array based json file
         // Initializes the cursor tile
         // Reads from the asset server
-    public Board(int boardSize, int squareSize, AssetServer assetServer) {
+    public Board(int boardSize, int squareSize) {
         this.boardSize = boardSize;
         this.tiles = new Tile[boardSize][boardSize];
         this.cursorTile = new Tile();
         this.cursorPos = new Point(0, 0);
-        this.assetServer = assetServer;
         this.squareSize = squareSize;
 
         // Initialize the tiles array based on the json file
@@ -56,7 +54,7 @@ public class Board {
 
                 } else {
                     // Draws an empty tile if empty
-                    g.drawImage(assetServer.getImage("empty"), col * squareSize, row * squareSize, squareSize, squareSize, null);
+                    g.drawImage(AssetServer.getInstance().getImage("empty"), col * squareSize, row * squareSize, squareSize, squareSize, null);
                 }
 
 
@@ -97,10 +95,24 @@ public class Board {
 
     // Construct laser tree
     public void constructLaserTree() {
-        Tile laserTile = getLaserTile();
+        Tile laserTile = null;
+        Point laserPos = null;
+
+        for (int row = 0; row < boardSize; row++) {
+            for (int col = 0; col < boardSize; col++) {
+                if (tiles[row][col] != null && tiles[row][col].getLaser()) {
+                    laserTile = tiles[row][col];
+                    laserPos = new Point(col, row);
+                }
+                //System.out.print(tiles[row][col]!=null?tiles[row][col].getLaser()? "L" : "N":"0");
+            }
+            //System.out.println();
+        }
+
         if (laserTile != null) {
             // Construct the laser tree
             System.out.println("Constructing laser tree");
+
 
         } else {
             System.out.println("No laser tile found");

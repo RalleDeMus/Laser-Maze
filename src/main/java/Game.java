@@ -10,16 +10,14 @@ import javax.swing.JPanel;
 public class Game extends JPanel {
     private final Board board;
     private JButton myButton;
-    AssetServer assetServer;
 
     public Game(){
-        assetServer = AssetServer.getInstance();
 
         int boardSize = 5;
         int squareSize = 120;
         int toolbarHeight = (int) Math.round(1.5*squareSize);
         setPreferredSize(new Dimension(boardSize * squareSize, (boardSize) * squareSize+toolbarHeight));
-        this.board = new Board(boardSize, squareSize,AssetServer.getInstance());
+        this.board = new Board(boardSize, squareSize);
         board.setSelectedTile(new MirrorTile()); //use double mirror as standard selection
         addMouseListener(new MouseAdapter() {
             @Override
