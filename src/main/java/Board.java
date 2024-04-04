@@ -16,7 +16,7 @@ public class Board {
 
     Tile selectedTile = new Tile();
 
-    AssetServer assetServer;
+
 
     // Laser tree ???
 
@@ -25,12 +25,11 @@ public class Board {
         // Initializes the tiles array based json file
         // Initializes the cursor tile
         // Reads from the asset server
-    public Board(int boardSize, int squareSize, AssetServer assetServer) {
+    public Board(int boardSize, int squareSize) {
         this.boardSize = boardSize;
         this.tiles = new Tile[boardSize][boardSize];
         this.cursorTile = new Tile();
         this.cursorPos = new Point(0, 0);
-        this.assetServer = assetServer;
         this.squareSize = squareSize;
 
         // Initialize the tiles array based on the json file
@@ -56,7 +55,7 @@ public class Board {
 
                 } else {
                     // Draws an empty tile if empty
-                    g.drawImage(assetServer.getImage("empty"), col * squareSize, row * squareSize, squareSize, squareSize, null);
+                    g.drawImage(AssetServer.getInstance().getImage("empty"), col * squareSize, row * squareSize, squareSize, squareSize, null);
                 }
 
 
@@ -93,6 +92,10 @@ public class Board {
             //System.out.println();
         }
         return null;
+    }
+
+    public void rotateTile(){
+
     }
 
     // Construct laser tree

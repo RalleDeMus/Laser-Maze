@@ -1,11 +1,11 @@
 public class MirrorTile extends Tile {
 
-    public MirrorTile(AssetServer as) {
+    public MirrorTile() {
         super();
         this.mirror = new int[]{0, 2};
         this.pass = new int[]{};
         this.target = new int[]{0};
-        this.setImage(as.getImage("targetMirror"));
+        this.setImage(AssetServer.getInstance().getImage("targetMirror"));
     }
 
 

@@ -1,8 +1,8 @@
 public class LaserTile extends Tile {
 
-    public LaserTile(AssetServer as) {
+    public LaserTile() {
         super();
-        this.setImage(as.getImage("laser"));
+        this.setImage(AssetServer.getInstance().getImage("laser"));
         this.isLaser = true;
     }
 
