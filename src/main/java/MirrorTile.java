@@ -1,3 +1,5 @@
+import java.awt.image.BufferedImage;
+
 public class MirrorTile extends Tile {
 
     public MirrorTile() {
