@@ -20,7 +20,7 @@ public class Game extends JPanel {
         int toolbarHeight = (int) Math.round(1.5*squareSize);
         setPreferredSize(new Dimension(boardSize * squareSize, (boardSize) * squareSize+toolbarHeight));
         this.board = new Board(boardSize, squareSize,AssetServer.getInstance());
-        board.setSelectedTile(new MirrorTile(assetServer)); //use double mirror as standard selection
+        board.setSelectedTile(new MirrorTile()); //use double mirror as standard selection
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -66,12 +66,12 @@ public class Game extends JPanel {
                 }
 
                 if (e.getKeyCode() == KeyEvent.VK_1) {
-                    board.setSelectedTile(new LaserTile(assetServer));
+                    board.setSelectedTile(new LaserTile());
                     repaint();
 
                 }
                 if (e.getKeyCode() == KeyEvent.VK_2) {
-                    board.setSelectedTile(new MirrorTile(assetServer));
+                    board.setSelectedTile(new MirrorTile());
                     repaint();
 
                 }
