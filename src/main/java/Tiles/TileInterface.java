@@ -1,3 +1,5 @@
+package Tiles;
+
 import java.awt.image.BufferedImage;
 
 public interface TileInterface {

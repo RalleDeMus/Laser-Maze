@@ -1,8 +1,9 @@
+import Tiles.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.IOException;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
@@ -18,15 +19,15 @@ public class Game extends JPanel {
         int toolbarHeight = (int) Math.round(1.5*squareSize);
         setPreferredSize(new Dimension(boardSize * squareSize, (boardSize) * squareSize+toolbarHeight));
         this.board = new Board(boardSize, squareSize);
-        board.setSelectedTile(new MirrorTile()); //use double mirror as standard selection
+        board.setSelectedTile(new LaserTile());
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
 
                 if(e.getButton()==MouseEvent.BUTTON1){
                     try {
-                        // Assuming board.addTile() accepts a Tile object as its parameter
-                        // and board.getSelectedTile() returns a Tile object
+                        // Assuming board.addTile() accepts a Tiles.Tile object as its parameter
+                        // and board.getSelectedTile() returns a Tiles.Tile object
                         board.addTile(board.getSelectedTile().clone());
                     } catch (CloneNotSupportedException er) {
                         // Handle the exception, e.g., log it or throw a runtime exception
@@ -78,28 +79,24 @@ public class Game extends JPanel {
                     repaint();
 
                 }
-//                if (e.getKeyCode() == KeyEvent.VK_2) {
-//                    board.setSelectedTile("beamSplitter");
-//                    repaint();
-//                }
-//                if (e.getKeyCode() == KeyEvent.VK_3) {
-//                    board.setSelectedTile("checkPoint");
-//                    repaint();
-//
-//                }
-//                if (e.getKeyCode() == KeyEvent.VK_4) {
-//                    board.setSelectedTile("cellBlocker");
-//                    repaint();
-//                }
-//                if (e.getKeyCode() == KeyEvent.VK_5) {
-//                    board.setSelectedTile("laser");
-//                    repaint();
-//
-//                }
-//                if (e.getKeyCode() == KeyEvent.VK_6) {
-//                    board.setSelectedTile("targetMirror");
-//                    repaint();
-//                }
+                if (e.getKeyCode() == KeyEvent.VK_3) {
+                    board.setSelectedTile(new DoubleTile());
+                    repaint();
+
+                }
+                if (e.getKeyCode() == KeyEvent.VK_4) {
+                    board.setSelectedTile(new SplitterTile());
+                    repaint();
+                }
+                if (e.getKeyCode() == KeyEvent.VK_5) {
+                    board.setSelectedTile(new CheckPointTile());
+                    repaint();
+
+                }
+                if (e.getKeyCode() == KeyEvent.VK_6) {
+                    board.setSelectedTile(new CellBlockerTile());
+                    repaint();
+                }
 
                 if (e.getKeyCode() == KeyEvent.VK_L) {
                     board.constructLaserTree();

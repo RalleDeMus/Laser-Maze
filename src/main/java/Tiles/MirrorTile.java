@@ -1,3 +1,5 @@
+package Tiles;
+
 public class MirrorTile extends Tile {
 
     public MirrorTile() {

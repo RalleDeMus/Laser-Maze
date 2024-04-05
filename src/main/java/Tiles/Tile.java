@@ -1,3 +1,5 @@
+package Tiles;
+
 import java.awt.image.BufferedImage;
 
 public class Tile implements TileInterface, Cloneable{
@@ -23,7 +25,7 @@ public class Tile implements TileInterface, Cloneable{
     }
 
     @Override
-    protected Tile clone() throws CloneNotSupportedException {
+    public Tile clone() throws CloneNotSupportedException {
         try {
             Tile cloned = (Tile) super.clone();
             // Clone mutable fields to ensure a deep clone
@@ -52,7 +54,7 @@ public class Tile implements TileInterface, Cloneable{
     }
     @Override
     public int[] getTarget() {
-        return pass;
+        return target;
     }
 
 

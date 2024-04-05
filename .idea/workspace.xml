@@ -4,23 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Fixed singleton assetserver in other classes">
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Laser working with standard mirrors.">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Laser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tiles/CellBlockerTile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tiles/CheckPointTile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tiles/DoubleTile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tiles/SplitterTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AssetServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/AssetServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BlockTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/BlockTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LaserTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LaserTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MirrorTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MirrorTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TileInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TileInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ImageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/ImageHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LaserTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/LaserTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MirrorTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/MirrorTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TileInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/TileInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AssetServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BlockTile.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Board.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Game$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/LaserTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LaserTile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MirrorTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MirrorTile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Tile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TileInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TileInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ImageHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LaserTile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MirrorTile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Tile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TileInterface.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,27 +79,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Game.executor&quot;: &quot;Run&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Laser-branch&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rasmu/Desktop/Agil/Exercises/LaserMazeProject&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Game.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Laser-branch",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Rasmu/Desktop/Agil/Exercises/LaserMazeProject",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Rasmu\Desktop\Agil\Exercises\Project\LaserMazeProject\src\main" />
@@ -95,6 +108,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="C:\Users\Rasmu\Desktop\Agil\Exercises\Project\LaserMazeProject\src\main" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="Tiles" />
     </key>
   </component>
   <component name="RunManager">
@@ -129,7 +145,7 @@
       <workItem from="1712136913244" duration="335000" />
       <workItem from="1712145042407" duration="6740000" />
       <workItem from="1712217564464" duration="1187000" />
-      <workItem from="1712309615661" duration="5771000" />
+      <workItem from="1712309615661" duration="15084000" />
     </task>
     <task id="LOCAL-00001" summary="kan jeg push">
       <option name="closed" value="true" />
@@ -179,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712221994823</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Laser working with standard mirrors.">
+      <option name="closed" value="true" />
+      <created>1712315538385</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1712315538385</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +226,7 @@
     <MESSAGE value="Added test folder and updated Game.java" />
     <MESSAGE value="Added functioning orritation for tiles&#10;Added rotate tile function&#10;Added way to find lasertile so we can make the laser" />
     <MESSAGE value="Fixed singleton assetserver" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed singleton assetserver" />
+    <MESSAGE value="Laser working with standard mirrors." />
+    <option name="LAST_COMMIT_MESSAGE" value="Laser working with standard mirrors." />
   </component>
 </project>
