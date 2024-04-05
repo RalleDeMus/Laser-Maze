@@ -1,10 +1,7 @@
 import java.awt.image.BufferedImage;
 
-public class Tile implements TileInterface{
+public class Tile implements TileInterface, Cloneable{
 
-    public Tile() {
-        this.orientation = 0;
-    }
 
     private boolean isMoveable;
 
@@ -13,17 +10,37 @@ public class Tile implements TileInterface{
 
     private int orientation;
 
-    private boolean isLaser;
+    protected int[] mirror;
+    protected int[] pass;
 
-    private int[] mirror;
-    private int[] pass;
+    protected int[] target;
 
-    private int[] target;
+    public Tile() {
+        this.orientation = 0;
+        this.mirror = new int[]{};
+        this.pass = new int[]{};
+        this.target = new int[]{};
+    }
 
     @Override
-    public boolean getLaser() {
-        return isLaser;
+    protected Tile clone() throws CloneNotSupportedException {
+        try {
+            Tile cloned = (Tile) super.clone();
+            // Clone mutable fields to ensure a deep clone
+            cloned.mirror = this.mirror.clone();
+            cloned.pass = this.pass.clone();
+            cloned.target = this.target.clone();
+            // For BufferedImage, decide based on whether it needs to be unique among clones
+            // This example simply copies the reference. For a deep clone, you'll need a custom solution.
+            cloned.image = this.image;
+            return cloned;
+        } catch (CloneNotSupportedException e) {
+            // This shouldn't happen since we are Cloneable
+            throw new AssertionError(e);
+        }
     }
+
+
 
     @Override
     public int[] getMirror() {
@@ -37,6 +54,7 @@ public class Tile implements TileInterface{
     public int[] getTarget() {
         return pass;
     }
+
 
 
     // getter and setter of if the tile is moveable or not

@@ -24,10 +24,15 @@ public class Game extends JPanel {
             public void mousePressed(MouseEvent e) {
 
                 if(e.getButton()==MouseEvent.BUTTON1){
-                    Tile addTile = new Tile();
-                    addTile.setImage(board.getSelectedTile().getImage());
-                    addTile.setOrientation(board.getSelectedTile().getOrientation());
-                    board.addTile(addTile);
+                    try {
+                        // Assuming board.addTile() accepts a Tile object as its parameter
+                        // and board.getSelectedTile() returns a Tile object
+                        board.addTile(board.getSelectedTile().clone());
+                    } catch (CloneNotSupportedException er) {
+                        // Handle the exception, e.g., log it or throw a runtime exception
+                        er.printStackTrace();
+                    }
+
 
                 }
                 else if (e.getButton()==MouseEvent.BUTTON3) {

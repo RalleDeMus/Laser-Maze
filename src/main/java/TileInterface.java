@@ -6,7 +6,7 @@ public interface TileInterface {
     int[] getPass();
     int[] getTarget();
 
-    boolean getLaser();
+    //boolean getLaser();
 
     boolean getIsMoveable();
 
@@ -15,5 +15,7 @@ public interface TileInterface {
     BufferedImage getImage();
     void setImage(BufferedImage image);
     void setIsRotateable(boolean isRotateable);
+
+
 
 }
