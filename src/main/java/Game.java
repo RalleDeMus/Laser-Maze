@@ -10,7 +10,6 @@ import javax.swing.JPanel;
 
 public class Game extends JPanel {
     private final Board board;
-    private JButton myButton;
 
     public Game(){
 
@@ -19,7 +18,7 @@ public class Game extends JPanel {
         int toolbarHeight = (int) Math.round(1.5*squareSize);
         setPreferredSize(new Dimension(boardSize * squareSize, (boardSize) * squareSize+toolbarHeight));
         this.board = new Board(boardSize, squareSize);
-        //board.setSelectedTile(new LaserTile(true, true));
+
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {

@@ -18,9 +18,10 @@ public class Board {
     int squareSize;
     Tile[][] tiles;
 
-    Tile cursorTile;
+    Card card;
     Point cursorPos;
 
+    private int placeableTiles[];
     Tile selectedTile = new LaserTile(true, true);
 
 
@@ -33,18 +34,12 @@ public class Board {
         // Reads from the asset server
     public Board(int boardSize, int squareSize) {
         this.boardSize = boardSize;
-        this.tiles = new Tile[boardSize][boardSize];
-        //this.cursorTile = new Tile();
+        this.card = new Card(1);
+        this.tiles = card.getCard();
         this.cursorPos = new Point(0, 0);
         this.squareSize = squareSize;
+        placeableTiles = card.getPlaceableTiles();
 
-        // Initialize the tiles array based on the json file
-        for (int row = 0; row < boardSize; row++) {
-            for (int col = 0; col < boardSize; col++) {
-                tiles[row][col] = null;
-                // This needs to be based on the json file
-            }
-        }
 
     }
 
@@ -224,11 +219,43 @@ public class Board {
 
     // Add the cursor tile to the board and check if placement is valid
     public void addTile(Tile t) {
-        //System.out.println("Tiles.Tile clicked: " + cursorPos.x + " " + cursorPos.y);
+
         if (t instanceof LaserTile && getLaserTile() != null) {
             System.out.println("Laser already exists");
             return;
-        } else {
+        } else if (t instanceof MirrorTile) {
+            if (placeableTiles[0] == 0){
+                System.out.println("No more mirror tiles");
+                return;
+            }
+            else{placeableTiles[0]--;}
+
+        } else if (t instanceof SplitterTile) {
+            if (placeableTiles[1] == 0){
+                System.out.println("No more splitter tiles");
+                return;
+            }
+            else{placeableTiles[1]--;}
+        } else if (t instanceof CheckPointTile) {
+            if (placeableTiles[2] == 0){
+                System.out.println("No more checkpoint tiles");
+                return;
+            }
+            else{placeableTiles[2]--;}
+        } else if (t instanceof DoubleTile) {
+            if (placeableTiles[3] == 0){
+                System.out.println("No more double tiles");
+                return;
+            }
+            else{placeableTiles[3]--;}
+        } else if (t instanceof CellBlockerTile) {
+            if (placeableTiles[4] == 0){
+                System.out.println("No more cell blocker tiles");
+                return;
+            }
+            else{placeableTiles[4]--;}
+
+        } else{
             System.out.println("Adding tile: " + (t instanceof LaserTile ? "Laser" : "Mirror"));
         }
         tiles[cursorPos.y][cursorPos.x] = t;
@@ -237,7 +264,20 @@ public class Board {
 
     // Remove a tile
     public void removeTile() {
-        if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsMoveable()) {tiles[cursorPos.y][cursorPos.x] = null;}else{
+        if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsMoveable()) {
+            if (tiles[cursorPos.y][cursorPos.x] instanceof MirrorTile) {
+                placeableTiles[0]++;
+            } else if (tiles[cursorPos.y][cursorPos.x] instanceof SplitterTile) {
+                placeableTiles[1]++;
+            } else if (tiles[cursorPos.y][cursorPos.x] instanceof CheckPointTile) {
+                placeableTiles[2]++;
+            } else if (tiles[cursorPos.y][cursorPos.x] instanceof DoubleTile) {
+                placeableTiles[3]++;
+            } else if (tiles[cursorPos.y][cursorPos.x] instanceof CellBlockerTile) {
+                placeableTiles[4]++;
+            }
+            tiles[cursorPos.y][cursorPos.x] = null;
+        } else{
             System.out.println("Tile is not moveable");
         }
     }
