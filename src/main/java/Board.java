@@ -21,7 +21,7 @@ public class Board {
     Tile cursorTile;
     Point cursorPos;
 
-    Tile selectedTile = new Tile();
+    Tile selectedTile = new LaserTile(true, true);
 
 
     // Laser tree ???
@@ -34,7 +34,7 @@ public class Board {
     public Board(int boardSize, int squareSize) {
         this.boardSize = boardSize;
         this.tiles = new Tile[boardSize][boardSize];
-        this.cursorTile = new Tile();
+        //this.cursorTile = new Tile();
         this.cursorPos = new Point(0, 0);
         this.squareSize = squareSize;
 
@@ -237,7 +237,9 @@ public class Board {
 
     // Remove a tile
     public void removeTile() {
-        tiles[cursorPos.y][cursorPos.x] = null; //empty tile?
+        if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsMoveable()) {tiles[cursorPos.y][cursorPos.x] = null;}else{
+            System.out.println("Tile is not moveable");
+        }
     }
 
 
@@ -250,7 +252,9 @@ public class Board {
     }
 
     public void rotateSelectedTile() {
-        selectedTile.rotate();
+        if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsRotateable()) {tiles[cursorPos.y][cursorPos.x].rotate();}else {
+            System.out.println("Tile is not rotateable");
+        }
     }
 
     public static Point orientationToPoint(int orientation) {

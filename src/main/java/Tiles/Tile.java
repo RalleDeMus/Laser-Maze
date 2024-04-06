@@ -5,9 +5,9 @@ import java.awt.image.BufferedImage;
 public class Tile implements TileInterface, Cloneable{
 
 
-    private boolean isMoveable;
+    protected boolean isMoveable;
 
-    private boolean isRotateable;
+    protected boolean isRotateable;
     private BufferedImage image;
 
     private int orientation;
@@ -17,11 +17,13 @@ public class Tile implements TileInterface, Cloneable{
 
     protected int[] target;
 
-    public Tile() {
+    public Tile(boolean isMoveable, boolean isRotateable){
         this.orientation = 0;
         this.mirror = new int[]{};
         this.pass = new int[]{};
         this.target = new int[]{};
+        this.isMoveable = isMoveable;
+        this.isRotateable = isRotateable;
     }
 
     @Override

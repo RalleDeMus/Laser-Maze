@@ -19,7 +19,7 @@ public class Game extends JPanel {
         int toolbarHeight = (int) Math.round(1.5*squareSize);
         setPreferredSize(new Dimension(boardSize * squareSize, (boardSize) * squareSize+toolbarHeight));
         this.board = new Board(boardSize, squareSize);
-        board.setSelectedTile(new LaserTile());
+        //board.setSelectedTile(new LaserTile(true, true));
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -38,6 +38,8 @@ public class Game extends JPanel {
                 }
                 else if (e.getButton()==MouseEvent.BUTTON3) {
                     board.removeTile();
+
+
                 }
                 repaint();
             }
@@ -58,7 +60,9 @@ public class Game extends JPanel {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_R) {
+                    //rotates the tile that is hovered over
                     board.rotateSelectedTile();
+
 
                     repaint();
                 }
@@ -70,26 +74,26 @@ public class Game extends JPanel {
                 }
 
                 if (e.getKeyCode() == KeyEvent.VK_1) {
-                    board.setSelectedTile(new LaserTile());
+                    board.setSelectedTile(new LaserTile(true,true));
                     repaint();
 
                 }
                 if (e.getKeyCode() == KeyEvent.VK_2) {
-                    board.setSelectedTile(new MirrorTile());
+                    board.setSelectedTile(new MirrorTile(true,true));
                     repaint();
 
                 }
                 if (e.getKeyCode() == KeyEvent.VK_3) {
-                    board.setSelectedTile(new DoubleTile());
+                    board.setSelectedTile(new DoubleTile(true,true));
                     repaint();
 
                 }
                 if (e.getKeyCode() == KeyEvent.VK_4) {
-                    board.setSelectedTile(new SplitterTile());
+                    board.setSelectedTile(new SplitterTile(true,true));
                     repaint();
                 }
                 if (e.getKeyCode() == KeyEvent.VK_5) {
-                    board.setSelectedTile(new CheckPointTile());
+                    board.setSelectedTile(new CheckPointTile(false,true));
                     repaint();
 
                 }

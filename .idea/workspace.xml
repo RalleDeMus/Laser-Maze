@@ -5,34 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Laser working with standard mirrors.">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Laser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Tiles/CellBlockerTile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Tiles/CheckPointTile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Tiles/DoubleTile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Tiles/SplitterTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AssetServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/AssetServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BlockTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/BlockTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ImageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/ImageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LaserTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/LaserTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MirrorTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/MirrorTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TileInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/TileInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AssetServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/BlockTile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/BlockTile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/CellBlockerTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/CellBlockerTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/CheckPointTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/CheckPointTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/DoubleTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/DoubleTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/LaserTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/LaserTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/MirrorTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/MirrorTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/SplitterTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/SplitterTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Board.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Game$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ImageHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/LaserTile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MirrorTile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Tile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TileInterface.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +74,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Laser-branch",
+    "git-widget-placeholder": "level-maker",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Rasmu/Desktop/Agil/Exercises/LaserMazeProject",
     "node.js.detected.package.eslint": "true",
@@ -129,7 +117,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
       </set>
     </attachedChunks>
   </component>
@@ -146,6 +134,7 @@
       <workItem from="1712145042407" duration="6740000" />
       <workItem from="1712217564464" duration="1187000" />
       <workItem from="1712309615661" duration="15084000" />
+      <workItem from="1712390630453" duration="5076000" />
     </task>
     <task id="LOCAL-00001" summary="kan jeg push">
       <option name="closed" value="true" />
