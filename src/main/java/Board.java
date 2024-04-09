@@ -2,10 +2,14 @@ import Tiles.*;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import java.io.FileWriter;
 
 
 //make singleton
@@ -39,6 +43,7 @@ public class Board {
         this.cursorPos = new Point(0, 0);
         this.squareSize = squareSize;
         placeableTiles = card.getPlaceableTiles();
+
 
 
     }
@@ -311,6 +316,40 @@ public class Board {
                 throw new IllegalArgumentException("Invalid orientation: " + orientation);
         }
     }
+    public void saveGameState() {
+        JSONObject boardState = new JSONObject();
+        JSONArray tilesArray = new JSONArray();
+
+        for (int i = 0; i < boardSize; i++) {
+            for (int j = 0; j < boardSize; j++) {
+                Tile tile = tiles[i][j];
+                if (tile != null) {
+                    JSONObject tileObject = new JSONObject();
+                    tileObject.put("row", i);
+                    tileObject.put("col", j);
+                    tileObject.put("type", tile.getClass().getSimpleName());
+                    tileObject.put("orientation", tile.getOrientation());
+                    // Add other properties as needed for different tile types
+                    // ...
+
+                    tilesArray.put(tileObject);
+                }
+            }
+        }
+
+        boardState.put("tiles", tilesArray);
+
+        // Save the JSON object to a file
+        try (FileWriter file = new FileWriter("level_1.json")) {
+            file.write(boardState.toString());
+            System.out.println("Successfully Copied JSON Object to File...");
+            System.out.println("\nJSON Object: " + boardState);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 
 }
