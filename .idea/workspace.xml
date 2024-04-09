@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="cleaned up and updated AssetServer">
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="added dependencies">
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/initialize.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/loaded.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/saveandload.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/solution.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Cursor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Cursor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Cursor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Cursor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LaserGameGroup4/AssetServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LaserGameGroup4/Board.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LaserGameGroup4/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LaserGameGroup4/Tile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LaserGameGroup4/TileInterface.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,24 +22,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitLabMergeRequestFiltersHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPENED",
-    "assignee": {
-      "type": "org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue",
-      "username": "s224519",
-      "fullname": "s224519"
-    }
-  }
-}]]></component>
-  <component name="GitLabMergeRequestsSettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "first": "git@gitlab.gbar.dtu.dk:02160-f24/group-4.git",
-    "second": "9686461a-f10c-4525-a774-312f9ea8eed8"
-  }
-}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -46,23 +38,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Game.executor": "Run",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Rasmu/Desktop/Agil/Exercises/LaserMazeProject",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Game.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Feature: loaded.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: succesful start game.executor&quot;: &quot;Run&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;cucumber&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rasmu/Desktop/Agil/Exercises/LaserMazeProject&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Rasmu\Desktop\Agil\Exercises\Project\LaserMazeProject\src\main" />
@@ -72,6 +70,27 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="Scenario: succesful start game" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_Game/initialize.feature" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="LaserGame-group-4" />
+      <option name="NAME_FILTER" value="^succesful start game$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^succesful start game$&quot;" />
+      <shortenClasspath name="NONE" />
+      <option name="SUGGESTED_NAME" value="Scenario: succesful start game" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="MakeProject" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -83,6 +102,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Cucumber Java.Scenario: succesful start game" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -94,14 +118,14 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="kan jeg push" />
+      <changelist id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="added dependencies" />
       <created>1712132895066</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1712132895066</updated>
       <workItem from="1712132896562" duration="1156000" />
       <workItem from="1712136913244" duration="335000" />
-      <workItem from="1712145042407" duration="1466000" />
+      <workItem from="1712683248973" duration="2187000" />
     </task>
     <task id="LOCAL-00001" summary="kan jeg push">
       <option name="closed" value="true" />
@@ -111,13 +135,13 @@
       <option name="project" value="LOCAL" />
       <updated>1712140397154</updated>
     </task>
-    <task id="LOCAL-00002" summary="cleaned up and updated AssetServer">
+    <task id="LOCAL-00002" summary="added dependencies">
       <option name="closed" value="true" />
-      <created>1712145159190</created>
+      <created>1712147102373</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1712145159190</updated>
+      <updated>1712147102373</updated>
     </task>
     <option name="localTasksCounter" value="3" />
     <servers />
@@ -138,7 +162,19 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="kan jeg push" />
-    <MESSAGE value="cleaned up and updated AssetServer" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaned up and updated AssetServer" />
+    <MESSAGE value="added dependencies" />
+    <option name="LAST_COMMIT_MESSAGE" value="added dependencies" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/main/java/Board.java</url>
+          <line>8</line>
+          <properties field="squareSize" class="Board" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
