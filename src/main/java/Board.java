@@ -38,7 +38,7 @@ public class Board {
         // Reads from the asset server
     public Board(int boardSize, int squareSize) {
         this.boardSize = boardSize;
-        this.card = new Card(1);
+        this.card = new Card("1");
         this.tiles = card.getCard();
         this.cursorPos = new Point(0, 0);
         this.squareSize = squareSize;
@@ -317,7 +317,7 @@ public class Board {
         }
     }
     public void saveGameState() {
-        JSONObject boardState = new JSONObject();
+        JSONObject gameInfo = new JSONObject();
         JSONArray tilesArray = new JSONArray();
 
         for (int i = 0; i < boardSize; i++) {
@@ -329,19 +329,32 @@ public class Board {
                     tileObject.put("col", j);
                     tileObject.put("type", tile.getClass().getSimpleName());
                     tileObject.put("orientation", tile.getOrientation());
-                    // hmmm can add other properties for different tile types
-                    //
+                    // Add other properties for different tile types if needed
 
                     tilesArray.put(tileObject);
                 }
             }
         }
 
-        boardState.put("tiles", tilesArray);
+        // Add the tiles array to the "gameinfo" object
+        gameInfo.put("tiles", tilesArray);
+
+        // Create "extra tiles" object
+        JSONObject extraTiles = new JSONObject();
+        extraTiles.put("MirrorTiles", placeableTiles[0]);
+        extraTiles.put("SplitterTiles", placeableTiles[1]);
+        extraTiles.put("CheckPointTiles", placeableTiles[2]);
+        extraTiles.put("DoubleTile", placeableTiles[3]);
+        extraTiles.put("CellBlockerTiles", placeableTiles[4]);
+
+        // Create the root JSON object to hold both "gameinfo" and "extra tiles"
+        JSONObject boardState = new JSONObject();
+        boardState.put("gameinfo", gameInfo);
+        boardState.put("extra tiles", extraTiles);
 
         // Save the JSON object to a file
-        try (FileWriter file = new FileWriter("level_1.json")) {
-            file.write(boardState.toString());
+        try (FileWriter file = new FileWriter("game_state.json")) {
+            file.write(boardState.toString(4)); // Write with indentation for readability
             System.out.println("Successfully Copied JSON Object to File...");
             System.out.println("\nJSON Object: " + boardState);
         } catch (IOException e) {
