@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="continued doing unit tests">
-      <change afterPath="$PROJECT_DIR$/src/test/java/images/load/LoadImagesSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features_assetserver/images.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_board/addingLaserTile.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_board/removingTile.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_board/rotatingTile.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_board/savingGameState.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/AssetServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/AssetServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Tiles/AssetServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Tiles/AssetServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/game_state.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/images/load/LoadImagesSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/images/load/LoadImagesSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features_assetserver/images.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features_assetserver/images.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="UnitJ_test_Lea" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,7 +64,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Game.executor": "Run",
+    "Cucumber Java.Feature: images.executor": "Run",
     "Cucumber Java.Feature: loaded.executor": "Run",
+    "Cucumber Java.Scenario: Successful load of \"beamSplitter\" image.executor": "Run",
+    "Cucumber Java.Scenario: Successful load of \"cellBlocker\" image.executor": "Run",
     "Cucumber Java.Scenario: succesful start game.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -69,7 +75,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "UnitJ__test__Lea1",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/leali/Documents/Agile/group-4-laserMazeNew/src/test/java/images/load",
+    "last_opened_file_path": "C:/Users/leali/Documents/Agile/group-4-laserMazeNew/src/test/java/tile/properties",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -89,7 +95,66 @@
       <recent name="C:\Users\Rasmu\Desktop\Agil\Exercises\Project\LaserMazeProject\src\main" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Cucumber Java.Scenario: Successful load of &quot;cellBlocker&quot; image">
+    <configuration name="Feature: images" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_assetserver/images.feature" />
+      <option name="GLUE" value="images.load" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="LaserGame-group-4" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: images" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Successful load of &quot;beamSplitter&quot; image" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_assetserver/images.feature" />
+      <option name="GLUE" value="images.load" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="LaserGame-group-4" />
+      <option name="NAME_FILTER" value="^Successful load of \&quot;beamSplitter\&quot; image$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Successful load of \&quot;beamSplitter\&quot; image$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Successful load of &quot;beamSplitter&quot; image" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Successful load of &quot;cellBlocker&quot; image" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_assetserver/images.feature" />
+      <option name="GLUE" value="images.load" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="LaserGame-group-4" />
+      <option name="NAME_FILTER" value="^Successful load of \&quot;cellBlocker\&quot; image$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Successful load of \&quot;cellBlocker\&quot; image$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Successful load of &quot;cellBlocker&quot; image" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Scenario: succesful start game" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_Game/initialize.feature" />
@@ -113,6 +178,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber Java.Scenario: Successful load of &quot;cellBlocker&quot; image" />
+        <item itemvalue="Cucumber Java.Scenario: Successful load of &quot;beamSplitter&quot; image" />
+        <item itemvalue="Cucumber Java.Feature: images" />
+        <item itemvalue="Cucumber Java.Scenario: succesful start game" />
         <item itemvalue="Cucumber Java.Scenario: succesful start game" />
       </list>
     </recent_temporary>

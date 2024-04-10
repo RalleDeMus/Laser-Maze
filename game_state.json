@@ -13,6 +13,12 @@
             "type": "CellBlockerTile"
         },
         {
+            "col": 1,
+            "orientation": 0,
+            "row": 2,
+            "type": "MirrorTile"
+        },
+        {
             "col": 2,
             "orientation": 1,
             "row": 3,
@@ -25,6 +31,12 @@
             "type": "SplitterTile"
         },
         {
+            "col": 0,
+            "orientation": 0,
+            "row": 4,
+            "type": "DoubleTile"
+        },
+        {
             "col": 3,
             "orientation": 1,
             "row": 4,
@@ -33,8 +45,8 @@
     ]},
     "extra tiles": {
         "CheckPointTiles": 0,
-        "MirrorTiles": 1,
-        "DoubleTile": 1,
+        "MirrorTiles": 0,
+        "DoubleTile": 0,
         "CellBlockerTiles": 0,
         "SplitterTiles": 0
     }
