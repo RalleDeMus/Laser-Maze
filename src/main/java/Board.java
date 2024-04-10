@@ -329,8 +329,8 @@ public class Board {
                     tileObject.put("col", j);
                     tileObject.put("type", tile.getClass().getSimpleName());
                     tileObject.put("orientation", tile.getOrientation());
-                    // Add other properties as needed for different tile types
-                    // ...
+                    // hmmm can add other properties for different tile types
+                    //
 
                     tilesArray.put(tileObject);
                 }
