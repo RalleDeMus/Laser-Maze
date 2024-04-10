@@ -4,36 +4,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="continued doing unit tests" />
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Made it so that it is the tile that is hovered over that rotates, and now checks if the hovered over tile is moveable and rotateable">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Card.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/levels/level_1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="card-implementation" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitLabMergeRequestFiltersHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPENED",
-    "assignee": {
-      "type": "org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue",
-      "username": "s224515",
-      "fullname": "s224515"
+  <component name="GitLabMergeRequestFiltersHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPENED&quot;,
+    &quot;assignee&quot;: {
+      &quot;type&quot;: &quot;org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue&quot;,
+      &quot;username&quot;: &quot;s224519&quot;,
+      &quot;fullname&quot;: &quot;s224519&quot;
     }
   }
-}]]></component>
-  <component name="GitLabMergeRequestsSettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "first": "https://gitlab.gbar.dtu.dk/02160-f24/group-4.git",
-    "second": "60b3407f-8107-4a00-a763-4d7de78575b6"
+}</component>
+  <component name="GitLabMergeRequestsSettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;first&quot;: &quot;git@gitlab.gbar.dtu.dk:02160-f24/group-4.git&quot;,
+    &quot;second&quot;: &quot;9686461a-f10c-4525-a774-312f9ea8eed8&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -43,59 +61,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Game.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Feature: loaded.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: succesful start game.executor&quot;: &quot;Run&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;cucumber&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rasmu/Desktop/Agil/Exercises/LaserMazeProject&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Game.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Rasmu/Desktop/Agil/Exercises/LaserMazeProject",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Rasmu\Desktop\Agil\Exercises\Project\LaserMazeProject\src\main" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="C:\Users\Rasmu\Desktop\Agil\Exercises\Project\LaserMazeProject\src\main" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="Tiles" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Scenario: succesful start game" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_Game/initialize.feature" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="LaserGame-group-4" />
-      <option name="NAME_FILTER" value="^succesful start game$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^succesful start game$&quot;" />
-      <shortenClasspath name="NONE" />
-      <option name="SUGGESTED_NAME" value="Scenario: succesful start game" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="MakeProject" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -107,11 +107,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Cucumber Java.Scenario: succesful start game" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -123,15 +118,17 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="added dependencies" />
+      <changelist id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="kan jeg push" />
       <created>1712132895066</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1712132895066</updated>
       <workItem from="1712132896562" duration="1156000" />
       <workItem from="1712136913244" duration="335000" />
-      <workItem from="1712683248973" duration="6545000" />
-      <workItem from="1712732547695" duration="729000" />
+      <workItem from="1712145042407" duration="6740000" />
+      <workItem from="1712217564464" duration="1187000" />
+      <workItem from="1712309615661" duration="15084000" />
+      <workItem from="1712390630453" duration="5076000" />
     </task>
     <task id="LOCAL-00001" summary="kan jeg push">
       <option name="closed" value="true" />
@@ -141,31 +138,55 @@
       <option name="project" value="LOCAL" />
       <updated>1712140397154</updated>
     </task>
-    <task id="LOCAL-00002" summary="added dependencies">
+    <task id="LOCAL-00002" summary="cleaned up and updated AssetServer">
       <option name="closed" value="true" />
-      <created>1712147102373</created>
+      <created>1712145159190</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1712147102373</updated>
+      <updated>1712145159190</updated>
     </task>
-    <task id="LOCAL-00003" summary="started doing unit tests">
+    <task id="LOCAL-00003" summary="cleaned up and updated AssetServer">
       <option name="closed" value="true" />
-      <created>1712685849946</created>
+      <created>1712146625433</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1712685849946</updated>
+      <updated>1712146625433</updated>
     </task>
-    <task id="LOCAL-00004" summary="continued doing unit tests">
+    <task id="LOCAL-00004" summary="Added test folder and updated Game.java">
       <option name="closed" value="true" />
-      <created>1712739025001</created>
+      <created>1712146655977</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1712739025001</updated>
+      <updated>1712146655977</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added functioning orritation for tiles&#10;Added rotate tile function&#10;Added way to find lasertile so we can make the laser">
+      <option name="closed" value="true" />
+      <created>1712162541363</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712162541363</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fixed singleton assetserver in other classes">
+      <option name="closed" value="true" />
+      <created>1712221994823</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712221994823</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Laser working with standard mirrors.">
+      <option name="closed" value="true" />
+      <created>1712315538385</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1712315538385</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,21 +205,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="kan jeg push" />
-    <MESSAGE value="added dependencies" />
-    <MESSAGE value="started doing unit tests" />
-    <MESSAGE value="continued doing unit tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="continued doing unit tests" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/src/main/java/Board.java</url>
-          <line>8</line>
-          <properties field="squareSize" class="Board" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="cleaned up and updated AssetServer" />
+    <MESSAGE value="Added test folder and updated Game.java" />
+    <MESSAGE value="Added functioning orritation for tiles&#10;Added rotate tile function&#10;Added way to find lasertile so we can make the laser" />
+    <MESSAGE value="Fixed singleton assetserver" />
+    <MESSAGE value="Laser working with standard mirrors." />
+    <MESSAGE value="Made it so that it is the tile that is hovered over that rotates, and now checks if the hovered over tile is moveable and rotateable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made it so that it is the tile that is hovered over that rotates, and now checks if the hovered over tile is moveable and rotateable" />
   </component>
 </project>
