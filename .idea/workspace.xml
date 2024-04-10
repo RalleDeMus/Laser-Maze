@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="started doing unit tests">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/lasertile/direction.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/lasertile/firing.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/lasertile/orientation.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/mirror/mirrorTileOrientation.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/tile/imageOnTile.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/tile/moveability.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/tile/rotate.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="continued doing unit tests" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +18,22 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitLabMergeRequestFiltersHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPENED",
+    "assignee": {
+      "type": "org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue",
+      "username": "s224515",
+      "fullname": "s224515"
+    }
+  }
+}]]></component>
+  <component name="GitLabMergeRequestsSettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "first": "https://gitlab.gbar.dtu.dk/02160-f24/group-4.git",
+    "second": "60b3407f-8107-4a00-a763-4d7de78575b6"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -124,6 +131,7 @@
       <workItem from="1712132896562" duration="1156000" />
       <workItem from="1712136913244" duration="335000" />
       <workItem from="1712683248973" duration="6545000" />
+      <workItem from="1712732547695" duration="729000" />
     </task>
     <task id="LOCAL-00001" summary="kan jeg push">
       <option name="closed" value="true" />
@@ -149,7 +157,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712685849946</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="continued doing unit tests">
+      <option name="closed" value="true" />
+      <created>1712739025001</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712739025001</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,7 +186,8 @@
     <MESSAGE value="kan jeg push" />
     <MESSAGE value="added dependencies" />
     <MESSAGE value="started doing unit tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="started doing unit tests" />
+    <MESSAGE value="continued doing unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="continued doing unit tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
