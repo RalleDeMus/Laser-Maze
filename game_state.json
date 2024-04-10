@@ -19,10 +19,10 @@
             "type": "CheckPointTile"
         },
         {
-            "col": 4,
-            "orientation": 0,
+            "col": 3,
+            "orientation": 1,
             "row": 3,
-            "type": "MirrorTile"
+            "type": "SplitterTile"
         },
         {
             "col": 3,
@@ -33,7 +33,7 @@
     ]},
     "extra tiles": {
         "CheckPointTiles": 0,
-        "MirrorTiles": 0,
+        "MirrorTiles": 1,
         "DoubleTile": 1,
         "CellBlockerTiles": 0,
         "SplitterTiles": 0

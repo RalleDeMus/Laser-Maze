@@ -224,7 +224,9 @@ public class Board {
 
     // Add the cursor tile to the board and check if placement is valid
     public void addTile(Tile t) {
-
+        if (tiles[cursorPos.y][cursorPos.x] != null){
+            System.out.println("Tile occupied");
+        } else {
         if (t instanceof LaserTile && getLaserTile() != null) {
             System.out.println("Laser already exists");
             return;
@@ -263,7 +265,10 @@ public class Board {
         } else{
             System.out.println("Adding tile: " + (t instanceof LaserTile ? "Laser" : "Mirror"));
         }
-        tiles[cursorPos.y][cursorPos.x] = t;
+
+
+            tiles[cursorPos.y][cursorPos.x] = t;
+        }
     }
 
 
