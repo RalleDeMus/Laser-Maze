@@ -2,10 +2,14 @@ import Tiles.*;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import java.io.FileWriter;
 
 
 //make singleton
@@ -34,11 +38,12 @@ public class Board {
         // Reads from the asset server
     public Board(int boardSize, int squareSize) {
         this.boardSize = boardSize;
-        this.card = new Card(1);
+        this.card = new Card("1");
         this.tiles = card.getCard();
         this.cursorPos = new Point(0, 0);
         this.squareSize = squareSize;
         placeableTiles = card.getPlaceableTiles();
+
 
 
     }
@@ -311,6 +316,53 @@ public class Board {
                 throw new IllegalArgumentException("Invalid orientation: " + orientation);
         }
     }
+    public void saveGameState() {
+        JSONObject gameInfo = new JSONObject();
+        JSONArray tilesArray = new JSONArray();
+
+        for (int i = 0; i < boardSize; i++) {
+            for (int j = 0; j < boardSize; j++) {
+                Tile tile = tiles[i][j];
+                if (tile != null) {
+                    JSONObject tileObject = new JSONObject();
+                    tileObject.put("row", i);
+                    tileObject.put("col", j);
+                    tileObject.put("type", tile.getClass().getSimpleName());
+                    tileObject.put("orientation", tile.getOrientation());
+                    // Add other properties for different tile types if needed
+
+                    tilesArray.put(tileObject);
+                }
+            }
+        }
+
+        // Add the tiles array to the "gameinfo" object
+        gameInfo.put("tiles", tilesArray);
+
+        // Create "extra tiles" object
+        JSONObject extraTiles = new JSONObject();
+        extraTiles.put("MirrorTiles", placeableTiles[0]);
+        extraTiles.put("SplitterTiles", placeableTiles[1]);
+        extraTiles.put("CheckPointTiles", placeableTiles[2]);
+        extraTiles.put("DoubleTile", placeableTiles[3]);
+        extraTiles.put("CellBlockerTiles", placeableTiles[4]);
+
+        // Create the root JSON object to hold both "gameinfo" and "extra tiles"
+        JSONObject boardState = new JSONObject();
+        boardState.put("gameinfo", gameInfo);
+        boardState.put("extra tiles", extraTiles);
+
+        // Save the JSON object to a file
+        try (FileWriter file = new FileWriter("game_state.json")) {
+            file.write(boardState.toString(4)); // Write with indentation for readability
+            System.out.println("Successfully Copied JSON Object to File...");
+            System.out.println("\nJSON Object: " + boardState);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 
 }

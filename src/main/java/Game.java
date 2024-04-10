@@ -1,11 +1,7 @@
 import Tiles.*;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import javax.swing.JPanel;
 
 public class Game extends JPanel {
@@ -18,6 +14,8 @@ public class Game extends JPanel {
         int toolbarHeight = (int) Math.round(1.5*squareSize);
         setPreferredSize(new Dimension(boardSize * squareSize, (boardSize) * squareSize+toolbarHeight));
         this.board = new Board(boardSize, squareSize);
+
+
 
         addMouseListener(new MouseAdapter() {
             @Override
@@ -121,6 +119,11 @@ public class Game extends JPanel {
         board.drawBoard(g);
 
     }
+    // Inside Game class
+    public Board getBoard() {
+        return board;
+    }
+
 
 
     public static void main(String[] args) {
@@ -133,6 +136,14 @@ public class Game extends JPanel {
             frame.pack();
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setLocationRelativeTo(null); // Center the window
+            frame.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent event) {
+                    board.getBoard().saveGameState(); // Call saveGameState on the Board instance
+                    frame.dispose(); // Dispose of the frame
+                    System.exit(0); // Exit the application
+                }
+            });
             frame.setVisible(true);
         });
 

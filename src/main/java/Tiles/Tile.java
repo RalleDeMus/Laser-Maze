@@ -17,6 +17,16 @@ public class Tile implements TileInterface, Cloneable{
 
     protected int[] target;
 
+    public Tile(boolean isMoveable, boolean isRotateable, int orientation){
+        this.orientation = orientation;
+        this.mirror = new int[]{};
+        this.pass = new int[]{};
+        this.target = new int[]{};
+        this.isMoveable = isMoveable;
+        this.isRotateable = isRotateable;
+
+    }
+
     public Tile(boolean isMoveable, boolean isRotateable){
         this.orientation = 0;
         this.mirror = new int[]{};
