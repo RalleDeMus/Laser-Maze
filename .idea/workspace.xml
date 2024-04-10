@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="added dependencies">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/initialize.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/loaded.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/saveandload.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/solution.feature" afterDir="false" />
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="started doing unit tests">
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/lasertile/direction.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/lasertile/firing.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/lasertile/orientation.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/mirror/mirrorTileOrientation.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/tile/imageOnTile.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/tile/moveability.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Game/tile/rotate.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LaserGameGroup4/AssetServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LaserGameGroup4/Board.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LaserGameGroup4/Game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LaserGameGroup4/Tile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LaserGameGroup4/TileInterface.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +123,7 @@
       <updated>1712132895066</updated>
       <workItem from="1712132896562" duration="1156000" />
       <workItem from="1712136913244" duration="335000" />
-      <workItem from="1712683248973" duration="2187000" />
+      <workItem from="1712683248973" duration="6545000" />
     </task>
     <task id="LOCAL-00001" summary="kan jeg push">
       <option name="closed" value="true" />
@@ -143,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712147102373</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="started doing unit tests">
+      <option name="closed" value="true" />
+      <created>1712685849946</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712685849946</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,7 +169,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="kan jeg push" />
     <MESSAGE value="added dependencies" />
-    <option name="LAST_COMMIT_MESSAGE" value="added dependencies" />
+    <MESSAGE value="started doing unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="started doing unit tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
