@@ -1,4 +1,7 @@
-package Tiles;
+package Model.Tiles;
+
+import Model.Logic.AssetServer;
+import Model.Logic.ImageHandler;
 
 public class MirrorTile extends Tile {
 

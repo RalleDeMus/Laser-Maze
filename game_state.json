@@ -2,9 +2,9 @@
     "gameinfo": {"tiles": [
         {
             "col": 0,
-            "orientation": 1,
+            "orientation": 0,
             "row": 0,
-            "type": "LaserTile"
+            "type": "MirrorTile"
         },
         {
             "col": 3,
@@ -33,7 +33,7 @@
     ]},
     "extra tiles": {
         "CheckPointTiles": 0,
-        "MirrorTiles": 1,
+        "MirrorTiles": 0,
         "DoubleTile": 1,
         "CellBlockerTiles": 0,
         "SplitterTiles": 0

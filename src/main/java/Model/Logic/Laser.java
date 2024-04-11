@@ -1,3 +1,5 @@
+package Model.Logic;
+
 import java.awt.Point;
 
 public class Laser {
@@ -39,7 +41,7 @@ public class Laser {
     // A method to return a string representation of the LabeledPoint
     @Override
     public String toString() {
-        return "Laser{" +
+        return "Model.Logic.Laser{" +
                 "x,y = " + x + "," + y +
                 " ; orientation = " + orientation +
                 '}';

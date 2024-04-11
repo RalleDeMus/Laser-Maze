@@ -1,16 +1,15 @@
-import Tiles.*;
+package Model.Logic;
+
+import Model.Tiles.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
 
 class Card {
-     private String level;
 
      private String content;
      private int targetMirrorTiles = 0;
@@ -20,7 +19,7 @@ class Card {
      private int cellBlockerTiles = 0;
      private Tile[][] tiles = new Tile[5][5];;
      public Card(String level){
-         this.level = level;
+
 
          try {
              if (level.equals("game_state")) {

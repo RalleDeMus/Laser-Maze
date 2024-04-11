@@ -1,4 +1,4 @@
-package Tiles;
+package Model.Logic;
 
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;

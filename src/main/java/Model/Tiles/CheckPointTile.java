@@ -1,4 +1,7 @@
-package Tiles;
+package Model.Tiles;
+
+import Model.Logic.AssetServer;
+import Model.Logic.ImageHandler;
 
 public class CheckPointTile extends Tile {
     public CheckPointTile(boolean isMoveable, boolean isRotateable) {

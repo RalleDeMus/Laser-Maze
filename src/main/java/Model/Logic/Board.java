@@ -1,5 +1,5 @@
-import Tiles.*;
-
+package Model.Logic;
+import Model.Tiles.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -14,9 +14,9 @@ import java.io.FileWriter;
 
 //make singleton
 public class Board {
-    // Board size
-    // Tiles array
-    // Cursor tile
+    private static Board instance;
+
+
 
     int boardSize;
     int squareSize;
@@ -29,23 +29,30 @@ public class Board {
     Tile selectedTile = new LaserTile(true, true);
 
 
-    // Laser tree ???
+    // Model.Logic.Laser tree ???
 
     // Constructor
         // Gets the board size
         // Initializes the tiles array based json file
         // Initializes the cursor tile
         // Reads from the asset server
-    public Board(int boardSize, int squareSize) {
+    private Board(int boardSize, int squareSize) {
         this.boardSize = boardSize;
         this.card = new Card("1");
         this.tiles = card.getCard();
         this.cursorPos = new Point(0, 0);
         this.squareSize = squareSize;
-        placeableTiles = card.getPlaceableTiles();
+        this.placeableTiles = card.getPlaceableTiles();
 
 
 
+    }
+
+    public static Board getInstance(){
+        if (instance == null){
+            instance = new Board(5, 120);
+        }
+        return instance;
     }
 
     // Draw the board
@@ -112,7 +119,7 @@ public class Board {
                     laser.setOrientation(laserTile.getOrientation());
 
                 }
-                //System.out.print(tiles[row][col]!=null?tiles[row][col] instanceof Tiles.LaserTile? "L" : "N":"0");
+                //System.out.print(tiles[row][col]!=null?tiles[row][col] instanceof Model.Tiles.LaserTile? "L" : "N":"0");
 
             }
             //System.out.println();
@@ -137,14 +144,14 @@ public class Board {
                 // Is the laser out of bounds?
                 if (current.getX() < 0 || current.getX() >= boardSize || current.getY() < 0 || current.getY() >= boardSize) {
 
-                    System.out.println("Laser out of bounds");
+                    System.out.println("Model.Logic.Laser out of bounds");
                     continue;
                 }
                 hitLasers.add(current);
 
                 // Set the current as a hit on laserHasHit
                 laserHasHit[current.getY()][current.getX()] = 1;
-                //System.out.println("Laser at: " + current.getX() + " " + current.getY() + " orientation: " + current.getOrientation();
+                //System.out.println("Model.Logic.Laser at: " + current.getX() + " " + current.getY() + " orientation: " + current.getOrientation();
 
                 // Is there a tile at the current position?
                 if (tiles[current.getY()][current.getX()] != null) {
@@ -367,7 +374,11 @@ public class Board {
         }
     }
 
-
+    public void setCardLevel(String level) {
+        this.card = new Card(level);
+        this.tiles = card.getCard();
+        this.placeableTiles = card.getPlaceableTiles();
+    }
 
 
 }

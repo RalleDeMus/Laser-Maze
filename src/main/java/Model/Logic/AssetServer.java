@@ -1,4 +1,4 @@
-package Tiles;
+package Model.Logic;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

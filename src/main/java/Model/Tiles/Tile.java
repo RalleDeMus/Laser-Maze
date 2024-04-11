@@ -1,4 +1,6 @@
-package Tiles;
+package Model.Tiles;
+
+import Model.Logic.ImageHandler;
 
 import java.awt.image.BufferedImage;
 
