@@ -1,6 +1,6 @@
 package Model.Tiles;
 
-import Model.Logic.ImageHandler;
+import Controller.ImageHandler;
 
 import java.awt.image.BufferedImage;
 

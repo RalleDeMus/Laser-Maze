@@ -1,7 +1,7 @@
 package Model.Tiles;
 
-import Model.Logic.AssetServer;
-import Model.Logic.ImageHandler;
+import Controller.AssetServer;
+import Controller.ImageHandler;
 
 public class SplitterTile extends Tile {
     public SplitterTile(boolean isMoveable, boolean isRotatable, int orientation) {

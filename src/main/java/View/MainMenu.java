@@ -60,9 +60,21 @@ public class MainMenu extends JFrame implements ActionListener {
         levelSelectButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         levelMakerButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        // Set preferred size for the buttons
+        campaignButton.setPreferredSize(new Dimension(200, 50));
+        levelSelectButton.setPreferredSize(new Dimension(200, 50));
+        levelMakerButton.setPreferredSize(new Dimension(200, 50));
+
+        JPanel openLastGamePanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        JButton openLastGameButton = new JButton("Open Last Game");
+        openLastGameButton.setPreferredSize(new Dimension(150, 30)); // Set preferred size for the button
+
+        openLastGamePanel.add(openLastGameButton);
+        panel.add(openLastGamePanel);
         campaignButton.addActionListener(this);
         levelSelectButton.addActionListener(this);
         levelMakerButton.addActionListener(this);
+        openLastGameButton.addActionListener(this);
 
         panel.add(Box.createVerticalGlue()); // Add glue to center buttons vertically
         panel.add(campaignButton);
@@ -88,6 +100,11 @@ public class MainMenu extends JFrame implements ActionListener {
             LevelMakerPage levelMakerPage = new LevelMakerPage(this);
             cardPanel.add(levelMakerPage, "levelMakerPage");
             cardLayout.show(cardPanel, "levelMakerPage");
+        } else if (e.getActionCommand().equals("Open Last Game")) {
+            Board.getInstance().setCardLevel("game_state");
+            BoardPage lastGame = new BoardPage(this);
+            cardPanel.add(lastGame, "lastGame");
+            cardLayout.show(cardPanel, "lastGame");
         }
     }
 

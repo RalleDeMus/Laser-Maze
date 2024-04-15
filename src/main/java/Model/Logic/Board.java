@@ -1,4 +1,6 @@
 package Model.Logic;
+import Controller.AssetServer;
+import Controller.ImageHandler;
 import Model.Tiles.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -38,7 +40,7 @@ public class Board {
         // Reads from the asset server
     private Board(int boardSize, int squareSize) {
         this.boardSize = boardSize;
-        this.card = new Card("1");
+        this.card = new Card("0");
         this.tiles = card.getCard();
         this.cursorPos = new Point(0, 0);
         this.squareSize = squareSize;
@@ -341,6 +343,7 @@ public class Board {
                     tileObject.put("col", j);
                     tileObject.put("type", tile.getClass().getSimpleName());
                     tileObject.put("orientation", tile.getOrientation());
+                    tileObject.put("rotatable", tile.getIsRotateable());
                     // Add other properties for different tile types if needed
 
                     tilesArray.put(tileObject);

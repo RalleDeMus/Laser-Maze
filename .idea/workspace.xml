@@ -4,42 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="kan jeg push">
-      <change afterPath="$PROJECT_DIR$/src/main/assets/background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/LevelMakerPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/LevelSelectPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/levels/level_2.json" afterDir="false" />
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Made main menu with level select, campaign and level maker. Level select implemented and working">
+      <change afterPath="$PROJECT_DIR$/src/main/levels/level_0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/levels/level_10.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/levels/level_11.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/levels/level_12.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/levels/level_13.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/levels/level_14.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/levels/level_3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/levels/level_4.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/levels/level_5.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/levels/level_6.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/levels/level_7.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/levels/level_8.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/levels/level_9.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/game_state.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Laser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Laser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/AssetServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/AssetServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/CellBlockerTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/CellBlockerTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/CheckPointTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/CheckPointTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/DoubleTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/DoubleTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/ImageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/ImageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/LaserTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/LaserTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/MirrorTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/MirrorTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/SplitterTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/SplitterTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/TileInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/TileInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Card.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Laser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Tiles/AssetServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Tiles/CellBlockerTile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Tiles/CheckPointTile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Tiles/DoubleTile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Tiles/ImageHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Tiles/LaserTile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Tiles/MirrorTile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Tiles/SplitterTile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Tiles/Tile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Tiles/TileInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/AssetServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AssetServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/ImageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ImageHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/CellBlockerTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/CellBlockerTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/CheckPointTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/CheckPointTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/DoubleTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/DoubleTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/LaserTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/LaserTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/MirrorTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/MirrorTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/SplitterTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/SplitterTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/level_1.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/level_1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/level_2.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/level_2.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +211,7 @@
       <workItem from="1712132896562" duration="1156000" />
       <workItem from="1712136913244" duration="335000" />
       <workItem from="1712837728532" duration="34000" />
-      <workItem from="1712844584269" duration="5564000" />
+      <workItem from="1712844584269" duration="15383000" />
     </task>
     <task id="LOCAL-00001" summary="kan jeg push">
       <option name="closed" value="true" />
@@ -226,7 +221,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712140397154</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Made main menu with level select, campaign and level maker. Level select implemented and working">
+      <option name="closed" value="true" />
+      <created>1712873752637</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712873752637</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,6 +248,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="kan jeg push" />
-    <option name="LAST_COMMIT_MESSAGE" value="kan jeg push" />
+    <MESSAGE value="Made main menu with level select, campaign and level maker. Level select implemented and working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made main menu with level select, campaign and level maker. Level select implemented and working" />
   </component>
 </project>

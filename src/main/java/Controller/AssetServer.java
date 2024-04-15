@@ -1,4 +1,4 @@
-package Model.Logic;
+package Controller;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

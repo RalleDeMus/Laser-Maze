@@ -68,11 +68,12 @@ class Card {
                 int col = tileObject.getInt("col");
                 int row = tileObject.getInt("row");
                 int orientation = tileObject.getInt("orientation");
+                boolean rotatable = tileObject.getBoolean("rotatable");
                 String type = tileObject.getString("type");
 
                 switch (type) {
                     case "LaserTile":
-                        this.tiles[row][col] = new LaserTile(false, true, orientation);
+                        this.tiles[row][col] = new LaserTile(false, rotatable, orientation);
 
                         break;
                     case "CellBlockerTile":
@@ -80,19 +81,19 @@ class Card {
 
                         break;
                     case "CheckPointTile":
-                        this.tiles[row][col] = new CheckPointTile(false, true, orientation);
+                        this.tiles[row][col] = new CheckPointTile(false, rotatable, orientation);
 
                         break;
                     case "SplitterTile":
-                        this.tiles[row][col] = new SplitterTile(false, true, orientation);
+                        this.tiles[row][col] = new SplitterTile(false, rotatable, orientation);
 
                         break;
                     case "MirrorTile":
-                        this.tiles[row][col] = new MirrorTile(false, true, orientation);
+                        this.tiles[row][col] = new MirrorTile(false, rotatable, orientation);
 
                         break;
                     case "DoubleTile":
-                        this.tiles[row][col] = new DoubleTile(false, true, orientation);
+                        this.tiles[row][col] = new DoubleTile(false, rotatable, orientation);
 
                         break;
 

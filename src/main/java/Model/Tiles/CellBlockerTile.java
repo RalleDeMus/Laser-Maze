@@ -1,6 +1,6 @@
 package Model.Tiles;
 
-import Model.Logic.AssetServer;
+import Controller.AssetServer;
 
 public class CellBlockerTile extends Tile {
     public CellBlockerTile() {
