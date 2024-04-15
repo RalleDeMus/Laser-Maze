@@ -1,13 +1,6 @@
 {
     "gameinfo": {"tiles": [
         {
-            "col": 2,
-            "rotatable": true,
-            "orientation": 0,
-            "row": 1,
-            "type": "LaserTile"
-        },
-        {
             "col": 0,
             "rotatable": true,
             "orientation": 0,
@@ -24,7 +17,7 @@
         {
             "col": 0,
             "rotatable": true,
-            "orientation": 0,
+            "orientation": 3,
             "row": 4,
             "type": "MirrorTile"
         },
@@ -34,6 +27,13 @@
             "orientation": 0,
             "row": 4,
             "type": "MirrorTile"
+        },
+        {
+            "col": 4,
+            "rotatable": true,
+            "orientation": 3,
+            "row": 4,
+            "type": "LaserTile"
         }
     ]},
     "extra tiles": {

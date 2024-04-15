@@ -4,37 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Made main menu with level select, campaign and level maker. Level select implemented and working">
-      <change afterPath="$PROJECT_DIR$/src/main/levels/level_0.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/levels/level_10.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/levels/level_11.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/levels/level_12.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/levels/level_13.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/levels/level_14.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/levels/level_3.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/levels/level_4.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/levels/level_5.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/levels/level_6.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/levels/level_7.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/levels/level_8.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/levels/level_9.json" afterDir="false" />
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="kan jeg push">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/BoardPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/game_state.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/AssetServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AssetServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/ImageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ImageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/CellBlockerTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/CellBlockerTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/CheckPointTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/CheckPointTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/DoubleTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/DoubleTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/LaserTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/LaserTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/MirrorTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/MirrorTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/SplitterTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/SplitterTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_1.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/level_1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_2.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/level_2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,22 +32,22 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitLabMergeRequestFiltersHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPENED",
-    "assignee": {
-      "type": "org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue",
-      "username": "s224519",
-      "fullname": "s224519"
+  <component name="GitLabMergeRequestFiltersHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPENED&quot;,
+    &quot;assignee&quot;: {
+      &quot;type&quot;: &quot;org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue&quot;,
+      &quot;username&quot;: &quot;s224519&quot;,
+      &quot;fullname&quot;: &quot;s224519&quot;
     }
   }
-}]]></component>
-  <component name="GitLabMergeRequestsSettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "first": "git@gitlab.gbar.dtu.dk:02160-f24/group-4.git",
-    "second": "9686461a-f10c-4525-a774-312f9ea8eed8"
+}</component>
+  <component name="GitLabMergeRequestsSettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;first&quot;: &quot;git@gitlab.gbar.dtu.dk:02160-f24/group-4.git&quot;,
+    &quot;second&quot;: &quot;9686461a-f10c-4525-a774-312f9ea8eed8&quot;
   }
-}]]></component>
+}</component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
@@ -105,31 +81,33 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2eaBd3yjdmTl7RDxjkgjJlNxPQe" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Game.executor": "Run",
-    "Application.Hey.executor": "Run",
-    "Application.MainMenu.executor": "Run",
-    "Application.View.MainMenu.executor": "Run",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "MainMenu-2",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Rasmu/Desktop/Agil/Exercises/group-4/src/main/levels",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Game.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Hey.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainMenu.executor&quot;: &quot;Run&quot;,
+    &quot;Application.View.MainMenu.executor&quot;: &quot;Run&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;MainMenu-2&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rasmu/Desktop/Agil/Exercises/group-4/src/main/levels&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Rasmu\Desktop\Agil\Exercises\group-4\src\main\levels" />
@@ -187,7 +165,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Game" />
-        <item itemvalue="Cucumber Java.Scenario: succesful start game" />
         <item itemvalue="Application.MainMenu" />
         <item itemvalue="Application.Hey" />
       </list>
@@ -211,7 +188,7 @@
       <workItem from="1712132896562" duration="1156000" />
       <workItem from="1712136913244" duration="335000" />
       <workItem from="1712837728532" duration="34000" />
-      <workItem from="1712844584269" duration="15383000" />
+      <workItem from="1712844584269" duration="5564000" />
     </task>
     <task id="LOCAL-00001" summary="kan jeg push">
       <option name="closed" value="true" />
@@ -221,15 +198,7 @@
       <option name="project" value="LOCAL" />
       <updated>1712140397154</updated>
     </task>
-    <task id="LOCAL-00002" summary="Made main menu with level select, campaign and level maker. Level select implemented and working">
-      <option name="closed" value="true" />
-      <created>1712873752637</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1712873752637</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,7 +217,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="kan jeg push" />
-    <MESSAGE value="Made main menu with level select, campaign and level maker. Level select implemented and working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made main menu with level select, campaign and level maker. Level select implemented and working" />
+    <option name="LAST_COMMIT_MESSAGE" value="kan jeg push" />
   </component>
 </project>

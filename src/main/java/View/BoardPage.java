@@ -1,4 +1,5 @@
 package View;
+import Controller.BoardPageController;
 import Model.Tiles.*;
 import Model.Logic.Board;
 import javax.swing.*;
@@ -10,7 +11,7 @@ public class BoardPage extends JPanel {
     final private Board board;
 
     BoardPage(MainMenu mainMenu) {
-
+        new BoardPageController();
         int boardSize = 5;
         int squareSize = 120;
         int toolbarHeight = (int) Math.round(1.5 * squareSize);
@@ -40,6 +41,9 @@ public class BoardPage extends JPanel {
                 BoardPage.this.requestFocusInWindow();
             }
         });
+
+
+        setFocusable(true);
 
         addMouseListener(new MouseAdapter() {
             @Override
@@ -75,7 +79,6 @@ public class BoardPage extends JPanel {
             }
         });
 
-        setFocusable(true);
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -136,9 +139,7 @@ public class BoardPage extends JPanel {
 
 
     }
-    public Board getBoard() {
-        return board;
-    }
+
 
     protected void paintComponent (Graphics g){
         // Draw the board on repaint
@@ -146,5 +147,6 @@ public class BoardPage extends JPanel {
         board.drawBoard(g);
 
     }
-}
+
+    }
 

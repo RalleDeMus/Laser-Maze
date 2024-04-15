@@ -17,7 +17,8 @@ class Card {
      private int checkPointTiles = 0;
      private int doubleTiles = 0;
      private int cellBlockerTiles = 0;
-     private Tile[][] tiles = new Tile[5][5];;
+     private int targets;
+     final private Tile[][] tiles = new Tile[5][5];;
      public Card(String level){
 
 
@@ -106,6 +107,7 @@ class Card {
             this.splitterTiles = extraTiles.getInt("SplitterTiles");
             this.targetMirrorTiles = extraTiles.getInt("MirrorTiles");
             this.doubleTiles = extraTiles.getInt("DoubleTile");
+            this.targets = extraTiles.getInt("targets");
 
 
 
@@ -121,12 +123,13 @@ class Card {
 
      public int[] getPlaceableTiles(){
 
-         int[] placeableTiles = new int[5];
-         placeableTiles[0] = targetMirrorTiles;
-         placeableTiles[1] = splitterTiles;
-         placeableTiles[2] = checkPointTiles;
-         placeableTiles[3] = doubleTiles;
-         placeableTiles[4] = cellBlockerTiles;
-         return placeableTiles;
+         int[] game_info = new int[6];
+         game_info[0] = targetMirrorTiles;
+         game_info[1] = splitterTiles;
+         game_info[2] = checkPointTiles;
+         game_info[3] = doubleTiles;
+         game_info[4] = cellBlockerTiles;
+         game_info[5] = targets;
+         return game_info;
      }
 }
