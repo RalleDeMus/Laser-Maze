@@ -14,12 +14,13 @@ public class AssetServer {
 
     private AssetServer() {
         try {
-            loadImages("beamSplitter", "cellBlocker", "checkPoint", "doubleMirror", "empty", "laser", "targetMirror", "laserRay");
+            loadImages("beamSplitter", "cellBlocker", "checkPoint", "doubleMirror", "empty", "laser", "targetMirror", "laserRay", "laserRayTarget");
         } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException("Failed to load assets", e);
         }
     }
+
 
     public static AssetServer getInstance(){
         if (instance == null){
@@ -27,6 +28,8 @@ public class AssetServer {
         }
         return instance;
     }
+
+    // Load images from the assets folder
     private void loadImages(String... assetNames) throws IOException {
         for (String assetName : assetNames) {
             BufferedImage image = ImageIO.read(new File("src/main/assets/" + assetName + ".png"));

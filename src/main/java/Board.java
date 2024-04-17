@@ -7,6 +7,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+import java.util.Map;
+import java.util.HashMap;
+import java.util.ArrayList;
+
 
 //make singleton
 public class Board {
@@ -22,6 +26,8 @@ public class Board {
     Point cursorPos;
 
     Tile selectedTile = new Tile();
+
+    boolean laserWasFired = false;
 
 
     // Laser tree ???
@@ -70,6 +76,10 @@ public class Board {
 
         BufferedImage cursorImage = ImageHandler.transImage(selectedTile.getImage(), 0.6f);
         g.drawImage(cursorImage, cursorPos.x * squareSize, cursorPos.y * squareSize, squareSize, squareSize, null);
+
+        if(laserWasFired) {
+            drawLaser(g);
+        }
     }
 
     public Point getTilePos(int x, int y) {
@@ -98,8 +108,18 @@ public class Board {
         return null;
     }
 
+
+    public void fireLaser(){
+        laserWasFired = true;
+
+    }
+
     // Construct laser tree
-    public void constructLaserTree() {
+    List<PointStringPair>  constructLaserTree() {
+        //String[][] laserHasHit = new String[boardSize][boardSize];
+        List<PointStringPair> laserList = new ArrayList<>();
+
+
         Tile laserTile = null;
 
         Laser laser = new Laser(0,0,0);
@@ -121,8 +141,9 @@ public class Board {
         if (laserTile != null) {
             System.out.println("Constructing laser tree");
 
-            int[][] laserHasHit = new int[boardSize][boardSize];
-            laserHasHit[laser.getY()][laser.getX()] = 1;
+
+
+            //laserHasHit[laser.getY()][laser.getX()] = 1;
 
             int targetsHit = 0;
 
@@ -142,8 +163,10 @@ public class Board {
                 }
                 hitLasers.add(current);
 
+                String fromDir = String.valueOf(current.getOrientation());
+                String toDir = String.valueOf(current.getOrientation()) + "_";
+
                 // Set the current as a hit on laserHasHit
-                laserHasHit[current.getY()][current.getX()] = 1;
                 //System.out.println("Laser at: " + current.getX() + " " + current.getY() + " orientation: " + current.getOrientation();
 
                 // Is there a tile at the current position?
@@ -160,28 +183,37 @@ public class Board {
                         // If so, increment the targets hit
                         System.out.println("Target HIT: " + laserCorrected + " gettarget: " + Arrays.toString( tile.getTarget()));
                         targetsHit++;
+                        toDir = "8_";
+                    }
+
+
+                    if (tile instanceof SplitterTile) {
+                        // If the tile is a splitter, add a new lasers here aswell as the rotated one!
+                        Laser adding = new Laser(current.getX()+orientationToPoint(current.getOrientation()).x, current.getY()+orientationToPoint(current.getOrientation()).y,current.getOrientation());
+                        lasers.add(adding);
                     }
 
                     if (tile.getPass()[laserCorrected] == 0) {
                         // If the laser is not allowed to pass, stop the laser and add no more tiles
                         System.out.println("Mirror? " + tile);
                         System.out.println("Mirror blocked: " + Arrays.toString(tile.getPass()));
-                        continue;
-                    } else if (tile instanceof SplitterTile) {
-                        // If the tile is a splitter, add a new lasers here aswell as the rotated one!
-                        Laser adding = new Laser(current.getX()+orientationToPoint(current.getOrientation()).x, current.getY()+orientationToPoint(current.getOrientation()).y,current.getOrientation());
-                        lasers.add(adding);
 
+                    } else {
+
+                        System.out.println("Evaluating tile: " + "\n" + laserCorrected);
+                        int rotateBy = tile.getMirror()[laserCorrected];
+                        int nextLaserOrientation = (current.getOrientation() + rotateBy) % 4;
+
+                        System.out.println(rotateBy);
+                        System.out.println(nextLaserOrientation);
+                        Laser adding = new Laser(current.getX() + orientationToPoint(nextLaserOrientation).x, current.getY() + orientationToPoint(nextLaserOrientation).y, nextLaserOrientation);
+                        lasers.add(adding);
+                        System.out.println("At mirror, adding next: " + adding.toString());
+
+                        toDir = String.valueOf(nextLaserOrientation);
+                        toDir += (tile instanceof SplitterTile) ? fromDir : "_";
                     }
 
-                    System.out.println("Evaluating tile: " + "\n" + laserCorrected);
-                    int rotateBy = tile.getMirror()[laserCorrected];
-                    int nextLaserOrientation = (current.getOrientation() + rotateBy) % 4;
-                    System.out.println(rotateBy);
-                    System.out.println(nextLaserOrientation);
-                    Laser adding = new Laser(current.getX()+orientationToPoint(nextLaserOrientation).x, current.getY()+orientationToPoint(nextLaserOrientation).y,nextLaserOrientation);
-                    lasers.add(adding);
-                    System.out.println("At mirror, adding next: " + adding.toString());
 
                 } else {
                     // Add a next laser to the queue if no tile is found
@@ -190,17 +222,13 @@ public class Board {
 
                     System.out.println("At empty tile, adding next: " + adding.toString());
                 }
+                laserList.add(new PointStringPair(new Point(current.getX(), current.getY()), String.valueOf(fromDir) + String.valueOf(toDir)));
+
 
             }
 
 
 
-            for(int i = 0; i < boardSize; i++) {
-                for(int j = 0; j < boardSize; j++) {
-                    System.out.print(laserHasHit[i][j]);
-                }
-                System.out.println();
-            }
 
             System.out.println("Targets hit: " + targetsHit);
             System.out.println("Hit lasers: " + hitLasers);
@@ -209,6 +237,52 @@ public class Board {
         } else {
             System.out.println("No laser tile found");
         }
+        return laserList;
+    }
+
+    void drawLaser(Graphics g){
+        List<PointStringPair> laserMap = constructLaserTree();
+
+        for (PointStringPair pair : laserMap) {
+            int j = pair.getPoint().x;
+            int i = pair.getPoint().y;
+
+            String value = pair.getValue();
+
+            if (!value.equals("___")) {
+                BufferedImage image = AssetServer.getInstance().getImage("laserRay");
+
+
+                if (value.charAt(0) != '_') {
+                    if (value.charAt(1) == '8') {
+                        int direction = Character.getNumericValue(value.charAt(0));
+                        g.drawImage(ImageHandler.rotateImage(AssetServer.getInstance().getImage("laserRayTarget"),90*direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
+
+                    } else {
+                        int direction = Character.getNumericValue(value.charAt(0));
+                        g.drawImage(ImageHandler.rotateImage(image, 90 * direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
+                    }
+                }
+
+                if (value.charAt(1) != '_') {
+                    if (value.charAt(1) != '8') {
+                        int direction = Character.getNumericValue(value.charAt(1)) + 2;
+                        g.drawImage(ImageHandler.rotateImage(image, 90 * direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
+
+                    }
+                }
+
+
+                if (value.charAt(2) != '_') {
+                    int direction = Character.getNumericValue(value.charAt(2))+2;
+                    g.drawImage(ImageHandler.rotateImage(image,90*direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
+                }
+            }
+
+            System.out.println("LaserMap: " + pair.getPoint() + " " + pair.getValue());
+        }
+
+
     }
 
     int subMod(int a, int b, int mod) {
