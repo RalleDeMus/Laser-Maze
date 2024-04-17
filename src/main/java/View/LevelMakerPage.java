@@ -12,15 +12,8 @@ import Model.Logic.Board;
 public class LevelMakerPage extends JPanel{
 
     final private Board board;
-    private int beamSplitterCount;
-    private int cellBlockerCount;
-private int checkPointCount;
-private int doubleMirrorCount;
-private int laserCount;
-private int spotTargetMirrorCount;
-private int targetMirrorCount;
-    private String statusMessage = "";
-    private boolean canRotate = true;
+    private int beamSplitterCount, cellBlockerCount, checkPointCount, doubleMirrorCount, laserCount, spotTargetMirrorCount, targetMirrorCount;
+    private String currentSelection = "BeamSplitter"; // Default selection
 
     private JLabel statusLabel;  // JLabel to display status messages
 
@@ -51,136 +44,73 @@ private int targetMirrorCount;
 
         //toggle rotate
 
-        JButton toggleRotationButton = new JButton("Toggle Rotation");
-        toggleRotationButton.addActionListener(e -> {
-            canRotate = !canRotate;  // Toggle the ability to rotate
-            toggleRotationButton.setText(canRotate ? "Disable Rotation" : "Enable Rotation");
-        });
-        toolbarPanel.add(toggleRotationButton);
+        // Add and Remove buttons
+        JButton addButton = new JButton("Add Tile");
+        JButton removeButton = new JButton("Remove Tile");
 
-
-        // BeamSplitter buttons
-        JButton addbeamsplitterButton = new JButton("Add beamSplitter"+ beamSplitterCount);
-        JButton removebeamsplitterButton = new JButton("Remove beamSplitter" + beamSplitterCount);
-
-        addbeamsplitterButton.addActionListener(e -> {
-            beamSplitterCount++;
-            updateStatus("BeamSplitter count: " + beamSplitterCount);
-        });
-
-        removebeamsplitterButton.addActionListener(e -> {
-            beamSplitterCount--;
-            updateStatus("BeamSplitter count: " + beamSplitterCount);
-
-//            statusMessage = "BeamSplitter count: " + beamSplitterCount;
-//            repaint();
-        });
-
-        toolbarPanel.add(addbeamsplitterButton);
-        toolbarPanel.add(removebeamsplitterButton);
-
-        // CellBlocker buttons
-
-        JButton addcellblockerButton = new JButton("Add CellBlocker");
-        JButton removecellblockerButton = new JButton("Remove CellBlocker");
-
-        addcellblockerButton.addActionListener(e -> {
-            cellBlockerCount++;
-            updateStatus("cellBlocker count: " + cellBlockerCount);
+        addButton.addActionListener(e -> {
+            switch (currentSelection) {
+                case "BeamSplitter":
+                    beamSplitterCount++;
+                    break;
+                case "CellBlocker":
+                    cellBlockerCount++;
+                    break;
+                case "CheckPoint":
+                    checkPointCount++;
+                    break;
+                case "DoubleMirror":
+                    doubleMirrorCount++;
+                    break;
+                case "Laser":
+                    laserCount++;
+                    break;
+                case "SpotTargetMirror":
+                    spotTargetMirrorCount++;
+                    break;
+                case "TargetMirror":
+                    targetMirrorCount++;
+                    break;
+            }
+            updateStatus();
         });
 
-        removecellblockerButton.addActionListener(e -> {
-            cellBlockerCount--;
-            updateStatus("cellBlocker count: " + cellBlockerCount);
+        removeButton.addActionListener(e -> {
+            switch (currentSelection) {
+                case "BeamSplitter":
+                    beamSplitterCount--;
+                    break;
+                case "CellBlocker":
+                    cellBlockerCount--;
+                    break;
+                case "CheckPoint":
+                    checkPointCount--;
+                    break;
+                case "DoubleMirror":
+                    doubleMirrorCount--;
+                    break;
+                case "Laser":
+                    laserCount--;
+                    break;
+                case "SpotTargetMirror":
+                    spotTargetMirrorCount--;
+                    break;
+                case "TargetMirror":
+                    targetMirrorCount--;
+                    break;
+            }
+            updateStatus();
         });
 
-        toolbarPanel.add(addcellblockerButton);
-        toolbarPanel.add(removecellblockerButton);
+        toolbarPanel.add(addButton);
+        toolbarPanel.add(removeButton);
 
-        JButton addcheckPointButton = new JButton("Add checkPoint");
-        JButton removecheckPointButton = new JButton("Remove checkPoint");
-/////////////////
-        addcheckPointButton.addActionListener(e -> {
-            checkPointCount++;
-            System.out.println("checkPoint : " + checkPointCount);
+        // Selection mechanism (e.g., JComboBox or JRadioButton)
+        JComboBox<String> selectionBox = new JComboBox<>(new String[]{"BeamSplitter", "CellBlocker", "CheckPoint", "DoubleMirror", "Laser", "SpotTargetMirror", "TargetMirror"});
+        selectionBox.addActionListener(e -> {
+            currentSelection = (String) selectionBox.getSelectedItem();
         });
-
-        removecheckPointButton.addActionListener(e -> {
-            checkPointCount--;
-            System.out.println("checkPoint : " + checkPointCount);
-        });
-
-        toolbarPanel.add(addcheckPointButton);
-        toolbarPanel.add(removecheckPointButton);
-
-        //doubleMirror
-        JButton adddoubleMirrorButton = new JButton("Add doubleMirror");
-        JButton removedoubleMirrorButton = new JButton("Remove doubleMirror");
-
-        adddoubleMirrorButton.addActionListener(e -> {
-            doubleMirrorCount++;
-            System.out.println("doubleMirror : " + doubleMirrorCount);
-        });
-
-        removedoubleMirrorButton.addActionListener(e -> {
-            doubleMirrorCount--;
-            System.out.println("doubleMirror : " + doubleMirrorCount);
-        });
-
-        toolbarPanel.add(adddoubleMirrorButton);
-        toolbarPanel.add(removedoubleMirrorButton);
-
-        //laser
-        JButton addlaserButton = new JButton("Add laser");
-        JButton removelaserButton = new JButton("Remove laser");
-
-        addlaserButton.addActionListener(e -> {
-            laserCount++;
-            System.out.println("laser : " + laserCount);
-        });
-
-        removelaserButton.addActionListener(e -> {
-            laserCount--;
-            System.out.println("laser : " + laserCount);
-        });
-
-        toolbarPanel.add(addlaserButton);
-        toolbarPanel.add(removelaserButton);
-
-        //spotTargetMirror
-        JButton addspotTargetMirrorButton = new JButton("Add spotTargetMirror");
-        JButton removespotTargetMirrorButton = new JButton("Remove spotTargetMirror");
-
-        addspotTargetMirrorButton.addActionListener(e -> {
-            spotTargetMirrorCount++;
-            System.out.println("spotTargetMirror : " + spotTargetMirrorCount);
-        });
-
-        removespotTargetMirrorButton.addActionListener(e -> {
-            spotTargetMirrorCount--;
-            System.out.println("spotTargetMirror : " + spotTargetMirrorCount);
-        });
-
-        toolbarPanel.add(addspotTargetMirrorButton);
-        toolbarPanel.add(removespotTargetMirrorButton);
-
-        //
-        JButton addtargetMirrorButton = new JButton("Add targetMirror");
-        JButton removetargetMirrorButton = new JButton("Remove targetMirror");
-
-        addtargetMirrorButton.addActionListener(e -> {
-            targetMirrorCount++;
-            System.out.println("targetMirror : " + targetMirrorCount);
-
-        });
-
-        removetargetMirrorButton.addActionListener(e -> {
-            targetMirrorCount--;
-            System.out.println("targetMirror : " + targetMirrorCount);
-        });
-
-        toolbarPanel.add(addtargetMirrorButton);
-        toolbarPanel.add(removetargetMirrorButton);
+        toolbarPanel.add(selectionBox);
 
 
         add(topPanel, BorderLayout.NORTH);
@@ -238,12 +168,10 @@ private int targetMirrorCount;
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_R) {
-                    if (canRotate){
-                        Board.rotateSelectedTile();
+                    Board.rotateSelectedTile();
 
 
-                        repaint();
-                    }
+                    repaint();
                     //rotates the tile that is hovered over
 
                 }
@@ -294,9 +222,12 @@ private int targetMirrorCount;
     }
 
 //update status efter knap klik
-    private void updateStatus(String message) {
-        statusLabel.setText(message);
+    private void updateStatus() {
+        statusLabel.setText(String.format("<html>BeamSplitter: %d<br>CellBlocker: %d<br>CheckPoint: %d<br>DoubleMirror: %d<br>Laser: %d<br>SpotTargetMirror: %d<br>TargetMirror: %d</html>",
+                beamSplitterCount, cellBlockerCount, checkPointCount, doubleMirrorCount, laserCount, spotTargetMirrorCount, targetMirrorCount));
+
     }
+
 
     protected void paintComponent (Graphics g){
         // Draw the board on repaint
@@ -310,10 +241,6 @@ private int targetMirrorCount;
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             board.drawBoard(g);
-            // Set the color for the message text
-            g.setColor(Color.BLACK);
-            // Display the status message at a specific location on the board
-            g.drawString(statusMessage, 10, 20); // You can adjust the coordinates
         }
 
         @Override

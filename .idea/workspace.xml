@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="button to disable rotate">
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="update count">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/game_state.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/LevelMakerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LevelMakerPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/View/LevelMakerPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/LevelMakerPage.class" afterDir="false" />
     </list>
@@ -219,7 +218,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713359449025</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="update count">
+      <option name="closed" value="true" />
+      <created>1713363475988</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1713363475988</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,7 +253,9 @@
     <MESSAGE value="Started making levelmakerpage" />
     <MESSAGE value="added buttons to levelmakerpage" />
     <MESSAGE value="button to disable rotate" />
-    <option name="LAST_COMMIT_MESSAGE" value="button to disable rotate" />
+    <MESSAGE value="." />
+    <MESSAGE value="update count" />
+    <option name="LAST_COMMIT_MESSAGE" value="update count" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
