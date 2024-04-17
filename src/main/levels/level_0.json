@@ -1,0 +1,13 @@
+{
+  "gameinfo": {"tiles": [
+
+  ]},
+  "extra tiles": {
+    "CheckPointTiles": 9,
+    "MirrorTiles": 9,
+    "DoubleTile": 9,
+    "CellBlockerTiles": 9,
+    "SplitterTiles": 9,
+    "targets": 1
+  }
+}
