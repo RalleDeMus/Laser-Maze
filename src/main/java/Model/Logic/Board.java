@@ -27,7 +27,7 @@ public class Board {
     Card card;
     Point cursorPos;
 
-    private int placeableTiles[];
+    private int game_info[];
     Tile selectedTile = new LaserTile(true, true);
 
 
@@ -44,7 +44,7 @@ public class Board {
         this.tiles = card.getCard();
         this.cursorPos = new Point(0, 0);
         this.squareSize = squareSize;
-        this.placeableTiles = card.getPlaceableTiles();
+        this.game_info = card.getPlaceableTiles();
 
 
 
@@ -240,36 +240,41 @@ public class Board {
             System.out.println("Laser already exists");
             return;
         } else if (t instanceof MirrorTile) {
-            if (placeableTiles[0] == 0){
+            if (game_info[0] == 0){
                 System.out.println("No more mirror tiles");
                 return;
             }
-            else{placeableTiles[0]--;}
+            else{
+                game_info[0]--;}
 
         } else if (t instanceof SplitterTile) {
-            if (placeableTiles[1] == 0){
+            if (game_info[1] == 0){
                 System.out.println("No more splitter tiles");
                 return;
             }
-            else{placeableTiles[1]--;}
+            else{
+                game_info[1]--;}
         } else if (t instanceof CheckPointTile) {
-            if (placeableTiles[2] == 0){
+            if (game_info[2] == 0){
                 System.out.println("No more checkpoint tiles");
                 return;
             }
-            else{placeableTiles[2]--;}
+            else{
+                game_info[2]--;}
         } else if (t instanceof DoubleTile) {
-            if (placeableTiles[3] == 0){
+            if (game_info[3] == 0){
                 System.out.println("No more double tiles");
                 return;
             }
-            else{placeableTiles[3]--;}
+            else{
+                game_info[3]--;}
         } else if (t instanceof CellBlockerTile) {
-            if (placeableTiles[4] == 0){
+            if (game_info[4] == 0){
                 System.out.println("No more cell blocker tiles");
                 return;
             }
-            else{placeableTiles[4]--;}
+            else{
+                game_info[4]--;}
 
         } else{
             System.out.println("Adding tile: " + (t instanceof LaserTile ? "Laser" : "Mirror"));
@@ -285,15 +290,15 @@ public class Board {
     public void removeTile() {
         if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsMoveable()) {
             if (tiles[cursorPos.y][cursorPos.x] instanceof MirrorTile) {
-                placeableTiles[0]++;
+                game_info[0]++;
             } else if (tiles[cursorPos.y][cursorPos.x] instanceof SplitterTile) {
-                placeableTiles[1]++;
+                game_info[1]++;
             } else if (tiles[cursorPos.y][cursorPos.x] instanceof CheckPointTile) {
-                placeableTiles[2]++;
+                game_info[2]++;
             } else if (tiles[cursorPos.y][cursorPos.x] instanceof DoubleTile) {
-                placeableTiles[3]++;
+                game_info[3]++;
             } else if (tiles[cursorPos.y][cursorPos.x] instanceof CellBlockerTile) {
-                placeableTiles[4]++;
+                game_info[4]++;
             }
             tiles[cursorPos.y][cursorPos.x] = null;
         } else{
@@ -344,6 +349,7 @@ public class Board {
                     tileObject.put("type", tile.getClass().getSimpleName());
                     tileObject.put("orientation", tile.getOrientation());
                     tileObject.put("rotatable", tile.getIsRotateable());
+
                     // Add other properties for different tile types if needed
 
                     tilesArray.put(tileObject);
@@ -355,17 +361,18 @@ public class Board {
         gameInfo.put("tiles", tilesArray);
 
         // Create "extra tiles" object
-        JSONObject extraTiles = new JSONObject();
-        extraTiles.put("MirrorTiles", placeableTiles[0]);
-        extraTiles.put("SplitterTiles", placeableTiles[1]);
-        extraTiles.put("CheckPointTiles", placeableTiles[2]);
-        extraTiles.put("DoubleTile", placeableTiles[3]);
-        extraTiles.put("CellBlockerTiles", placeableTiles[4]);
+        JSONObject game_info_JSON = new JSONObject();
+        game_info_JSON.put("MirrorTiles", game_info[0]);
+        game_info_JSON.put("SplitterTiles", game_info[1]);
+        game_info_JSON.put("CheckPointTiles", game_info[2]);
+        game_info_JSON.put("DoubleTile", game_info[3]);
+        game_info_JSON.put("CellBlockerTiles", game_info[4]);
+        game_info_JSON.put("targets", game_info[5]);
 
         // Create the root JSON object to hold both "gameinfo" and "extra tiles"
         JSONObject boardState = new JSONObject();
         boardState.put("gameinfo", gameInfo);
-        boardState.put("extra tiles", extraTiles);
+        boardState.put("extra tiles", game_info_JSON);
 
         // Save the JSON object to a file
         try (FileWriter file = new FileWriter("game_state.json")) {
@@ -380,7 +387,7 @@ public class Board {
     public void setCardLevel(String level) {
         this.card = new Card(level);
         this.tiles = card.getCard();
-        this.placeableTiles = card.getPlaceableTiles();
+        this.game_info = card.getPlaceableTiles();
     }
 
 
