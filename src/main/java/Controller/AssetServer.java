@@ -14,7 +14,7 @@ public class AssetServer {
 
     public AssetServer() {
         try {
-            loadImages("beamSplitter", "cellBlocker", "checkPoint", "doubleMirror", "empty", "laser", "targetMirror", "laserRay", "rotateBeamSplitter", "rotateCheckpoint", "rotateDoubleMirror", "rotateLaser", "rotateTargetMirror", "spotRotateTargetMirror", "spotTargetMirror");
+            loadImages("background","beamSplitter", "LaserLogo", "cellBlocker", "checkPoint", "doubleMirror", "empty", "laser", "targetMirror", "laserRay","laserRayTarget", "rotateBeamSplitter", "rotateCheckpoint", "rotateDoubleMirror", "rotateLaser", "rotateTargetMirror", "spotRotateTargetMirror", "spotTargetMirror");
         } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException("Failed to load assets", e);
@@ -30,7 +30,7 @@ public class AssetServer {
     }
 
     // Load images from the assets folder
-    private void loadImages(String... assetNames) throws IOException {
+    public void loadImages(String... assetNames) throws IOException {
         for (String assetName : assetNames) {
             BufferedImage image = ImageIO.read(new File("src/main/assets/" + assetName + ".png"));
             images.put(assetName, image);

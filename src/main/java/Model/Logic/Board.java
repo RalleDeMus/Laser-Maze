@@ -9,25 +9,34 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+
+import View.BoardPage;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.FileWriter;
+
+import java.util.Map;
+import java.util.HashMap;
+import java.util.ArrayList;
+
 
 //make singleton
 public class Board {
     private static Board instance;
 
-
-
-    int boardSize;
-    int squareSize;
-    Tile[][] tiles;
+    public static Tile[][] tiles;
+    static int boardSize;
+    static int squareSize;
 
     Card card;
-    Point cursorPos;
+    static Point cursorPos;
 
-    private int game_info[];
+    private static int[] game_info;
     Tile selectedTile = new LaserTile(true, true);
+    boolean laserWasFired = false;
+
+
+
 
 
     // Model.Logic.Laser tree ???
@@ -60,27 +69,9 @@ public class Board {
         // Draw the tiles: Empty or with a mirror
         // Draw the selected tile
         // Draw the cursor tile
-    public void drawBoard(Graphics g) {
-        for (int row = 0; row < boardSize; row++) {
-            for (int col = 0; col < boardSize; col++) {
-                if (tiles[row][col] != null) {
-                    // Draws the tile if it is not empty
-                    g.drawImage(tiles[row][col].getImage(), col * squareSize, row * squareSize, squareSize, squareSize, null);
-
-                } else {
-                    // Draws an empty tile if empty
-                    g.drawImage(AssetServer.getInstance().getImage("empty"), col * squareSize, row * squareSize, squareSize, squareSize, null);
-                }
 
 
-            }
-        }
-
-        BufferedImage cursorImage = ImageHandler.transImage(selectedTile.getImage(), 0.6f);
-        g.drawImage(cursorImage, cursorPos.x * squareSize, cursorPos.y * squareSize, squareSize, squareSize, null);
-    }
-
-    public Point getTilePos(int x, int y) {
+    public static Point getTilePos(int x, int y) {
 
         return new Point(Math.min(x / squareSize,boardSize-1),  Math.min(y / squareSize,boardSize-1));
     }
@@ -93,9 +84,24 @@ public class Board {
         selectedTile = tile;
         //selectedTile.setImage(assetServer.getImage(imageName));
     }
+    public Tile[][] getTiles() {
+        return tiles;
+    }
+
+    public int getBoardSize() {
+        return boardSize;
+    }
+
+    public int getSquareSize() {
+        return squareSize;
+    }
+
+    public boolean isLaserFired() {
+        return laserWasFired;
+    }
 
     // Get the first tile with tag
-    public Tile getLaserTile() {
+    public static Tile getLaserTile() {
         for (int row = 0; row < boardSize; row++) {
             for (int col = 0; col < boardSize; col++) {
                 if (tiles[row][col] != null && tiles[row][col] instanceof LaserTile) {
@@ -106,8 +112,18 @@ public class Board {
         return null;
     }
 
+
+    public void fireLaser(){
+        laserWasFired = true;
+
+    }
+
     // Construct laser tree
-    public void constructLaserTree() {
+    public List<PointStringPair>  constructLaserTree() {
+        //String[][] laserHasHit = new String[boardSize][boardSize];
+        List<PointStringPair> laserList = new ArrayList<>();
+
+
         Tile laserTile = null;
 
         Laser laser = new Laser(0,0,0);
@@ -120,7 +136,7 @@ public class Board {
                     laser.setOrientation(laserTile.getOrientation());
 
                 }
-                //System.out.print(tiles[row][col]!=null?tiles[row][col] instanceof Model.Tiles.LaserTile? "L" : "N":"0");
+                //System.out.print(tiles[row][col]!=null?tiles[row][col] instanceof Tiles.LaserTile? "L" : "N":"0");
 
             }
             //System.out.println();
@@ -129,8 +145,9 @@ public class Board {
         if (laserTile != null) {
             System.out.println("Constructing laser tree");
 
-            int[][] laserHasHit = new int[boardSize][boardSize];
-            laserHasHit[laser.getY()][laser.getX()] = 1;
+
+
+            //laserHasHit[laser.getY()][laser.getX()] = 1;
 
             int targetsHit = 0;
 
@@ -145,14 +162,16 @@ public class Board {
                 // Is the laser out of bounds?
                 if (current.getX() < 0 || current.getX() >= boardSize || current.getY() < 0 || current.getY() >= boardSize) {
 
-                    System.out.println("Model.Logic.Laser out of bounds");
+                    System.out.println("Laser out of bounds");
                     continue;
                 }
                 hitLasers.add(current);
 
+                String fromDir = String.valueOf(current.getOrientation());
+                String toDir = String.valueOf(current.getOrientation()) + "_";
+
                 // Set the current as a hit on laserHasHit
-                laserHasHit[current.getY()][current.getX()] = 1;
-                //System.out.println("Model.Logic.Laser at: " + current.getX() + " " + current.getY() + " orientation: " + current.getOrientation();
+                //System.out.println("Laser at: " + current.getX() + " " + current.getY() + " orientation: " + current.getOrientation();
 
                 // Is there a tile at the current position?
                 if (tiles[current.getY()][current.getX()] != null) {
@@ -168,28 +187,38 @@ public class Board {
                         // If so, increment the targets hit
                         System.out.println("Target HIT: " + laserCorrected + " gettarget: " + Arrays.toString( tile.getTarget()));
                         targetsHit++;
+                        toDir = "8_";
+                    }
+
+
+                    if (tile instanceof SplitterTile) {
+                        // If the tile is a splitter, add a new lasers here aswell as the rotated one!
+                        Laser adding = new Laser(current.getX()+orientationToPoint(current.getOrientation()).x, current.getY()+orientationToPoint(current.getOrientation()).y,current.getOrientation());
+                        lasers.add(adding);
                     }
 
                     if (tile.getPass()[laserCorrected] == 0) {
                         // If the laser is not allowed to pass, stop the laser and add no more tiles
                         System.out.println("Mirror? " + tile);
                         System.out.println("Mirror blocked: " + Arrays.toString(tile.getPass()));
-                        continue;
-                    } else if (tile instanceof SplitterTile) {
-                        // If the tile is a splitter, add a new lasers here aswell as the rotated one!
-                        Laser adding = new Laser(current.getX()+orientationToPoint(current.getOrientation()).x, current.getY()+orientationToPoint(current.getOrientation()).y,current.getOrientation());
-                        lasers.add(adding);
+                        if (tile.getTarget()[laserCorrected] == 0) continue;
 
+                    } else {
+
+                        System.out.println("Evaluating tile: " + "\n" + laserCorrected);
+                        int rotateBy = tile.getMirror()[laserCorrected];
+                        int nextLaserOrientation = (current.getOrientation() + rotateBy) % 4;
+
+                        System.out.println(rotateBy);
+                        System.out.println(nextLaserOrientation);
+                        Laser adding = new Laser(current.getX() + orientationToPoint(nextLaserOrientation).x, current.getY() + orientationToPoint(nextLaserOrientation).y, nextLaserOrientation);
+                        lasers.add(adding);
+                        System.out.println("At mirror, adding next: " + adding.toString());
+
+                        toDir = String.valueOf(nextLaserOrientation);
+                        toDir += (tile instanceof SplitterTile) ? fromDir : "_";
                     }
 
-                    System.out.println("Evaluating tile: " + "\n" + laserCorrected);
-                    int rotateBy = tile.getMirror()[laserCorrected];
-                    int nextLaserOrientation = (current.getOrientation() + rotateBy) % 4;
-                    System.out.println(rotateBy);
-                    System.out.println(nextLaserOrientation);
-                    Laser adding = new Laser(current.getX()+orientationToPoint(nextLaserOrientation).x, current.getY()+orientationToPoint(nextLaserOrientation).y,nextLaserOrientation);
-                    lasers.add(adding);
-                    System.out.println("At mirror, adding next: " + adding.toString());
 
                 } else {
                     // Add a next laser to the queue if no tile is found
@@ -198,17 +227,13 @@ public class Board {
 
                     System.out.println("At empty tile, adding next: " + adding.toString());
                 }
+                laserList.add(new PointStringPair(new Point(current.getX(), current.getY()), String.valueOf(fromDir) + String.valueOf(toDir)));
+
 
             }
 
 
 
-            for(int i = 0; i < boardSize; i++) {
-                for(int j = 0; j < boardSize; j++) {
-                    System.out.print(laserHasHit[i][j]);
-                }
-                System.out.println();
-            }
 
             System.out.println("Targets hit: " + targetsHit);
             System.out.println("Hit lasers: " + hitLasers);
@@ -217,6 +242,52 @@ public class Board {
         } else {
             System.out.println("No laser tile found");
         }
+        return laserList;
+    }
+
+    void drawLaser(Graphics g){
+        List<PointStringPair> laserMap = constructLaserTree();
+
+        for (PointStringPair pair : laserMap) {
+            System.out.println("LaserMap: " + pair.getPoint() + " " + pair.getValue());
+            int j = pair.getPoint().x;
+            int i = pair.getPoint().y;
+
+            String value = pair.getValue();
+
+            if (!value.equals("___")) {
+                BufferedImage image = AssetServer.getInstance().getImage("laserRay");
+
+
+                if (value.charAt(0) != '_') {
+                    if (value.charAt(1) == '8') {
+                        int direction = Character.getNumericValue(value.charAt(0));
+                        g.drawImage(ImageHandler.rotateImage(AssetServer.getInstance().getImage("laserRayTarget"),90*direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
+
+                    } else {
+                        int direction = Character.getNumericValue(value.charAt(0));
+                        g.drawImage(ImageHandler.rotateImage(image, 90 * direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
+                    }
+                }
+
+                if (value.charAt(1) != '_') {
+                    if (value.charAt(1) != '8') {
+                        int direction = Character.getNumericValue(value.charAt(1)) + 2;
+                        g.drawImage(ImageHandler.rotateImage(image, 90 * direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
+
+                    }
+                }
+
+
+                if (value.charAt(2) != '_') {
+                    int direction = Character.getNumericValue(value.charAt(2))+2;
+                    g.drawImage(ImageHandler.rotateImage(image,90*direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
+                }
+            }
+
+        }
+
+
     }
 
     int subMod(int a, int b, int mod) {
@@ -231,7 +302,7 @@ public class Board {
 
 
     // Add the cursor tile to the board and check if placement is valid
-    public void addTile(Tile t) {
+    public static void addTile(Tile t) {
         if (tiles[cursorPos.y][cursorPos.x] != null){
             System.out.println("Tile occupied");
         } else {
@@ -244,7 +315,8 @@ public class Board {
                 return;
             }
             else{
-                game_info[0]--;}
+                game_info[0]--;
+            }
 
         } else if (t instanceof SplitterTile) {
             if (game_info[1] == 0){
@@ -252,28 +324,32 @@ public class Board {
                 return;
             }
             else{
-                game_info[1]--;}
+                game_info[1]--;
+            }
         } else if (t instanceof CheckPointTile) {
             if (game_info[2] == 0){
                 System.out.println("No more checkpoint tiles");
                 return;
             }
             else{
-                game_info[2]--;}
+                game_info[2]--;
+            }
         } else if (t instanceof DoubleTile) {
             if (game_info[3] == 0){
                 System.out.println("No more double tiles");
                 return;
             }
             else{
-                game_info[3]--;}
+                game_info[3]--;
+            }
         } else if (t instanceof CellBlockerTile) {
             if (game_info[4] == 0){
                 System.out.println("No more cell blocker tiles");
                 return;
             }
             else{
-                game_info[4]--;}
+                game_info[4]--;
+            }
 
         } else{
             System.out.println("Adding tile: " + (t instanceof LaserTile ? "Laser" : "Mirror"));
@@ -286,7 +362,7 @@ public class Board {
 
 
     // Remove a tile
-    public void removeTile() {
+    public static void removeTile() {
         if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsMoveable()) {
             if (tiles[cursorPos.y][cursorPos.x] instanceof MirrorTile) {
                 game_info[0]++;
@@ -306,7 +382,7 @@ public class Board {
     }
 
 
-    public void setCursorPos(int x, int y) {
+    public static void setCursorPos(int x, int y) {
         cursorPos = getTilePos(x, y);
     }
 
@@ -314,7 +390,7 @@ public class Board {
         return cursorPos;
     }
 
-    public void rotateSelectedTile() {
+    public static void rotateSelectedTile() {
         if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsRotateable()) {tiles[cursorPos.y][cursorPos.x].rotate();}else {
             System.out.println("Tile is not rotateable");
         }
@@ -334,7 +410,7 @@ public class Board {
                 throw new IllegalArgumentException("Invalid orientation: " + orientation);
         }
     }
-    public void saveGameState() {
+    public static void saveGameState() {
         JSONObject gameInfo = new JSONObject();
         JSONArray tilesArray = new JSONArray();
 
