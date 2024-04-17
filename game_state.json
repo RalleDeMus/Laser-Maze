@@ -1,5 +1,11 @@
 {
-    "gameinfo": {"tiles": []},
+    "gameinfo": {"tiles": [{
+        "col": 2,
+        "rotatable": true,
+        "orientation": 2,
+        "row": 2,
+        "type": "LaserTile"
+    }]},
     "extra tiles": {
         "CheckPointTiles": 9,
         "MirrorTiles": 9,

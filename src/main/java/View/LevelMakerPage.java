@@ -5,13 +5,21 @@ import Model.Logic.Board;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+
+import Model.Logic.Board;
 
 public class LevelMakerPage extends JPanel{
 
     final private Board board;
     private int beamSplitterCount;
     private int cellBlockerCount;
-
+private int checkPointCount;
+private int doubleMirrorCount;
+private int laserCount;
+private int spotTargetMirrorCount;
+private int targetMirrorCount;
+    private String statusMessage = "";
     LevelMakerPage(MainMenu mainMenu) {
         new BoardPageController();
         int boardSize = 5;
@@ -22,6 +30,7 @@ public class LevelMakerPage extends JPanel{
         this.beamSplitterCount = 0;
         this.cellBlockerCount = 0;
 
+
         setLayout(new BorderLayout());
 
 
@@ -30,20 +39,23 @@ public class LevelMakerPage extends JPanel{
         backButton.addActionListener(e -> mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu"));
         topPanel.add(backButton);
 
-        JPanel toolbarPanel = new JPanel(new GridLayout(0,1));
-
+        JPanel toolbarPanel = new JPanel(new GridLayout(0,2));
         // BeamSplitter buttons
         JButton addbeamsplitterButton = new JButton("Add beamSplitter");
         JButton removebeamsplitterButton = new JButton("Remove beamSplitter");
 
         addbeamsplitterButton.addActionListener(e -> {
             beamSplitterCount++;
-                    System.out.println("BeamSplitter : " + beamSplitterCount);
+            System.out.println("BeamSplitter : " + beamSplitterCount);
+            statusMessage = "BeamSplitter count: " + beamSplitterCount;
+            repaint();
         });
 
         removebeamsplitterButton.addActionListener(e -> {
             beamSplitterCount--;
             System.out.println("BeamSplitter : " + beamSplitterCount);
+            statusMessage = "BeamSplitter count: " + beamSplitterCount;
+            repaint();
         });
 
         toolbarPanel.add(addbeamsplitterButton);
@@ -67,6 +79,92 @@ public class LevelMakerPage extends JPanel{
         toolbarPanel.add(addcellblockerButton);
         toolbarPanel.add(removecellblockerButton);
 
+        JButton addcheckPointButton = new JButton("Add checkPoint");
+        JButton removecheckPointButton = new JButton("Remove checkPoint");
+/////////////////
+        addcheckPointButton.addActionListener(e -> {
+            checkPointCount++;
+            System.out.println("checkPoint : " + checkPointCount);
+        });
+
+        removecheckPointButton.addActionListener(e -> {
+            checkPointCount--;
+            System.out.println("checkPoint : " + checkPointCount);
+        });
+
+        toolbarPanel.add(addcheckPointButton);
+        toolbarPanel.add(removecheckPointButton);
+
+        //doubleMirror
+        JButton adddoubleMirrorButton = new JButton("Add doubleMirror");
+        JButton removedoubleMirrorButton = new JButton("Remove doubleMirror");
+
+        adddoubleMirrorButton.addActionListener(e -> {
+            doubleMirrorCount++;
+            System.out.println("doubleMirror : " + doubleMirrorCount);
+        });
+
+        removedoubleMirrorButton.addActionListener(e -> {
+            doubleMirrorCount--;
+            System.out.println("doubleMirror : " + doubleMirrorCount);
+        });
+
+        toolbarPanel.add(adddoubleMirrorButton);
+        toolbarPanel.add(removedoubleMirrorButton);
+
+        //laser
+        JButton addlaserButton = new JButton("Add laser");
+        JButton removelaserButton = new JButton("Remove laser");
+
+        addlaserButton.addActionListener(e -> {
+            laserCount++;
+            System.out.println("laser : " + laserCount);
+        });
+
+        removelaserButton.addActionListener(e -> {
+            laserCount--;
+            System.out.println("laser : " + laserCount);
+        });
+
+        toolbarPanel.add(addlaserButton);
+        toolbarPanel.add(removelaserButton);
+
+        //spotTargetMirror
+        JButton addspotTargetMirrorButton = new JButton("Add spotTargetMirror");
+        JButton removespotTargetMirrorButton = new JButton("Remove spotTargetMirror");
+
+        addspotTargetMirrorButton.addActionListener(e -> {
+            spotTargetMirrorCount++;
+            System.out.println("spotTargetMirror : " + spotTargetMirrorCount);
+        });
+
+        removespotTargetMirrorButton.addActionListener(e -> {
+            spotTargetMirrorCount--;
+            System.out.println("spotTargetMirror : " + spotTargetMirrorCount);
+        });
+
+        toolbarPanel.add(addspotTargetMirrorButton);
+        toolbarPanel.add(removespotTargetMirrorButton);
+
+        //
+        JButton addtargetMirrorButton = new JButton("Add targetMirror");
+        JButton removetargetMirrorButton = new JButton("Remove targetMirror");
+
+        addtargetMirrorButton.addActionListener(e -> {
+            targetMirrorCount++;
+            System.out.println("targetMirror : " + targetMirrorCount);
+
+        });
+
+        removetargetMirrorButton.addActionListener(e -> {
+            targetMirrorCount--;
+            System.out.println("targetMirror : " + targetMirrorCount);
+        });
+
+        toolbarPanel.add(addtargetMirrorButton);
+        toolbarPanel.add(removetargetMirrorButton);
+
+
         add(topPanel, BorderLayout.NORTH);
         add(toolbarPanel, BorderLayout.EAST);
         add(new BoardPanel(), BorderLayout.CENTER);
@@ -87,7 +185,7 @@ public class LevelMakerPage extends JPanel{
                     try {
                         // Assuming board.addTile() accepts a Model.Tiles.Tile object as its parameter
                         // and board.getSelectedTile() returns a Model.Tiles.Tile object
-                        board.addTile(board.getSelectedTile().clone());
+                        Board.addTile(board.getSelectedTile().clone());
                     } catch (CloneNotSupportedException er) {
                         // Handle the exception, e.g., log it or throw a runtime exception
                         er.printStackTrace();
@@ -95,7 +193,7 @@ public class LevelMakerPage extends JPanel{
 
 
                 } else if (e.getButton() == MouseEvent.BUTTON3) {
-                    board.removeTile();
+                    Board.removeTile();
 
 
                 }
@@ -108,7 +206,7 @@ public class LevelMakerPage extends JPanel{
         addMouseMotionListener(new MouseAdapter() {
             @Override
             public void mouseMoved(MouseEvent e) {
-                board.setCursorPos(e.getX(), e.getY());
+                Board.setCursorPos(e.getX(), e.getY());
                 repaint();
             }
         });
@@ -118,7 +216,7 @@ public class LevelMakerPage extends JPanel{
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_R) {
                     //rotates the tile that is hovered over
-                    board.rotateSelectedTile();
+                    Board.rotateSelectedTile();
 
 
                     repaint();
@@ -187,6 +285,10 @@ public class LevelMakerPage extends JPanel{
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             board.drawBoard(g);
+            // Set the color for the message text
+            g.setColor(Color.BLACK);
+            // Display the status message at a specific location on the board
+            g.drawString(statusMessage, 10, 20); // You can adjust the coordinates
         }
 
         @Override
