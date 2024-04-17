@@ -12,7 +12,7 @@ public class AssetServer {
     private static AssetServer instance;
     private Map<String, BufferedImage> images = new HashMap<>();
 
-    private AssetServer() {
+    public AssetServer() {
         try {
             loadImages("beamSplitter", "cellBlocker", "checkPoint", "doubleMirror", "empty", "laser", "targetMirror", "laserRay", "rotateBeamSplitter", "rotateCheckpoint", "rotateDoubleMirror", "rotateLaser", "rotateTargetMirror", "spotRotateTargetMirror", "spotTargetMirror");
         } catch (IOException e) {
