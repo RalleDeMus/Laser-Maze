@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="kan jeg push" />
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="continued doing unit tests" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="UnitJ_test_Lea" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,46 +30,17 @@
     &quot;state&quot;: &quot;OPENED&quot;,
     &quot;assignee&quot;: {
       &quot;type&quot;: &quot;org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue&quot;,
-      &quot;username&quot;: &quot;s224519&quot;,
-      &quot;fullname&quot;: &quot;s224519&quot;
+      &quot;username&quot;: &quot;s224515&quot;,
+      &quot;fullname&quot;: &quot;s224515&quot;
     }
   }
 }</component>
   <component name="GitLabMergeRequestsSettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;first&quot;: &quot;git@gitlab.gbar.dtu.dk:02160-f24/group-4.git&quot;,
-    &quot;second&quot;: &quot;9686461a-f10c-4525-a774-312f9ea8eed8&quot;
+    &quot;first&quot;: &quot;https://gitlab.gbar.dtu.dk/02160-f24/group-4.git&quot;,
+    &quot;second&quot;: &quot;60b3407f-8107-4a00-a763-4d7de78575b6&quot;
   }
 }</component>
-  <component name="GitToolBoxStore">
-    <option name="projectConfigVersion" value="5" />
-    <option name="recentBranches">
-      <RecentBranches>
-        <option name="branchesForRepo">
-          <list>
-            <RecentBranchesForRepo>
-              <option name="branches">
-                <list>
-                  <RecentBranch>
-                    <option name="branchName" value="mainMenu" />
-                    <option name="lastUsedInstant" value="1712145638" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1712145637" />
-                  </RecentBranch>
-                </list>
-              </option>
-              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
-            </RecentBranchesForRepo>
-          </list>
-        </option>
-      </RecentBranches>
-    </option>
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -84,56 +55,35 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Game.executor": "Run",
-    "Application.Hey.executor": "Run",
-    "Application.MainMenu.executor": "Run",
-    "Application.View.MainMenu.executor": "Run",
+    "Cucumber Java.Feature: loaded.executor": "Run",
+    "Cucumber Java.Scenario: succesful start game.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Rasmu/Desktop/Agil/Exercises/group-4/src/main/levels",
+    "last_opened_file_path": "C:/Users/leali/Documents/Agile/group-4-laserMazeNew/src/test/java/images/load",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Rasmu\Desktop\Agil\Exercises\group-4\src\main\levels" />
       <recent name="C:\Users\Rasmu\Desktop\Agil\Exercises\Project\LaserMazeProject\src\main" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Rasmu\Desktop\Agil\Exercises\group-4\src\main\assets" />
-      <recent name="C:\Users\Rasmu\Desktop\Agil\Exercises\group-4\src\main\java\View" />
       <recent name="C:\Users\Rasmu\Desktop\Agil\Exercises\Project\LaserMazeProject\src\main" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Game">
-    <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Game" />
-      <module name="LaserGame-group-4" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Hey" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Hey" />
-      <module name="LaserGame-group-4" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MainMenu" />
-      <module name="LaserGame-group-4" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="Scenario: succesful start game" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_Game/initialize.feature" />
@@ -157,9 +107,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Game" />
-        <item itemvalue="Application.MainMenu" />
-        <item itemvalue="Application.Hey" />
+        <item itemvalue="Cucumber Java.Scenario: succesful start game" />
       </list>
     </recent_temporary>
   </component>
@@ -173,15 +121,15 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="kan jeg push" />
+      <changelist id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="added dependencies" />
       <created>1712132895066</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1712132895066</updated>
       <workItem from="1712132896562" duration="1156000" />
       <workItem from="1712136913244" duration="335000" />
-      <workItem from="1712837728532" duration="34000" />
-      <workItem from="1712844584269" duration="5564000" />
+      <workItem from="1712683248973" duration="6545000" />
+      <workItem from="1712732547695" duration="729000" />
     </task>
     <task id="LOCAL-00001" summary="kan jeg push">
       <option name="closed" value="true" />
@@ -191,7 +139,31 @@
       <option name="project" value="LOCAL" />
       <updated>1712140397154</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added dependencies">
+      <option name="closed" value="true" />
+      <created>1712147102373</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712147102373</updated>
+    </task>
+    <task id="LOCAL-00003" summary="started doing unit tests">
+      <option name="closed" value="true" />
+      <created>1712685849946</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712685849946</updated>
+    </task>
+    <task id="LOCAL-00004" summary="continued doing unit tests">
+      <option name="closed" value="true" />
+      <created>1712739025001</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712739025001</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,6 +182,21 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="kan jeg push" />
-    <option name="LAST_COMMIT_MESSAGE" value="kan jeg push" />
+    <MESSAGE value="added dependencies" />
+    <MESSAGE value="started doing unit tests" />
+    <MESSAGE value="continued doing unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="continued doing unit tests" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/main/java/Board.java</url>
+          <line>12</line>
+          <properties field="boardSize" class="Board" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
