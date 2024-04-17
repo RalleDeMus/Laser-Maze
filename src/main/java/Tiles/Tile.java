@@ -26,6 +26,7 @@ public class Tile implements TileInterface, Cloneable{
         this.isRotateable = isRotateable;
     }
 
+
     @Override
     public Tile clone() throws CloneNotSupportedException {
         try {

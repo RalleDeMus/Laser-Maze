@@ -1,12 +1,6 @@
-Feature: Tile rotatability
+Feature: Tile rotatable
+  Scenario: Rotating a tile changes its orientation
+    Given I have a rotatable game tile with an initial orientation of <initialOrientation>
+    When i rotate the tile once
+    Then the tiles orientation should be initial +1
 
-  Scenario: Player tries to rotate a tile they placed themself
-    Given a tile has been created
-    And a tile has been placed
-    When the player press r
-    Then the tile should be rotatable
-
-  Scenario: A tile has been preplaced
-    Given a tile has been created
-    And a tile has been preplaced
-    Then the tile should not be rotatable
