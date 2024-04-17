@@ -1,20 +1,6 @@
 {
     "gameinfo": {"tiles": [
         {
-            "col": 1,
-            "rotatable": true,
-            "orientation": 0,
-            "row": 1,
-            "type": "MirrorTile"
-        },
-        {
-            "col": 3,
-            "rotatable": true,
-            "orientation": 1,
-            "row": 1,
-            "type": "MirrorTile"
-        },
-        {
             "col": 0,
             "rotatable": true,
             "orientation": 0,
@@ -27,25 +13,11 @@
             "orientation": 1,
             "row": 2,
             "type": "MirrorTile"
-        },
-        {
-            "col": 1,
-            "rotatable": true,
-            "orientation": 3,
-            "row": 3,
-            "type": "MirrorTile"
-        },
-        {
-            "col": 3,
-            "rotatable": true,
-            "orientation": 2,
-            "row": 3,
-            "type": "MirrorTile"
         }
     ]},
     "extra tiles": {
         "CheckPointTiles": 9,
-        "MirrorTiles": 4,
+        "MirrorTiles": 8,
         "DoubleTile": 9,
         "CellBlockerTiles": 9,
         "SplitterTiles": 9,

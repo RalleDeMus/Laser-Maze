@@ -1,10 +1,20 @@
 package View;
+import Controller.AssetServer;
 import Controller.BoardPageController;
+import Controller.ImageHandler;
+import Model.Logic.PointStringPair;
 import Model.Tiles.*;
 import Model.Logic.Board;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.util.List;
+
+import javax.swing.Timer;
+import java.awt.image.BufferedImage;
+import java.util.Iterator;
+import java.util.List;
 
 
 public class BoardPage extends JPanel {
@@ -29,7 +39,7 @@ public class BoardPage extends JPanel {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                board.drawBoard(g);
+                drawBoard(g);
             }
         };
 
@@ -140,13 +150,95 @@ public class BoardPage extends JPanel {
 
     }
 
+    void drawLaser(Graphics g){
+        List<PointStringPair> laserMap = board.constructLaserTree();
+
+        for (PointStringPair pair : laserMap) {
+            System.out.println("LaserMap: " + pair.getPoint() + " " + pair.getValue());
+            int j = pair.getPoint().x;
+            int i = pair.getPoint().y;
+            int squareSize = board.getSquareSize();
+
+            String value = pair.getValue();
+
+            if (!value.equals("___")) {
+                BufferedImage image = AssetServer.getInstance().getImage("laserRay");
+
+                if (value.charAt(0) != '_') {
+                    if (value.charAt(1) == '8') {
+                        int direction = Character.getNumericValue(value.charAt(0));
+
+                        g.drawImage(ImageHandler.rotateImage(AssetServer.getInstance().getImage("laserRayTarget"),90*direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
+
+                    } else {
+                        int direction = Character.getNumericValue(value.charAt(0));
+                        g.drawImage(ImageHandler.rotateImage(image, 90 * direction), j *  squareSize, i * squareSize, squareSize, squareSize, null);
+                    }
+                }
+
+                if (value.charAt(1) != '_') {
+                    if (value.charAt(1) != '8') {
+                        int direction = Character.getNumericValue(value.charAt(1)) + 2;
+                        System.out.println("Laserdir: " + direction );
+
+                        g.drawImage(ImageHandler.rotateImage(image, 90 * direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
+
+                    }
+                }
+
+
+                if (value.charAt(2) != '_') {
+                    int direction = Character.getNumericValue(value.charAt(2))+2;
+                    System.out.println("Laserdir: " + direction );
+                    g.drawImage(ImageHandler.rotateImage(image,90*direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
+                }
+            }
+
+        }
+
+
+    }
+
+    public void drawBoard(Graphics g) {
+        int boardSize = board.getBoardSize();
+        int squareSize = board.getSquareSize();
+        Tile[][] tiles = board.getTiles();
+        Point cursorPos = board.getCursorPos();
+        Tile selectedTile = board.getSelectedTile();
+        boolean laserWasFired = board.isLaserFired();
+
+
+        for (int row = 0; row < boardSize; row++) {
+            for (int col = 0; col < boardSize; col++) {
+                if (tiles[row][col] != null) {
+                    // Draws the tile if it is not empty
+                    g.drawImage(tiles[row][col].getImage(), col * squareSize, row * squareSize, squareSize, squareSize, null);
+
+                } else {
+                    // Draws an empty tile if empty
+                    g.drawImage(AssetServer.getInstance().getImage("empty"), col * squareSize, row * squareSize, squareSize, squareSize, null);
+
+                }
+
+
+            }
+        }
+
+        BufferedImage cursorImage = ImageHandler.transImage(selectedTile.getImage(), 0.6f);
+        g.drawImage(cursorImage, cursorPos.x * squareSize, cursorPos.y * squareSize, squareSize, squareSize, null);
+
+        if(laserWasFired) {
+            drawLaser(g);
+        }
+    }
+
 
     protected void paintComponent (Graphics g){
         // Draw the board on repaint
         super.paintComponent(g);
-        board.drawBoard(g);
+        drawBoard(g);
 
     }
 
-    }
+}
 

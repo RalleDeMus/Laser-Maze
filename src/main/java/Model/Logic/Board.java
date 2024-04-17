@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+
+import View.BoardPage;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.FileWriter;
@@ -32,6 +34,8 @@ public class Board {
     private static int[] game_info;
     Tile selectedTile = new LaserTile(true, true);
     boolean laserWasFired = false;
+
+
 
 
 
@@ -65,29 +69,7 @@ public class Board {
         // Draw the tiles: Empty or with a mirror
         // Draw the selected tile
         // Draw the cursor tile
-    public void drawBoard(Graphics g) {
-        for (int row = 0; row < boardSize; row++) {
-            for (int col = 0; col < boardSize; col++) {
-                if (tiles[row][col] != null) {
-                    // Draws the tile if it is not empty
-                    g.drawImage(tiles[row][col].getImage(), col * squareSize, row * squareSize, squareSize, squareSize, null);
 
-                } else {
-                    // Draws an empty tile if empty
-                    g.drawImage(AssetServer.getInstance().getImage("empty"), col * squareSize, row * squareSize, squareSize, squareSize, null);
-                }
-
-
-            }
-        }
-
-        BufferedImage cursorImage = ImageHandler.transImage(selectedTile.getImage(), 0.6f);
-        g.drawImage(cursorImage, cursorPos.x * squareSize, cursorPos.y * squareSize, squareSize, squareSize, null);
-
-        if(laserWasFired) {
-            drawLaser(g);
-        }
-    }
 
     public static Point getTilePos(int x, int y) {
 
@@ -101,6 +83,21 @@ public class Board {
     public void setSelectedTile(Tile tile){
         selectedTile = tile;
         //selectedTile.setImage(assetServer.getImage(imageName));
+    }
+    public Tile[][] getTiles() {
+        return tiles;
+    }
+
+    public int getBoardSize() {
+        return boardSize;
+    }
+
+    public int getSquareSize() {
+        return squareSize;
+    }
+
+    public boolean isLaserFired() {
+        return laserWasFired;
     }
 
     // Get the first tile with tag
@@ -122,7 +119,7 @@ public class Board {
     }
 
     // Construct laser tree
-    List<PointStringPair>  constructLaserTree() {
+    public List<PointStringPair>  constructLaserTree() {
         //String[][] laserHasHit = new String[boardSize][boardSize];
         List<PointStringPair> laserList = new ArrayList<>();
 
