@@ -167,13 +167,7 @@ public class LevelMakerPage extends JPanel{
 
             }
         });
-
-
-
-
-
     }
-
 
     protected void paintComponent (Graphics g){
         // Draw the board on repaint
