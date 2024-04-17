@@ -30,7 +30,7 @@ public class AssetServer {
     }
 
     // Load images from the assets folder
-    private void loadImages(String... assetNames) throws IOException {
+    public void loadImages(String... assetNames) throws IOException {
         for (String assetName : assetNames) {
             BufferedImage image = ImageIO.read(new File("src/main/assets/" + assetName + ".png"));
             images.put(assetName, image);

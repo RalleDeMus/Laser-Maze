@@ -1,6 +1,6 @@
 package images.load;
 
-import Tiles.AssetServer;
+import Controller.AssetServer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -30,6 +30,7 @@ public class LoadImageSteps {
     }
     @Given("the asset server is initialized")
     public void theAssetServerIsInitialized() {
+
         assetServer = AssetServer.getInstance();
     }
 

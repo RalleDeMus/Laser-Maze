@@ -21,7 +21,7 @@ public class Board {
 
     int boardSize;
     int squareSize;
-    Tile[][] tiles;
+    public static Tile[][] tiles;
 
     Card card;
     Point cursorPos;
@@ -231,7 +231,7 @@ public class Board {
 
 
     // Add the cursor tile to the board and check if placement is valid
-    public void addTile(Tile t) {
+    public static void addTile(Tile t) {
         if (tiles[cursorPos.y][cursorPos.x] != null){
             System.out.println("Tile occupied");
         } else {
@@ -286,7 +286,7 @@ public class Board {
 
 
     // Remove a tile
-    public void removeTile() {
+    public static void removeTile() {
         if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsMoveable()) {
             if (tiles[cursorPos.y][cursorPos.x] instanceof MirrorTile) {
                 game_info[0]++;
@@ -306,7 +306,7 @@ public class Board {
     }
 
 
-    public void setCursorPos(int x, int y) {
+    public static void setCursorPos(int x, int y) {
         cursorPos = getTilePos(x, y);
     }
 
@@ -314,7 +314,7 @@ public class Board {
         return cursorPos;
     }
 
-    public void rotateSelectedTile() {
+    public static void rotateSelectedTile() {
         if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsRotateable()) {tiles[cursorPos.y][cursorPos.x].rotate();}else {
             System.out.println("Tile is not rotateable");
         }
@@ -334,7 +334,7 @@ public class Board {
                 throw new IllegalArgumentException("Invalid orientation: " + orientation);
         }
     }
-    public void saveGameState() {
+    public static void saveGameState() {
         JSONObject gameInfo = new JSONObject();
         JSONArray tilesArray = new JSONArray();
 
