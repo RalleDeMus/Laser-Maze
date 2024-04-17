@@ -55,15 +55,18 @@ public class MainMenu extends JFrame implements ActionListener {
         JButton campaignButton = new JButton("Campaign");
         JButton levelSelectButton = new JButton("Level Select");
         JButton levelMakerButton = new JButton("Level Maker");
+        JButton InstructionsButton = new JButton("Instructions");
 
         campaignButton.setAlignmentX(Component.CENTER_ALIGNMENT); // Center align buttons horizontally
         levelSelectButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         levelMakerButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        InstructionsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // Set preferred size for the buttons
         campaignButton.setPreferredSize(new Dimension(200, 50));
         levelSelectButton.setPreferredSize(new Dimension(200, 50));
         levelMakerButton.setPreferredSize(new Dimension(200, 50));
+        InstructionsButton.setPreferredSize(new Dimension(200, 50));
 
         JPanel openLastGamePanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         JButton openLastGameButton = new JButton("Open Last Game");
@@ -74,6 +77,7 @@ public class MainMenu extends JFrame implements ActionListener {
         campaignButton.addActionListener(this);
         levelSelectButton.addActionListener(this);
         levelMakerButton.addActionListener(this);
+        InstructionsButton.addActionListener(this);
         openLastGameButton.addActionListener(this);
 
         panel.add(Box.createVerticalGlue()); // Add glue to center buttons vertically
@@ -82,6 +86,8 @@ public class MainMenu extends JFrame implements ActionListener {
         panel.add(levelSelectButton);
         panel.add(Box.createVerticalStrut(10));
         panel.add(levelMakerButton);
+        panel.add(Box.createVerticalGlue());
+        panel.add(InstructionsButton);
         panel.add(Box.createVerticalGlue());
 
         return panel;
@@ -100,6 +106,10 @@ public class MainMenu extends JFrame implements ActionListener {
             LevelMakerPage levelMakerPage = new LevelMakerPage(this);
             cardPanel.add(levelMakerPage, "levelMakerPage");
             cardLayout.show(cardPanel, "levelMakerPage");
+        } else if (e.getActionCommand().equals("Instructions")) {
+            InstructionsPage instructionsPage = new InstructionsPage(this);
+            cardPanel.add(instructionsPage, "InstructionsPage");
+            cardLayout.show(cardPanel, "InstructionsPage");
         } else if (e.getActionCommand().equals("Open Last Game")) {
             Board.getInstance().setCardLevel("game_state");
             BoardPage lastGame = new BoardPage(this);
