@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import Tiles.AssetServer;
+import Controller.AssetServer;
 
 import java.io.File;
 import java.io.IOException;

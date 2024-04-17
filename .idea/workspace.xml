@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="kan jeg push" />
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="kan jeg push">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/game_state.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/gamecardSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/gamecardSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/images/load/LoadImagesSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/images/load/LoadImagesSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/orientationSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/orientationSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/rotateSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rotateSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Board.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/AssetServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/AssetServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/Tile.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,10 +104,12 @@
     "Application.Hey.executor": "Run",
     "Application.MainMenu.executor": "Run",
     "Application.View.MainMenu.executor": "Run",
+    "Cucumber Java.Feature: rotate.executor": "Run",
+    "Cucumber Java.Scenario: Rotating a tile changes its orientation.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "cucumber",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Rasmu/Desktop/Agil/Exercises/group-4/src/main/levels",
     "node.js.detected.package.eslint": "true",
@@ -134,15 +153,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: succesful start game" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Feature: rotate" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_Game/initialize.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_Game/tile/rotate.feature" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="LaserGame-group-4" />
-      <option name="NAME_FILTER" value="^succesful start game$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^succesful start game$&quot;" />
-      <shortenClasspath name="NONE" />
-      <option name="SUGGESTED_NAME" value="Scenario: succesful start game" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: rotate" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -152,12 +169,32 @@
       </extension>
       <method v="2">
         <option name="Make" enabled="true" />
-        <option name="MakeProject" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Rotating a tile changes its orientation" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_Game/tile/rotate.feature" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="LaserGame-group-4" />
+      <option name="NAME_FILTER" value="^Rotating a tile changes its orientation$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Rotating a tile changes its orientation$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Rotating a tile changes its orientation" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Game" />
+        <item itemvalue="Cucumber Java.Scenario: Rotating a tile changes its orientation" />
+        <item itemvalue="Cucumber Java.Feature: rotate" />
         <item itemvalue="Application.MainMenu" />
         <item itemvalue="Application.Hey" />
       </list>

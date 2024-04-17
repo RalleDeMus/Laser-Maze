@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-class Card {
+public class Card {
 
      private String content;
      private int targetMirrorTiles = 0;

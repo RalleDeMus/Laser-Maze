@@ -7,7 +7,7 @@ import io.cucumber.java.en.When;
 
 //added
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import Tiles.Tile;
+import Model.Tiles.Tile;
 
 
 public class rotateSteps {

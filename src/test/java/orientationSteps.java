@@ -1,7 +1,9 @@
-import Tiles.Tile;
+import Model.Tiles.Tile;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import Model.Tiles.*;
+import Controller.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 public class orientationSteps {
