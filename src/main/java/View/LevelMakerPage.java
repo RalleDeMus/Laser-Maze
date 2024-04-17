@@ -20,6 +20,7 @@ private int laserCount;
 private int spotTargetMirrorCount;
 private int targetMirrorCount;
     private String statusMessage = "";
+    private boolean canRotate = true;
     LevelMakerPage(MainMenu mainMenu) {
         new BoardPageController();
         int boardSize = 5;
@@ -31,7 +32,10 @@ private int targetMirrorCount;
         this.cellBlockerCount = 0;
 
 
+
+
         setLayout(new BorderLayout());
+
 
 
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -40,6 +44,17 @@ private int targetMirrorCount;
         topPanel.add(backButton);
 
         JPanel toolbarPanel = new JPanel(new GridLayout(0,2));
+
+        //toggle rotate
+
+        JButton toggleRotationButton = new JButton("Toggle Rotation");
+        toggleRotationButton.addActionListener(e -> {
+            canRotate = !canRotate;  // Toggle the ability to rotate
+            toggleRotationButton.setText(canRotate ? "Disable Rotation" : "Enable Rotation");
+        });
+        toolbarPanel.add(toggleRotationButton);
+
+
         // BeamSplitter buttons
         JButton addbeamsplitterButton = new JButton("Add beamSplitter");
         JButton removebeamsplitterButton = new JButton("Remove beamSplitter");
@@ -49,6 +64,7 @@ private int targetMirrorCount;
             System.out.println("BeamSplitter : " + beamSplitterCount);
             statusMessage = "BeamSplitter count: " + beamSplitterCount;
             repaint();
+
         });
 
         removebeamsplitterButton.addActionListener(e -> {
@@ -169,6 +185,11 @@ private int targetMirrorCount;
         add(toolbarPanel, BorderLayout.EAST);
         add(new BoardPanel(), BorderLayout.CENTER);
 
+
+        /////
+
+
+
         addComponentListener(new ComponentAdapter() {
             public void componentShown(ComponentEvent e) {
                 LevelMakerPage.this.requestFocusInWindow();
@@ -215,11 +236,14 @@ private int targetMirrorCount;
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_R) {
+                    if (canRotate){
+                        Board.rotateSelectedTile();
+
+
+                        repaint();
+                    }
                     //rotates the tile that is hovered over
-                    Board.rotateSelectedTile();
 
-
-                    repaint();
                 }
 
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
