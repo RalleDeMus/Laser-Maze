@@ -265,13 +265,7 @@ private int targetMirrorCount;
 
             }
         });
-
-
-
-
-
     }
-
 
     protected void paintComponent (Graphics g){
         // Draw the board on repaint
