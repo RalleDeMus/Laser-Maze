@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="continued doing unit tests" />
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Fixed Board class">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/game_state.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/LevelMakerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LevelMakerPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/AssetServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/AssetServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/BoardPage$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/BoardPage$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/BoardPage$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/LevelMakerPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/LevelMakerPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/MainMenu$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/MainMenu.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="UnitJ_test_Lea" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,7 +74,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "levelmaker",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/leali/Documents/Agile/group-4-laserMazeNew/src/test/java/images/load",
     "node.js.detected.package.eslint": "true",
@@ -107,6 +120,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber Java.Scenario: succesful start game" />
+        <item itemvalue="Cucumber Java.Scenario: succesful start game" />
+        <item itemvalue="Cucumber Java.Scenario: succesful start game" />
         <item itemvalue="Cucumber Java.Scenario: succesful start game" />
       </list>
     </recent_temporary>
@@ -163,7 +179,31 @@
       <option name="project" value="LOCAL" />
       <updated>1712739025001</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Adding features and steps tests">
+      <option name="closed" value="true" />
+      <created>1713340503142</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713340503142</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Adding features and steps tests">
+      <option name="closed" value="true" />
+      <created>1713342604541</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713342604541</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fixed Board class">
+      <option name="closed" value="true" />
+      <created>1713343387746</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713343387746</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,7 +225,9 @@
     <MESSAGE value="added dependencies" />
     <MESSAGE value="started doing unit tests" />
     <MESSAGE value="continued doing unit tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="continued doing unit tests" />
+    <MESSAGE value="Adding features and steps tests" />
+    <MESSAGE value="Fixed Board class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Board class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
