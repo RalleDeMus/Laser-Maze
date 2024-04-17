@@ -19,14 +19,14 @@ public class Board {
 
 
 
-    int boardSize;
-    int squareSize;
+    static int boardSize;
+    static int squareSize;
     public static Tile[][] tiles;
 
     Card card;
-    Point cursorPos;
+    static Point cursorPos;
 
-    private int game_info[];
+    private static int[] game_info;
     Tile selectedTile = new LaserTile(true, true);
 
 
@@ -80,7 +80,7 @@ public class Board {
         g.drawImage(cursorImage, cursorPos.x * squareSize, cursorPos.y * squareSize, squareSize, squareSize, null);
     }
 
-    public Point getTilePos(int x, int y) {
+    public static Point getTilePos(int x, int y) {
 
         return new Point(Math.min(x / squareSize,boardSize-1),  Math.min(y / squareSize,boardSize-1));
     }
@@ -95,7 +95,7 @@ public class Board {
     }
 
     // Get the first tile with tag
-    public Tile getLaserTile() {
+    public static Tile getLaserTile() {
         for (int row = 0; row < boardSize; row++) {
             for (int col = 0; col < boardSize; col++) {
                 if (tiles[row][col] != null && tiles[row][col] instanceof LaserTile) {
