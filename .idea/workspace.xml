@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Fixed Board class">
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Started making levelmakerpage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/game_state.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/LevelMakerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LevelMakerPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/AssetServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/AssetServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/BoardPage$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/BoardPage$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/BoardPage$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/View/LevelMakerPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/LevelMakerPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/MainMenu$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/MainMenu.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -203,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713343387746</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Started making levelmakerpage">
+      <option name="closed" value="true" />
+      <created>1713347422543</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713347422543</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +229,8 @@
     <MESSAGE value="continued doing unit tests" />
     <MESSAGE value="Adding features and steps tests" />
     <MESSAGE value="Fixed Board class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Board class" />
+    <MESSAGE value="Started making levelmakerpage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started making levelmakerpage" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

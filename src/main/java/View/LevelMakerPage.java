@@ -10,6 +10,7 @@ public class LevelMakerPage extends JPanel{
 
     final private Board board;
     private int beamSplitterCount;
+    private int cellBlockerCount;
 
     LevelMakerPage(MainMenu mainMenu) {
         new BoardPageController();
@@ -19,58 +20,62 @@ public class LevelMakerPage extends JPanel{
         setPreferredSize(new Dimension(boardSize * squareSize, (boardSize) * squareSize + toolbarHeight));
         this.board = Board.getInstance();
         this.beamSplitterCount = 0;
+        this.cellBlockerCount = 0;
 
         setLayout(new BorderLayout());
+
 
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu"));
         topPanel.add(backButton);
 
+        JPanel toolbarPanel = new JPanel(new GridLayout(0,1));
 
-        private JPanel createButtonMenu() {
-            JPanel panel = new JPanel();
-            panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        // BeamSplitter buttons
+        JButton addbeamsplitterButton = new JButton("Add beamSplitter");
+        JButton removebeamsplitterButton = new JButton("Remove beamSplitter");
 
-            JButton addbeamsplitterButton = new JButton("Add BeamSplitter");
-//            addbeamsplitterButton.addActionListener(e -> {
-//                beamSplitterCount++;
-//            });
+        addbeamsplitterButton.addActionListener(e -> {
+            beamSplitterCount++;
+                    System.out.println("BeamSplitter : " + beamSplitterCount);
+        });
 
-            addbeamsplitterButton.setAlignmentX(Component.RIGHT_ALIGNMENT); // Center align buttons horizontally
-            addbeamsplitterButton.setPreferredSize(new Dimension(200, 50));
-            addbeamsplitterButton.addActionListener(this);
-            panel.add(addbeamsplitterButton);
+        removebeamsplitterButton.addActionListener(e -> {
+            beamSplitterCount--;
+            System.out.println("BeamSplitter : " + beamSplitterCount);
+        });
 
-        }
+        toolbarPanel.add(addbeamsplitterButton);
+        toolbarPanel.add(removebeamsplitterButton);
 
+        // CellBlocker buttons
 
+        JButton addcellblockerButton = new JButton("Add CellBlocker");
+        JButton removecellblockerButton = new JButton("Remove CellBlocker");
 
+        addcellblockerButton.addActionListener(e -> {
+            cellBlockerCount++;
+            System.out.println("CellBlocker : " + cellBlockerCount);
+        });
 
+        removecellblockerButton.addActionListener(e -> {
+            cellBlockerCount--;
+            System.out.println("CellBlocker : " + cellBlockerCount);
+        });
 
-
-
-
-
-
-
-        JPanel boardPanel = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                board.drawBoard(g);
-            }
-        };
+        toolbarPanel.add(addcellblockerButton);
+        toolbarPanel.add(removecellblockerButton);
 
         add(topPanel, BorderLayout.NORTH);
-        add(boardPanel, BorderLayout.CENTER);
+        add(toolbarPanel, BorderLayout.EAST);
+        add(new BoardPanel(), BorderLayout.CENTER);
 
         addComponentListener(new ComponentAdapter() {
             public void componentShown(ComponentEvent e) {
                 LevelMakerPage.this.requestFocusInWindow();
             }
         });
-
 
         setFocusable(true);
 
@@ -177,10 +182,20 @@ public class LevelMakerPage extends JPanel{
 
     }
 
+    class BoardPanel extends JPanel {
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            board.drawBoard(g);
+        }
+
+        @Override
+        public Dimension getPreferredSize() {
+            return new Dimension(2, 3);
+        }
+    }
+
 }
-
-
-
 
 
 
