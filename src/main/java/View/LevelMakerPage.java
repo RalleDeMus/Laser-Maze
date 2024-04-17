@@ -21,6 +21,9 @@ private int spotTargetMirrorCount;
 private int targetMirrorCount;
     private String statusMessage = "";
     private boolean canRotate = true;
+
+    private JLabel statusLabel;  // JLabel to display status messages
+
     LevelMakerPage(MainMenu mainMenu) {
         new BoardPageController();
         int boardSize = 5;
@@ -30,8 +33,6 @@ private int targetMirrorCount;
         this.board = Board.getInstance();
         this.beamSplitterCount = 0;
         this.cellBlockerCount = 0;
-
-
 
 
         setLayout(new BorderLayout());
@@ -45,6 +46,9 @@ private int targetMirrorCount;
 
         JPanel toolbarPanel = new JPanel(new GridLayout(0,2));
 
+        statusLabel = new JLabel("Welcome to Level Maker");
+        toolbarPanel.add(statusLabel);
+
         //toggle rotate
 
         JButton toggleRotationButton = new JButton("Toggle Rotation");
@@ -56,22 +60,20 @@ private int targetMirrorCount;
 
 
         // BeamSplitter buttons
-        JButton addbeamsplitterButton = new JButton("Add beamSplitter");
-        JButton removebeamsplitterButton = new JButton("Remove beamSplitter");
+        JButton addbeamsplitterButton = new JButton("Add beamSplitter"+ beamSplitterCount);
+        JButton removebeamsplitterButton = new JButton("Remove beamSplitter" + beamSplitterCount);
 
         addbeamsplitterButton.addActionListener(e -> {
             beamSplitterCount++;
-            System.out.println("BeamSplitter : " + beamSplitterCount);
-            statusMessage = "BeamSplitter count: " + beamSplitterCount;
-            repaint();
-
+            updateStatus("BeamSplitter count: " + beamSplitterCount);
         });
 
         removebeamsplitterButton.addActionListener(e -> {
             beamSplitterCount--;
-            System.out.println("BeamSplitter : " + beamSplitterCount);
-            statusMessage = "BeamSplitter count: " + beamSplitterCount;
-            repaint();
+            updateStatus("BeamSplitter count: " + beamSplitterCount);
+
+//            statusMessage = "BeamSplitter count: " + beamSplitterCount;
+//            repaint();
         });
 
         toolbarPanel.add(addbeamsplitterButton);
@@ -84,12 +86,12 @@ private int targetMirrorCount;
 
         addcellblockerButton.addActionListener(e -> {
             cellBlockerCount++;
-            System.out.println("CellBlocker : " + cellBlockerCount);
+            updateStatus("cellBlocker count: " + cellBlockerCount);
         });
 
         removecellblockerButton.addActionListener(e -> {
             cellBlockerCount--;
-            System.out.println("CellBlocker : " + cellBlockerCount);
+            updateStatus("cellBlocker count: " + cellBlockerCount);
         });
 
         toolbarPanel.add(addcellblockerButton);
@@ -289,6 +291,11 @@ private int targetMirrorCount;
 
             }
         });
+    }
+
+//update status efter knap klik
+    private void updateStatus(String message) {
+        statusLabel.setText(message);
     }
 
     protected void paintComponent (Graphics g){
