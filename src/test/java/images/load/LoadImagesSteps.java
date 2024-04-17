@@ -38,9 +38,10 @@ public class LoadImagesSteps {
     }
 
     // Initializes assetServer
-    @When("the method loadImages\\(\\) is executed") // Using backslashes to escape parenthesis
-    public void theMethodLoadImagesIsExecuted() {
+    @When("the method loadImages\\() is executed") // Using backslashes to escape parenthesis
+    public void the_method_load_images_is_executed() {
         assetServer = new AssetServer();
+        throw new io.cucumber.java.PendingException();
     }
 
     // Loads the "beamSplitter.png" image and compares it with an expected image

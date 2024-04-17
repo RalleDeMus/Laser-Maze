@@ -13,7 +13,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.FileWriter;
 
-
 //make singleton
 public class Board {
     private static Board instance;

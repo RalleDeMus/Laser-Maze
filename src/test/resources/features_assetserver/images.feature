@@ -1,4 +1,4 @@
-Feature:Loadimages
+Feature:Load images
 
   Scenario: Successful load of "beamSplitter" image
   Given assetName "beamSplitter"
