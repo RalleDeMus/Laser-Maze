@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Laser working with standard mirrors.">
-      <change afterPath="$PROJECT_DIR$/src/main/assets/laserRayTarget.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/PointStringPair.java" afterDir="false" />
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Laser can now firer over itself">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tiles/AssetServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiles/AssetServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Game$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game$3.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +121,7 @@
       <workItem from="1712145042407" duration="6740000" />
       <workItem from="1712217564464" duration="1187000" />
       <workItem from="1712309615661" duration="15084000" />
-      <workItem from="1713339257386" duration="2882000" />
+      <workItem from="1713339257386" duration="3711000" />
     </task>
     <task id="LOCAL-00001" summary="kan jeg push">
       <option name="closed" value="true" />
@@ -184,7 +179,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712315538385</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Laser can now firer over itself">
+      <option name="closed" value="true" />
+      <created>1713342578234</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713342578234</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,6 +211,7 @@
     <MESSAGE value="Added functioning orritation for tiles&#10;Added rotate tile function&#10;Added way to find lasertile so we can make the laser" />
     <MESSAGE value="Fixed singleton assetserver" />
     <MESSAGE value="Laser working with standard mirrors." />
-    <option name="LAST_COMMIT_MESSAGE" value="Laser working with standard mirrors." />
+    <MESSAGE value="Laser can now firer over itself" />
+    <option name="LAST_COMMIT_MESSAGE" value="Laser can now firer over itself" />
   </component>
 </project>

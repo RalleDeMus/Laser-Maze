@@ -197,6 +197,7 @@ public class Board {
                         // If the laser is not allowed to pass, stop the laser and add no more tiles
                         System.out.println("Mirror? " + tile);
                         System.out.println("Mirror blocked: " + Arrays.toString(tile.getPass()));
+                        if (tile.getTarget()[laserCorrected] == 0) continue;
 
                     } else {
 
