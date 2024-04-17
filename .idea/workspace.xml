@@ -7,15 +7,12 @@
     <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Merged LaserBranch into main">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/game_state.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/BoardPage$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/BoardPage$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/BoardPage$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/BoardPage$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/BoardPage$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AssetServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AssetServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/AssetServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/AssetServer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/BoardPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/MainMenu$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/MainMenu.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +70,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "BoardDrawToView",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/leali/Documents/Agile/group-4-laserMazeNew/src/test/java/images/load",
     "node.js.detected.package.eslint": "true",

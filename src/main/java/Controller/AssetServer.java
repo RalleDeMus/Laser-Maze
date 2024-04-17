@@ -14,7 +14,7 @@ public class AssetServer {
 
     public AssetServer() {
         try {
-            loadImages("beamSplitter", "cellBlocker", "checkPoint", "doubleMirror", "empty", "laser", "targetMirror", "laserRay","laserRayTarget", "rotateBeamSplitter", "rotateCheckpoint", "rotateDoubleMirror", "rotateLaser", "rotateTargetMirror", "spotRotateTargetMirror", "spotTargetMirror");
+            loadImages("background","beamSplitter", "cellBlocker", "checkPoint", "doubleMirror", "empty", "laser", "targetMirror", "laserRay","laserRayTarget", "rotateBeamSplitter", "rotateCheckpoint", "rotateDoubleMirror", "rotateLaser", "rotateTargetMirror", "spotRotateTargetMirror", "spotTargetMirror");
         } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException("Failed to load assets", e);
