@@ -1,8 +1,10 @@
+package Model.Logic;
+
 import java.awt.Point;
 
 public class PointStringPair {
-    private Point point;
-    private String value;
+    final Point point;
+    final String value;
 
     public PointStringPair(Point point, String value) {
         this.point = point;

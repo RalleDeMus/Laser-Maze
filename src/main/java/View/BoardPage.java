@@ -126,7 +126,7 @@ public class BoardPage extends JPanel {
                 }
 
                 if (e.getKeyCode() == KeyEvent.VK_L) {
-                    board.constructLaserTree();
+                    board.fireLaser();
                     repaint();
                 }
 

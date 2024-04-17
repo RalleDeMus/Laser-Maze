@@ -22,14 +22,9 @@ import java.util.ArrayList;
 public class Board {
     private static Board instance;
 
-
-    int boardSize;
-    int squareSize;
-    Tile[][] tiles;
-
+    public static Tile[][] tiles;
     static int boardSize;
     static int squareSize;
-    public static Tile[][] tiles;
 
     Card card;
     static Point cursorPos;
@@ -257,6 +252,7 @@ public class Board {
         List<PointStringPair> laserMap = constructLaserTree();
 
         for (PointStringPair pair : laserMap) {
+            System.out.println("LaserMap: " + pair.getPoint() + " " + pair.getValue());
             int j = pair.getPoint().x;
             int i = pair.getPoint().y;
 
@@ -292,7 +288,6 @@ public class Board {
                 }
             }
 
-            System.out.println("LaserMap: " + pair.getPoint() + " " + pair.getValue());
         }
 
 
@@ -323,7 +318,8 @@ public class Board {
                 return;
             }
             else{
-                game_info[0]--;}
+                game_info[0]--;
+            }
 
         } else if (t instanceof SplitterTile) {
             if (game_info[1] == 0){
@@ -331,28 +327,32 @@ public class Board {
                 return;
             }
             else{
-                game_info[1]--;}
+                game_info[1]--;
+            }
         } else if (t instanceof CheckPointTile) {
             if (game_info[2] == 0){
                 System.out.println("No more checkpoint tiles");
                 return;
             }
             else{
-                game_info[2]--;}
+                game_info[2]--;
+            }
         } else if (t instanceof DoubleTile) {
             if (game_info[3] == 0){
                 System.out.println("No more double tiles");
                 return;
             }
             else{
-                game_info[3]--;}
+                game_info[3]--;
+            }
         } else if (t instanceof CellBlockerTile) {
             if (game_info[4] == 0){
                 System.out.println("No more cell blocker tiles");
                 return;
             }
             else{
-                game_info[4]--;}
+                game_info[4]--;
+            }
 
         } else{
             System.out.println("Adding tile: " + (t instanceof LaserTile ? "Laser" : "Mirror"));
