@@ -16,7 +16,7 @@ public class BoardPage extends JPanel {
         Board board = Board.getInstance(); // Ensure we have access to the Board instance.
         setLayout(new BorderLayout());
         int topPanelHeight = 40;
-        initializeUI(mainMenu,topPanelHeight);
+        initializeUI(mainMenu,topPanelHeight, board.get_game_info(5));
 
         // Conditional setup based on whether laser features are included.
         BoardRenderer renderer;
@@ -40,12 +40,27 @@ public class BoardPage extends JPanel {
         });
     }
 
-    private void initializeUI(MainMenu mainMenu,int topPanelHeight) {
+    private void initializeUI(MainMenu mainMenu, int topPanelHeight,int targets) {
+        // Create the top panel with a FlowLayout aligned to the left
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu"));
+
+        // Create a label for displaying text on the right
+        JLabel textLabel = new JLabel("Targets: "+targets);
+        textLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+
+        // Set the preferred size of the top panel
         topPanel.setPreferredSize(new Dimension(getWidth(), topPanelHeight));
+
+        // Add the back button to the top panel
         topPanel.add(backButton);
+
+        // Add an invisible component to push the label to the right
+        topPanel.add(Box.createHorizontalGlue());
+        topPanel.add(textLabel);
+
+        // Add the top panel to the main container
         add(topPanel, BorderLayout.NORTH);
     }
 }

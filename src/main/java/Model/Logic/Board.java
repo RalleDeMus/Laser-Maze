@@ -114,10 +114,18 @@ public class Board {
         return null;
     }
 
+    public int get_game_info(int index) {
+        return game_info[index];
+    }
+
 
     public void fireLaser(){
         laserWasFired = true;
 
+    }
+
+    public void resetLaser(){
+        laserWasFired = false;
     }
 
     // Construct laser tree

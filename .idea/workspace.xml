@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Removed exesive print statements">
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Fixed checkwincondition">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/game_state.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/LaserRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Board/LaserRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/LaserInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Board/LaserInputHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -209,7 +211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713448555622</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fixed checkwincondition">
+      <option name="closed" value="true" />
+      <created>1713449442250</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1713449442250</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +246,8 @@
     <MESSAGE value="This commit works, fixed issue with launch of application" />
     <MESSAGE value="Merged with other branch CheckWinCondition and Assetserver" />
     <MESSAGE value="Removed exesive print statements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed exesive print statements" />
+    <MESSAGE value="Fixed checkwincondition" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed checkwincondition" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

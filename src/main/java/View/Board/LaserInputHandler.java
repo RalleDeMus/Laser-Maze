@@ -20,4 +20,14 @@ public class LaserInputHandler extends BoardInputHandler {
             panel.repaint();
         }
     }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        super.keyReleased(e); // Call super to handle common key release events
+        if (e.getKeyCode() == KeyEvent.VK_L) {
+            board.resetLaser();
+            panel.repaint();
+        }
+    }
+
 }
