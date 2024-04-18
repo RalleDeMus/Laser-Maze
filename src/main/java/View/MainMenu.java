@@ -127,7 +127,7 @@ public class MainMenu extends JFrame implements ActionListener {
         Color borderColor = new Color(255, 255, 255);
 
         JButton button = new JButton(text);
-        button.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 45));
+        button.setFont(new Font("Baloo Bhaijaan", Font.BOLD, 45));
         button.setBackground(buttonColor); // Light gray
         button.setForeground(textColor);
         button.setFocusPainted(false);

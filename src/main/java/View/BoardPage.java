@@ -2,6 +2,7 @@ package View;
 
 import Model.Logic.Board;
 import View.Board.*;
+import View.Board.CostomLabels.TargetRender;
 
 import javax.swing.*;
 import java.awt.*;
@@ -45,27 +46,32 @@ public class BoardPage extends JPanel {
         });
     }
 
-    private void initializeUI(MainMenu mainMenu, int topPanelHeight,int targets) {
-        // Create the top panel with a FlowLayout aligned to the left
+    private void initializeUI(MainMenu mainMenu, int topPanelHeight, int targets) {
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu"));
 
-        // Create a label for displaying text on the right
-        JLabel textLabel = new JLabel("Targets: "+targets);
-        textLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 
-        // Set the preferred size of the top panel
         topPanel.setPreferredSize(new Dimension(getWidth(), topPanelHeight));
-
-        // Add the back button to the top panel
         topPanel.add(backButton);
-
-        // Add an invisible component to push the label to the right
         topPanel.add(Box.createHorizontalGlue());
-        topPanel.add(textLabel);
 
-        // Add the top panel to the main container
+        // Create a separate panel to hold the NumberedCircle
+        JPanel circlePanel = new JPanel();
+        circlePanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        TargetRender numberedCircle = new TargetRender(targets, new Color(222, 48, 48), Color.WHITE, 60);
+
+        JLabel normalLabel = new JLabel("Targets:");
+
+
+        circlePanel.add(normalLabel);
+        circlePanel.add(numberedCircle);
+
+
         add(topPanel, BorderLayout.NORTH);
+        add(circlePanel, BorderLayout.SOUTH);  // Add the circle panel under the renderer
+
+        // Adjust the circle panel to hold the VerticalLabel and TargetRender circle
+
     }
 }

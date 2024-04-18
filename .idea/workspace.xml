@@ -5,15 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Fixed checkwincondition">
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/Board/ToolBar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/View/Board/CostomLabels/TargetRender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/game_state.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/BoardInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Board/BoardInputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/BoardRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Board/BoardRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/LaserRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Board/LaserToolBarRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/MainMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/boardmethods/AddingLaserTileSteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/boardmethods/RemovingTileSteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/boardmethods/RotatingTileSteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/boardmethods/SavingGameStateSteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/images/load/LoadImageSteps.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Julius-Toolbar" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -72,7 +74,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Julius-Toolbar",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/leali/Documents/Agile/group-4-laserMazeNew/src/test/java/images/load",
     "node.js.detected.package.eslint": "true",
