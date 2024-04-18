@@ -4,26 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Fixed the board having an offset in placement of tiles due to a toppanel (and some other small stuff)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/Board/BoardInputHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/Board/BoardRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/Board/LaserInputHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/Board/LaserRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/BoardPageClean.java" afterDir="false" />
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Merged with other branch CheckWinCondition and Assetserver">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/game_state.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/LevelSelectPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LevelSelectPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/LevelSelectPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/LevelSelectPage$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/MainMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/LaserRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Board/LaserRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +29,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitLabMergeRequestFiltersHistory">{
   &quot;lastFilter&quot;: {
@@ -199,7 +185,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713441505009</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="This commit works, fixed issue with launch of application">
+      <option name="closed" value="true" />
+      <created>1713447907530</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713447907530</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Merged with other branch CheckWinCondition and Assetserver">
+      <option name="closed" value="true" />
+      <created>1713448189175</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713448189175</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,7 +225,9 @@
     <MESSAGE value="continued doing unit tests" />
     <MESSAGE value="workspace" />
     <MESSAGE value="Fixed the board having an offset in placement of tiles due to a toppanel (and some other small stuff)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the board having an offset in placement of tiles due to a toppanel (and some other small stuff)" />
+    <MESSAGE value="This commit works, fixed issue with launch of application" />
+    <MESSAGE value="Merged with other branch CheckWinCondition and Assetserver" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merged with other branch CheckWinCondition and Assetserver" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

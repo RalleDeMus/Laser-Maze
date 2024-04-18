@@ -184,13 +184,13 @@ public class Board {
 
 
                         // Get the corrected way that the laser is facing in respect to the tile
-                        System.out.println("LaserC: " + tile.getOrientation() + " " + current.getOrientation() + " " + subMod(tile.getOrientation(), current.getOrientation(), 4));
+                        //System.out.println("LaserC: " + tile.getOrientation() + " " + current.getOrientation() + " " + subMod(tile.getOrientation(), current.getOrientation(), 4));
                         int laserCorrected = subMod(tile.getOrientation(), current.getOrientation(), 4);
 
                         // Check if the tile is a target
                         if (tile.getTarget()[laserCorrected] == 1) {
                             // If so, increment the targets hit
-                            System.out.println("Target HIT: " + laserCorrected + " gettarget: " + Arrays.toString(tile.getTarget()));
+                            //System.out.println("Target HIT: " + laserCorrected + " gettarget: " + Arrays.toString(tile.getTarget()));
                             targetsHit++;
                             toDir = "8_";
                         }
@@ -204,21 +204,21 @@ public class Board {
 
                         if (tile.getPass()[laserCorrected] == 0) {
                             // If the laser is not allowed to pass, stop the laser and add no more tiles
-                            System.out.println("Mirror? " + tile);
-                            System.out.println("Mirror blocked: " + Arrays.toString(tile.getPass()));
+                            //System.out.println("Mirror? " + tile);
+                            //System.out.println("Mirror blocked: " + Arrays.toString(tile.getPass()));
                             if (tile.getTarget()[laserCorrected] == 0) continue;
 
                         } else {
 
-                            System.out.println("Evaluating tile: " + "\n" + laserCorrected);
+                            //System.out.println("Evaluating tile: " + "\n" + laserCorrected);
                             int rotateBy = tile.getMirror()[laserCorrected];
                             int nextLaserOrientation = (current.getOrientation() + rotateBy) % 4;
 
-                            System.out.println(rotateBy);
-                            System.out.println(nextLaserOrientation);
+                            //System.out.println(rotateBy);
+                            //System.out.println(nextLaserOrientation);
                             Laser adding = new Laser(current.getX() + orientationToPoint(nextLaserOrientation).x, current.getY() + orientationToPoint(nextLaserOrientation).y, nextLaserOrientation);
                             lasers.add(adding);
-                            System.out.println("At mirror, adding next: " + adding.toString());
+                            //System.out.println("At mirror, adding next: " + adding.toString());
 
                             toDir = String.valueOf(nextLaserOrientation);
                             toDir += (tile instanceof SplitterTile) ? fromDir : "_";
@@ -230,7 +230,7 @@ public class Board {
                         Laser adding = new Laser(current.getX() + orientationToPoint(current.getOrientation()).x, current.getY() + orientationToPoint(current.getOrientation()).y, current.getOrientation());
                         lasers.add(adding);
 
-                        System.out.println("At empty tile, adding next: " + adding.toString());
+                        //System.out.println("At empty tile, adding next: " + adding.toString());
                     }
                     laserList.add(new PointStringPair(new Point(current.getX(), current.getY()), String.valueOf(fromDir) + String.valueOf(toDir)));
 
@@ -258,7 +258,7 @@ public class Board {
             List<PointStringPair> laserMap = constructLaserTree();
 
         for (PointStringPair pair : laserMap) {
-            System.out.println("LaserMap: " + pair.getPoint() + " " + pair.getValue());
+            //System.out.println("LaserMap: " + pair.getPoint() + " " + pair.getValue());
             int j = pair.getPoint().x;
             int i = pair.getPoint().y;
 
@@ -325,7 +325,7 @@ public class Board {
     // Add the cursor tile to the board and check if placement is valid
     public static void addTile(Tile t) {
         if (tiles[cursorPos.y][cursorPos.x] != null){
-            System.out.println("Tile occupied");
+            //System.out.println("Tile occupied");
         } else {
         if (t instanceof LaserTile && getLaserTile() != null) {
             System.out.println("Laser already exists");
@@ -373,7 +373,7 @@ public class Board {
             }
 
         } else{
-            System.out.println("Adding tile: " + (t instanceof LaserTile ? "Laser" : "Mirror"));
+            //System.out.println("Adding tile: " + (t instanceof LaserTile ? "Laser" : "Mirror"));
         }
 
 

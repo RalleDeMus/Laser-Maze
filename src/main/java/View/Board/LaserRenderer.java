@@ -19,11 +19,9 @@ public class LaserRenderer extends BoardRenderer {
 
     void drawLaser(Graphics g){
         if(board.isLaserFired()) {
-            System.out.println("Laser is asdasd fired");
             List<PointStringPair> laserMap = board.constructLaserTree();
 
             for (PointStringPair pair : laserMap) {
-                System.out.println("LaserMap: " + pair.getPoint() + " " + pair.getValue());
                 int j = pair.getPoint().x;
                 int i = pair.getPoint().y;
                 int squareSize = board.getSquareSize();
@@ -48,7 +46,6 @@ public class LaserRenderer extends BoardRenderer {
                     if (value.charAt(1) != '_') {
                         if (value.charAt(1) != '8') {
                             int direction = Character.getNumericValue(value.charAt(1)) + 2;
-                            System.out.println("Laserdir: " + direction);
 
                             g.drawImage(ImageHandler.rotateImage(image, 90 * direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
 
@@ -58,7 +55,6 @@ public class LaserRenderer extends BoardRenderer {
 
                     if (value.charAt(2) != '_') {
                         int direction = Character.getNumericValue(value.charAt(2)) + 2;
-                        System.out.println("Laserdir: " + direction);
                         g.drawImage(ImageHandler.rotateImage(image, 90 * direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
                     }
                 }
