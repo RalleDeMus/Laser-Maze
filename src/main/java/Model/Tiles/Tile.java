@@ -11,6 +11,7 @@ public class Tile implements TileInterface, Cloneable{
 
     protected boolean isRotateable;
     private BufferedImage image;
+    private BufferedImage rotatedImage;
 
     private int orientation;
 
@@ -49,6 +50,7 @@ public class Tile implements TileInterface, Cloneable{
             // For BufferedImage, decide based on whether it needs to be unique among clones
             // This example simply copies the reference. For a deep clone, you'll need a custom solution.
             cloned.image = this.image;
+            cloned.rotatedImage = this.rotatedImage;
             return cloned;
         } catch (CloneNotSupportedException e) {
             // This shouldn't happen since we are Cloneable
@@ -92,7 +94,20 @@ public class Tile implements TileInterface, Cloneable{
 
     @Override
     public BufferedImage getImage() {
+        if (orientation == 4){
+            return rotatedImage;
+        }
         return image;
+    }
+
+    @Override
+    public void setRotatedImage(BufferedImage rotatedImage) {
+        this.rotatedImage = rotatedImage;
+    }
+
+    @Override
+    public BufferedImage getRotatedImage() {
+        return rotatedImage;
     }
 
     //getter and setter to make tile rotateable
@@ -116,9 +131,19 @@ public class Tile implements TileInterface, Cloneable{
 
 
 
-    public void rotate(){
-        orientation = (orientation + 1) % 4;
-        image = ImageHandler.rotateImage(image, 90);
+    public void rotate(int howMuch, int mod){
+        if (orientation == 4 && mod == 4) {
+            orientation = 0;
+        }
+        for(int i = 0; i < howMuch; i++){
+            orientation = (orientation + 1) % mod;
+            if(orientation != 4){
+                image = ImageHandler.rotateImage(image, 90);
+            }
+        }
+
+
+        System.out.println("Tile rotated to orientation: " + orientation + " with this much: " + howMuch);
     }
 
 }

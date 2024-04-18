@@ -398,7 +398,7 @@ public class Board {
 
     public static void rotateSelectedTile() {
         if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsRotateable()) {
-            tiles[cursorPos.y][cursorPos.x].rotate();
+            tiles[cursorPos.y][cursorPos.x].rotate(1,4);
         }else {
             System.out.println("Tile is not rotateable");
         }

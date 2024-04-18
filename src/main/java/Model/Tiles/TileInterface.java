@@ -16,6 +16,10 @@ public interface TileInterface {
     void setIsMoveable(boolean isMoveable);
     BufferedImage getImage();
     void setImage(BufferedImage image);
+
+    void setRotatedImage(BufferedImage rotatedImage);
+
+    BufferedImage getRotatedImage();
     void setIsRotateable(boolean isRotateable);
 
 

@@ -3,7 +3,7 @@
         {
             "col": 0,
             "rotatable": true,
-            "orientation": 0,
+            "orientation": 1,
             "row": 3,
             "type": "MirrorTile"
         },
@@ -17,14 +17,14 @@
         {
             "col": 0,
             "rotatable": true,
-            "orientation": 0,
+            "orientation": 1,
             "row": 4,
             "type": "MirrorTile"
         },
         {
             "col": 1,
             "rotatable": true,
-            "orientation": 0,
+            "orientation": 1,
             "row": 4,
             "type": "MirrorTile"
         }

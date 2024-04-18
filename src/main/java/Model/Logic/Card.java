@@ -64,6 +64,9 @@ class Card {
                 int row = tileObject.getInt("row");
                 int orientation = tileObject.getInt("orientation");
                 boolean rotatable = tileObject.getBoolean("rotatable");
+                if(rotatable){
+                    orientation = 4;
+                }
                 String type = tileObject.getString("type");
 
                 switch (type) {
