@@ -3,12 +3,14 @@ package View.Board;
 import java.awt.event.KeyEvent;
 
 import Model.Logic.Board;
+import View.BoardPage;
+
 import javax.swing.*;
 
 
 public class LaserInputHandler extends BoardInputHandler {
 
-    public LaserInputHandler(Board board, JPanel panel,int yOffset){
+    public LaserInputHandler(Board board, BoardPage panel, int yOffset){
         super(board, panel, yOffset);
     }
 
@@ -27,6 +29,8 @@ public class LaserInputHandler extends BoardInputHandler {
         if (e.getKeyCode() == KeyEvent.VK_L) {
             board.resetLaser();
             panel.repaint();
+            panel.updateWinStatus();
+
         }
     }
 

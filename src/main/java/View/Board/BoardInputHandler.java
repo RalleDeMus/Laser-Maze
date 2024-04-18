@@ -4,16 +4,18 @@ import Model.Logic.Board;
 import Model.Logic.PointStringPair;
 import Model.Tiles.*;
 import Model.Logic.Board;
+import View.BoardPage;
+
 import javax.swing.*;
 import java.awt.event.*;
 
 public class BoardInputHandler extends MouseAdapter implements KeyListener {
     protected Board board;
-    protected JPanel panel;
+    protected BoardPage panel;
 
     protected int yOffset;
 
-    public BoardInputHandler(Board board, JPanel panel,int yOffset) {
+    public BoardInputHandler(Board board, BoardPage panel,int yOffset) {
         this.board = board;
         this.panel = panel;
         this.yOffset = yOffset;

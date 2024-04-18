@@ -37,6 +37,8 @@ public class Board {
     Tile selectedTile = new LaserTile(true, true);
     boolean laserWasFired = false;
 
+    boolean win;
+
 
 
 
@@ -120,6 +122,15 @@ public class Board {
 
     public int get_game_info(int index) {
         return game_info[index];
+    }
+
+
+    public Boolean getWin() {
+        return win;
+    }
+
+    public void resetWin() {
+        win = false;
     }
 
 
@@ -275,11 +286,13 @@ public class Board {
 
         if (mirrorsHit == countMirrors() && targetsHit == game_info[5]){
             System.out.println("Win condition met");
+            win = true;
             return true;
         } else {
             System.out.println("Win condition not met - all mirrors not used OR not all mirrors hit");
             System.out.println("Mirrors hit: " + mirrorsHit + " Count mirrors: " + countMirrors());
             System.out.println("Targets hit: " + targetsHit + " Count targets: " + game_info[5]);
+            win = false;
             return false;
         }
 
