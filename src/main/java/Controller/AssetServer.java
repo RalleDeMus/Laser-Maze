@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.imageio.ImageIO;
+import java.util.ArrayList;
 
 public class AssetServer {
 
@@ -14,11 +15,15 @@ public class AssetServer {
 
     public AssetServer() {
         try {
-            loadImages("background","beamSplitter", "LaserLogo", "cellBlocker", "checkPoint", "doubleMirror", "empty", "laser", "targetMirror", "laserRay","laserRayTarget", "rotateBeamSplitter", "rotateCheckpoint", "rotateDoubleMirror", "rotateLaser", "rotateTargetMirror", "spotRotateTargetMirror", "spotTargetMirror");
+            //loadImages("beamSplitter", "cellBlocker", "checkPoint", "doubleMirror", "empty", "laser", "targetMirror", "laserRay", "rotateBeamSplitter", "rotateCheckpoint", "rotateDoubleMirror", "rotateLaser", "rotateTargetMirror", "spotRotateTargetMirror", "spotTargetMirror");
+            ArrayList<String> assets = listFilesForFolder(new File("src/main/assets"));
+            loadImages(assets);
+
         } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException("Failed to load assets", e);
         }
+
     }
 
 
@@ -30,14 +35,29 @@ public class AssetServer {
     }
 
     // Load images from the assets folder
-    public void loadImages(String... assetNames) throws IOException {
+    private void loadImages(ArrayList<String> assetNames) throws IOException {
         for (String assetName : assetNames) {
-            BufferedImage image = ImageIO.read(new File("src/main/assets/" + assetName + ".png"));
+            BufferedImage image = ImageIO.read(new File("src/main/assets/" + assetName));
             images.put(assetName, image);
+
         }
+
     }
 
     public BufferedImage getImage(String assetName) {
-        return images.get(assetName);
+        return images.get(assetName+".png");
     }
+
+    public ArrayList<String> listFilesForFolder(final File folder) {
+        ArrayList<String> filenames = new ArrayList<>();
+        for (final File fileEntry : folder.listFiles()) {
+            if (fileEntry.isDirectory()) {
+                listFilesForFolder(fileEntry);
+            } else {
+                filenames.add(fileEntry.getName());
+            }
+        }
+        return filenames;
+    }
+
 }
