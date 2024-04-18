@@ -134,11 +134,18 @@ public class Tile implements TileInterface, Cloneable{
     public void rotate(int howMuch, int mod){
         if (orientation == 4 && mod == 4) {
             orientation = 0;
+            image = ImageHandler.rotateImage(image, 90);
+            howMuch--;
+
+
         }
+
         for(int i = 0; i < howMuch; i++){
             orientation = (orientation + 1) % mod;
             if(orientation != 4){
                 image = ImageHandler.rotateImage(image, 90);
+
+
             }
         }
 

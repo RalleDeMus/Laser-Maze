@@ -20,10 +20,11 @@ public class LaserTile extends Tile {
         this.mirror = new int[]{0, 0, 0, 0};
         this.pass = new int[]{0, 0, 0, 0};
         this.target = new int[]{0,0,0,0};
-        this.setImage(ImageHandler.rotateImage(AssetServer.getInstance().getImage("laser"), 90*orientation));
+        this.setImage(AssetServer.getInstance().getImage("laser"));
         this.setRotatedImage(AssetServer.getInstance().getImage("laserFree"));
+
         this.rotate(orientation,5);
-        //System.out.println("Model.Tiles.LaserTile");
+        System.out.println("orr: "+orientation);
     }
 
 }

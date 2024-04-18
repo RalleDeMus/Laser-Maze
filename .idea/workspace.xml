@@ -4,31 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Now easier to unselect tile">
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Now added rotatable tiles so you can see which tiles you can rotate when you start a level">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/assets/rotateBeamSplitter.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/beamSplitterFree.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/assets/rotateCheckpoint.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/checkPointFree.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/assets/rotateDoubleMirror.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/doubleMirrorFree.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/assets/rotateLaser.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/laserFree.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/assets/rotateTargetMirror.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/targetMirrorFree.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/game_state.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/CheckPointTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/CheckPointTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/DoubleTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/DoubleTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/LaserTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/LaserTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/MirrorTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/MirrorTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/SplitterTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/SplitterTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/TileInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/TileInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/BoardInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Board/BoardInputHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Card.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/CheckPointTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/CheckPointTile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/DoubleTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/DoubleTile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/LaserTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/LaserTile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/MirrorTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/MirrorTile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/SplitterTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/SplitterTile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/Tile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/TileInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/TileInterface.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713463203264</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Now added rotatable tiles so you can see which tiles you can rotate when you start a level">
+      <option name="closed" value="true" />
+      <created>1713466067306</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713466067306</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,7 +292,8 @@
     <MESSAGE value="Added showing number of targets hit as a circle" />
     <MESSAGE value="Added &quot;YOU WIN!&quot; label when you complete a level" />
     <MESSAGE value="Now easier to unselect tile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Now easier to unselect tile" />
+    <MESSAGE value="Now added rotatable tiles so you can see which tiles you can rotate when you start a level" />
+    <option name="LAST_COMMIT_MESSAGE" value="Now added rotatable tiles so you can see which tiles you can rotate when you start a level" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -60,10 +60,8 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        System.out.println("Key pressed: " + KeyEvent.getKeyText(e.getKeyCode()));
         switch (e.getKeyCode()) {
             case KeyEvent.VK_R:
-                System.out.println("Rotating tile...");
                 board.rotateSelectedTile();
                 break;
             case KeyEvent.VK_ENTER:

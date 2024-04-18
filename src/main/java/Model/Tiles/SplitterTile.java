@@ -21,7 +21,7 @@ public class SplitterTile extends Tile {
         this.pass = new int[]{1, 1, 1, 1};
         this.target = new int[]{0,0,0,0};
         this.isMoveable = isMoveable;
-        this.setImage(ImageHandler.rotateImage(AssetServer.getInstance().getImage("beamSplitter"), 90*orientation));
+        this.setImage(AssetServer.getInstance().getImage("beamSplitter"));
         this.setRotatedImage(AssetServer.getInstance().getImage("beamSplitterFree"));
         this.rotate(orientation,5);
     }

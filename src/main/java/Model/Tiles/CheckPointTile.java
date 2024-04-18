@@ -18,7 +18,7 @@ public class CheckPointTile extends Tile {
         this.mirror = new int[]{0, 0, 0, 0};
         this.pass = new int[]{0, 1, 0, 1};
         this.target = new int[]{0,0,0,0};
-        this.setImage(ImageHandler.rotateImage(AssetServer.getInstance().getImage("checkPoint"), 90*orientation));
+        this.setImage(AssetServer.getInstance().getImage("checkPoint"));
         this.setRotatedImage(AssetServer.getInstance().getImage("checkPointFree"));
         this.rotate(orientation,5);
     }
