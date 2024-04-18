@@ -45,15 +45,9 @@ class Card {
              }
          }
          //add json implementation
-
-
-
-
-
-
-
-
      }
+
+
 
 
     public Tile[][] getCard(){

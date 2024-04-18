@@ -39,6 +39,8 @@ public class Board {
 
     boolean win;
 
+    int level = 0;
+
 
 
 
@@ -459,10 +461,20 @@ public class Board {
     }
 
     public void setCardLevel(String level) {
+        System.out.println("Setting card level to: " + level);
+        this.level = Integer.parseInt(level);
         this.card = new Card(level);
         this.tiles = card.getCard();
         this.game_info = card.getPlaceableTiles();
     }
+
+    public int getLevel() {
+        return level;
+    }
+
+    //public getCardLevel() {
+        //return this.card.;
+    //}
 
     public int countMirrors() {
         int mirrors = 0;

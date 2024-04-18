@@ -15,13 +15,17 @@ public class BoardPage extends JPanel {
     private Board board;
     private JPanel winPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); // Initialize here
 
+    private MainMenu mainMenu;
+
     public BoardPage(MainMenu mainMenu, boolean includeLaserFeatures) {
+        this.mainMenu = mainMenu;
         // Ensure the Board is accessible
         board = Board.getInstance();
         board.resetWin();
         setLayout(new BorderLayout());
         int topPanelHeight = 40;
         initializeUI(mainMenu, topPanelHeight, board.get_game_info(5));
+
 
         // Setup based on feature inclusion
         BoardRenderer renderer;
@@ -47,10 +51,22 @@ public class BoardPage extends JPanel {
     public void updateWinStatus() {
         winPanel.removeAll(); // Safely remove all components
         if (board.getWin()) {
-            JLabel winLabel = new JLabel("YOU WIN!");
+            JLabel winLabel = new JLabel("YOU WIN! ");
             System.out.println("Win: "+board.getWin());
             winLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 40));
             winPanel.add(winLabel);
+
+            JButton nextLevelButton = new JButton("Next Level");
+            nextLevelButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+            nextLevelButton.addActionListener(e -> {
+                        System.out.println("Going to level " + (board.getLevel() + 1));
+                        board.setCardLevel(String.valueOf((board.getLevel() + 1)));
+                        BoardPage boardPage = new BoardPage(mainMenu,true);
+                        mainMenu.getCardPanel().add(boardPage, "boardPage");
+                        mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
+                    }
+            );
+            winPanel.add(nextLevelButton);
         }
         winPanel.revalidate();
         winPanel.repaint();
