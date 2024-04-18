@@ -28,7 +28,7 @@ public class Board {
     static int boardSize;
     static int squareSize;
     private int mirrorsHit;
-    private int targetsHit = 0;
+    private int targetsHit;
 
     Card card;
     static Point cursorPos;
@@ -146,16 +146,16 @@ public class Board {
             System.out.println();
             if (laserTile != null) {
                 System.out.println("Constructing laser tree");
-                targetsHit = 0;
 
                 //laserHasHit[laser.getY()][laser.getX()] = 1;
 
-                int targetsHit = 0;
+                targetsHit = 0;
 
                 Queue<Laser> lasers = new LinkedList<>();
                 List<Laser> hitLasers = new LinkedList<>();
                 lasers.add(new Laser(laser.getX() + orientationToPoint(laser.getOrientation()).x, laser.getY() + orientationToPoint(laser.getOrientation()).y, laser.getOrientation()));
 
+                mirrorsHit = 0;
 
                 while (!lasers.isEmpty()) {
                     Laser current = lasers.remove();
@@ -253,55 +253,6 @@ public class Board {
 
     }
 
-    void drawLaser(Graphics g) {
-        if (constructLaserTree() != null){
-            List<PointStringPair> laserMap = constructLaserTree();
-
-        for (PointStringPair pair : laserMap) {
-            //System.out.println("LaserMap: " + pair.getPoint() + " " + pair.getValue());
-            int j = pair.getPoint().x;
-            int i = pair.getPoint().y;
-
-            String value = pair.getValue();
-
-            if (!value.equals("___")) {
-                BufferedImage image = AssetServer.getInstance().getImage("laserRay");
-
-
-                if (value.charAt(0) != '_') {
-                    if (value.charAt(1) == '8') {
-                        int direction = Character.getNumericValue(value.charAt(0));
-                        g.drawImage(ImageHandler.rotateImage(AssetServer.getInstance().getImage("laserRayTarget"), 90 * direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
-
-                    } else {
-                        int direction = Character.getNumericValue(value.charAt(0));
-                        g.drawImage(ImageHandler.rotateImage(image, 90 * direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
-                    }
-                }
-
-                if (value.charAt(1) != '_') {
-                    if (value.charAt(1) != '8') {
-                        int direction = Character.getNumericValue(value.charAt(1)) + 2;
-                        g.drawImage(ImageHandler.rotateImage(image, 90 * direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
-
-                    }
-                }
-
-
-                if (value.charAt(2) != '_') {
-                    int direction = Character.getNumericValue(value.charAt(2)) + 2;
-                    g.drawImage(ImageHandler.rotateImage(image, 90 * direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
-                }
-            }
-
-        }
-    } else {
-            System.out.println("Not all mirrors used");
-        }
-
-
-    }
-
     int subMod(int a, int b, int mod) {
         return (a - b + mod) % mod;
     }
@@ -315,6 +266,8 @@ public class Board {
             return true;
         } else {
             System.out.println("Win condition not met - all mirrors not used OR not all mirrors hit");
+            System.out.println("Mirrors hit: " + mirrorsHit + " Count mirrors: " + countMirrors());
+            System.out.println("Targets hit: " + targetsHit + " Count targets: " + game_info[5]);
             return false;
         }
 
