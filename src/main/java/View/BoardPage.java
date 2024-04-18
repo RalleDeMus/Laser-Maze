@@ -11,11 +11,6 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.util.List;
 
-import javax.swing.Timer;
-import java.awt.image.BufferedImage;
-import java.util.Iterator;
-import java.util.List;
-
 
 public class BoardPage extends JPanel {
     final private Board board;
@@ -23,7 +18,7 @@ public class BoardPage extends JPanel {
     BoardPage(MainMenu mainMenu) {
         new BoardPageController();
         int boardSize = 5;
-        int squareSize = 120;
+        int squareSize = 100;
         int toolbarHeight = (int) Math.round(1.5 * squareSize);
         setPreferredSize(new Dimension(boardSize * squareSize, (boardSize) * squareSize + toolbarHeight));
         this.board = Board.getInstance();
@@ -35,6 +30,7 @@ public class BoardPage extends JPanel {
         backButton.addActionListener(e -> mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu"));
         topPanel.add(backButton);
 
+
         JPanel boardPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
@@ -45,6 +41,8 @@ public class BoardPage extends JPanel {
 
         add(topPanel, BorderLayout.NORTH);
         add(boardPanel, BorderLayout.CENTER);
+        int yOffset = backButton.getHeight();
+
 
         addComponentListener(new ComponentAdapter() {
             public void componentShown(ComponentEvent e) {
@@ -84,7 +82,7 @@ public class BoardPage extends JPanel {
         addMouseMotionListener(new MouseAdapter() {
             @Override
             public void mouseMoved(MouseEvent e) {
-                board.setCursorPos(e.getX(), e.getY());
+                board.setCursorPos(e.getX(), e.getY() - topPanel.getHeight());
                 repaint();
             }
         });

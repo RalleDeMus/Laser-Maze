@@ -1,4 +1,5 @@
 package View;
+
 import Controller.AssetServer;
 import Model.Logic.Board;
 
@@ -11,41 +12,47 @@ public class MainMenu extends JFrame implements ActionListener {
     private JPanel cardPanel;
     private CardLayout cardLayout;
     private BackgroundPanel backgroundPanel;
+
+    JLabel logoLabel = new JLabel();
+
+
     public MainMenu() {
         setTitle("Laser Maze");
         setSize(650, 800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null); // Center the window
 
-        // Obtain the background image from AssetServer
+// Obtain the background image from AssetServer
         BufferedImage backgroundImage = AssetServer.getInstance().getImage("background");
-        // Initialize the BackgroundPanel with the image
+// Initialize the BackgroundPanel with the image
         backgroundPanel = new BackgroundPanel(backgroundImage);
-        setContentPane(backgroundPanel);
         backgroundPanel.setLayout(new BorderLayout());
 
-        // Title label at the top
+// Title label at the top
         BufferedImage logoImage = AssetServer.getInstance().getImage("LaserLogo");
         ImageIcon logoIcon = new ImageIcon(logoImage);
-
-        JLabel logoLabel = new JLabel(logoIcon);
+        logoLabel = new JLabel(logoIcon);
         logoLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
-        // Initialize cardPanel with CardLayout
-        cardPanel = new JPanel();
-        cardLayout = new CardLayout();
-        cardPanel.setLayout(cardLayout);
+// Initialize cardPanel with CardLayout
+        cardLayout = new CardLayout();  // Make sure this is initialized before it's used
+        cardPanel = new JPanel(cardLayout);  // Assign the layout manager when creating the panel
         cardPanel.setOpaque(false); // Make cardPanel transparent
 
-        // Add the main menu panel to cardPanel
+// Add the main menu panel to cardPanel
         JPanel mainMenuPanel = createMainMenuPanel();
         cardPanel.add(mainMenuPanel, "mainMenu");
 
-        // Add components to the BackgroundPanel
+// Create a main content panel and add the BackgroundPanel to it
+        JPanel mainContent = new JPanel(new BorderLayout());
+        setContentPane(mainContent);
+        mainContent.add(backgroundPanel, BorderLayout.CENTER);
+
+// Add the logo label and card panel to the BackgroundPanel
         backgroundPanel.add(logoLabel, BorderLayout.NORTH);
         backgroundPanel.add(cardPanel, BorderLayout.CENTER);
 
-        // Make the frame visible
+// Make the frame visible
         setVisible(true);
 
         // Handle window closing event
@@ -75,7 +82,6 @@ public class MainMenu extends JFrame implements ActionListener {
         levelSelectButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         levelMakerButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         InstructionsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-
 
 
 //        // Set preferred size for the buttons
@@ -118,17 +124,17 @@ public class MainMenu extends JFrame implements ActionListener {
 
         Color buttonExitColor = new Color(200, 0, 0);
 
+        Color borderColor = new Color(255, 255, 255);
+
         JButton button = new JButton(text);
         button.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 45));
         button.setBackground(buttonColor); // Light gray
         button.setForeground(textColor);
         button.setFocusPainted(false);
-        button.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(buttonColor, 2, true),
-                BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+        button.setBorder(BorderFactory.createLineBorder(borderColor, 0, true));
         button.setOpaque(true);
         Dimension buttonSize = new Dimension(400, 60);
-        Dimension buttonExitSize = new Dimension(420,70);
+        Dimension buttonExitSize = new Dimension(420, 70);
 
         button.setPreferredSize(buttonSize);
         button.setMinimumSize(buttonSize);
@@ -141,7 +147,7 @@ public class MainMenu extends JFrame implements ActionListener {
                 button.setBackground(buttonExitColor); // Slightly darker gray on hover
                 button.setForeground(textExitColor);
 
-                button.setBorder(BorderFactory.createLineBorder(buttonExitColor, 1, true));  // Thicker border on hover
+                button.setBorder(BorderFactory.createLineBorder(borderColor, 3, true));  // Thicker border on hover
 
                 button.getParent().revalidate(); // Recalculate the layout
                 button.getParent().repaint(); // Refresh display
@@ -153,7 +159,7 @@ public class MainMenu extends JFrame implements ActionListener {
                 button.setBackground(buttonColor);
                 button.setForeground(textColor);
 
-                button.setBorder(BorderFactory.createLineBorder(buttonColor, 0, true));  // Thicker border on hover
+                button.setBorder(BorderFactory.createLineBorder(borderColor, 0, true));  // Thicker border on hover
 
                 button.getParent().revalidate(); // Recalculate the layout
                 button.getParent().repaint(); // Refresh display
@@ -214,7 +220,6 @@ public class MainMenu extends JFrame implements ActionListener {
     public JPanel getCardPanel() {
         return cardPanel;
     }
-
 
 
 }

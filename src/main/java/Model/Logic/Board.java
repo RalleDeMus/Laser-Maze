@@ -60,7 +60,7 @@ public class Board {
 
     public static Board getInstance(){
         if (instance == null){
-            instance = new Board(5, 120);
+            instance = new Board(5, 100);
         }
         return instance;
     }
