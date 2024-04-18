@@ -58,7 +58,7 @@ public class LevelSelectPage extends JPanel{
                     selectedLevel = Integer.parseInt(((JButton) e.getSource()).getText());
                     System.out.println("Selected Level: " + selectedLevel);
                     Board.getInstance().setCardLevel(selectedLevel+"");
-                    BoardPage boardPage = new BoardPage(mainMenu);
+                    BoardPage boardPage = new BoardPage(mainMenu,true);
                     mainMenu.getCardPanel().add(boardPage, "boardPage");
                     mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
                 }
