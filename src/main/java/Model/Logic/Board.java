@@ -87,10 +87,17 @@ public class Board {
     }
 
     public void setSelectedTile(Tile tile){
-        if(selectedTile == tile) {
-            selectedTile = null;
-        } else {
-            selectedTile = tile;
+        if (tile != null ) {
+            if(selectedTile != null) {
+                if (selectedTile.getClass() == tile.getClass()) {
+                    selectedTile = null;
+                } else {
+                    selectedTile = tile;
+                }
+            } else {
+                selectedTile = tile;
+
+            }
         }
         //selectedTile.setImage(assetServer.getImage(imageName));
     }
