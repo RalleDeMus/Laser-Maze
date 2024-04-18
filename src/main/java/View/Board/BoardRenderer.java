@@ -48,8 +48,11 @@ public class BoardRenderer extends JPanel {
             }
         }
 
-        BufferedImage cursorImage = ImageHandler.transImage(selectedTile.getImage(), 0.6f);
-        g.drawImage(cursorImage, cursorPos.x * squareSize, cursorPos.y * squareSize, squareSize, squareSize, null);
+        if(selectedTile != null) {
+            BufferedImage cursorImage = ImageHandler.transImage(selectedTile.getImage(), 0.6f);
+            g.drawImage(cursorImage, cursorPos.x * squareSize, cursorPos.y * squareSize, squareSize, squareSize, null);
+
+        }
 
 
 

@@ -26,8 +26,10 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
         panel.addMouseMotionListener(new MouseMotionAdapter() {
             @Override
             public void mouseMoved(MouseEvent e) {
-                board.setCursorPos(e.getX(), e.getY()- yOffset);
-                panel.repaint();
+                if(e.getX()<board.getBoardSize()*board.getSquareSize()) {
+                    board.setCursorPos(e.getX(), e.getY() - yOffset);
+                    panel.repaint();
+                }
             }
         });
         panel.addKeyListener(this);
@@ -40,16 +42,18 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if (e.getButton() == MouseEvent.BUTTON1) {
-            try {
-                board.addTile(board.getSelectedTile().clone());
-            } catch (CloneNotSupportedException ex) {
-                ex.printStackTrace();
+        if(e.getX()<board.getBoardSize()*board.getSquareSize()) {
+            if (e.getButton() == MouseEvent.BUTTON1) {
+                try {
+                    board.addTile(board.getSelectedTile().clone());
+                } catch (CloneNotSupportedException ex) {
+                    ex.printStackTrace();
+                }
+            } else if (e.getButton() == MouseEvent.BUTTON3) {
+                board.removeTile();
             }
-        } else if (e.getButton() == MouseEvent.BUTTON3) {
-            board.removeTile();
+            panel.repaint();
         }
-        panel.repaint();
     }
 
     @Override
@@ -76,7 +80,7 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
                 board.setSelectedTile(new SplitterTile(true, true));
                 break;
             case KeyEvent.VK_5:
-                board.setSelectedTile(new CheckPointTile(false, true));
+                board.setSelectedTile(new CheckPointTile(true, true));
                 break;
             case KeyEvent.VK_6:
                 board.setSelectedTile(new CellBlockerTile());

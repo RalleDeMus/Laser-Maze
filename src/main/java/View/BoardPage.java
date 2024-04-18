@@ -11,6 +11,8 @@ import java.awt.event.ComponentEvent;
 public class BoardPage extends JPanel {
     private BoardInputHandler inputHandler;
 
+    private ToolBar toolBar;
+
     public BoardPage(MainMenu mainMenu, boolean includeLaserFeatures) {
         // Make sure the Board is accessible here.
         Board board = Board.getInstance(); // Ensure we have access to the Board instance.
@@ -21,8 +23,11 @@ public class BoardPage extends JPanel {
         // Conditional setup based on whether laser features are included.
         BoardRenderer renderer;
         if (includeLaserFeatures) {
-            renderer = new LaserRenderer();
+            renderer = new LaserToolBarRenderer();
             inputHandler = new LaserInputHandler(board, this, topPanelHeight);
+            toolBar = new ToolBar(board, this, topPanelHeight,renderer);
+
+
         } else {
             renderer = new BoardRenderer();
             inputHandler = new BoardInputHandler(board, this, topPanelHeight);

@@ -83,7 +83,11 @@ public class Board {
     }
 
     public void setSelectedTile(Tile tile){
-        selectedTile = tile;
+        if(selectedTile == tile) {
+            selectedTile = null;
+        } else {
+            selectedTile = tile;
+        }
         //selectedTile.setImage(assetServer.getImage(imageName));
     }
     public Tile[][] getTiles() {
@@ -255,7 +259,7 @@ public class Board {
             }
             return laserList;
         } else {
-            System.out.println("Not all mirrors used");
+            //System.out.println("Not all mirrors used");
             return null;
         }
 
@@ -284,61 +288,59 @@ public class Board {
 
 
     // Add the cursor tile to the board and check if placement is valid
-    public static void addTile(Tile t) {
-        if (tiles[cursorPos.y][cursorPos.x] != null){
-            //System.out.println("Tile occupied");
-        } else {
-        if (t instanceof LaserTile && getLaserTile() != null) {
-            System.out.println("Laser already exists");
-            return;
-        } else if (t instanceof MirrorTile) {
-            if (game_info[0] == 0){
-                System.out.println("No more mirror tiles");
-                return;
-            }
-            else{
-                game_info[0]--;
-            }
+    public void addTile(Tile t) {
+        if (t != null) {
+            if (tiles[cursorPos.y][cursorPos.x] != null) {
+                //System.out.println("Tile occupied");
+            } else {
+                if (t instanceof LaserTile && getLaserTile() != null) {
+                    System.out.println("Laser already exists");
+                    return;
+                } else if (t instanceof MirrorTile) {
+                    if (game_info[0] == 0) {
+                        System.out.println("No more mirror tiles");
+                        return;
+                    } else {
+                        game_info[0]--;
+                    }
 
-        } else if (t instanceof SplitterTile) {
-            if (game_info[1] == 0){
-                System.out.println("No more splitter tiles");
-                return;
-            }
-            else{
-                game_info[1]--;
-            }
-        } else if (t instanceof CheckPointTile) {
-            if (game_info[2] == 0){
-                System.out.println("No more checkpoint tiles");
-                return;
-            }
-            else{
-                game_info[2]--;
-            }
-        } else if (t instanceof DoubleTile) {
-            if (game_info[3] == 0){
-                System.out.println("No more double tiles");
-                return;
-            }
-            else{
-                game_info[3]--;
-            }
-        } else if (t instanceof CellBlockerTile) {
-            if (game_info[4] == 0){
-                System.out.println("No more cell blocker tiles");
-                return;
-            }
-            else{
-                game_info[4]--;
-            }
+                } else if (t instanceof SplitterTile) {
+                    if (game_info[1] == 0) {
+                        System.out.println("No more splitter tiles");
+                        return;
+                    } else {
+                        game_info[1]--;
+                    }
+                } else if (t instanceof CheckPointTile) {
+                    if (game_info[2] == 0) {
+                        System.out.println("No more checkpoint tiles");
+                        return;
+                    } else {
+                        game_info[2]--;
+                    }
+                } else if (t instanceof DoubleTile) {
+                    if (game_info[3] == 0) {
+                        System.out.println("No more double tiles");
+                        return;
+                    } else {
+                        game_info[3]--;
+                    }
+                } else if (t instanceof CellBlockerTile) {
+                    if (game_info[4] == 0) {
+                        System.out.println("No more cell blocker tiles");
+                        return;
+                    } else {
+                        game_info[4]--;
+                    }
 
-        } else{
-            //System.out.println("Adding tile: " + (t instanceof LaserTile ? "Laser" : "Mirror"));
-        }
+                } else {
+                    //System.out.println("Adding tile: " + (t instanceof LaserTile ? "Laser" : "Mirror"));
+                }
 
+                selectedTile = null;
+                tiles[cursorPos.y][cursorPos.x] = t;
 
-            tiles[cursorPos.y][cursorPos.x] = t;
+            }
         }
     }
 
@@ -373,7 +375,9 @@ public class Board {
     }
 
     public static void rotateSelectedTile() {
-        if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsRotateable()) {tiles[cursorPos.y][cursorPos.x].rotate();}else {
+        if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsRotateable()) {
+            tiles[cursorPos.y][cursorPos.x].rotate();
+        }else {
             System.out.println("Tile is not rotateable");
         }
     }
