@@ -11,14 +11,17 @@ import java.awt.event.*;
 
 public class BoardInputHandler extends MouseAdapter implements KeyListener {
     protected Board board;
-    protected BoardPage panel;
+    protected JPanel panel;
 
     protected int yOffset;
 
-    public BoardInputHandler(Board board, BoardPage panel,int yOffset) {
+    private boolean removeTileAfterPlace;
+
+    public BoardInputHandler(Board board, JPanel panel,int yOffset, boolean removeTileAfterPlace) {
         this.board = board;
         this.panel = panel;
         this.yOffset = yOffset;
+        this.removeTileAfterPlace = removeTileAfterPlace;
         setupListeners();
     }
 
@@ -47,7 +50,7 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
         if(e.getX()<board.getBoardSize()*board.getSquareSize()) {
             if (e.getButton() == MouseEvent.BUTTON1) {
                 try {
-                    board.addTile(board.getSelectedTile().clone());
+                    board.addTile(board.getSelectedTile().clone(),removeTileAfterPlace);
                 } catch (CloneNotSupportedException ex) {
                     ex.printStackTrace();
                 }

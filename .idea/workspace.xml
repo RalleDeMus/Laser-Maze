@@ -4,23 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Now added rotatable tiles so you can see which tiles you can rotate when you start a level">
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Fixed rotation issues">
+      <change afterPath="$PROJECT_DIR$/src/main/java/View/Board/CostomLabels/ImageOverlayNumber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/View/LevelMaker/LevelMakerInputHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/View/LevelMaker/LevelMakerRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/game_state.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/CheckPointTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/CheckPointTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/DoubleTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/DoubleTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/LaserTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/LaserTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/MirrorTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/MirrorTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/SplitterTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/SplitterTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/BoardInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Board/BoardInputHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/CostomLabels/TargetRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Board/CostomLabels/TargetRender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/LaserInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Board/LaserInputHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/LevelMakerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LevelMakerPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/CheckPointTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/CheckPointTile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/DoubleTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/DoubleTile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/LaserTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/LaserTile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/MirrorTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/MirrorTile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/SplitterTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/SplitterTile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/Tile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/LevelMakerPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/LevelMakerPage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +76,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "level-maker-julius-tests",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/leali/Documents/Agile/group-4-laserMazeNew/src/test/java/images/load",
     "node.js.detected.package.eslint": "true",
@@ -261,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713466067306</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Fixed rotation issues">
+      <option name="closed" value="true" />
+      <created>1713467876491</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713467876491</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,7 +298,8 @@
     <MESSAGE value="Added &quot;YOU WIN!&quot; label when you complete a level" />
     <MESSAGE value="Now easier to unselect tile" />
     <MESSAGE value="Now added rotatable tiles so you can see which tiles you can rotate when you start a level" />
-    <option name="LAST_COMMIT_MESSAGE" value="Now added rotatable tiles so you can see which tiles you can rotate when you start a level" />
+    <MESSAGE value="Fixed rotation issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed rotation issues" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

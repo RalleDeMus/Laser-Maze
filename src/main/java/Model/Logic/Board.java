@@ -310,7 +310,7 @@ public class Board {
 
 
     // Add the cursor tile to the board and check if placement is valid
-    public void addTile(Tile t) {
+    public void addTile(Tile t,boolean removeTileAfterPlacement) {
         if (t != null) {
             if (tiles[cursorPos.y][cursorPos.x] != null) {
                 //System.out.println("Tile occupied");
@@ -359,7 +359,7 @@ public class Board {
                     //System.out.println("Adding tile: " + (t instanceof LaserTile ? "Laser" : "Mirror"));
                 }
 
-                selectedTile = null;
+                if(removeTileAfterPlacement) selectedTile = null;
                 tiles[cursorPos.y][cursorPos.x] = t;
 
             }

@@ -17,6 +17,22 @@ public class TargetRender extends JComponent {
         setPreferredSize(new Dimension(diameter, diameter));
     }
 
+    public void setTargets(int targets) {
+        this.number = targets;
+    }
+
+    public void setColor(Color color) {
+        this.circleColor = color;
+    }
+
+    public void setNumberColor(Color backColor) {
+        this.numberColor = backColor;
+    }
+
+    public void setDiameter(int size) {
+        this.diameter = size;
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
