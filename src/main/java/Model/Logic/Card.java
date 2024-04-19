@@ -24,19 +24,18 @@ class Card {
 
 
          try {
-             if (level.equals("game_state") || level.equals("temp")) {
-                 this.content = new String(Files.readAllBytes(Paths.get( level + ".json")));
-             }
-             else{
+             try {
+                 // Attempt to parse the level as an integer
+                 Integer.parseInt(level);
+                 // If parsing succeeds, load the level using an integer-based filename
                  this.content = new String(Files.readAllBytes(Paths.get("src/main/levels/level_" + level + ".json")));
+             } catch (NumberFormatException e) {
+                 // If parsing fails, load the custom level instead
+                 this.content = new String(Files.readAllBytes(Paths.get("src/main/levels/custom/"+level+".json")));
              }
          } catch (IOException | JSONException e) {
              e.printStackTrace();
          }
-         //load json file
-            //parse json file
-
-         //initialize tiles
          for (int row = 0; row < 5; row++) {
              for (int col = 0; col < 5; col++) {
                  this.tiles[row][col] = null;

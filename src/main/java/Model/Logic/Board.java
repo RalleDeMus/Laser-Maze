@@ -452,7 +452,7 @@ public class Board {
         boardState.put("extra tiles", game_info_JSON);
 
         // Save the JSON object to a file
-        try (FileWriter file = new FileWriter(filename+ ".json")) {
+        try (FileWriter file = new FileWriter("src/main/levels/custom/"+filename+ ".json")) {
             file.write(boardState.toString(4)); // Write with indentation for readability
             System.out.println("Successfully Copied JSON Object to File...");
             System.out.println("\nJSON Object: " + boardState);
