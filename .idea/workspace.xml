@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Now laser is at toolbar">
-      <change afterPath="$PROJECT_DIR$/src/main/assets/allTiles.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/BoardInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Board/BoardInputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/LaserInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Board/LaserInputHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/LevelMaker/LevelMakerInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LevelMaker/LevelMakerInputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/LevelMakerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LevelMakerPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/temp.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/temp.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/BoardPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/LevelMakerPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/LevelMakerPage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="fixingLaserToolbar" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -75,7 +67,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "fixingLaserToolbar",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/leali/Documents/Agile/group-4-laserMazeNew/src/test/java/images/load",
     "node.js.detected.package.eslint": "true",

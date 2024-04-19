@@ -118,7 +118,12 @@ public class BoardPage extends JPanel {
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu"));
 
+        JLabel levelText = new JLabel("   Level: " + board.getLevel());
+        levelText.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+
+
         topPanel.add(backButton);
+        topPanel.add(levelText);
 
         if (board.get_game_info(5) == 0 && board.getLevel().equals("temp")){
             JLabel textLabel = new JLabel("Level name (exit with TAB):");
