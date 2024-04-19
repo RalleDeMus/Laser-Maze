@@ -310,7 +310,7 @@ public class Board {
 
 
     // Add the cursor tile to the board and check if placement is valid
-    public void addTile(Tile t) {
+    public void addTile(Tile t,boolean removeTileAfterPlacement) {
         if (t != null) {
             if (tiles[cursorPos.y][cursorPos.x] != null) {
                 //System.out.println("Tile occupied");
@@ -350,7 +350,7 @@ public class Board {
                 }
 
 
-                selectedTile = null;
+                if(removeTileAfterPlacement) selectedTile = null;
                 tiles[cursorPos.y][cursorPos.x] = t;
 
             }
@@ -385,9 +385,10 @@ public class Board {
         return cursorPos;
     }
 
-    public static void rotateSelectedTile() {
+    public static void rotateSelectedTile(boolean levelEditor) {
+        int mod = levelEditor ? 5 : 4;
         if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsRotateable()) {
-            tiles[cursorPos.y][cursorPos.x].rotate(1,4);
+            tiles[cursorPos.y][cursorPos.x].rotate(1,mod);
         }else {
             System.out.println("Tile is not rotateable");
         }

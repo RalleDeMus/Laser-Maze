@@ -10,8 +10,11 @@ import javax.swing.*;
 
 public class LaserInputHandler extends BoardInputHandler {
 
-    public LaserInputHandler(Board board, BoardPage panel, int yOffset){
-        super(board, panel, yOffset);
+    BoardPage panel;
+
+    public LaserInputHandler(Board board, BoardPage panel, int yOffset, boolean removeTileAfterPlace){
+        super(board, panel, yOffset, removeTileAfterPlace, false);
+        this.panel = panel;
     }
 
     @Override

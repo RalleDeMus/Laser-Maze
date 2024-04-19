@@ -11,14 +11,20 @@ import java.awt.event.*;
 
 public class BoardInputHandler extends MouseAdapter implements KeyListener {
     protected Board board;
-    protected BoardPage panel;
+    protected JPanel panel;
 
     protected int yOffset;
 
-    public BoardInputHandler(Board board, BoardPage panel,int yOffset) {
+    private boolean removeTileAfterPlace;
+
+    private boolean levelEditor;
+
+    public BoardInputHandler(Board board, JPanel panel,int yOffset, boolean removeTileAfterPlace, boolean levelEditor) {
         this.board = board;
         this.panel = panel;
         this.yOffset = yOffset;
+        this.removeTileAfterPlace = removeTileAfterPlace;
+        this.levelEditor = levelEditor;
         setupListeners();
     }
 
@@ -47,7 +53,7 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
         if(e.getX()<board.getBoardSize()*board.getSquareSize()) {
             if (e.getButton() == MouseEvent.BUTTON1) {
                 try {
-                    board.addTile(board.getSelectedTile().clone());
+                    board.addTile(board.getSelectedTile().clone(),removeTileAfterPlace);
                 } catch (CloneNotSupportedException ex) {
                     ex.printStackTrace();
                 }
@@ -62,7 +68,7 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_R:
-                board.rotateSelectedTile();
+                board.rotateSelectedTile(levelEditor);
                 break;
             case KeyEvent.VK_ENTER:
                 // Additional logic if needed

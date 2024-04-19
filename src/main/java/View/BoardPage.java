@@ -31,14 +31,13 @@ public class BoardPage extends JPanel {
         BoardRenderer renderer;
         if (includeLaserFeatures) {
             renderer = new LaserToolBarRenderer();
-            inputHandler = new LaserInputHandler(board, this, topPanelHeight);
+            inputHandler = new LaserInputHandler(board, this, topPanelHeight, true);
             toolBar = new ToolBar(board, this, topPanelHeight, renderer);
         } else {
             renderer = new BoardRenderer();
-            inputHandler = new BoardInputHandler(board, this, topPanelHeight);
+            inputHandler = new BoardInputHandler(board, this, topPanelHeight, true,false);
         }
-
-        add(renderer, BorderLayout.CENTER);
+        add(renderer);
         this.setFocusable(true);
         addComponentListener(new ComponentAdapter() {
             @Override
