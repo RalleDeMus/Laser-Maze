@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.io.File;
 
 public class BoardPage extends JPanel {
@@ -54,8 +56,6 @@ public class BoardPage extends JPanel {
     public void updateWinStatus() {
         winPanel.removeAll(); // Safely remove all components
         if (board.getWin()) {
-            String filePath = "src/main/levels/custom/"+textField.getText()+".json";
-            File fileTest = new File(filePath);
 
             if (board.get_game_info(5) != 0) {
                 JLabel winLabel = new JLabel("YOU WIN! ");
@@ -66,8 +66,8 @@ public class BoardPage extends JPanel {
                 JButton nextLevelButton = new JButton("Next Level");
                 nextLevelButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
                 nextLevelButton.addActionListener(e -> {
-                            System.out.println("Going to level " + (board.getLevel() + 1));
-                            board.setCardLevel(String.valueOf((board.getLevel() + 1)));
+                            System.out.println("Going to level " + (Integer.parseInt(board.getLevel())+1));
+                            board.setCardLevel(String.valueOf(Integer.parseInt(board.getLevel())+1));
                             BoardPage boardPage = new BoardPage(mainMenu, true);
                             mainMenu.getCardPanel().add(boardPage, "boardPage");
                             mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
@@ -76,7 +76,7 @@ public class BoardPage extends JPanel {
                 );
                 winPanel.add(nextLevelButton);
 
-            } else if (!fileTest.exists()){
+            } else if (board.getLevel().equals("temp")){
                 JLabel winLabel = new JLabel("YOU WIN! " );
                 System.out.println("Win: " + board.getWin());
                 winLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 40));
@@ -85,9 +85,6 @@ public class BoardPage extends JPanel {
                 JButton nextLevelButton = new JButton("Save as: " + textField.getText());
                 nextLevelButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
                 nextLevelButton.addActionListener(e -> {
-                            // Save the level
-
-
                             board.saveTempAs(textField.getText());
                             mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu");
 
@@ -123,11 +120,21 @@ public class BoardPage extends JPanel {
 
         topPanel.add(backButton);
 
-        if (board.get_game_info(5) == 0) {
+        if (board.get_game_info(5) == 0 && board.getLevel().equals("temp")){
             JLabel textLabel = new JLabel("Level name (exit with TAB):");
 
             // Create a text field with initial text "test"
-            textField = new JTextField("test", 10); // 10 columns width
+            textField = new JTextField("LEVEL NAME", 10); // 10 columns width
+            textField.addFocusListener(new FocusAdapter() {
+                @Override
+                public void focusLost(FocusEvent e) {
+                    // When focus is lost, we schedule a request to regain focus later
+                    SwingUtilities.invokeLater(() -> {
+                        // Check some condition or store a flag if you need to control this behavior
+                        requestFocus();
+                    });
+                }
+            });
 
             topPanel.setPreferredSize(new Dimension(getWidth(), topPanelHeight));
             topPanel.add(textLabel);

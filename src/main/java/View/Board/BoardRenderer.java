@@ -37,7 +37,6 @@ public class BoardRenderer extends JPanel {
                 if (tiles[row][col] != null) {
                     // Draws the tile if it is not empty
                     g.drawImage(tiles[row][col].getImage(), col * squareSize, row * squareSize, squareSize, squareSize, null);
-
                 } else {
                     // Draws an empty tile if empty
                     g.drawImage(AssetServer.getInstance().getImage("empty"), col * squareSize, row * squareSize, squareSize, squareSize, null);

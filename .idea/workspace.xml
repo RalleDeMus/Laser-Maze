@@ -4,21 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="changed place of game_state and temp">
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/CustomLevelsPage.java" afterDir="false" />
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Now able to make a level, play it and safe it if you completed it. And then play it in the Custom levels menu.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/BoardRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Board/BoardRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/CustomLevelsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/CustomLevelsPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/LevelMakerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LevelMakerPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/dinmor.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/temp.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/test.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/BoardPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/Tile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/BoardPage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/View/LevelMakerPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/LevelMakerPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/MainMenu$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu$BackgroundPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/MainMenu$BackgroundPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/MainMenu.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -272,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713524954255</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Now able to make a level, play it and safe it if you completed it. And then play it in the Custom levels menu.">
+      <option name="closed" value="true" />
+      <created>1713528541323</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1713528541324</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,6 +317,7 @@
     <MESSAGE value="Fixed issues. Added save game button, with no effect yet." />
     <MESSAGE value="now able to save game as temp and then play it" />
     <MESSAGE value="changed place of game_state and temp" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed place of game_state and temp" />
+    <MESSAGE value="Now able to make a level, play it and safe it if you completed it. And then play it in the Custom levels menu." />
+    <option name="LAST_COMMIT_MESSAGE" value="Now able to make a level, play it and safe it if you completed it. And then play it in the Custom levels menu." />
   </component>
 </project>

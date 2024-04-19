@@ -41,7 +41,7 @@ public class Board {
 
     boolean win;
 
-    int level = 0;
+    String level = "0";
 
 
 
@@ -482,18 +482,14 @@ public class Board {
     }
 
     public void setCardLevel(String level) {
-        System.out.println("Setting card level to: " + level);
-        try{
-            this.level = Integer.parseInt(level);
-        } catch (NumberFormatException e) {
-            this.level = game_info[5];
-        }
+        //System.out.println("Setting card level to: " + level);
+        this.level = level;
         this.card = new Card(level);
         this.tiles = card.getCard();
         this.game_info = card.getPlaceableTiles();
     }
 
-    public int getLevel() {
+    public String getLevel() {
         return level;
     }
 

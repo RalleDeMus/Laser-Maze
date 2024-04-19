@@ -302,9 +302,10 @@ public class LevelMakerPage extends JPanel {
             for (int j = 0; j < 5; j++) {
                 if (tiles[i][j] != null) {
 
-                    System.out.println(i + " " + j);
-                    if (tiles[i][j].getOrientation() == 5) {
+                    System.out.println("Tile at: " +i + " " + j + " rotation: " + tiles[i][j].getOrientation());
+                    if (tiles[i][j].getOrientation() == 4) {
                         tiles[i][j].setIsRotateable(true);
+                        System.out.println("TILE AT: " + i + " " + j + " is rotateable");
                     } else {
                         tiles[i][j].setIsRotateable(false);
                     }

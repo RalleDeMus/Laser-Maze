@@ -150,7 +150,7 @@ public class Tile implements TileInterface, Cloneable{
         }
 
 
-        System.out.println("Tile rotated to orientation: " + orientation + " with this much: " + howMuch);
+        //System.out.println("Tile rotated to orientation: " + orientation + " with this much: " + howMuch);
     }
 
 }
