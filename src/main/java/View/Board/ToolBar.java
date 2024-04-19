@@ -1,5 +1,6 @@
 package View.Board;
 
+import Controller.AssetServer;
 import Model.Logic.Board;
 import Model.Tiles.*;
 
@@ -34,6 +35,9 @@ public class ToolBar extends MouseAdapter implements KeyListener {
             if(e.getX()>board.getBoardSize()*board.getSquareSize()){
                 List<Tile> tiles = new ArrayList<>();
 
+                if (!board.laserExists()) {
+                    tiles.add(new LaserTile(true, true));
+                }
                 for (int i = 0; i < 4; i++) {
                     for (int j = 0; j < board.get_game_info(i); j++) {
                         tiles.add(intToTile(i));

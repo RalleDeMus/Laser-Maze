@@ -158,6 +158,17 @@ public class Board {
         laserWasFired = false;
     }
 
+    public boolean laserExists() {
+        for (int row = 0; row < boardSize; row++) {
+            for (int col = 0; col < boardSize; col++) {
+                if (tiles[row][col] != null && tiles[row][col] instanceof LaserTile) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     // Construct laser tree
     public List<PointStringPair>  constructLaserTree() {
         if (allMirrorsUsed()) {
