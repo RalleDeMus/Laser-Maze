@@ -19,7 +19,7 @@
     "CheckPointTiles": 0,
     "MirrorTiles": 0,
     "DoubleTile": 1,
-    "CellBlockerTiles": 0,
+    "LaserTiles": 0,
     "SplitterTiles": 0,
     "targets": 1
   }

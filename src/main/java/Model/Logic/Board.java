@@ -421,7 +421,7 @@ public class Board {
     public static void saveGameState() {
         JSONObject gameInfo = new JSONObject();
         JSONArray tilesArray = new JSONArray();
-
+        System.out.println(tiles.toString());
         for (int i = 0; i < boardSize; i++) {
             for (int j = 0; j < boardSize; j++) {
                 Tile tile = tiles[i][j];
@@ -449,7 +449,7 @@ public class Board {
         game_info_JSON.put("SplitterTiles", game_info[1]);
         game_info_JSON.put("CheckPointTiles", game_info[2]);
         game_info_JSON.put("DoubleTile", game_info[3]);
-        game_info_JSON.put("CellBlockerTiles", game_info[4]);
+        game_info_JSON.put("LaserTiles", game_info[4]);
         game_info_JSON.put("targets", game_info[5]);
 
         // Create the root JSON object to hold both "gameinfo" and "extra tiles"

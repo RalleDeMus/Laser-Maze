@@ -16,7 +16,7 @@ class Card {
      private int splitterTiles = 0;
      private int checkPointTiles = 0;
      private int doubleTiles = 0;
-     private int cellBlockerTiles = 0;
+     private int laserTiles = 0;
      private int targets;
      final private Tile[][] tiles = new Tile[5][5];;
      public Card(String level){
@@ -99,11 +99,11 @@ class Card {
             }
 
             JSONObject extraTiles = jsonObject.getJSONObject("extra tiles");
-            this.cellBlockerTiles = extraTiles.getInt("CellBlockerTiles");
             this.checkPointTiles = extraTiles.getInt("CheckPointTiles");
             this.splitterTiles = extraTiles.getInt("SplitterTiles");
             this.targetMirrorTiles = extraTiles.getInt("MirrorTiles");
             this.doubleTiles = extraTiles.getInt("DoubleTile");
+            this.laserTiles = extraTiles.getInt("LaserTiles");
             this.targets = extraTiles.getInt("targets");
 
 
@@ -125,7 +125,7 @@ class Card {
          game_info[1] = splitterTiles;
          game_info[2] = checkPointTiles;
          game_info[3] = doubleTiles;
-         game_info[4] = cellBlockerTiles;
+         game_info[4] = laserTiles;
          game_info[5] = targets;
          return game_info;
      }

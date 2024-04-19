@@ -26,7 +26,7 @@
     "CheckPointTiles": 0,
     "MirrorTiles": 1,
     "DoubleTile": 0,
-    "CellBlockerTiles": 0,
+    "LaserTiles": 0,
     "SplitterTiles": 1,
     "targets": 2
 
