@@ -24,15 +24,13 @@ class Card {
 
 
          try {
-             if (level.equals("game_state")) {
+             if (level.equals("game_state") || level.equals("temp")) {
                  this.content = new String(Files.readAllBytes(Paths.get( level + ".json")));
              }
              else{
                  this.content = new String(Files.readAllBytes(Paths.get("src/main/levels/level_" + level + ".json")));
              }
-         }
-
-         catch (IOException | JSONException e) {
+         } catch (IOException | JSONException e) {
              e.printStackTrace();
          }
          //load json file

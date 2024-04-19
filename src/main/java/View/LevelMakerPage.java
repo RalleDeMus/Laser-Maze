@@ -2,6 +2,7 @@ package View;
 
 import Controller.AssetServer;
 import Model.Logic.Board;
+import Model.Tiles.Tile;
 import View.Board.*;
 import View.Board.CostomLabels.ImageOverlayNumber;
 import View.Board.CostomLabels.TargetRender;
@@ -116,7 +117,7 @@ public class LevelMakerPage extends JPanel {
         JButton newButton = new JButton("Save and play level");
         newButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
         newButton.addActionListener(e -> {
-            // action for the new button
+            saveLevel();
         });
 
         gbc.gridx = 0;
@@ -290,6 +291,32 @@ public class LevelMakerPage extends JPanel {
         }
         return tileImage;
 
+    }
+
+    void saveLevel() {
+        Tile[][] tiles = board.getTiles();
+
+
+        // Set rotateable based on orientation
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (tiles[i][j] != null) {
+
+                    System.out.println(i + " " + j);
+                    if (tiles[i][j].getOrientation() == 5) {
+                        tiles[i][j].setIsRotateable(true);
+                    } else {
+                        tiles[i][j].setIsRotateable(false);
+                    }
+                }
+            }
+        }
+
+        // Set game info to match
+        // game info is array with len 6.
+        board.set_game_info(new int[]{tileCounts[0], tileCounts[1], tileCounts[2], tileCounts[3], targets, 0});
+
+        board.saveGameState("temp");
     }
 
 

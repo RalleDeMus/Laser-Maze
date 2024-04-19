@@ -114,6 +114,7 @@ public class Board {
     }
 
     public boolean isLaserFired() {
+
         return laserWasFired;
     }
 
@@ -131,6 +132,9 @@ public class Board {
 
     public int get_game_info(int index) {
         return game_info[index];
+    }
+    public void set_game_info(int[] _game_info) {
+        game_info = _game_info;
     }
 
 
@@ -175,7 +179,7 @@ public class Board {
                 }
                 //System.out.println();
             }
-            System.out.println();
+            //System.out.println();
             if (laserTile != null) {
                 System.out.println("Constructing laser tree");
 
