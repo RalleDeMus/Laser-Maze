@@ -1,41 +1,75 @@
 {
     "gameinfo": {"tiles": [
         {
-            "col": 0,
-            "orientation": 1,
-            "row": 0,
-            "type": "LaserTile"
-        },
-        {
-            "col": 3,
+            "col": 2,
+            "rotatable": true,
             "orientation": 0,
             "row": 0,
-            "type": "CellBlockerTile"
-        },
-        {
-            "col": 2,
-            "orientation": 1,
-            "row": 3,
             "type": "CheckPointTile"
         },
         {
             "col": 3,
-            "orientation": 1,
-            "row": 3,
-            "type": "SplitterTile"
+            "rotatable": true,
+            "orientation": 0,
+            "row": 0,
+            "type": "MirrorTile"
+        },
+        {
+            "col": 4,
+            "rotatable": true,
+            "orientation": 0,
+            "row": 0,
+            "type": "MirrorTile"
         },
         {
             "col": 3,
+            "rotatable": false,
+            "orientation": 0,
+            "row": 1,
+            "type": "CellBlockerTile"
+        },
+        {
+            "col": 4,
+            "rotatable": true,
             "orientation": 1,
-            "row": 4,
+            "row": 1,
+            "type": "MirrorTile"
+        },
+        {
+            "col": 1,
+            "rotatable": false,
+            "orientation": 2,
+            "row": 2,
+            "type": "MirrorTile"
+        },
+        {
+            "col": 2,
+            "rotatable": false,
+            "orientation": 0,
+            "row": 2,
+            "type": "DoubleTile"
+        },
+        {
+            "col": 4,
+            "rotatable": true,
+            "orientation": 2,
+            "row": 2,
+            "type": "LaserTile"
+        },
+        {
+            "col": 3,
+            "rotatable": false,
+            "orientation": 2,
+            "row": 3,
             "type": "MirrorTile"
         }
     ]},
     "extra tiles": {
         "CheckPointTiles": 0,
-        "MirrorTiles": 1,
-        "DoubleTile": 1,
+        "MirrorTiles": 0,
+        "DoubleTile": 0,
         "CellBlockerTiles": 0,
-        "SplitterTiles": 0
+        "SplitterTiles": 0,
+        "targets": 2
     }
 }
