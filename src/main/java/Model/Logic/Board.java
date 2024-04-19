@@ -396,9 +396,10 @@ public class Board {
         return cursorPos;
     }
 
-    public static void rotateSelectedTile() {
+    public static void rotateSelectedTile(boolean levelEditor) {
+        int mod = levelEditor ? 5 : 4;
         if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsRotateable()) {
-            tiles[cursorPos.y][cursorPos.x].rotate(1,4);
+            tiles[cursorPos.y][cursorPos.x].rotate(1,mod);
         }else {
             System.out.println("Tile is not rotateable");
         }

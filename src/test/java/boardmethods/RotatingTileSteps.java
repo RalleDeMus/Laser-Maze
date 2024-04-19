@@ -28,7 +28,7 @@ public class RotatingTileSteps {
     @When("the user rotates the LaserTile at \\({double})")
     public void theUserRotatesTheLaserTileAt(int x, int y) {
         Board.setCursorPos(1,1);
-        Board.rotateSelectedTile();
+        Board.rotateSelectedTile(false);
     }
 
     @Then("the LaserTile at \\({double}) should be rotated")

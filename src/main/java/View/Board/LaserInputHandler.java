@@ -13,7 +13,7 @@ public class LaserInputHandler extends BoardInputHandler {
     BoardPage panel;
 
     public LaserInputHandler(Board board, BoardPage panel, int yOffset, boolean removeTileAfterPlace){
-        super(board, panel, yOffset, removeTileAfterPlace);
+        super(board, panel, yOffset, removeTileAfterPlace, false);
         this.panel = panel;
     }
 

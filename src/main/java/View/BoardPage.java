@@ -35,7 +35,7 @@ public class BoardPage extends JPanel {
             toolBar = new ToolBar(board, this, topPanelHeight, renderer);
         } else {
             renderer = new BoardRenderer();
-            inputHandler = new BoardInputHandler(board, this, topPanelHeight, true);
+            inputHandler = new BoardInputHandler(board, this, topPanelHeight, true,false);
         }
         add(renderer);
         this.setFocusable(true);

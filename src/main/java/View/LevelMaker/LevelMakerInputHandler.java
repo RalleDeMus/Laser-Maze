@@ -7,6 +7,6 @@ import View.LevelMakerPage;
 
 public class LevelMakerInputHandler extends BoardInputHandler {
     public LevelMakerInputHandler(Board board, LevelMakerPage panel, int yOffset, boolean removeTileAfterPlace){
-        super(board, panel, yOffset, removeTileAfterPlace);
+        super(board, panel, yOffset, removeTileAfterPlace, true);
     }
 }

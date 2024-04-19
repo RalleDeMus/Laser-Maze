@@ -161,6 +161,7 @@ public class LevelMakerPage extends JPanel {
         minusButton.setFont(new Font("Baloo Bhaijaan", Font.BOLD, 30));
         minusButton.setPreferredSize(new Dimension(40, 40));
         minusButton.addActionListener(e -> {
+            if(targets == 0) return;
             targets--;
             System.out.println(targets);
             updateTargetCounter();
@@ -230,6 +231,14 @@ public class LevelMakerPage extends JPanel {
     }
 
     void changeTileCount(int tileType, int change) {
+        int count = 0;
+        for(int i = 0; i < 5; i++) {
+            count+=tileCounts[i];
+        }
+        if (count+change > 5){
+            return;
+        }
+
         if (tileCounts[tileType] + change < 0) {
             return;
         }
