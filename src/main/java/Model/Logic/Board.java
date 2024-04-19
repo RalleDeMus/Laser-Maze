@@ -5,6 +5,8 @@ import Model.Tiles.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -456,6 +458,24 @@ public class Board {
             file.write(boardState.toString(4)); // Write with indentation for readability
             System.out.println("Successfully Copied JSON Object to File...");
             System.out.println("\nJSON Object: " + boardState);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void saveTempAs(String file_name) {
+        String sourcePath = "src/main/levels/custom/temp.json"; // Path to the source file
+        String destinationPath = "src/main/levels/custom/" + file_name + ".json"; // Path to the destination file
+
+        try {
+            // Read the contents of the source file
+            String content = new String(Files.readAllBytes(Paths.get(sourcePath)));
+
+            // Write the contents to the destination file
+            try (FileWriter file = new FileWriter(destinationPath)) {
+                file.write(content); // Write the content without modification
+                System.out.println("Successfully copied contents to " + destinationPath);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

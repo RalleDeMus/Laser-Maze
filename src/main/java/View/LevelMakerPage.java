@@ -317,6 +317,11 @@ public class LevelMakerPage extends JPanel {
         board.set_game_info(new int[]{tileCounts[0], tileCounts[1], tileCounts[2], tileCounts[3], targets, 0});
 
         board.saveGameState("temp");
+
+        board.setCardLevel("temp");
+        BoardPage boardPage = new BoardPage(mainMenu, true);
+        mainMenu.getCardPanel().add(boardPage, "boardPage");
+        mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
     }
 
 

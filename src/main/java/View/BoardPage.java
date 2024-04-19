@@ -8,12 +8,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.io.File;
 
 public class BoardPage extends JPanel {
     private BoardInputHandler inputHandler;
     private ToolBar toolBar;
     private Board board;
     private JPanel winPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); // Initialize here
+
+    JTextField textField = new JTextField("test", 10); // 10 columns width
+
 
     private MainMenu mainMenu;
 
@@ -50,22 +54,61 @@ public class BoardPage extends JPanel {
     public void updateWinStatus() {
         winPanel.removeAll(); // Safely remove all components
         if (board.getWin()) {
-            JLabel winLabel = new JLabel("YOU WIN! ");
-            System.out.println("Win: "+board.getWin());
-            winLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 40));
-            winPanel.add(winLabel);
+            String filePath = "src/main/levels/custom/"+textField.getText()+".json";
+            File fileTest = new File(filePath);
 
-            JButton nextLevelButton = new JButton("Next Level");
-            nextLevelButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
-            nextLevelButton.addActionListener(e -> {
-                        System.out.println("Going to level " + (board.getLevel() + 1));
-                        board.setCardLevel(String.valueOf((board.getLevel() + 1)));
-                        BoardPage boardPage = new BoardPage(mainMenu,true);
-                        mainMenu.getCardPanel().add(boardPage, "boardPage");
-                        mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
-                    }
-            );
-            winPanel.add(nextLevelButton);
+            if (board.get_game_info(5) != 0) {
+                JLabel winLabel = new JLabel("YOU WIN! ");
+                System.out.println("Win: " + board.getWin());
+                winLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 40));
+                winPanel.add(winLabel);
+
+                JButton nextLevelButton = new JButton("Next Level");
+                nextLevelButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+                nextLevelButton.addActionListener(e -> {
+                            System.out.println("Going to level " + (board.getLevel() + 1));
+                            board.setCardLevel(String.valueOf((board.getLevel() + 1)));
+                            BoardPage boardPage = new BoardPage(mainMenu, true);
+                            mainMenu.getCardPanel().add(boardPage, "boardPage");
+                            mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
+
+                        }
+                );
+                winPanel.add(nextLevelButton);
+
+            } else if (!fileTest.exists()){
+                JLabel winLabel = new JLabel("YOU WIN! " );
+                System.out.println("Win: " + board.getWin());
+                winLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 40));
+                winPanel.add(winLabel);
+
+                JButton nextLevelButton = new JButton("Save as: " + textField.getText());
+                nextLevelButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+                nextLevelButton.addActionListener(e -> {
+                            // Save the level
+
+
+                            board.saveTempAs(textField.getText());
+                            mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu");
+
+                        }
+                );
+                winPanel.add(nextLevelButton);
+            } else {
+                JLabel winLabel = new JLabel("YOU WIN! " );
+                System.out.println("Win: " + board.getWin());
+                winLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 40));
+                winPanel.add(winLabel);
+
+                JButton nextLevelButton = new JButton("Go to Main Menu");
+                nextLevelButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+                nextLevelButton.addActionListener(e -> {
+                            mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu");
+
+                        }
+                );
+                winPanel.add(nextLevelButton);
+            }
         }
         winPanel.revalidate();
         winPanel.repaint();
@@ -78,10 +121,21 @@ public class BoardPage extends JPanel {
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu"));
 
-
-        topPanel.setPreferredSize(new Dimension(getWidth(), topPanelHeight));
         topPanel.add(backButton);
-        topPanel.add(Box.createHorizontalGlue());
+
+        if (board.get_game_info(5) == 0) {
+            JLabel textLabel = new JLabel("Level name (exit with TAB):");
+
+            // Create a text field with initial text "test"
+            textField = new JTextField("test", 10); // 10 columns width
+
+            topPanel.setPreferredSize(new Dimension(getWidth(), topPanelHeight));
+            topPanel.add(textLabel);
+            topPanel.add(textField); // Add the text field to the panel next to the back button
+            topPanel.add(Box.createHorizontalGlue());
+        }
+
+
 
         // How many Targets are there?
         JPanel circlePanel = new JPanel();

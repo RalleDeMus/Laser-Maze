@@ -4,13 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="now able to save game as temp and then play it">
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="changed place of game_state and temp">
+      <change afterPath="$PROJECT_DIR$/src/main/java/View/CustomLevelsPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/LevelMakerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LevelMakerPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/BoardPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/BoardPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/LevelMakerPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/LevelMakerPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/MainMenu$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu$BackgroundPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/MainMenu$BackgroundPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/MainMenu.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -257,7 +264,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713524243229</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="changed place of game_state and temp">
+      <option name="closed" value="true" />
+      <created>1713524954255</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1713524954255</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,6 +307,7 @@
     <MESSAGE value="Fixed rotation issues" />
     <MESSAGE value="Fixed issues. Added save game button, with no effect yet." />
     <MESSAGE value="now able to save game as temp and then play it" />
-    <option name="LAST_COMMIT_MESSAGE" value="now able to save game as temp and then play it" />
+    <MESSAGE value="changed place of game_state and temp" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed place of game_state and temp" />
   </component>
 </project>

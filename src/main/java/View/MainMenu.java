@@ -76,12 +76,15 @@ public class MainMenu extends JFrame implements ActionListener {
         JButton levelSelectButton = createStyledButton("Level Select");
         JButton levelMakerButton = createStyledButton("Level Maker");
         JButton InstructionsButton = createStyledButton("Instructions");
+        JButton customButton = createStyledButton("Custom levels");
 
         openLastGameButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         campaignButton.setAlignmentX(Component.CENTER_ALIGNMENT); // Center align buttons horizontally
         levelSelectButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         levelMakerButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         InstructionsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        customButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
 
 
 //        // Set preferred size for the buttons
@@ -97,6 +100,7 @@ public class MainMenu extends JFrame implements ActionListener {
         levelSelectButton.addActionListener(this);
         levelMakerButton.addActionListener(this);
         InstructionsButton.addActionListener(this);
+        customButton.addActionListener(this);
 
 
         panel.add(Box.createVerticalGlue()); // Add glue to center buttons vertically
@@ -107,6 +111,8 @@ public class MainMenu extends JFrame implements ActionListener {
         panel.add(levelSelectButton);
         panel.add(Box.createVerticalStrut(10));
         panel.add(levelMakerButton);
+        panel.add(Box.createVerticalStrut(10)); // Add spacing between buttons
+        panel.add(customButton);
         panel.add(Box.createVerticalGlue());
         panel.add(InstructionsButton);
         panel.add(Box.createVerticalGlue());
@@ -186,8 +192,11 @@ public class MainMenu extends JFrame implements ActionListener {
             case "Instructions":
                 switchToPanel("InstructionsPage", new InstructionsPage(this));
                 break;
+            case "Custom levels":
+                switchToPanel("CustomLevelsPage", new CustomLevelsPage(this));
+                break;
             case "Continue Game":
-                Board.getInstance().setCardLevel("game_state");
+                Board.getInstance().setCardLevel("temp"); //game_state
                 switchToPanel("lastGame", new BoardPage(this,true));
                 break;
         }
