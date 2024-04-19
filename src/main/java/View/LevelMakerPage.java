@@ -65,17 +65,11 @@ public class LevelMakerPage extends JPanel {
 
     // Update the target counter
     public void updateTargetCounter() {
-        targetCircle.removeAll(); // Clear previous components if necessary
         targetCircle.setTargets(targets);
-        targetCircle.setColor(new Color(222, 48, 48));
-        targetCircle.setNumberColor(Color.WHITE);
-        targetCircle.setDiameter(60);
         targetCircle.revalidate();
         targetCircle.repaint();
-        System.out.println("Updated target counter");
     }
 
-    // updateTargetCounter() NOT WORKING YET!
 
 
 
@@ -99,13 +93,14 @@ public class LevelMakerPage extends JPanel {
         add(topPanel, gbc);
 
         // Renderer setup
-        gbc.gridx = 0; // Reset to first column
-        gbc.gridy = 1; // Move to the next row
-        gbc.gridwidth = 1; // Only take up one column
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 2; // Spanning two columns to provide space for the board
+        gbc.gridheight = 1; // Spanning only one row high
+        gbc.weightx = 1.0; // Allow horizontal expansion
+        gbc.weighty = 1.0; // Allow vertical expansion - important for the board
         gbc.fill = GridBagConstraints.BOTH;
-        gbc.weightx = 1.0; // Give weight to expand
-        gbc.weighty = 1.0;
-        add(renderer, gbc); // Add renderer to the left side
+        add(renderer, gbc);
 
         // East container setup
         JPanel eastContainer = createEastContainer(); // Method to create the east container
@@ -116,14 +111,34 @@ public class LevelMakerPage extends JPanel {
 
         // Circle panel setup
         JPanel circlePanel = createCirclePanel(); // Method to create the circle panel
-        gbc.gridx = 0; // Move to the next column
-        gbc.gridy = 2; // Stay on the same row
+
+        // New button setup in the bottom left of the same row
+        JButton newButton = new JButton("Save and play level");
+        newButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+        newButton.addActionListener(e -> {
+            // action for the new button
+        });
+
+        gbc.gridx = 0;
+        gbc.gridy = 2;
         gbc.gridwidth = 1;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.fill = GridBagConstraints.NONE;
-        gbc.weightx = 0; // Reset weights as this should not expand
-        gbc.weighty = 0;
-        add(circlePanel, gbc); // Add circle panel next to the renderer
+        gbc.gridheight = 1; // Make sure it's set to 1 to not affect other rows
+        gbc.weightx = 0; // No horizontal expansion for the circle panel
+        gbc.weighty = 0; // No vertical expansion for the circle panel
+        gbc.anchor = GridBagConstraints.SOUTHWEST; // Align to the bottom left
+        gbc.fill = GridBagConstraints.HORIZONTAL; // Fill horizontally if needed
+        gbc.insets = new Insets(10, 10, 10, 0); // Adjust for padding
+        add(circlePanel, gbc);
+
+        gbc.gridx = 1; // Adjust the position based on your layout
+        gbc.gridy = 2;
+        gbc.gridwidth = GridBagConstraints.REMAINDER; // Take up the remainder of the row
+        gbc.anchor = GridBagConstraints.SOUTHEAST; // Align to the bottom right
+        gbc.fill = GridBagConstraints.NONE; // Do not stretch the button
+        gbc.insets = new Insets(10, 10, 10, 10); // Adjust for padding
+        add(newButton, gbc);
+
+
 
 
 
@@ -163,8 +178,8 @@ public class LevelMakerPage extends JPanel {
         minusButton.addActionListener(e -> {
             if(targets == 0) return;
             targets--;
-            System.out.println(targets);
             updateTargetCounter();
+            LevelMakerPage.this.requestFocusInWindow();
         });
         gbc.gridx++;
         circlePanel.add(minusButton, gbc);
@@ -175,13 +190,14 @@ public class LevelMakerPage extends JPanel {
         plusButton.setPreferredSize(new Dimension(40, 40));
         plusButton.addActionListener(e -> {
             targets++;
-            System.out.println(targets);
             updateTargetCounter();
+            LevelMakerPage.this.requestFocusInWindow();
         });
         gbc.gridx++;
         circlePanel.add(plusButton, gbc);
 
         return circlePanel;
+
     }
 
     private JPanel createEastContainer() {
@@ -210,6 +226,7 @@ public class LevelMakerPage extends JPanel {
             minusButtonTile.addActionListener(e -> {
                 System.out.println("Tile " + (index) + " minus");
                 changeTileCount(index, -1);
+                LevelMakerPage.this.requestFocusInWindow();
             });
             minusButtonTile.setPreferredSize(new Dimension(20, 20));
             ecGbc.gridy = i;
@@ -221,13 +238,16 @@ public class LevelMakerPage extends JPanel {
             plusButtonTile.addActionListener(e -> {
                 System.out.println("Tile " + (index) + " plus");
                 changeTileCount(index, 1);
-            });            plusButtonTile.setPreferredSize(new Dimension(20, 20));
+                LevelMakerPage.this.requestFocusInWindow();
+            });
+            plusButtonTile.setPreferredSize(new Dimension(20, 20));
             ecGbc.gridy = i;
             ecGbc.gridx = 2;
             eastContainer.add(plusButtonTile, ecGbc);
         }
 
         return eastContainer;
+
     }
 
     void changeTileCount(int tileType, int change) {
@@ -269,6 +289,7 @@ public class LevelMakerPage extends JPanel {
                 break;
         }
         return tileImage;
+
     }
 
 
