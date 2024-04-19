@@ -154,7 +154,7 @@ public class Board {
 
     // Construct laser tree
     public List<PointStringPair>  constructLaserTree() {
-        if (allMirrorsUsed() == true) {
+        if (allMirrorsUsed()) {
             List<PointStringPair> laserList = new ArrayList<>();
 
 
@@ -293,7 +293,7 @@ public class Board {
     // Check if win condition is met after laser tree work
     public boolean checkWinCondition() {
 
-        if (mirrorsHit == countMirrors() && targetsHit == game_info[5]){
+        if (mirrorsHit == countMirrors() && targetsHit == game_info[4]){
             System.out.println("Win condition met");
             win = true;
             return true;
@@ -347,17 +347,8 @@ public class Board {
                     } else {
                         game_info[3]--;
                     }
-                } else if (t instanceof CellBlockerTile) {
-                    if (game_info[4] == 0) {
-                        System.out.println("No more cell blocker tiles");
-                        return;
-                    } else {
-                        game_info[4]--;
-                    }
-
-                } else {
-                    //System.out.println("Adding tile: " + (t instanceof LaserTile ? "Laser" : "Mirror"));
                 }
+
 
                 selectedTile = null;
                 tiles[cursorPos.y][cursorPos.x] = t;
@@ -378,8 +369,6 @@ public class Board {
                 game_info[2]++;
             } else if (tiles[cursorPos.y][cursorPos.x] instanceof DoubleTile) {
                 game_info[3]++;
-            } else if (tiles[cursorPos.y][cursorPos.x] instanceof CellBlockerTile) {
-                game_info[4]++;
             }
             tiles[cursorPos.y][cursorPos.x] = null;
         } else{
@@ -418,10 +407,10 @@ public class Board {
                 throw new IllegalArgumentException("Invalid orientation: " + orientation);
         }
     }
-    public static void saveGameState() {
+    public static void saveGameState(String filename) {
         JSONObject gameInfo = new JSONObject();
         JSONArray tilesArray = new JSONArray();
-        System.out.println(tiles.toString());
+
         for (int i = 0; i < boardSize; i++) {
             for (int j = 0; j < boardSize; j++) {
                 Tile tile = tiles[i][j];
@@ -449,8 +438,8 @@ public class Board {
         game_info_JSON.put("SplitterTiles", game_info[1]);
         game_info_JSON.put("CheckPointTiles", game_info[2]);
         game_info_JSON.put("DoubleTile", game_info[3]);
-        game_info_JSON.put("LaserTiles", game_info[4]);
-        game_info_JSON.put("targets", game_info[5]);
+        game_info_JSON.put("targets", game_info[4]);
+        game_info_JSON.put("level", game_info[5]);
 
         // Create the root JSON object to hold both "gameinfo" and "extra tiles"
         JSONObject boardState = new JSONObject();
@@ -458,7 +447,7 @@ public class Board {
         boardState.put("extra tiles", game_info_JSON);
 
         // Save the JSON object to a file
-        try (FileWriter file = new FileWriter("game_state.json")) {
+        try (FileWriter file = new FileWriter(filename+ ".json")) {
             file.write(boardState.toString(4)); // Write with indentation for readability
             System.out.println("Successfully Copied JSON Object to File...");
             System.out.println("\nJSON Object: " + boardState);
@@ -469,7 +458,11 @@ public class Board {
 
     public void setCardLevel(String level) {
         System.out.println("Setting card level to: " + level);
-        this.level = Integer.parseInt(level);
+        try{
+            this.level = Integer.parseInt(level);
+        } catch (NumberFormatException e) {
+            this.level = game_info[5];
+        }
         this.card = new Card(level);
         this.tiles = card.getCard();
         this.game_info = card.getPlaceableTiles();
@@ -498,7 +491,7 @@ public class Board {
 
     public boolean allMirrorsUsed(){
         int placeabletiles = 0;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 4; i++) {
             placeabletiles += game_info[i];
         }
         return placeabletiles == 0;

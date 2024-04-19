@@ -28,7 +28,7 @@ public class SavingGameStateSteps {
     @When("the user saves the game state")
     public void theUserSavesTheGameState() {
 
-        Board.saveGameState();
+        Board.saveGameState("game_state");
     }
 
     @Then("a JSON file containing the board state and extra tiles information should be created")

@@ -6,7 +6,7 @@
     "CheckPointTiles": 9,
     "MirrorTiles": 9,
     "DoubleTile": 9,
-    "LaserTiles": 9,
-    "SplitterTiles": 9
+    "SplitterTiles": 9,
+    "level":7
   }
 }

@@ -59,7 +59,7 @@ public class MainMenu extends JFrame implements ActionListener {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent event) {
-                Board.getInstance().saveGameState();
+                Board.getInstance().saveGameState("game_state");
                 dispose();
                 System.exit(0);
             }
@@ -186,7 +186,7 @@ public class MainMenu extends JFrame implements ActionListener {
             case "Instructions":
                 switchToPanel("InstructionsPage", new InstructionsPage(this));
                 break;
-            case "Open Last Game":
+            case "Continue Game":
                 Board.getInstance().setCardLevel("game_state");
                 switchToPanel("lastGame", new BoardPage(this,true));
                 break;

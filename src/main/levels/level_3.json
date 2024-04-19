@@ -33,8 +33,8 @@
     "CheckPointTiles": 0,
     "MirrorTiles": 0,
     "DoubleTile": 0,
-    "LaserTiles": 0,
     "SplitterTiles": 0,
-    "targets": 1
+    "targets": 1,
+    "level": 3
   }
 }

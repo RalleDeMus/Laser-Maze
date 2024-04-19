@@ -24,7 +24,7 @@ public class BoardPage extends JPanel {
         board.resetWin();
         setLayout(new BorderLayout());
         int topPanelHeight = 40;
-        initializeUI(mainMenu, topPanelHeight, board.get_game_info(5));
+        initializeUI(mainMenu, topPanelHeight, board.get_game_info(4));
 
 
         // Setup based on feature inclusion
