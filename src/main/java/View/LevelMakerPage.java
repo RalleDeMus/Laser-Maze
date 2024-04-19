@@ -25,7 +25,7 @@ public class LevelMakerPage extends JPanel {
 
     private int targets = 0;
 
-    int tileCounts[] = new int[5];
+    int tileCounts[] = new int[4];
 
     ImageOverlayNumber[] tileLabels = new ImageOverlayNumber[5];
 
@@ -78,7 +78,7 @@ public class LevelMakerPage extends JPanel {
         setLayout(new GridBagLayout()); // Set the main layout to GridBagLayout
         GridBagConstraints gbc = new GridBagConstraints();
 
-        // Top panel setup
+// Top panel setup
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu"));
@@ -86,16 +86,16 @@ public class LevelMakerPage extends JPanel {
         topPanel.add(backButton);
         topPanel.add(Box.createHorizontalGlue());
 
-        // Add top panel to the top of the layout
+// Add top panel to the top of the layout
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         add(topPanel, gbc);
 
-        // Renderer setup
+// Renderer setup
         gbc.gridx = 0;
-        gbc.gridy = 1;
+        gbc.gridy = 1; // Moved down by one to make space for the allTiles image
         gbc.gridwidth = 2; // Spanning two columns to provide space for the board
         gbc.gridheight = 1; // Spanning only one row high
         gbc.weightx = 1.0; // Allow horizontal expansion
@@ -103,17 +103,20 @@ public class LevelMakerPage extends JPanel {
         gbc.fill = GridBagConstraints.BOTH;
         add(renderer, gbc);
 
-        // East container setup
+
+
+// East container setup
         JPanel eastContainer = createEastContainer(); // Method to create the east container
         gbc.gridx = 2; // Move to the last column
+        gbc.gridy = 1; // Adjusted to the new row
         gbc.anchor = GridBagConstraints.EAST;
         gbc.fill = GridBagConstraints.VERTICAL;
         add(eastContainer, gbc); // Add east container to the right side
 
-        // Circle panel setup
+// Circle panel setup
         JPanel circlePanel = createCirclePanel(); // Method to create the circle panel
 
-        // New button setup in the bottom left of the same row
+// New button setup in the bottom left of the same row
         JButton newButton = new JButton("Save and play level");
         newButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
         newButton.addActionListener(e -> {
@@ -121,7 +124,7 @@ public class LevelMakerPage extends JPanel {
         });
 
         gbc.gridx = 0;
-        gbc.gridy = 2;
+        gbc.gridy = 3; // Adjusted for the new row
         gbc.gridwidth = 1;
         gbc.gridheight = 1; // Make sure it's set to 1 to not affect other rows
         gbc.weightx = 0; // No horizontal expansion for the circle panel
@@ -132,7 +135,7 @@ public class LevelMakerPage extends JPanel {
         add(circlePanel, gbc);
 
         gbc.gridx = 1; // Adjust the position based on your layout
-        gbc.gridy = 2;
+        gbc.gridy = 3; // Adjusted for the new row
         gbc.gridwidth = GridBagConstraints.REMAINDER; // Take up the remainder of the row
         gbc.anchor = GridBagConstraints.SOUTHEAST; // Align to the bottom right
         gbc.fill = GridBagConstraints.NONE; // Do not stretch the button
@@ -146,7 +149,7 @@ public class LevelMakerPage extends JPanel {
     }
 
     void updateTileCount() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < tileCounts.length; i++) {
             tileLabels[i].setNumber(tileCounts[i]);
             tileLabels[i].revalidate();
             tileLabels[i].repaint();
@@ -204,24 +207,42 @@ public class LevelMakerPage extends JPanel {
     private JPanel createEastContainer() {
         JPanel eastContainer = new JPanel(new GridBagLayout());
         GridBagConstraints ecGbc = new GridBagConstraints();
-        ecGbc.insets = new Insets(5, 5, 5, 5); // Margin between components
+        //ecGbc.insets = new Insets(5, 5, 5, 5); // Margin between components
+
+
+        // Add a simple text label below the allTiles image
+        JLabel textTestLabel = new JLabel("Tiles for toolbar:");
+        ecGbc.gridx = 0; // Span from the first column
+        ecGbc.gridy = 0; // The row after allTilesPanel
+        ecGbc.gridwidth = 3; // Span across all columns
+        ecGbc.fill = GridBagConstraints.HORIZONTAL;
+        ecGbc.insets = new Insets(0, 0, 10, 0);
+
+        eastContainer.add(textTestLabel, ecGbc);
+
+
+
         ecGbc.fill = GridBagConstraints.HORIZONTAL;
         ecGbc.anchor = GridBagConstraints.NORTH;
 
         // Create and add 5 tiles with plus and minus buttons
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 4; i++) {
             int index = i; // Effective final index for use in lambda expressions
-
+            ecGbc.insets = new Insets(0, 0, 0, 5);
             // Tile image with number
             BufferedImage tileImage = getTileImage(i);
             Image scaledImage = tileImage.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
             ImageIcon tileIcon = new ImageIcon(scaledImage);
             tileLabels[i] = new ImageOverlayNumber(tileIcon, 0, 50, 50);
             tileLabels[i].setFont(new Font("Baloo Bhaijaan", Font.BOLD, 40));
-            ecGbc.gridy = i;
+            ecGbc.gridy = i+1;
             ecGbc.gridx = 0;
+            ecGbc.gridwidth = 1;
+            ecGbc.fill = GridBagConstraints.NONE;
+            ecGbc.weightx = 0;
             eastContainer.add(tileLabels[i], ecGbc);
 
+            int buttonsize = 35;
             // Minus button
             JButton minusButtonTile = new JButton("-");
             minusButtonTile.addActionListener(e -> {
@@ -229,9 +250,11 @@ public class LevelMakerPage extends JPanel {
                 changeTileCount(index, -1);
                 LevelMakerPage.this.requestFocusInWindow();
             });
-            minusButtonTile.setPreferredSize(new Dimension(20, 20));
-            ecGbc.gridy = i;
+            minusButtonTile.setPreferredSize(new Dimension(buttonsize, buttonsize));
+            ecGbc.gridy = i+1;
             ecGbc.gridx = 1;
+            ecGbc.weightx = 0; // No expansion
+            ecGbc.fill = GridBagConstraints.NONE;
             eastContainer.add(minusButtonTile, ecGbc);
 
             // Plus button
@@ -241,11 +264,43 @@ public class LevelMakerPage extends JPanel {
                 changeTileCount(index, 1);
                 LevelMakerPage.this.requestFocusInWindow();
             });
-            plusButtonTile.setPreferredSize(new Dimension(20, 20));
-            ecGbc.gridy = i;
+            plusButtonTile.setPreferredSize(new Dimension(buttonsize, buttonsize));
+            ecGbc.gridy = i+1;
             ecGbc.gridx = 2;
+            ecGbc.weightx = 0; // No expansion
+            ecGbc.fill = GridBagConstraints.NONE;
             eastContainer.add(plusButtonTile, ecGbc);
+
+            ecGbc.insets = new Insets(0, 0, 0, 0);
         }
+
+        ecGbc.insets = new Insets(10, 0, 0, 0);
+
+
+        // Add a simple text label below the allTiles image
+        textTestLabel = new JLabel("Keys for each tile:");
+        ecGbc.gridx = 0; // Span from the first column
+        ecGbc.gridy = 6; // The row after allTilesPanel
+        ecGbc.gridwidth = 3; // Span across all columns
+        ecGbc.fill = GridBagConstraints.HORIZONTAL;
+        eastContainer.add(textTestLabel, ecGbc);
+
+        // Add the allTiles image below the buttons
+        BufferedImage allTilesImage = AssetServer.getInstance().getImage("allTiles");
+        Image scaledAllTilesImage = allTilesImage.getScaledInstance(120, 80, Image.SCALE_SMOOTH);
+        JLabel allTilesLabel = new JLabel(new ImageIcon(scaledAllTilesImage));
+        JPanel allTilesPanel = new JPanel();
+        allTilesPanel.add(allTilesLabel);
+        ecGbc.gridx = 0; // Span from the first column
+        ecGbc.gridy = 7; // The row after the last button
+        ecGbc.gridwidth = 3; // Span across all columns
+        ecGbc.fill = GridBagConstraints.HORIZONTAL;
+        eastContainer.add(allTilesPanel, ecGbc);
+
+
+
+
+
 
         return eastContainer;
 
@@ -253,7 +308,7 @@ public class LevelMakerPage extends JPanel {
 
     void changeTileCount(int tileType, int change) {
         int count = 0;
-        for(int i = 0; i < 5; i++) {
+        for(int i = 0; i < 4; i++) {
             count+=tileCounts[i];
         }
         if (count+change > 5){

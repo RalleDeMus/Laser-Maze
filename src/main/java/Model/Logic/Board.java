@@ -36,7 +36,7 @@ public class Board {
     static Point cursorPos;
 
     private static int[] game_info;
-    Tile selectedTile = new LaserTile(true, true);
+    Tile selectedTile;
     boolean laserWasFired = false;
 
     boolean win;

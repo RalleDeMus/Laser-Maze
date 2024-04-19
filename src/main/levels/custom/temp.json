@@ -1,33 +1,26 @@
 {
     "gameinfo": {"tiles": [
         {
-            "col": 0,
+            "col": 2,
+            "rotatable": false,
+            "orientation": 3,
+            "row": 1,
+            "type": "MirrorTile"
+        },
+        {
+            "col": 1,
             "rotatable": false,
             "orientation": 0,
             "row": 3,
-            "type": "MirrorTile"
-        },
-        {
-            "col": 1,
-            "rotatable": true,
-            "orientation": 4,
-            "row": 3,
-            "type": "MirrorTile"
-        },
-        {
-            "col": 1,
-            "rotatable": true,
-            "orientation": 4,
-            "row": 4,
-            "type": "MirrorTile"
+            "type": "LaserTile"
         }
     ]},
     "extra tiles": {
-        "CheckPointTiles": 0,
-        "MirrorTiles": 0,
-        "DoubleTile": 0,
+        "CheckPointTiles": 1,
+        "MirrorTiles": 1,
+        "DoubleTile": 1,
         "level": 0,
-        "SplitterTiles": 0,
-        "targets": 1
+        "SplitterTiles": 1,
+        "targets": 2
     }
 }
