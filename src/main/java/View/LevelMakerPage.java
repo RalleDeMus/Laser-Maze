@@ -177,7 +177,8 @@ public class LevelMakerPage extends JPanel {
 
         // Create and configure the minus button
         JButton minusButton = new JButton("-");
-        minusButton.setFont(new Font("Baloo Bhaijaan", Font.BOLD, 30));
+        minusButton.setFont(new Font("Baloo Bhaijaan", Font.BOLD, 20));
+        minusButton.setMargin(new Insets(0,0,0,0));
         minusButton.setPreferredSize(new Dimension(40, 40));
         minusButton.addActionListener(e -> {
             if(targets == 0) return;
@@ -190,7 +191,8 @@ public class LevelMakerPage extends JPanel {
 
         // Create and configure the plus button
         JButton plusButton = new JButton("+");
-        plusButton.setFont(new Font("Baloo Bhaijaan", Font.BOLD, 30));
+        plusButton.setFont(new Font("Baloo Bhaijaan", Font.BOLD, 20));
+        plusButton.setMargin(new Insets(0,0,0,0));
         plusButton.setPreferredSize(new Dimension(40, 40));
         plusButton.addActionListener(e -> {
             targets++;
@@ -245,6 +247,8 @@ public class LevelMakerPage extends JPanel {
             int buttonsize = 35;
             // Minus button
             JButton minusButtonTile = new JButton("-");
+            minusButtonTile.setFont(new Font("Baloo Bhaijaan", Font.BOLD, 20));
+            minusButtonTile.setMargin(new Insets(0,0,0,0));
             minusButtonTile.addActionListener(e -> {
                 System.out.println("Tile " + (index) + " minus");
                 changeTileCount(index, -1);
@@ -259,6 +263,8 @@ public class LevelMakerPage extends JPanel {
 
             // Plus button
             JButton plusButtonTile = new JButton("+");
+            plusButtonTile.setFont(new Font("Baloo Bhaijaan", Font.BOLD, 20));
+            plusButtonTile.setMargin(new Insets(0,0,0,0));
             plusButtonTile.addActionListener(e -> {
                 System.out.println("Tile " + (index) + " plus");
                 changeTileCount(index, 1);

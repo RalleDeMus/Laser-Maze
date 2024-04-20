@@ -1,24 +1,15 @@
 package Model.Logic;
-import Controller.AssetServer;
-import Controller.ImageHandler;
 import Model.Tiles.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-
-//import View.BoardPage;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.FileWriter;
-
-import java.util.Map;
-import java.util.HashMap;
 import java.util.ArrayList;
 
 
@@ -196,8 +187,6 @@ public class Board {
             if (laserTile != null) {
                 System.out.println("Constructing laser tree");
 
-                //laserHasHit[laser.getY()][laser.getX()] = 1;
-
                 targetsHit = 0;
 
                 Queue<Laser> lasers = new LinkedList<>();
@@ -310,7 +299,7 @@ public class Board {
     // Check if win condition is met after laser tree work
     public boolean checkWinCondition() {
 
-        if (mirrorsHit == countMirrors() && targetsHit == game_info[4]){
+        if (mirrorsHit >= countMirrors() && targetsHit == game_info[4]){
             System.out.println("Win condition met");
             win = true;
             return true;

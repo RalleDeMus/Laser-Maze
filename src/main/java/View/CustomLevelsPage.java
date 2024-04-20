@@ -8,10 +8,10 @@ import java.awt.event.ActionEvent;
 import java.io.File;
 
 public class CustomLevelsPage extends JPanel {
-    private MainMenu mainMenu;
+
 
     CustomLevelsPage(MainMenu mainMenu) {
-        this.mainMenu = mainMenu;
+
         setLayout(new GridBagLayout()); // Set the main layout to GridBagLayout
 
         GridBagConstraints constraints = new GridBagConstraints();

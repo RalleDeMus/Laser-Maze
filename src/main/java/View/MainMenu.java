@@ -18,7 +18,7 @@ public class MainMenu extends JFrame implements ActionListener {
 
     public MainMenu() {
         setTitle("Laser Maze");
-        setSize(650, 800);
+        setSize(800, 800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null); // Center the window
 

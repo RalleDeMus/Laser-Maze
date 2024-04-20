@@ -35,7 +35,7 @@ public class LevelMakerInputHandler extends BoardInputHandler {
                 board.setSelectedTile(new CheckPointTile(true, true));
                 break;
             case KeyEvent.VK_6:
-                board.setSelectedTile(new CellBlockerTile());
+                board.setSelectedTile(new CellBlockerTile(true));
                 break;
         }
         panel.repaint();

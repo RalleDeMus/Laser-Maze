@@ -73,7 +73,7 @@ class Card {
 
                         break;
                     case "CellBlockerTile":
-                        this.tiles[row][col] = new CellBlockerTile();
+                        this.tiles[row][col] = new CellBlockerTile(false);
 
                         break;
                     case "CheckPointTile":
