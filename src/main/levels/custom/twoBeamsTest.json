@@ -1,0 +1,33 @@
+{
+    "gameinfo": {"tiles": [
+        {
+            "col": 0,
+            "rotatable": true,
+            "orientation": 4,
+            "row": 3,
+            "type": "LaserTile"
+        },
+        {
+            "col": 2,
+            "rotatable": true,
+            "orientation": 4,
+            "row": 3,
+            "type": "SplitterTile"
+        },
+        {
+            "col": 3,
+            "rotatable": true,
+            "orientation": 4,
+            "row": 3,
+            "type": "SplitterTile"
+        }
+    ]},
+    "extra tiles": {
+        "CheckPointTiles": 0,
+        "MirrorTiles": 3,
+        "DoubleTile": 0,
+        "level": 0,
+        "SplitterTiles": 0,
+        "targets": 3
+    }
+}

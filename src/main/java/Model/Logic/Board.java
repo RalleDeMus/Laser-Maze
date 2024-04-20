@@ -4,13 +4,12 @@ import java.awt.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.FileWriter;
-import java.util.ArrayList;
+import java.util.List;
 
 
 //make singleton
@@ -190,6 +189,10 @@ public class Board {
                 targetsHit = 0;
 
                 Queue<Laser> lasers = new LinkedList<>();
+                Set<Laser> lasersList = new HashSet<>();
+
+
+
                 List<Laser> hitLasers = new LinkedList<>();
                 lasers.add(new Laser(laser.getX() + orientationToPoint(laser.getOrientation()).x, laser.getY() + orientationToPoint(laser.getOrientation()).y, laser.getOrientation()));
 
@@ -237,7 +240,7 @@ public class Board {
                         if (tile instanceof SplitterTile) {
                             // If the tile is a splitter, add a new lasers here aswell as the rotated one!
                             Laser adding = new Laser(current.getX() + orientationToPoint(current.getOrientation()).x, current.getY() + orientationToPoint(current.getOrientation()).y, current.getOrientation());
-                            lasers.add(adding);
+                            if (canAddLaser(lasersList, adding)) {lasers.add(adding); lasersList.add(adding);}
                         }
 
                         if (tile.getPass()[laserCorrected] == 0) {
@@ -255,8 +258,7 @@ public class Board {
                             //System.out.println(rotateBy);
                             //System.out.println(nextLaserOrientation);
                             Laser adding = new Laser(current.getX() + orientationToPoint(nextLaserOrientation).x, current.getY() + orientationToPoint(nextLaserOrientation).y, nextLaserOrientation);
-                            lasers.add(adding);
-                            //System.out.println("At mirror, adding next: " + adding.toString());
+                            if (canAddLaser(lasersList, adding)) {lasers.add(adding); lasersList.add(adding);}                            //System.out.println("At mirror, adding next: " + adding.toString());
 
                             toDir = String.valueOf(nextLaserOrientation);
                             toDir += (tile instanceof SplitterTile) ? fromDir : "_";
@@ -266,10 +268,12 @@ public class Board {
                     } else {
                         // Add a next laser to the queue if no tile is found
                         Laser adding = new Laser(current.getX() + orientationToPoint(current.getOrientation()).x, current.getY() + orientationToPoint(current.getOrientation()).y, current.getOrientation());
-                        lasers.add(adding);
+                        if (canAddLaser(lasersList, adding)) {lasers.add(adding); lasersList.add(adding);}
+
 
                         //System.out.println("At empty tile, adding next: " + adding.toString());
                     }
+
                     laserList.add(new PointStringPair(new Point(current.getX(), current.getY()), String.valueOf(fromDir) + String.valueOf(toDir)));
 
 
@@ -289,6 +293,17 @@ public class Board {
             return null;
         }
 
+    }
+
+    public Boolean canAddLaser(Set<Laser> lasersList, Laser adding) {
+        //Don't add if adding is already in the queue
+        for (Laser laser : lasersList) {
+            if (laser.Equals(adding)){
+                System.out.println("Laser already exists");
+                return false;
+            }
+        }
+        return true;
     }
 
     int subMod(int a, int b, int mod) {

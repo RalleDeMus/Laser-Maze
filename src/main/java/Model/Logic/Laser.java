@@ -33,6 +33,10 @@ public class Laser {
         this.y = y;
     }
 
+    public boolean Equals(Laser l1) {
+        return l1.getX() == this.getX() && l1.getY() == this.getY() && l1.getOrientation() == this.getOrientation();
+    }
+
     // Setter for the label
     public void setOrientation(int orientation) {
         this.orientation = orientation;
