@@ -196,7 +196,7 @@ public class MainMenu extends JFrame implements ActionListener {
                 switchToPanel("CustomLevelsPage", new CustomLevelsPage(this));
                 break;
             case "Continue Game":
-                Board.getInstance().setCardLevel("temp"); //game_state
+                Board.getInstance().setCardLevel("game_state");
                 switchToPanel("lastGame", new BoardPage(this,true));
                 break;
         }

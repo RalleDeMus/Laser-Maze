@@ -4,32 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Now added rotatable tiles so you can see which tiles you can rotate when you start a level">
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Fixed bug where hitting the same mirror twice would not result in win&#10;Made it so the &quot;+&quot; and &quot;-&quot; in level make can be seen better&#10;fixed bug where CellBlockerTiles couldn't be removed in level maker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/CellBlockerTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/CellBlockerTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/CustomLevelsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/CustomLevelsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/LevelMaker/LevelMakerInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LevelMaker/LevelMakerInputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/LevelMakerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LevelMakerPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/temp.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/temp.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_10.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/level_10.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_11.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_12.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_13.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_14.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_5.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/level_5.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_6.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/level_6.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_7.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/level_7.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_8.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/level_8.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_9.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/level_9.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Card.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/CellBlockerTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/CellBlockerTile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/LevelMakerPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/LevelMakerPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/MainMenu$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/BoardPage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/MainMenu.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -267,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713466067306</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Fixed bug where hitting the same mirror twice would not result in win&#10;Made it so the &quot;+&quot; and &quot;-&quot; in level make can be seen better&#10;fixed bug where CellBlockerTiles couldn't be removed in level maker">
+      <option name="closed" value="true" />
+      <created>1713622467825</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713622467825</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,6 +288,7 @@
     <MESSAGE value="Added &quot;YOU WIN!&quot; label when you complete a level" />
     <MESSAGE value="Now easier to unselect tile" />
     <MESSAGE value="Now added rotatable tiles so you can see which tiles you can rotate when you start a level" />
-    <option name="LAST_COMMIT_MESSAGE" value="Now added rotatable tiles so you can see which tiles you can rotate when you start a level" />
+    <MESSAGE value="Fixed bug where hitting the same mirror twice would not result in win&#10;Made it so the &quot;+&quot; and &quot;-&quot; in level make can be seen better&#10;fixed bug where CellBlockerTiles couldn't be removed in level maker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug where hitting the same mirror twice would not result in win&#10;Made it so the &quot;+&quot; and &quot;-&quot; in level make can be seen better&#10;fixed bug where CellBlockerTiles couldn't be removed in level maker" />
   </component>
 </project>

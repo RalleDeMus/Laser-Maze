@@ -490,7 +490,12 @@ public class Board {
     }
 
     public String getLevel() {
-        return level;
+        try {
+            Integer.parseInt(level);
+            return level;
+        } catch (Exception e) {
+            return game_info[5] + "";
+        }
     }
 
     //public getCardLevel() {

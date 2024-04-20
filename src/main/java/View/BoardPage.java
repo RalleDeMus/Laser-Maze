@@ -116,7 +116,10 @@ public class BoardPage extends JPanel {
     public void initializeUI(MainMenu mainMenu, int topPanelHeight, int targets) {
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JButton backButton = new JButton("Back");
-        backButton.addActionListener(e -> mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu"));
+        backButton.addActionListener(e -> {
+            Board.getInstance().saveGameState("game_state");
+            mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu");
+        });
 
         JLabel levelText = new JLabel("   Level: " + board.getLevel());
         levelText.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
