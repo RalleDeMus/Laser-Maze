@@ -29,7 +29,6 @@ public class BoardRenderer extends JPanel {
         Tile[][] tiles = board.getTiles();
         Point cursorPos = board.getCursorPos();
         Tile selectedTile = board.getSelectedTile();
-        boolean laserWasFired = board.isLaserFired();
 
 
         for (int row = 0; row < boardSize; row++) {

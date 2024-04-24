@@ -22,7 +22,7 @@ public class LaserToolBarRenderer extends BoardRenderer {
 
         List<BufferedImage> tiles = new ArrayList<>();
 
-        if (!board.laserExists()) {
+        if (board.laserExists()) {
             tiles.add(AssetServer.getInstance().getImage("laser"));
         }
 
@@ -32,8 +32,6 @@ public class LaserToolBarRenderer extends BoardRenderer {
             }
 
         }
-
-        int squareSize = board.getSquareSize();
 
         for (int i = 0; i < tiles.size(); i++) {
             g.drawImage(tiles.get(i), board.getBoardSize() * board.getSquareSize()+board.getSquareSize()/2, i * board.getSquareSize(), board.getSquareSize(), board.getSquareSize(), null);

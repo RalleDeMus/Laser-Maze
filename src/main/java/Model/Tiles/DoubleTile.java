@@ -1,7 +1,7 @@
 package Model.Tiles;
 
 import Controller.AssetServer;
-import Controller.ImageHandler;
+
 
 public class DoubleTile extends Tile {
     public DoubleTile(boolean isMoveable, boolean isRotateable) {
