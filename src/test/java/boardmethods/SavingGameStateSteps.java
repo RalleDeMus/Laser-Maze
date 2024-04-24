@@ -9,12 +9,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class SavingGameStateSteps {
-    @Given("a board with a size of {int} and a square size of {int}")
-    public void aBoardWithASizeOfXAndASquareSizeOf(int boardSize, int squareSize) {
-
-        Board.getInstance();
-    }
-
     @And("several tiles placed on the board")
     public void severalTilesPlacedOnTheBoard() {
         Board.setCursorPos(1,1);

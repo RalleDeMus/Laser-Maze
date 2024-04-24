@@ -72,3 +72,10 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
     @Override
     public void keyTyped(KeyEvent e) { }
 }
+
+
+
+
+
+
+
