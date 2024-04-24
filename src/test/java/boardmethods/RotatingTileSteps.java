@@ -21,7 +21,7 @@ public class RotatingTileSteps {
     @And("a LaserTile at position \\({double})")
     public void aLaserTileAtPosition(int x, int y) {
         Board.setCursorPos(1,1);
-        Board.addTile(new LaserTile(true,true));
+        Board.addTile(new LaserTile(true,true,0),true);
 
     }
 
