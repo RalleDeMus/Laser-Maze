@@ -10,7 +10,24 @@ public class InstructionsPage extends JPanel{
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu"));
         topPanel.add(backButton);
-        String instructionsHtml = "<html><body>"
+        String instructionsHtml = "<html><head>"
+                + "<style>"
+                + "body {"
+                + "   width: 600px;" // Sets the width of the body to control text alignment
+                + "   margin: auto;" // Centers the body within the page
+                + "   font-family: Arial, sans-serif;" // Sets a readable font
+                + "}"
+                + "h1, h2 {"
+                + "   color: navy;" // Styles for headers
+                + "}"
+                + "ul {"
+                + "   padding-left: 20px;" // Proper padding for lists
+                + "}"
+                + "li {"
+                + "   margin-bottom: 10px;" // Space between list items
+                + "}"
+                + "</style>"
+                + "</head><body>"
                 + "<h1>Game Instructions</h1>"
                 + "<h2>Picking Levels and Campaign Mode</h2>"
                 + "<p>Select pieces from the toolbar. Press 'R' to rotate a piece. Right-click to remove a piece. "
