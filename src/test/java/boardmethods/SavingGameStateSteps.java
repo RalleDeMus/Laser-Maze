@@ -9,6 +9,14 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class SavingGameStateSteps {
+
+    Board board;
+
+    @Given("a board with boardsize \\({int}) and size \\({int})")
+    public void aBoardWithBoardsizeAndSize(int boardSize, int squareSize) {
+        board =  new Board(boardSize, squareSize, "0");
+    }
+
     @And("several tiles placed on the board")
     public void severalTilesPlacedOnTheBoard() {
         Board.setCursorPos(1,1);
@@ -29,4 +37,6 @@ public class SavingGameStateSteps {
     public void aJSONFileContainingTheBoardStateAndExtraTilesInformationShouldBeCreated() {
         Assert.assertNotNull("Board state should not be null after saving", Board.tiles);
     }
+
+
 }
