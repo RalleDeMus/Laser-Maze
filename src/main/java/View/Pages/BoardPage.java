@@ -11,9 +11,11 @@ import Controller.BoardInputHandler;
 import Controller.LaserInputHandler;
 import Controller.ToolBar;
 import Model.Logic.Board;
+import Model.Logic.JSONSaving;
 import View.Renderers.BoardRenderer;
 import View.Renderers.LaserToolBarRenderer;
 import View.Renderers.TargetRender;
+import io.cucumber.cienvironment.internal.com.eclipsesource.json.Json;
 
 import javax.swing.*;
 import java.awt.*;
@@ -96,7 +98,7 @@ public class BoardPage extends JPanel {
 
                 JButton nextLevelButton = getjButton("Save and go to Main Menu");
                 nextLevelButton.addActionListener(e -> {
-                            board.saveTempAs(textField.getText());
+                            JSONSaving.saveTempAs(textField.getText());
                             mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu");
                         }
                 );
@@ -131,7 +133,7 @@ public class BoardPage extends JPanel {
         // Add a back button to navigate to the main menu
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> {
-            Board.saveGameState("game_state",board);
+            JSONSaving.saveGameState("game_state",board);
             mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu");
         });
         topPanel.add(backButton);

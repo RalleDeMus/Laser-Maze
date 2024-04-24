@@ -2,6 +2,7 @@ package View.Pages;
 
 import Controller.*;
 import Model.Logic.Board;
+import Model.Logic.JSONSaving;
 import Model.Tiles.Tile;
 import View.Renderers.BoardRenderer;
 import View.Renderers.ImageOverlayNumber;
@@ -375,7 +376,7 @@ public class LevelMakerPage extends JPanel {
         // game info is array with len 6.
         board.set_game_info(new int[]{tileCounts[0], tileCounts[1], tileCounts[2], tileCounts[3], targets, 0});
 
-        Board.saveGameState("temp",board);
+        JSONSaving.saveGameState("temp",board);
 
         board.setCardLevel("temp");
         BoardPage boardPage = new BoardPage(mainMenu, true,board);

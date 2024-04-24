@@ -46,13 +46,8 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
     public void mousePressed(MouseEvent e) {
         if(e.getX()<board.getBoardSize()*board.getSquareSize()) {
             if (e.getButton() == MouseEvent.BUTTON1) {
-                try {
-                    if (board.getSelectedTile() != null) {
-                        board.addTile(board.getSelectedTile().clone(), removeTileAfterPlace);
-                    }
-                } catch (CloneNotSupportedException ex) {
-                    ex.printStackTrace();
-                }
+                board.addTile(removeTileAfterPlace);
+
             } else if (e.getButton() == MouseEvent.BUTTON3) {
                 board.removeTile();
             }
