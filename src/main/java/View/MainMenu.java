@@ -59,11 +59,14 @@ public class MainMenu extends JFrame implements ActionListener {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent event) {
+                System.out.println("\nNew save");
                 Board.getInstance().saveGameState("game_state");
+                System.out.println("Window closing, 17?");
                 dispose();
                 System.exit(0);
             }
         });
+
     }
 
     private JPanel createMainMenuPanel() {
