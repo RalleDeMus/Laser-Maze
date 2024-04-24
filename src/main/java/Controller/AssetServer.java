@@ -34,6 +34,10 @@ public class AssetServer {
         return instance;
     }
 
+    public void loadImagesPublic(ArrayList<String> assetNames) throws IOException {
+        loadImages(assetNames);
+    }
+
     // Load images from the assets folder
     private void loadImages(ArrayList<String> assetNames) throws IOException {
         for (String assetName : assetNames) {
