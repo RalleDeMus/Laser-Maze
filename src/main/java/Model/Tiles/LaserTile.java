@@ -24,7 +24,6 @@ public class LaserTile extends Tile {
         this.setRotatedImage(AssetServer.getInstance().getImage("laserFree"));
 
         this.rotate(orientation,5);
-        System.out.println("orr: "+orientation);
     }
 
 }

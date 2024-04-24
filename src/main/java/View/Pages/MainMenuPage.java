@@ -51,17 +51,6 @@ public class MainMenuPage extends JFrame implements ActionListener {
 // Make the frame visible
         setVisible(true);
 
-        // Handle window closing event
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent event) {
-                System.out.println("\nNew save");
-                Board.saveGameState("game_state");
-                System.out.println("Window closing, 17?");
-                dispose();
-                System.exit(0);
-            }
-        });
 
     }
 
@@ -169,8 +158,8 @@ public class MainMenuPage extends JFrame implements ActionListener {
         String command = e.getActionCommand();
         switch (command) {
             case "Campaign":
-                Board.getInstance().setCardLevel("1");
-                switchToPanel("campaignPage", new BoardPage(this,true));
+                Board board = new Board(5, 100, "1");
+                switchToPanel("campaignPage", new BoardPage(this,true,board));
                 break;
             case "Level Select":
                 switchToPanel("levelSelectPage", new LevelSelectPage(this));
@@ -185,8 +174,9 @@ public class MainMenuPage extends JFrame implements ActionListener {
                 switchToPanel("CustomLevelsPage", new CustomLevelsPage(this));
                 break;
             case "Continue Game":
-                Board.getInstance().setCardLevel("game_state");
-                switchToPanel("lastGame", new BoardPage(this,true));
+
+                board = new Board(5,100, "game_state");
+                switchToPanel("lastGame", new BoardPage(this,true, board));
                 break;
         }
     }

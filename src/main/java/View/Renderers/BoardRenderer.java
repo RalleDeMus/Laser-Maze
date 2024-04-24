@@ -12,8 +12,8 @@ import java.awt.image.BufferedImage;
 public class BoardRenderer extends JPanel {
     protected Board board;
 
-    public BoardRenderer() {
-        this.board = Board.getInstance();
+    public BoardRenderer(Board board) {
+        this.board = board;
         setPreferredSize(new Dimension(board.getBoardSize() * board.getSquareSize(), board.getBoardSize() * board.getSquareSize()));
     }
 

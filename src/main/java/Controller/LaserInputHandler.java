@@ -32,6 +32,7 @@ public class LaserInputHandler extends BoardInputHandler {
             panel.repaint();
             panel.updateWinStatus();
 
+
         }
     }
 

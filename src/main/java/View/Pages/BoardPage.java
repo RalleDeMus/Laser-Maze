@@ -32,24 +32,24 @@ public class BoardPage extends JPanel {
 
     final private MainMenuPage mainMenu;
 
-    public BoardPage(MainMenuPage mainMenu, boolean includeLaserFeatures) {
+    public BoardPage(MainMenuPage mainMenu, boolean includeLaserFeatures, Board board) {
         this.mainMenu = mainMenu;
         // Ensure the Board is accessible
-        board = Board.getInstance();
+        this.board = board;
         board.resetWin();
         setLayout(new BorderLayout());
         int topPanelHeight = 40;
-        initializeUI(mainMenu, topPanelHeight, board.get_game_info(4));
+        initializeUI(mainMenu, topPanelHeight, board.get_game_info_by_index(4));
 
 
         // Setup based on feature inclusion
         BoardRenderer renderer;
         if (includeLaserFeatures) {
-            renderer = new LaserToolBarRenderer();
+            renderer = new LaserToolBarRenderer(board);
             new LaserInputHandler(board, this, topPanelHeight, true);
             new ToolBar(board, this, topPanelHeight, renderer);
         } else {
-            renderer = new BoardRenderer();
+            renderer = new BoardRenderer(board);
             new BoardInputHandler(board, this, topPanelHeight, true);
         }
         add(renderer);
@@ -64,9 +64,10 @@ public class BoardPage extends JPanel {
 
     public void updateWinStatus() {
         winPanel.removeAll(); // Safely remove all components
+        System.out.println("Win: " + board.getWin());
         if (board.getWin()) {
 
-            if (board.get_game_info(5) != 0) {
+            if (board.get_game_info_by_index(5) != 0) {
                 JLabel winLabel = new JLabel("YOU WIN! ");
                 System.out.println("Win: " + board.getWin());
                 winLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 40));
@@ -79,10 +80,10 @@ public class BoardPage extends JPanel {
 
                                 board.setCardLevel(String.valueOf(Integer.parseInt(board.getLevel())+1));
                             } catch (Exception exception) {
-                                board.setCardLevel(String.valueOf(board.get_game_info(5)+1));
+                                board.setCardLevel(String.valueOf(board.get_game_info_by_index(5)+1));
                             }
 
-                            BoardPage boardPage = new BoardPage(mainMenu, true);
+                            BoardPage boardPage = new BoardPage(mainMenu, true, board);
                             mainMenu.getCardPanel().add(boardPage, "boardPage");
                             mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
 
@@ -131,7 +132,7 @@ public class BoardPage extends JPanel {
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> {
-            Board.saveGameState("game_state");
+            Board.saveGameState("game_state",board);
             mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu");
         });
 
@@ -146,7 +147,7 @@ public class BoardPage extends JPanel {
 
 
 
-        if (board.get_game_info(5) == 0 && board.getLevel().equals("temp")){
+        if (board.get_game_info_by_index(5) == 0 && board.getLevel().equals("temp")){
             JLabel textLabel = new JLabel("Level name (exit with TAB):");
 
             // Create a text field with initial text "test"
