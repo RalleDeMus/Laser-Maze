@@ -4,6 +4,7 @@ Har en function der bliver kaldt et andet sted som opdaterer UI.
 
  */
 
+
 package View.Pages;
 
 import Controller.BoardInputHandler;
@@ -166,7 +167,6 @@ public class BoardPage extends JPanel {
 
 
 
-        // How many Targets are there?
         JPanel circlePanel = new JPanel();
         circlePanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 
