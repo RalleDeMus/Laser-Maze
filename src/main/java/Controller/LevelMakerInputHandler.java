@@ -15,7 +15,7 @@ public class LevelMakerInputHandler extends BoardInputHandler {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_R:
-                board.rotateSelectedTile(true);
+                Board.rotateSelectedTile(true);
                 break;
             case KeyEvent.VK_1:
                 board.setSelectedTile(new LaserTile(true, true));

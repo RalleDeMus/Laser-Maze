@@ -7,11 +7,12 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.imageio.ImageIO;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class AssetServer {
 
     private static AssetServer instance;
-    private Map<String, BufferedImage> images = new HashMap<>();
+    final private Map<String, BufferedImage> images = new HashMap<>();
 
     private AssetServer() {
         try {
@@ -49,15 +50,17 @@ public class AssetServer {
     }
 
     public ArrayList<String> listFilesForFolder(final File folder) {
-        ArrayList<String> filenames = new ArrayList<>();
-        for (final File fileEntry : folder.listFiles()) {
-            if (fileEntry.isDirectory()) {
-                listFilesForFolder(fileEntry);
-            } else {
-                filenames.add(fileEntry.getName());
-            }
-        }
-        return filenames;
-    }
 
+            ArrayList<String> filenames = new ArrayList<>();
+            for (final File fileEntry : Objects.requireNonNull(folder.listFiles())) {
+                if (fileEntry.isDirectory()) {
+                    listFilesForFolder(fileEntry);
+                } else {
+                    filenames.add(fileEntry.getName());
+                }
+            }
+            return filenames;
+
+
+}
 }

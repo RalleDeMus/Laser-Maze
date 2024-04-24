@@ -1,7 +1,7 @@
 package Model.Tiles;
 
 import Controller.AssetServer;
-import Controller.ImageHandler;
+
 
 public class CheckPointTile extends Tile {
     public CheckPointTile(boolean isMoveable, boolean isRotateable) {

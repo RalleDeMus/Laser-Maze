@@ -1,7 +1,7 @@
 package Model.Tiles;
 
 import Controller.AssetServer;
-import Controller.ImageHandler;
+
 
 public class LaserTile extends Tile {
 

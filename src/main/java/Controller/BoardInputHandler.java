@@ -11,7 +11,7 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
 
     protected int yOffset;
 
-    private boolean removeTileAfterPlace;
+    final private boolean removeTileAfterPlace;
 
 
     public BoardInputHandler(Board board, JPanel panel,int yOffset, boolean removeTileAfterPlace) {
@@ -29,7 +29,7 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
             @Override
             public void mouseMoved(MouseEvent e) {
                 if(e.getX()<board.getBoardSize()*board.getSquareSize()) {
-                    board.setCursorPos(e.getX(), e.getY() - yOffset);
+                    Board.setCursorPos(e.getX(), e.getY() - yOffset);
                     panel.repaint();
                 }
             }
@@ -52,7 +52,7 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
                     ex.printStackTrace();
                 }
             } else if (e.getButton() == MouseEvent.BUTTON3) {
-                board.removeTile();
+                Board.removeTile();
             }
             panel.repaint();
         }
@@ -61,7 +61,7 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_R) {
-            board.rotateSelectedTile(false);
+            Board.rotateSelectedTile(false);
         }
         panel.repaint();
     }

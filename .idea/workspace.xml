@@ -4,27 +4,53 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="now doesnt save random level_17 file...">
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Made correct setup of classes to fit Model-View-Controller">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AssetServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AssetServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/BoardInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/BoardInputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/BoardRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Renderers/BoardRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/CostomLabels/ImageOverlayNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Renderers/ImageOverlayNumber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/CostomLabels/TargetRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Renderers/TargetRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/LaserInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LaserInputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/LaserToolBarRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Renderers/LaserToolBarRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Board/ToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ToolBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/BoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/BoardPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/CustomLevelsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/CustomLevelsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/InstructionsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/InstructionsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/LevelMaker/LevelMakerInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LevelMakerInputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/LevelMaker/LevelMakerRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LevelMakerRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/LevelMakerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/LevelMakerPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/LevelSelectPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/LevelSelectPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/MainMenuPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/BoardInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/BoardInputHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/BoardPageController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ImageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ImageHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LevelMakerInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LevelMakerInputHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LevelMakerRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ToolBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Laser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Laser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/CheckPointTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/CheckPointTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/DoubleTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/DoubleTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/LaserTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/LaserTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/MirrorTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/MirrorTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/SplitterTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/SplitterTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/TileInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/TileInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/BoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/BoardPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/LevelMakerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/LevelMakerPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/LevelSelectPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/LevelSelectPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/MainMenuPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/MainMenuPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Renderers/BoardRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Renderers/BoardRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Renderers/ImageOverlayNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Renderers/ImageOverlayNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Renderers/LaserToolBarRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Renderers/LaserToolBarRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/temp.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/temp.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controller/AssetServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/AssetServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/BoardPageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/ImageHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/ImageHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Laser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Laser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/Tile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/TileInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/TileInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/BoardPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/InstructionsPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/LevelMakerPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/LevelSelectPage$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/LevelSelectPage$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/LevelSelectPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu$BackgroundPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/MainMenu.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,7 +318,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713945276232</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Made correct setup of classes to fit Model-View-Controller">
+      <option name="closed" value="true" />
+      <created>1713946771950</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1713946771950</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,6 +361,7 @@
     <MESSAGE value="Fixed bug where hitting the same mirror twice would not result in win&#10;Made it so the &quot;+&quot; and &quot;-&quot; in level make can be seen better&#10;fixed bug where CellBlockerTiles couldn't be removed in level maker" />
     <MESSAGE value="Reset to recent branch, but keep levels" />
     <MESSAGE value="now doesnt save random level_17 file..." />
-    <option name="LAST_COMMIT_MESSAGE" value="now doesnt save random level_17 file..." />
+    <MESSAGE value="Made correct setup of classes to fit Model-View-Controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made correct setup of classes to fit Model-View-Controller" />
   </component>
 </project>

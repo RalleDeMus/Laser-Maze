@@ -1,6 +1,5 @@
 package Model.Logic;
 
-import java.awt.Point;
 
 public class Laser {
     private int x;

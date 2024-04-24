@@ -10,9 +10,9 @@ public interface TileInterface {
 
     //boolean getLaser();
 
-    boolean getIsMoveable();
+    boolean getIsMovable();
 
-    boolean getIsRotateable();
+    boolean getIsRotatable();
     void setIsMoveable(boolean isMoveable);
     BufferedImage getImage();
     void setImage(BufferedImage image);
@@ -20,7 +20,7 @@ public interface TileInterface {
     void setRotatedImage(BufferedImage rotatedImage);
 
     BufferedImage getRotatedImage();
-    void setIsRotateable(boolean isRotateable);
+    void setIsRotatable(boolean isRotatable);
 
 
 

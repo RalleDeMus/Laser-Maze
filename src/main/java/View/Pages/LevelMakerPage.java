@@ -14,16 +14,15 @@ import java.awt.event.ComponentEvent;
 import java.awt.image.BufferedImage;
 
 public class LevelMakerPage extends JPanel {
-    private BoardInputHandler inputHandler;
-    private ToolBar toolBar;
-    private Board board;
-    private JPanel winPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); // Initialize here
 
-    private MainMenuPage mainMenu;
+
+    final private Board board;
+
+    final private MainMenuPage mainMenu;
 
     private int targets = 0;
 
-    int tileCounts[] = new int[4];
+    int[] tileCounts = new int[4];
 
     ImageOverlayNumber[] tileLabels = new ImageOverlayNumber[5];
 
@@ -48,8 +47,8 @@ public class LevelMakerPage extends JPanel {
         // Setup based on feature inclusion
         BoardRenderer renderer;
 
-        renderer = new LevelMakerRenderer();
-        inputHandler = new LevelMakerInputHandler(board, this, topPanelHeight, false);
+        renderer = new BoardRenderer();
+        new LevelMakerInputHandler(board, this, topPanelHeight, false);
         initializeUI(mainMenu, topPanelHeight, renderer);
 
 
@@ -363,10 +362,10 @@ public class LevelMakerPage extends JPanel {
 
                     System.out.println("Tile at: " +i + " " + j + " rotation: " + tiles[i][j].getOrientation());
                     if (tiles[i][j].getOrientation() == 4) {
-                        tiles[i][j].setIsRotateable(true);
+                        tiles[i][j].setIsRotatable(true);
                         System.out.println("TILE AT: " + i + " " + j + " is rotateable");
                     } else {
-                        tiles[i][j].setIsRotateable(false);
+                        tiles[i][j].setIsRotatable(false);
                     }
                 }
             }
@@ -376,12 +375,16 @@ public class LevelMakerPage extends JPanel {
         // game info is array with len 6.
         board.set_game_info(new int[]{tileCounts[0], tileCounts[1], tileCounts[2], tileCounts[3], targets, 0});
 
-        board.saveGameState("temp");
+        Board.saveGameState("temp");
 
         board.setCardLevel("temp");
         BoardPage boardPage = new BoardPage(mainMenu, true);
         mainMenu.getCardPanel().add(boardPage, "boardPage");
         mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
+    }
+
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
     }
 
 
