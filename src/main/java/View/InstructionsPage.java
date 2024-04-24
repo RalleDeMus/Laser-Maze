@@ -10,6 +10,7 @@ public class InstructionsPage extends JPanel{
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu"));
         topPanel.add(backButton);
+        // Instructions text with HTML for formatting and inclusion of the image content
         String instructionsHtml = "<html><head>"
                 + "<style>"
                 + "body {"
@@ -54,23 +55,11 @@ public class InstructionsPage extends JPanel{
                 + "</ul>"
                 + "</body></html>";
 
+        // Create a label for the instructions with HTML content
         JLabel label = new JLabel(instructionsHtml, SwingConstants.CENTER);
-
-        // Images panel
-        JPanel imagesPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
-        // Assuming the 'Direction' files are located in the 'assets' directory
-        String[] directionFiles = {"BeamSplitterDirection.png", "CheckpointDirections.png",
-                "DoubleMirrorDirection.png", "LaserDirection.png",
-                "TargetMirrorDirection.png"};
-        for (String filename : directionFiles) {
-            ImageIcon imageIcon = new ImageIcon(getClass().getResource("/assets/" + filename));
-            JLabel imageLabel = new JLabel(imageIcon);
-            imagesPanel.add(imageLabel);
-        }
 
         // Add components to the InstructionsPage layout
         add(topPanel, BorderLayout.NORTH);
         add(label, BorderLayout.CENTER);
-        add(imagesPanel, BorderLayout.SOUTH); // Add the images panel to the bottom
     }
 }
