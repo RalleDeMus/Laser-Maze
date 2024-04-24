@@ -9,12 +9,8 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 
 public class MainMenuPage extends JFrame implements ActionListener {
-    private JPanel cardPanel;
-    private CardLayout cardLayout;
-    private BackgroundPanel backgroundPanel;
-
-    JLabel logoLabel = new JLabel();
-
+    final private JPanel cardPanel;
+    final private CardLayout cardLayout;
 
     public MainMenuPage() {
         setTitle("Laser Maze");
@@ -25,13 +21,13 @@ public class MainMenuPage extends JFrame implements ActionListener {
 // Obtain the background image from AssetServer
         BufferedImage backgroundImage = AssetServer.getInstance().getImage("background");
 // Initialize the BackgroundPanel with the image
-        backgroundPanel = new BackgroundPanel(backgroundImage);
+        BackgroundPanel backgroundPanel = new BackgroundPanel(backgroundImage);
         backgroundPanel.setLayout(new BorderLayout());
 
 // Title label at the top
         BufferedImage logoImage = AssetServer.getInstance().getImage("LaserLogo");
         ImageIcon logoIcon = new ImageIcon(logoImage);
-        logoLabel = new JLabel(logoIcon);
+        JLabel logoLabel = new JLabel(logoIcon);
         logoLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
 // Initialize cardPanel with CardLayout
@@ -60,7 +56,7 @@ public class MainMenuPage extends JFrame implements ActionListener {
             @Override
             public void windowClosing(WindowEvent event) {
                 System.out.println("\nNew save");
-                Board.getInstance().saveGameState("game_state");
+                Board.saveGameState("game_state");
                 System.out.println("Window closing, 17?");
                 dispose();
                 System.exit(0);
@@ -87,15 +83,6 @@ public class MainMenuPage extends JFrame implements ActionListener {
         levelMakerButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         InstructionsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         customButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-
-
-//        // Set preferred size for the buttons
-//        openLastGameButton.setPreferredSize(new Dimension(400, 60));
-//        campaignButton.setPreferredSize(new Dimension(400, 60));
-//        levelSelectButton.setPreferredSize(new Dimension(400, 60));
-//        levelMakerButton.setPreferredSize(new Dimension(400, 60));
-//        InstructionsButton.setPreferredSize(new Dimension(400, 60));
 
 
         openLastGameButton.addActionListener(this);
@@ -143,7 +130,6 @@ public class MainMenuPage extends JFrame implements ActionListener {
         button.setBorder(BorderFactory.createLineBorder(borderColor, 0, true));
         button.setOpaque(true);
         Dimension buttonSize = new Dimension(400, 60);
-        Dimension buttonExitSize = new Dimension(420, 70);
 
         button.setPreferredSize(buttonSize);
         button.setMinimumSize(buttonSize);

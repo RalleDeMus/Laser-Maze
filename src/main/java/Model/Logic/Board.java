@@ -45,12 +45,12 @@ public class Board {
         // Initializes the cursor tile
         // Reads from the asset server
     private Board(int boardSize, int squareSize) {
-        this.boardSize = boardSize;
+        Board.boardSize = boardSize;
         this.card = new Card("0");
-        this.tiles = card.getCard();
-        this.cursorPos = new Point(0, 0);
-        this.squareSize = squareSize;
-        this.game_info = card.getPlaceableTiles();
+        tiles = card.getCard();
+        cursorPos = new Point(0, 0);
+        Board.squareSize = squareSize;
+        game_info = card.getPlaceableTiles();
 
 
 
@@ -91,7 +91,7 @@ public class Board {
 
             }
         }
-        //selectedTile.setImage(assetServer.getImage(imageName));
+
     }
     public Tile[][] getTiles() {
         return tiles;
@@ -123,6 +123,9 @@ public class Board {
     }
 
     public int get_game_info(int index) {
+        if (index < 0 || index > game_info.length - 1) {
+            throw new IllegalArgumentException("Index out of bounds");
+        }
         return game_info[index];
     }
     public void set_game_info(int[] _game_info) {
@@ -152,11 +155,11 @@ public class Board {
         for (int row = 0; row < boardSize; row++) {
             for (int col = 0; col < boardSize; col++) {
                 if (tiles[row][col] != null && tiles[row][col] instanceof LaserTile) {
-                    return true;
+                    return false;
                 }
             }
         }
-        return false;
+        return true;
     }
 
     // Construct laser tree
@@ -289,7 +292,7 @@ public class Board {
             }
             return laserList;
         } else {
-            //System.out.println("Not all mirrors used");
+
             return null;
         }
 
@@ -312,18 +315,16 @@ public class Board {
 
 
     // Check if win condition is met after laser tree work
-    public boolean checkWinCondition() {
+    public void checkWinCondition() {
 
         if (mirrorsHit >= countMirrors() && targetsHit == game_info[4]){
             System.out.println("Win condition met");
             win = true;
-            return true;
         } else {
             System.out.println("Win condition not met - all mirrors not used OR not all mirrors hit");
             System.out.println("Mirrors hit: " + mirrorsHit + " Count mirrors: " + countMirrors());
             System.out.println("Targets hit: " + targetsHit + " Count targets: " + game_info[5]);
             win = false;
-            return false;
         }
 
     }
@@ -333,9 +334,7 @@ public class Board {
     // Add the cursor tile to the board and check if placement is valid
     public static void addTile(Tile t, boolean removeTileAfterPlacement) {
         if (t != null) {
-            if (tiles[cursorPos.y][cursorPos.x] != null) {
-                //System.out.println("Tile occupied");
-            } else {
+            if (tiles[cursorPos.y][cursorPos.x] == null) {
                 if (t instanceof LaserTile && getLaserTile() != null) {
                     System.out.println("Laser already exists");
                     return;
@@ -381,7 +380,7 @@ public class Board {
 
     // Remove a tile
     public static void removeTile() {
-        if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsMoveable()) {
+        if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsMovable()) {
             if (tiles[cursorPos.y][cursorPos.x] instanceof MirrorTile) {
                 game_info[0]++;
             } else if (tiles[cursorPos.y][cursorPos.x] instanceof SplitterTile) {
@@ -408,7 +407,7 @@ public class Board {
 
     public static void rotateSelectedTile(boolean levelEditor) {
         int mod = levelEditor ? 5 : 4;
-        if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsRotateable()) {
+        if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsRotatable()) {
             tiles[cursorPos.y][cursorPos.x].rotate(1,mod);
         }else {
             System.out.println("Tile is not rotateable");
@@ -442,7 +441,7 @@ public class Board {
                     tileObject.put("col", j);
                     tileObject.put("type", tile.getClass().getSimpleName());
                     tileObject.put("orientation", tile.getOrientation());
-                    tileObject.put("rotatable", tile.getIsRotateable());
+                    tileObject.put("rotatable", tile.getIsRotatable());
 
                     // Add other properties for different tile types if needed
 
@@ -502,11 +501,14 @@ public class Board {
         this.level = level;
         System.out.println("Setting card level to: " + level);
         this.card = new Card(level);
-        this.tiles = card.getCard();
-        this.game_info = card.getPlaceableTiles();
+        tiles = card.getCard();
+        game_info = card.getPlaceableTiles();
     }
 
     public String getLevel() {
+        if (level.equals("game_state")) {
+            level = game_info[5]+"";
+        }
         return level;
     }
 

@@ -77,7 +77,7 @@ public class Tile implements TileInterface, Cloneable{
 
     // getter and setter of if the tile is moveable or not
     @Override
-    public boolean getIsMoveable() {
+    public boolean getIsMovable() {
         return isMoveable;
     }
 
@@ -112,13 +112,13 @@ public class Tile implements TileInterface, Cloneable{
 
     //getter and setter to make tile rotateable
     @Override
-    public boolean getIsRotateable() {
+    public boolean getIsRotatable() {
         return isRotateable;
     }
 
     @Override
-    public void setIsRotateable(boolean isRotateable) {
-        this.isRotateable = isRotateable;
+    public void setIsRotatable(boolean isRotatable) {
+        this.isRotateable = isRotatable;
     }
 
     public int getOrientation() {

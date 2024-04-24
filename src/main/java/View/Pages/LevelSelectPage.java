@@ -8,13 +8,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LevelSelectPage extends JPanel{
-    private MainMenuPage mainMenu;
-    private JPanel cardPanel;
-    private CardLayout cardLayout;
+
     private int selectedLevel = -1; // Variable to store the selected level, initialized to -1 (no level selected)
 
     LevelSelectPage(MainMenuPage mainMenu) {
-        this.mainMenu = mainMenu;
+
         setLayout(new BorderLayout());
 
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -22,16 +20,16 @@ public class LevelSelectPage extends JPanel{
         backButton.addActionListener(e -> mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu"));
         topPanel.add(backButton);
 
-        this.cardPanel = new JPanel();
-        this.cardLayout = new CardLayout();
-        cardPanel.setLayout(this.cardLayout);
+        JPanel cardPanel = new JPanel();
+        CardLayout cardLayout = new CardLayout();
+        cardPanel.setLayout(cardLayout);
 
         //JPanel mainMenuPanel = createMainMenuPanel();
         //this.cardPanel.add(mainMenuPanel, "mainMenu");
 
 
 
-        add(this.cardPanel, BorderLayout.CENTER);
+        add(cardPanel, BorderLayout.CENTER);
 
         JLabel label = new JLabel("Level Select Page", SwingConstants.CENTER);
         add(topPanel, BorderLayout.NORTH);
@@ -82,10 +80,7 @@ public class LevelSelectPage extends JPanel{
         add(gridPanel, BorderLayout.CENTER);
     }
 
-    // Method to get the selected level
-    public int getSelectedLevel() {
-        return selectedLevel;
-    }
+
 
 
 

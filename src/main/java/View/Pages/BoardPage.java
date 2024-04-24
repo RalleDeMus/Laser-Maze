@@ -16,15 +16,15 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
 public class BoardPage extends JPanel {
-    private BoardInputHandler inputHandler;
-    private ToolBar toolBar;
-    private Board board;
-    private JPanel winPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); // Initialize here
+
+
+    final private Board board;
+    final private JPanel winPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); // Initialize here
 
     JTextField textField = new JTextField("test", 10); // 10 columns width
 
 
-    private MainMenuPage mainMenu;
+    final private MainMenuPage mainMenu;
 
     public BoardPage(MainMenuPage mainMenu, boolean includeLaserFeatures) {
         this.mainMenu = mainMenu;
@@ -40,11 +40,11 @@ public class BoardPage extends JPanel {
         BoardRenderer renderer;
         if (includeLaserFeatures) {
             renderer = new LaserToolBarRenderer();
-            inputHandler = new LaserInputHandler(board, this, topPanelHeight, true);
-            toolBar = new ToolBar(board, this, topPanelHeight, renderer);
+            new LaserInputHandler(board, this, topPanelHeight, true);
+            new ToolBar(board, this, topPanelHeight, renderer);
         } else {
             renderer = new BoardRenderer();
-            inputHandler = new BoardInputHandler(board, this, topPanelHeight, true);
+            new BoardInputHandler(board, this, topPanelHeight, true);
         }
         add(renderer);
         this.setFocusable(true);
@@ -69,8 +69,13 @@ public class BoardPage extends JPanel {
                 JButton nextLevelButton = new JButton("Next Level");
                 nextLevelButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
                 nextLevelButton.addActionListener(e -> {
-                            System.out.println("Going to level " + (Integer.parseInt(board.getLevel())+1));
-                            board.setCardLevel(String.valueOf(Integer.parseInt(board.getLevel())+1));
+                            try{
+
+                                board.setCardLevel(String.valueOf(Integer.parseInt(board.getLevel())+1));
+                            } catch (Exception exception) {
+                                board.setCardLevel(String.valueOf(board.get_game_info(5)+1));
+                            }
+
                             BoardPage boardPage = new BoardPage(mainMenu, true);
                             mainMenu.getCardPanel().add(boardPage, "boardPage");
                             mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
@@ -120,18 +125,21 @@ public class BoardPage extends JPanel {
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> {
-            Board.getInstance().saveGameState("game_state");
+            Board.saveGameState("game_state");
             mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu");
         });
 
-        JLabel levelText = new JLabel("   Level: " + board.getLevel());
-        levelText.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
-
-
         topPanel.add(backButton);
-        topPanel.add(levelText);
 
-        System.out.println("LEVEL AND TEMP??? " +board.get_game_info(5) + " " + board.getLevel());
+
+            JLabel levelText = new JLabel("   Level: " + board.getLevel());
+            levelText.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+            topPanel.add(levelText);
+
+
+
+
+
         if (board.get_game_info(5) == 0 && board.getLevel().equals("temp")){
             JLabel textLabel = new JLabel("Level name (exit with TAB):");
 

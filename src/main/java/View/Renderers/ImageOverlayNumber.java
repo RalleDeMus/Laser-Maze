@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ImageOverlayNumber extends JComponent {
-    private ImageIcon imageIcon;
+    final private ImageIcon imageIcon;
     private int number;
     private Font font;
 
