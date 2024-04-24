@@ -128,6 +128,7 @@ public class BoardPage extends JPanel {
         topPanel.add(backButton);
         topPanel.add(levelText);
 
+        System.out.println("LEVEL AND TEMP??? " +board.get_game_info(5) + " " + board.getLevel());
         if (board.get_game_info(5) == 0 && board.getLevel().equals("temp")){
             JLabel textLabel = new JLabel("Level name (exit with TAB):");
 
