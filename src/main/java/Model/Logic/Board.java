@@ -129,6 +129,13 @@ Getters and setters (Maybe we can make some of these their own?)
         game_info = _game_info;
     }
 
+    public void setMirrorsHit(int mirrorsHit) {
+        this.mirrorsHit = mirrorsHit;
+    }
+
+    public void setTargetsHit(int targetsHit) {
+        this.targetsHit = targetsHit;
+    }
 
     public Boolean getWin() {
         return win;
@@ -199,18 +206,9 @@ Getters and setters (Maybe we can make some of these their own?)
 
     }
 
-
-/*
-STUFF TO CONSTRUCT THE LASER TREE
-*/
-
-    // Construct laser tree
-
-
-
 /*
 HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
- */
+*/
 
 
 

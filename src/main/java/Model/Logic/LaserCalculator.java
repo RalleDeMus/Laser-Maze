@@ -130,7 +130,11 @@ public class LaserCalculator {
                 }
 
             }
-            //setWin();
+
+            board.setMirrorsHit(mirrorsHit);
+            board.setTargetsHit(targetsHit);
+
+            board.setWin();
             return laserList;
         } else {
 

@@ -36,12 +36,8 @@ public class LoadImageSteps {
 
     @When("I load an image with name beamSplitter")
     public void iLoadAnImageIntoTheAssetServerWithNameBeamSplitter(String assetName) {
-        try {
-            assetServer.loadImages("beamSplitter");
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to load asset", e);
-        }
+        assetServer.getImage("beamSplitter");
+
     }
 
     @When("I request an image named beamSplitter")

@@ -125,91 +125,82 @@ public class BoardPage extends JPanel {
 
 
     public void initializeUI(MainMenuPage mainMenu, int topPanelHeight, int targets) {
+        // Create the top panel
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        
+        // Add a back button to navigate to the main menu
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> {
             Board.saveGameState("game_state",board);
             mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu");
         });
-
         topPanel.add(backButton);
-
-
-            JLabel levelText = new JLabel("   Level: " + board.getLevel());
-            levelText.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
-            topPanel.add(levelText);
-
-
-
-
-
+        
+        // Add the level text to display the current level
+        JLabel levelText = new JLabel("   Level: " + board.getLevel());
+        levelText.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+        topPanel.add(levelText);
+        
+        // Add level name input field if it's a temporary level
         if (board.get_game_info_by_index(5) == 0 && board.getLevel().equals("temp")){
             JLabel textLabel = new JLabel("Level name (exit with TAB):");
-
-            // Create a text field with initial text "test"
+            
             textField = new JTextField("LEVEL NAME", 10); // 10 columns width
             textField.addFocusListener(new FocusAdapter() {
-                @Override
-                public void focusLost(FocusEvent e) {
-                    // When focus is lost, we schedule a request to regain focus later
-                    SwingUtilities.invokeLater(() -> {
-                        // Check some condition or store a flag if you need to control this behavior
-                        requestFocus();
-                    });
-                }
+            @Override
+            public void focusLost(FocusEvent e) {
+                SwingUtilities.invokeLater(() -> {
+                requestFocus();
+                });
+            }
             });
-
+            
             topPanel.setPreferredSize(new Dimension(getWidth(), topPanelHeight));
             topPanel.add(textLabel);
-            topPanel.add(textField); // Add the text field to the panel next to the back button
+            topPanel.add(textField);
             topPanel.add(Box.createHorizontalGlue());
         }
-
-
-
+        
+        // Create the circle panel to display the targets
         JPanel circlePanel = new JPanel();
         circlePanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-
+        
+        // Create a numbered circle to represent the targets
         TargetRender numberedCircle = new TargetRender(targets, new Color(222, 48, 48), Color.WHITE, 60);
-
+        
+        // Add a label for the targets
         JLabel normalLabel = new JLabel(" Targets: ");
         normalLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 40));
-
+        
         circlePanel.add(normalLabel);
         circlePanel.add(numberedCircle);
-
-
-        // Win stuff
+        
+        // Create the win panel to display win status and buttons
         winPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-
-
-        // Create a GridBagConstraints object
+        
+        // Set up the grid bag constraints for the circle panel
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridx = 0; // Start at the first column
-        gbc.gridy = 0; // Start at the first row
-        gbc.weightx = 1; // Request any extra horizontal space
-        gbc.weighty = 1; // Request any extra vertical space
-        gbc.anchor = GridBagConstraints.CENTER; // Center the component
-
-// Set the circlePanel to use GridBagLayout
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 1;
+        gbc.weighty = 1;
+        gbc.anchor = GridBagConstraints.CENTER;
+        
         circlePanel.setLayout(new GridBagLayout());
-// Add the normalLabel and numberedCircle to the circlePanel with constraints
         circlePanel.add(normalLabel, gbc);
-        gbc.gridx++; // Move to the next column
+        gbc.gridx++;
         circlePanel.add(numberedCircle, gbc);
-
-// Reset the GridBagConstraints 'gridx' for the winPanel
-        gbc.gridx = 0; // Reset to first column
-// Set the winPanel to use GridBagLayout
+        
+        // Set up the grid bag constraints for the win panel
+        gbc.gridx = 0;
         winPanel.setLayout(new GridBagLayout());
-// Add the winLabel to the winPanel with constraints
-
-// Now, add the south container panel to the main BoardPage panel with BorderLayout
+        
+        // Create a container for the circle panel and win panel
         JPanel southContainer = new JPanel(new BorderLayout());
         southContainer.add(circlePanel, BorderLayout.WEST);
         southContainer.add(winPanel, BorderLayout.EAST);
-
-// Add the top panel and south container panel to the main BoardPage panel
+        
+        // Add the top panel and the container to the board page
         add(topPanel, BorderLayout.NORTH);
         add(southContainer, BorderLayout.SOUTH);
 
