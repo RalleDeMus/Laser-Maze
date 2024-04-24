@@ -38,7 +38,7 @@ public class ToolBar extends MouseAdapter implements KeyListener {
                     tiles.add(new LaserTile(true, true));
                 }
                 for (int i = 0; i < 4; i++) {
-                    for (int j = 0; j < board.get_game_info(i); j++) {
+                    for (int j = 0; j < board.get_game_info_by_index(i); j++) {
                         tiles.add(intToTile(i));
                     }
 
@@ -46,7 +46,7 @@ public class ToolBar extends MouseAdapter implements KeyListener {
                 int y = e.getY()-yOffset;
                 if(y/board.getSquareSize()<tiles.size()) {
                     board.setSelectedTile(tiles.get(y / board.getSquareSize()));
-                    Board.setCursorPos(0, 0);
+                    board.setCursorPos(0, 0);
                 }
 
 

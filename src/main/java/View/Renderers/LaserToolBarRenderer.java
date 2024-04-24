@@ -2,6 +2,8 @@ package View.Renderers;
 
 import Controller.AssetServer;
 import Controller.ImageHandler;
+import Model.Logic.Board;
+import Model.Logic.LaserCalculator;
 import Model.Logic.PointStringPair;
 
 import java.awt.*;
@@ -10,6 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LaserToolBarRenderer extends BoardRenderer {
+
+    public LaserToolBarRenderer(Board board) {
+        super(board);
+    }
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -27,7 +33,7 @@ public class LaserToolBarRenderer extends BoardRenderer {
         }
 
         for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < board.get_game_info(i); j++) {
+            for (int j = 0; j < board.get_game_info_by_index(i); j++) {
                 tiles.add(getTileImage(i));
             }
 
@@ -57,8 +63,8 @@ public class LaserToolBarRenderer extends BoardRenderer {
 
     void drawLaser(Graphics g){
 
-        if(board.isLaserFired()) {
-            List<PointStringPair> laserMap = board.constructLaserTree();
+        if(board.getLaserFired()) {
+            List<PointStringPair> laserMap = LaserCalculator.constructLaserTree(board);
 
             if (laserMap != null) {
 
@@ -103,7 +109,6 @@ public class LaserToolBarRenderer extends BoardRenderer {
                     }
 
                 }
-                board.checkWinCondition();
 
             }
             else {
