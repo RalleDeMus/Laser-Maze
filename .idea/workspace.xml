@@ -5,22 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Organised Board">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/LaserCalculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/BoardInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/BoardInputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LaserInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LaserInputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LevelMakerInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LevelMakerInputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ToolBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/LaserTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/LaserTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/BoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/BoardPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/CustomLevelsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/CustomLevelsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/LevelMakerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/LevelMakerPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/LevelSelectPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/LevelSelectPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/MainMenuPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/MainMenuPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Renderers/BoardRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Renderers/BoardRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/Renderers/LaserToolBarRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Renderers/LaserToolBarRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/RemovingTileSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/boardmethods/RemovingTileSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/LaserTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/LaserTile.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +71,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Refactoring-Julius",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/juliuseg/group-4/src/main/levels",
     "node.js.detected.package.eslint": "true",
