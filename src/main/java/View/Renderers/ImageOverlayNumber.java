@@ -1,4 +1,4 @@
-package View.Board.CostomLabels;
+package View.Renderers;
 
 import javax.swing.*;
 import java.awt.*;

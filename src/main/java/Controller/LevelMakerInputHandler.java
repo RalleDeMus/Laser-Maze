@@ -1,10 +1,8 @@
-package View.LevelMaker;
+package Controller;
 
 import Model.Logic.Board;
 import Model.Tiles.*;
-import View.Board.BoardInputHandler;
-import View.BoardPage;
-import View.LevelMakerPage;
+import View.Pages.LevelMakerPage;
 
 import java.awt.event.KeyEvent;
 

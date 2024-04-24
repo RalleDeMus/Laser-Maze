@@ -1,10 +1,6 @@
-package View.Board;
+package Controller;
 
 import Model.Logic.Board;
-import Model.Logic.PointStringPair;
-import Model.Tiles.*;
-import Model.Logic.Board;
-import View.BoardPage;
 
 import javax.swing.*;
 import java.awt.event.*;

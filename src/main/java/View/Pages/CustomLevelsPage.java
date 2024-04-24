@@ -1,4 +1,4 @@
-package View;
+package View.Pages;
 
 import Model.Logic.Board;
 
@@ -10,7 +10,7 @@ import java.io.File;
 public class CustomLevelsPage extends JPanel {
 
 
-    CustomLevelsPage(MainMenu mainMenu) {
+    CustomLevelsPage(MainMenuPage mainMenu) {
 
         setLayout(new GridBagLayout()); // Set the main layout to GridBagLayout
 

@@ -1,4 +1,4 @@
-package View;
+package View.Pages;
 
 import Model.Logic.Board;
 
@@ -8,12 +8,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LevelSelectPage extends JPanel{
-    private MainMenu mainMenu;
+    private MainMenuPage mainMenu;
     private JPanel cardPanel;
     private CardLayout cardLayout;
     private int selectedLevel = -1; // Variable to store the selected level, initialized to -1 (no level selected)
 
-    LevelSelectPage(MainMenu mainMenu) {
+    LevelSelectPage(MainMenuPage mainMenu) {
         this.mainMenu = mainMenu;
         setLayout(new BorderLayout());
 

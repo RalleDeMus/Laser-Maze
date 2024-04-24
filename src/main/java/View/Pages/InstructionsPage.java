@@ -1,9 +1,9 @@
-package View;
+package View.Pages;
 
 import javax.swing.*;
 import java.awt.*;
 public class InstructionsPage extends JPanel{
-    InstructionsPage(MainMenu mainMenu) {
+    InstructionsPage(MainMenuPage mainMenu) {
         setLayout(new BorderLayout());
 
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));

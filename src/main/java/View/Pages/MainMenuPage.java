@@ -1,4 +1,4 @@
-package View;
+package View.Pages;
 
 import Controller.AssetServer;
 import Model.Logic.Board;
@@ -8,7 +8,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 
-public class MainMenu extends JFrame implements ActionListener {
+public class MainMenuPage extends JFrame implements ActionListener {
     private JPanel cardPanel;
     private CardLayout cardLayout;
     private BackgroundPanel backgroundPanel;
@@ -16,7 +16,7 @@ public class MainMenu extends JFrame implements ActionListener {
     JLabel logoLabel = new JLabel();
 
 
-    public MainMenu() {
+    public MainMenuPage() {
         setTitle("Laser Maze");
         setSize(800, 800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);

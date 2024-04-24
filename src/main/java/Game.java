@@ -1,14 +1,13 @@
-import View.MainMenu;
-import java.awt.event.*;
+import View.Pages.MainMenuPage;
+
 import javax.swing.*;
-import java.awt.GraphicsEnvironment;
 
 public class Game {
 
     public static void main(String[] args) {
 
         SwingUtilities.invokeLater(() -> {
-            new MainMenu();;
+            new MainMenuPage();;
 
         });
 
