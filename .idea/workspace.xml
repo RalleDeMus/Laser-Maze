@@ -5,17 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Fixed bug where hitting the same mirror twice would not result in win&#10;Made it so the &quot;+&quot; and &quot;-&quot; in level make can be seen better&#10;fixed bug where CellBlockerTiles couldn't be removed in level maker">
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_0.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_1.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_10.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_2.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_3.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_4.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_5.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_6.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_7.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_8.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/level_9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/InstructionsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/InstructionsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/LevelMakerPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/LevelMakerPage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="level-maker-julius-tests" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -54,6 +48,31 @@
     &quot;second&quot;: &quot;60b3407f-8107-4a00-a763-4d7de78575b6&quot;
   }
 }</component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="mainTesterspillet" />
+                    <option name="lastUsedInstant" value="1713944416" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1713944415" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -74,7 +93,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "mainTesterspillet",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/juliuseg/group-4/src/main/levels",
     "node.js.detected.package.eslint": "true",
