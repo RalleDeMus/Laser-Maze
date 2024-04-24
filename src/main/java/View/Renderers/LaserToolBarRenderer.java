@@ -57,7 +57,7 @@ public class LaserToolBarRenderer extends BoardRenderer {
 
     void drawLaser(Graphics g){
 
-        if(board.isLaserFired()) {
+        if(board.getLaserFired()) {
             List<PointStringPair> laserMap = board.constructLaserTree();
 
             if (laserMap != null) {
@@ -103,7 +103,6 @@ public class LaserToolBarRenderer extends BoardRenderer {
                     }
 
                 }
-                board.checkWinCondition();
 
             }
             else {

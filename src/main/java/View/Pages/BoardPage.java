@@ -1,3 +1,9 @@
+/*
+resetter board. Sætter ui op.
+Har en function der bliver kaldt et andet sted som opdaterer UI.
+
+ */
+
 package View.Pages;
 
 import Controller.BoardInputHandler;
