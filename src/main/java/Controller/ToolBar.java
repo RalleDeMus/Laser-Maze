@@ -1,12 +1,11 @@
-package View.Board;
+package Controller;
 
-import Controller.AssetServer;
 import Model.Logic.Board;
 import Model.Tiles.*;
+import View.Renderers.BoardRenderer;
 
 import javax.swing.*;
 import java.awt.event.*;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 

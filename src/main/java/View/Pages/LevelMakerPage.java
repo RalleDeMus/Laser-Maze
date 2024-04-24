@@ -1,13 +1,11 @@
-package View;
+package View.Pages;
 
-import Controller.AssetServer;
+import Controller.*;
 import Model.Logic.Board;
 import Model.Tiles.Tile;
-import View.Board.*;
-import View.Board.CostomLabels.ImageOverlayNumber;
-import View.Board.CostomLabels.TargetRender;
-import View.LevelMaker.LevelMakerInputHandler;
-import View.LevelMaker.LevelMakerRenderer;
+import View.Renderers.BoardRenderer;
+import View.Renderers.ImageOverlayNumber;
+import View.Renderers.TargetRender;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +19,7 @@ public class LevelMakerPage extends JPanel {
     private Board board;
     private JPanel winPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); // Initialize here
 
-    private MainMenu mainMenu;
+    private MainMenuPage mainMenu;
 
     private int targets = 0;
 
@@ -32,7 +30,7 @@ public class LevelMakerPage extends JPanel {
     TargetRender targetCircle = new TargetRender(targets, new Color(222, 48, 48), Color.WHITE, 60);
 
 
-    public LevelMakerPage(MainMenu mainMenu) {
+    public LevelMakerPage(MainMenuPage mainMenu) {
         this.mainMenu = mainMenu;
         // Ensure the Board is accessible
         board = Board.getInstance();
@@ -74,7 +72,7 @@ public class LevelMakerPage extends JPanel {
 
 
 
-    public void initializeUI(MainMenu mainMenu, int topPanelHeight, BoardRenderer renderer) {
+    public void initializeUI(MainMenuPage mainMenu, int topPanelHeight, BoardRenderer renderer) {
         setLayout(new GridBagLayout()); // Set the main layout to GridBagLayout
         GridBagConstraints gbc = new GridBagConstraints();
 

@@ -1,4 +1,4 @@
-package View.Board;
+package View.Renderers;
 
 import Controller.AssetServer;
 import Controller.ImageHandler;

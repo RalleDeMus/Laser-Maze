@@ -1,11 +1,9 @@
-package View.Board;
+package Controller;
 
 import java.awt.event.KeyEvent;
 
 import Model.Logic.Board;
-import View.BoardPage;
-
-import javax.swing.*;
+import View.Pages.BoardPage;
 
 
 public class LaserInputHandler extends BoardInputHandler {

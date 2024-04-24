@@ -1,8 +1,12 @@
-package View;
+package View.Pages;
 
+import Controller.BoardInputHandler;
+import Controller.LaserInputHandler;
+import Controller.ToolBar;
 import Model.Logic.Board;
-import View.Board.*;
-import View.Board.CostomLabels.TargetRender;
+import View.Renderers.BoardRenderer;
+import View.Renderers.LaserToolBarRenderer;
+import View.Renderers.TargetRender;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +14,6 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.io.File;
 
 public class BoardPage extends JPanel {
     private BoardInputHandler inputHandler;
@@ -21,9 +24,9 @@ public class BoardPage extends JPanel {
     JTextField textField = new JTextField("test", 10); // 10 columns width
 
 
-    private MainMenu mainMenu;
+    private MainMenuPage mainMenu;
 
-    public BoardPage(MainMenu mainMenu, boolean includeLaserFeatures) {
+    public BoardPage(MainMenuPage mainMenu, boolean includeLaserFeatures) {
         this.mainMenu = mainMenu;
         // Ensure the Board is accessible
         board = Board.getInstance();
@@ -113,7 +116,7 @@ public class BoardPage extends JPanel {
 
 
 
-    public void initializeUI(MainMenu mainMenu, int topPanelHeight, int targets) {
+    public void initializeUI(MainMenuPage mainMenu, int topPanelHeight, int targets) {
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> {
@@ -128,6 +131,7 @@ public class BoardPage extends JPanel {
         topPanel.add(backButton);
         topPanel.add(levelText);
 
+        System.out.println("LEVEL AND TEMP??? " +board.get_game_info(5) + " " + board.getLevel());
         if (board.get_game_info(5) == 0 && board.getLevel().equals("temp")){
             JLabel textLabel = new JLabel("Level name (exit with TAB):");
 
