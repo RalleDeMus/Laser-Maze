@@ -23,7 +23,8 @@ public class RemovingTileSteps {
     @And("a MirrorTile at position \\({double})")
     public void aMirrorTileAtPosition(int x, int y) {
         board.setCursorPos(2,2);
-        board.addTile(new MirrorTile(true,true),true);
+        board.setSelectedTile(new MirrorTile(true,true));
+        board.addTile(true);
     }
 
     @When("the user removes the MirrorTile at \\({double})")
@@ -34,7 +35,7 @@ public class RemovingTileSteps {
 
     @Then("the board should not have a tile at position \\({double})")
     public void theBoardShouldNotHaveATileAtPosition(int x, int y) {
-        Tile removedTile = board.tiles[2][2];
+        Tile removedTile = board.getTiles()[2][2];
         assertNull("Tile should be removed from the board", removedTile);
     }
 }

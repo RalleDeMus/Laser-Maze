@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Fixed missing check win.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/BoardInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/JSONSaving.java" afterDir="false" />
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Made JSONSaving its own class&#10;Made addtile not get a tile as input but just use selected tile.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/BoardInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/BoardInputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/BoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/BoardPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/LevelMakerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/LevelMakerPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/AddingLaserTileSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/boardmethods/AddingLaserTileSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/RemovingTileSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/boardmethods/RemovingTileSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/SavingGameStateSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/boardmethods/SavingGameStateSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features_board/addingLaserTile.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features_board/addingLaserTile.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +63,7 @@
   "keyToString": {
     "Application.Game.executor": "Run",
     "Application.RUN GAME.executor": "Run",
+    "Cucumber Java.Feature: addingLaserTile.executor": "Run",
     "Cucumber Java.Feature: loaded.executor": "Run",
     "Cucumber Java.Scenario: succesful start game.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
@@ -98,10 +95,29 @@
       <recent name="C:\Users\Rasmu\Desktop\Agil\Exercises\Project\LaserMazeProject\src\main" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.RUN GAME">
+  <component name="RunManager" selected="Cucumber Java.Feature: addingLaserTile">
     <configuration name="RUN GAME" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="LaserGame-group-4" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Feature: addingLaserTile" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/addingLaserTile.feature" />
+      <option name="GLUE" value="boardmethods" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="LaserGame-group-4" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: addingLaserTile" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -129,10 +145,12 @@
     </configuration>
     <list>
       <item itemvalue="Application.RUN GAME" />
+      <item itemvalue="Cucumber Java.Feature: addingLaserTile" />
       <item itemvalue="Cucumber Java.Scenario: succesful start game" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber Java.Feature: addingLaserTile" />
         <item itemvalue="Cucumber Java.Scenario: succesful start game" />
       </list>
     </recent_temporary>
@@ -325,7 +343,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713967794631</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Made JSONSaving its own class&#10;Made addtile not get a tile as input but just use selected tile.">
+      <option name="closed" value="true" />
+      <created>1713969394114</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1713969394114</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,6 +391,7 @@
     <MESSAGE value="Refactored constructlaser also in tests" />
     <MESSAGE value="Refactored constructlaser. &#10;Fixed test to work with non static board" />
     <MESSAGE value="Fixed missing check win." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed missing check win." />
+    <MESSAGE value="Made JSONSaving its own class&#10;Made addtile not get a tile as input but just use selected tile." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made JSONSaving its own class&#10;Made addtile not get a tile as input but just use selected tile." />
   </component>
 </project>

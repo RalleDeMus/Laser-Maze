@@ -1,6 +1,8 @@
 package boardmethods;
 import Model.Logic.Board;
+import Model.Logic.JSONSaving;
 import Model.Tiles.LaserTile;
+import Model.Tiles.MirrorTile;
 import org.junit.Assert;
 
 import io.cucumber.java.en.And;
@@ -20,17 +22,18 @@ public class SavingGameStateSteps {
     @And("several tiles placed on the board")
     public void severalTilesPlacedOnTheBoard() {
         board.setCursorPos(1,1);
-        board.addTile(new LaserTile(true,true), true);
+        board.setSelectedTile(new MirrorTile(true,true));
+        board.addTile(false);
         board.setCursorPos(2,2);
-        board.addTile(new LaserTile(true,true), true);
+        board.addTile(false);
         board.setCursorPos(3,3);
-        board.addTile(new LaserTile(true,true), true);
+        board.addTile(false);
     }
 
     @When("the user saves the game state")
     public void theUserSavesTheGameState() {
 
-        board.saveGameState("game_state", board);
+        JSONSaving.saveGameState("game_state", board);
     }
 
     @Then("a JSON file containing the board state and extra tiles information should be created")
