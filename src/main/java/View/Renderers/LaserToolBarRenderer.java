@@ -3,6 +3,7 @@ package View.Renderers;
 import Controller.AssetServer;
 import Controller.ImageHandler;
 import Model.Logic.Board;
+import Model.Logic.LaserCalculator;
 import Model.Logic.PointStringPair;
 
 import java.awt.*;
@@ -63,7 +64,7 @@ public class LaserToolBarRenderer extends BoardRenderer {
     void drawLaser(Graphics g){
 
         if(board.getLaserFired()) {
-            List<PointStringPair> laserMap = board.constructLaserTree();
+            List<PointStringPair> laserMap = LaserCalculator.constructLaserTree(board);
 
             if (laserMap != null) {
 

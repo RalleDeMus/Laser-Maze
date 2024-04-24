@@ -4,6 +4,7 @@ Har en function der bliver kaldt et andet sted som opdaterer UI.
 
  */
 
+
 package View.Pages;
 
 import Controller.BoardInputHandler;
@@ -62,19 +63,18 @@ public class BoardPage extends JPanel {
         });
     }
 
-    public void updateWinStatus() {
+    public void updateWinStatus() { // Make this method more pretty...
         winPanel.removeAll(); // Safely remove all components
         System.out.println("Win: " + board.getWin());
         if (board.getWin()) {
 
-            if (board.get_game_info_by_index(5) != 0) {
-                JLabel winLabel = new JLabel("YOU WIN! ");
-                System.out.println("Win: " + board.getWin());
-                winLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 40));
-                winPanel.add(winLabel);
+            JLabel winLabel = new JLabel("YOU WIN! " );
+            winLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 40));
+            winPanel.add(winLabel);
 
-                JButton nextLevelButton = new JButton("Next Level");
-                nextLevelButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+            if (board.get_game_info_by_index(5) != 0) {
+
+                JButton nextLevelButton = getjButton("Next Level");
                 nextLevelButton.addActionListener(e -> {
                             try{
 
@@ -92,31 +92,21 @@ public class BoardPage extends JPanel {
                 winPanel.add(nextLevelButton);
 
             } else if (board.getLevel().equals("temp")){
-                JLabel winLabel = new JLabel("YOU WIN! " );
-                System.out.println("Win: " + board.getWin());
-                winLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 40));
-                winPanel.add(winLabel);
 
-                JButton nextLevelButton = new JButton("Save as: " + textField.getText());
-                nextLevelButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+
+                JButton nextLevelButton = getjButton("Save and go to Main Menu");
                 nextLevelButton.addActionListener(e -> {
                             board.saveTempAs(textField.getText());
                             mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu");
-
                         }
                 );
                 winPanel.add(nextLevelButton);
             } else {
-                JLabel winLabel = new JLabel("YOU WIN! " );
-                System.out.println("Win: " + board.getWin());
-                winLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 40));
-                winPanel.add(winLabel);
 
-                JButton nextLevelButton = new JButton("Go to Main Menu");
-                nextLevelButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+
+                JButton nextLevelButton = getjButton("Go to Main Menu");
                 nextLevelButton.addActionListener(e -> {
                             mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu");
-
                         }
                 );
                 winPanel.add(nextLevelButton);
@@ -126,6 +116,12 @@ public class BoardPage extends JPanel {
         winPanel.repaint();
     }
 
+    private JButton getjButton(String buttonText) {
+        JButton nextLevelButton = new JButton(buttonText);
+        nextLevelButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+
+        return nextLevelButton;
+    }
 
 
     public void initializeUI(MainMenuPage mainMenu, int topPanelHeight, int targets) {
@@ -171,7 +167,6 @@ public class BoardPage extends JPanel {
 
 
 
-        // How many Targets are there?
         JPanel circlePanel = new JPanel();
         circlePanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 
