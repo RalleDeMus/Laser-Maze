@@ -22,7 +22,7 @@ public class RemovingTileSteps {
     @And("a MirrorTile at position \\({double})")
     public void aMirrorTileAtPosition(int x, int y) {
         Board.setCursorPos(2,2);
-        Board.addTile(new MirrorTile(true,true));
+        Board.addTile(new MirrorTile(true,true,0),true);
     }
 
     @When("the user removes the MirrorTile at \\({double})")
