@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Fixed bug where hitting the same mirror twice would not result in win&#10;Made it so the &quot;+&quot; and &quot;-&quot; in level make can be seen better&#10;fixed bug where CellBlockerTiles couldn't be removed in level maker">
+      <change afterPath="$PROJECT_DIR$/src/main/java/View/targetMirror.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/InstructionsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/InstructionsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/temp.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/temp.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/View/InstructionsPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/InstructionsPage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +95,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "mainTesterspillet",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/juliuseg/group-4/src/main/levels",
+    "last_opened_file_path": "/Users/denizcelik/Desktop/Javamappe/Exercise1/group-4/src/main/java/View",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -108,6 +109,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/View" />
       <recent name="C:\Users\Rasmu\Desktop\Agil\Exercises\Project\LaserMazeProject\src\main" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -310,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713947509090</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Fixed bug where hitting the same mirror twice would not result in win&#10;Made it so the &quot;+&quot; and &quot;-&quot; in level make can be seen better&#10;fixed bug where CellBlockerTiles couldn't be removed in level maker">
+      <option name="closed" value="true" />
+      <created>1713948327192</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1713948327192</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -46,14 +46,13 @@ public class InstructionsPage extends JPanel{
                 + "If you rotate a piece 5 times, it gets a new icon making the piece rotatable.</p>"
                 + "<h2>Game Components</h2>"
                 + "<ul>"
-                + "<li><b>Laser:</b> Provides the laser beam. Push the button at the top of this token to engage the beam.</li>"
+                + "<li><b>Laser:</b> Provides the laser beam. Push the L on your keyboard to engage the beam.</li>"
                 + "<li><b>Target/Mirror:</b> Can be used as a target, a mirror, or both. Only the transparent red side of the token is a valid target.</li>"
                 + "<li><b>Beam Splitter:</b> Splits the beam into two paths. One path is reflected 90 degrees and the other path passes straight through the token.</li>"
                 + "<li><b>Double-Mirror:</b> Both sides of this token reflect the beam 90 degrees.</li>"
                 + "<li><b>Checkpoint:</b> Serves as a token that the laser beam must pass through.</li>"
                 + "<li><b>Cell Blocker:</b> Prevents other tokens from being placed in the cell which it inhabits. This token will not block the path of the laser.</li>"
                 + "</ul>"
-                + "<img src=\"/../../assets/LaserDirection.png\" alt=\"Italian Trulli\">"
                 + "</body></html>";
 
         // Create a label for the instructions with HTML content
