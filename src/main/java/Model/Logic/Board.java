@@ -26,7 +26,7 @@ public class Board {
     static Point cursorPos;
 
     private static int[] game_info;
-    Tile selectedTile;
+    static Tile selectedTile;
     boolean laserWasFired = false;
 
     boolean win;
@@ -331,7 +331,7 @@ public class Board {
 
 
     // Add the cursor tile to the board and check if placement is valid
-    public void addTile(Tile t,boolean removeTileAfterPlacement) {
+    public static void addTile(Tile t, boolean removeTileAfterPlacement) {
         if (t != null) {
             if (tiles[cursorPos.y][cursorPos.x] != null) {
                 //System.out.println("Tile occupied");

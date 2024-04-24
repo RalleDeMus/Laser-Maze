@@ -26,7 +26,7 @@ public class AddingLaserTileSteps {
     @When("the user adds a LaserTile to the cursor position")
     public void theUserAddsALaserTileToTheCursorPosition() {
 
-        Board.addTile(new LaserTile(true,true));
+        Board.addTile(new LaserTile(true,true,0),true);
     }
 
     @Then("the board should have a LaserTile at position \\({double})")

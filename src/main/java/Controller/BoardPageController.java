@@ -15,6 +15,6 @@ public class BoardPageController extends JPanel {
     public BoardPageController () {
 
     }
-
-
 }
+
+
