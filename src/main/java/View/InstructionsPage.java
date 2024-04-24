@@ -53,6 +53,7 @@ public class InstructionsPage extends JPanel{
                 + "<li><b>Checkpoint:</b> Serves as a token that the laser beam must pass through.</li>"
                 + "<li><b>Cell Blocker:</b> Prevents other tokens from being placed in the cell which it inhabits. This token will not block the path of the laser.</li>"
                 + "</ul>"
+                + "<img src=\"/../../assets/LaserDirection.png\" alt=\"Italian Trulli\">"
                 + "</body></html>";
 
         // Create a label for the instructions with HTML content
