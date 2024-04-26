@@ -13,11 +13,11 @@ import io.cucumber.java.en.When;
 public class SavingGameStateSteps {
 
     Board board;
-    @Given("a board with a size of {int} and a square size of {int}")
+    /*@Given("a board with a size of {int} and a square size of {int}")
     public void aBoardWithASizeOfXAndASquareSizeOf(int boardSize, int squareSize) {
 
         board =  new Board(boardSize, squareSize, "0");
-    }
+    }*/
 
     @And("several tiles placed on the board")
     public void severalTilesPlacedOnTheBoard() {
