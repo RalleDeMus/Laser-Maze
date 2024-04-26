@@ -33,7 +33,7 @@ public class LevelMakerPage extends JPanel {
     public LevelMakerPage(MainMenuPage mainMenu) {
         this.mainMenu = mainMenu;
         // Ensure the Board is accessible
-        board = new Board(5,100,"0");
+        board = new Board("0");
 
         board.setCardLevel("0");
         BoardPage boardPage = new BoardPage(mainMenu,true, board);

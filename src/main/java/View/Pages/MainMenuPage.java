@@ -156,9 +156,11 @@ public class MainMenuPage extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
+
         switch (command) {
+
             case "Campaign":
-                Board board = new Board(5, 100, "1");
+                Board board = new Board( "1");
                 switchToPanel("campaignPage", new BoardPage(this,true,board));
                 break;
             case "Level Select":
@@ -175,8 +177,8 @@ public class MainMenuPage extends JFrame implements ActionListener {
                 break;
             case "Continue Game":
 
-                board = new Board(5,100, "game_state");
-                switchToPanel("lastGame", new BoardPage(this,true, board));
+                Board board2 = new Board("game_state");
+                switchToPanel("lastGame", new BoardPage(this,true, board2));
                 break;
         }
     }

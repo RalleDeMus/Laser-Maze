@@ -38,6 +38,6 @@ public class SavingGameStateSteps {
 
     @Then("a JSON file containing the board state and extra tiles information should be created")
     public void aJSONFileContainingTheBoardStateAndExtraTilesInformationShouldBeCreated() {
-        Assert.assertNotNull("Board state should not be null after saving", board.tiles);
+        Assert.assertNotNull("Board state should not be null after saving", board.getTiles());
     }
 }

@@ -58,7 +58,7 @@ public class CustomLevelsPage extends JPanel {
 
                             System.out.println("Selected Level: " + levelName);
                             //Board.getInstance().setCardLevel(levelName);
-                            Board board = new Board(5,100, levelName);
+                            Board board = new Board(levelName);
                             BoardPage boardPage = new BoardPage(mainMenu,true,board);
                             mainMenu.getCardPanel().add(boardPage, "boardPage");
                             mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");

@@ -18,6 +18,7 @@ public class AddingLaserTileSteps {
 
     @Given("a board \\({int},{int})")
     public void aBoard(int boardSize, int squareSize) {
+
         board = new Board(boardSize, squareSize, "0");
     }
 

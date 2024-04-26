@@ -43,9 +43,22 @@ public class Board {
         // Initializes the tiles array based json file
         // Initializes the cursor tile
         // Reads from the asset server
-    public Board(int boardSize, int squareSize,String level) { // Yes
+    public Board(int boardSize, int squareSize,String level) {
         this.boardSize = boardSize;
         this.squareSize = squareSize;
+        this.win = false;
+        // Set cardlevel based on level
+        setCardLevel(level);
+
+        // Reset cursorPos
+        cursorPos = new Point(0, 0);
+
+
+    }
+
+    public Board(String level) {
+        this.boardSize = 5;
+        this.squareSize = 100;
         this.win = false;
         // Set cardlevel based on level
         setCardLevel(level);
