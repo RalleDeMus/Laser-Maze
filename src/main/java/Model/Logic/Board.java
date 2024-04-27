@@ -14,24 +14,23 @@ import java.util.List;
 
 //make singleton
 public class Board {
-    private static Board instance;
 
-    public static Tile[][] tiles;
-    static int boardSize;
-    static int squareSize;
+    private Tile[][] tiles; // in constructor
+    private int boardSize;
+    private int squareSize;
     private int mirrorsHit;
     private int targetsHit;
 
-    Card card;
-    static Point cursorPos;
+    Card card; // in constructor
+    Point cursorPos;
 
-    private static int[] game_info;
+    private int[] game_info; // in constructor
     Tile selectedTile;
     boolean laserWasFired = false;
 
     boolean win;
 
-    String level = "0";
+    String level = "0"; // in constructor
 
 
 
@@ -44,32 +43,38 @@ public class Board {
         // Initializes the tiles array based json file
         // Initializes the cursor tile
         // Reads from the asset server
-    private Board(int boardSize, int squareSize) {
-        Board.boardSize = boardSize;
-        this.card = new Card("0");
-        tiles = card.getCard();
+    public Board(int boardSize, int squareSize,String level) {
+        this.boardSize = boardSize;
+        this.squareSize = squareSize;
+        this.win = false;
+        // Set cardlevel based on level
+        setCardLevel(level);
+
+        // Reset cursorPos
         cursorPos = new Point(0, 0);
-        Board.squareSize = squareSize;
-        game_info = card.getPlaceableTiles();
-
 
 
     }
 
-    public static Board getInstance(){
-        if (instance == null){
-            instance = new Board(5, 100);
-        }
-        return instance;
+    public Board(String level) {
+        this.boardSize = 5;
+        this.squareSize = 100;
+        this.win = false;
+        // Set cardlevel based on level
+        setCardLevel(level);
+
+        // Reset cursorPos
+        cursorPos = new Point(0, 0);
+
+
     }
 
-    // Draw the board
-        // Draw the tiles: Empty or with a mirror
-        // Draw the selected tile
-        // Draw the cursor tile
 
+/*
+Getters and setters (Maybe we can make some of these their own?)
+*/
 
-    public static Point getTilePos(int x, int y) {
+    public Point getTilePos(int x, int y) {
 
         return new Point(Math.min(x / squareSize,boardSize-1),  Math.min(y / squareSize,boardSize-1));
     }
@@ -105,13 +110,12 @@ public class Board {
         return squareSize;
     }
 
-    public boolean isLaserFired() {
-
+    public boolean getLaserFired() {
         return laserWasFired;
     }
 
     // Get the first tile with tag
-    public static Tile getLaserTile() {
+    public Tile getLaserTile() {
         for (int row = 0; row < boardSize; row++) {
             for (int col = 0; col < boardSize; col++) {
                 if (tiles[row][col] != null && tiles[row][col] instanceof LaserTile) {
@@ -122,16 +126,29 @@ public class Board {
         return null;
     }
 
-    public int get_game_info(int index) {
+    public int get_game_info_by_index(int index) {
         if (index < 0 || index > game_info.length - 1) {
             throw new IllegalArgumentException("Index out of bounds");
         }
         return game_info[index];
     }
+
+    public int[] get_game_info() {
+
+        return game_info;
+    }
+
     public void set_game_info(int[] _game_info) {
         game_info = _game_info;
     }
 
+    public void setMirrorsHit(int mirrorsHit) {
+        this.mirrorsHit = mirrorsHit;
+    }
+
+    public void setTargetsHit(int targetsHit) {
+        this.targetsHit = targetsHit;
+    }
 
     public Boolean getWin() {
         return win;
@@ -141,14 +158,41 @@ public class Board {
         win = false;
     }
 
+    public void setWin() {
 
-    public void fireLaser(){
-        laserWasFired = true;
-
+        if (mirrorsHit >= countMirrors() && targetsHit == game_info[4]){
+            System.out.println("Win condition met");
+            win = true;
+        }
     }
 
-    public void resetLaser(){
-        laserWasFired = false;
+
+        public void setLaserWasFired(boolean b) {
+        laserWasFired = b;
+
+    }
+    public void setCursorPos(int x, int y) {
+        cursorPos = getTilePos(x, y);
+    }
+
+    public Point getCursorPos() {
+        return cursorPos;
+    }
+
+    public void setCardLevel(String level) {
+        //System.out.println("Setting card level to: " + level);
+        this.level = level;
+        //System.out.println("Setting card level to: " + level);
+        this.card = new Card(level);
+        this.tiles = card.getCard();
+        this.game_info = card.getPlaceableTiles();
+    }
+
+    public String getLevel() {
+        if (level.equals("game_state")) {
+            level = game_info[5]+"";
+        }
+        return level;
     }
 
     public boolean laserExists() {
@@ -162,177 +206,35 @@ public class Board {
         return true;
     }
 
-    // Construct laser tree
-    public List<PointStringPair>  constructLaserTree() {
-        if (allMirrorsUsed()) {
-            List<PointStringPair> laserList = new ArrayList<>();
-
-
-            Tile laserTile = null;
-
-            Laser laser = new Laser(0, 0, 0);
-
-            for (int row = 0; row < boardSize; row++) {
-                for (int col = 0; col < boardSize; col++) {
-                    if (tiles[row][col] != null && tiles[row][col] instanceof LaserTile) {
-                        laserTile = tiles[row][col];
-                        laser.setPos(col, row);
-                        laser.setOrientation(laserTile.getOrientation());
-
-                    }
-                    //System.out.print(tiles[row][col]!=null?tiles[row][col] instanceof Tiles.LaserTile? "L" : "N":"0");
-
+    public int countMirrors() {
+        int mirrors = 0;
+        for (int i = 0; i < boardSize; i++) {
+            for (int j = 0; j < boardSize; j++) {
+                if (tiles[i][j] != null && !(tiles[i][j] instanceof CellBlockerTile || tiles[i][j] instanceof LaserTile)) {
+                    mirrors++;
                 }
-                //System.out.println();
-            }
-            //System.out.println();
-            if (laserTile != null) {
-                System.out.println("Constructing laser tree");
-
-                targetsHit = 0;
-
-                Queue<Laser> lasers = new LinkedList<>();
-                Set<Laser> lasersList = new HashSet<>();
-
-
-
-                List<Laser> hitLasers = new LinkedList<>();
-                lasers.add(new Laser(laser.getX() + orientationToPoint(laser.getOrientation()).x, laser.getY() + orientationToPoint(laser.getOrientation()).y, laser.getOrientation()));
-
-                mirrorsHit = 0;
-
-                while (!lasers.isEmpty()) {
-                    Laser current = lasers.remove();
-
-                    // Is the laser out of bounds?
-                    if (current.getX() < 0 || current.getX() >= boardSize || current.getY() < 0 || current.getY() >= boardSize) {
-
-                        System.out.println("Laser out of bounds");
-                        continue;
-                    }
-                    hitLasers.add(current);
-
-                    String fromDir = String.valueOf(current.getOrientation());
-                    String toDir = String.valueOf(current.getOrientation()) + "_";
-
-                    // Set the current as a hit on laserHasHit
-                    //System.out.println("Laser at: " + current.getX() + " " + current.getY() + " orientation: " + current.getOrientation();
-
-                    // Is there a tile at the current position?
-                    if (tiles[current.getY()][current.getX()] != null) {
-                        // Get the tile
-                        Tile tile = tiles[current.getY()][current.getX()];
-                        if (!(tile instanceof CellBlockerTile)) {
-                            mirrorsHit++;
-                        }
-
-
-                        // Get the corrected way that the laser is facing in respect to the tile
-                        //System.out.println("LaserC: " + tile.getOrientation() + " " + current.getOrientation() + " " + subMod(tile.getOrientation(), current.getOrientation(), 4));
-                        int laserCorrected = subMod(tile.getOrientation(), current.getOrientation(), 4);
-
-                        // Check if the tile is a target
-                        if (tile.getTarget()[laserCorrected] == 1) {
-                            // If so, increment the targets hit
-                            //System.out.println("Target HIT: " + laserCorrected + " gettarget: " + Arrays.toString(tile.getTarget()));
-                            targetsHit++;
-                            toDir = "8_";
-                        }
-
-
-                        if (tile instanceof SplitterTile) {
-                            // If the tile is a splitter, add a new lasers here aswell as the rotated one!
-                            Laser adding = new Laser(current.getX() + orientationToPoint(current.getOrientation()).x, current.getY() + orientationToPoint(current.getOrientation()).y, current.getOrientation());
-                            if (canAddLaser(lasersList, adding)) {lasers.add(adding); lasersList.add(adding);}
-                        }
-
-                        if (tile.getPass()[laserCorrected] == 0) {
-                            // If the laser is not allowed to pass, stop the laser and add no more tiles
-                            //System.out.println("Mirror? " + tile);
-                            //System.out.println("Mirror blocked: " + Arrays.toString(tile.getPass()));
-                            if (tile.getTarget()[laserCorrected] == 0) continue;
-
-                        } else {
-
-                            //System.out.println("Evaluating tile: " + "\n" + laserCorrected);
-                            int rotateBy = tile.getMirror()[laserCorrected];
-                            int nextLaserOrientation = (current.getOrientation() + rotateBy) % 4;
-
-                            //System.out.println(rotateBy);
-                            //System.out.println(nextLaserOrientation);
-                            Laser adding = new Laser(current.getX() + orientationToPoint(nextLaserOrientation).x, current.getY() + orientationToPoint(nextLaserOrientation).y, nextLaserOrientation);
-                            if (canAddLaser(lasersList, adding)) {lasers.add(adding); lasersList.add(adding);}                            //System.out.println("At mirror, adding next: " + adding.toString());
-
-                            toDir = String.valueOf(nextLaserOrientation);
-                            toDir += (tile instanceof SplitterTile) ? fromDir : "_";
-                        }
-
-
-                    } else {
-                        // Add a next laser to the queue if no tile is found
-                        Laser adding = new Laser(current.getX() + orientationToPoint(current.getOrientation()).x, current.getY() + orientationToPoint(current.getOrientation()).y, current.getOrientation());
-                        if (canAddLaser(lasersList, adding)) {lasers.add(adding); lasersList.add(adding);}
-
-
-                        //System.out.println("At empty tile, adding next: " + adding.toString());
-                    }
-
-                    laserList.add(new PointStringPair(new Point(current.getX(), current.getY()), String.valueOf(fromDir) + String.valueOf(toDir)));
-
-
-                }
-
-
-                System.out.println("Targets hit: " + targetsHit);
-                System.out.println("Hit lasers: " + hitLasers);
-
-
-            } else {
-                System.out.println("No laser tile found");
-            }
-            return laserList;
-        } else {
-
-            return null;
-        }
-
-    }
-
-    public Boolean canAddLaser(Set<Laser> lasersList, Laser adding) {
-        //Don't add if adding is already in the queue
-        for (Laser laser : lasersList) {
-            if (laser.Equals(adding)){
-                System.out.println("Laser already exists");
-                return false;
             }
         }
-        return true;
-    }
-
-    int subMod(int a, int b, int mod) {
-        return (a - b + mod) % mod;
-    }
-
-
-    // Check if win condition is met after laser tree work
-    public void checkWinCondition() {
-
-        if (mirrorsHit >= countMirrors() && targetsHit == game_info[4]){
-            System.out.println("Win condition met");
-            win = true;
-        } else {
-            System.out.println("Win condition not met - all mirrors not used OR not all mirrors hit");
-            System.out.println("Mirrors hit: " + mirrorsHit + " Count mirrors: " + countMirrors());
-            System.out.println("Targets hit: " + targetsHit + " Count targets: " + game_info[5]);
-            win = false;
-        }
+        return mirrors;
 
     }
+
+/*
+HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
+*/
 
 
 
     // Add the cursor tile to the board and check if placement is valid
-    public void addTile(Tile t,boolean removeTileAfterPlacement) {
+    public void addTile(boolean unSelectSelectedTileAfterPlacement) {
+        Tile t;
+        try {
+            t = getSelectedTile().clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
+
+
         if (t != null) {
             if (tiles[cursorPos.y][cursorPos.x] == null) {
                 if (t instanceof LaserTile && getLaserTile() != null) {
@@ -370,7 +272,7 @@ public class Board {
                 }
 
 
-                if(removeTileAfterPlacement) selectedTile = null;
+                if(unSelectSelectedTileAfterPlacement) selectedTile = null;
                 tiles[cursorPos.y][cursorPos.x] = t;
 
             }
@@ -379,7 +281,7 @@ public class Board {
 
 
     // Remove a tile
-    public static void removeTile() {
+    public void removeTile() {
         if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsMovable()) {
             if (tiles[cursorPos.y][cursorPos.x] instanceof MirrorTile) {
                 game_info[0]++;
@@ -397,15 +299,9 @@ public class Board {
     }
 
 
-    public static void setCursorPos(int x, int y) {
-        cursorPos = getTilePos(x, y);
-    }
 
-    public Point getCursorPos() {
-        return cursorPos;
-    }
 
-    public static void rotateSelectedTile(boolean levelEditor) {
+    public void rotateSelectedTile(boolean levelEditor) {
         int mod = levelEditor ? 5 : 4;
         if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsRotatable()) {
             tiles[cursorPos.y][cursorPos.x].rotate(1,mod);
@@ -413,131 +309,6 @@ public class Board {
             System.out.println("Tile is not rotateable");
         }
     }
-
-    public static Point orientationToPoint(int orientation) {
-        switch (orientation) {
-            case 1:
-                return new Point(0, 1); // Up
-            case 0:
-                return new Point(1, 0); // Right
-            case 3:
-                return new Point(0, -1); // Down
-            case 2:
-                return new Point(-1, 0); // Left
-            default:
-                throw new IllegalArgumentException("Invalid orientation: " + orientation);
-        }
-    }
-    public static void saveGameState(String filename) {
-        JSONObject gameInfo = new JSONObject();
-        JSONArray tilesArray = new JSONArray();
-
-        for (int i = 0; i < boardSize; i++) {
-            for (int j = 0; j < boardSize; j++) {
-                Tile tile = tiles[i][j];
-                if (tile != null) {
-                    JSONObject tileObject = new JSONObject();
-                    tileObject.put("row", i);
-                    tileObject.put("col", j);
-                    tileObject.put("type", tile.getClass().getSimpleName());
-                    tileObject.put("orientation", tile.getOrientation());
-                    tileObject.put("rotatable", tile.getIsRotatable());
-
-                    // Add other properties for different tile types if needed
-
-                    tilesArray.put(tileObject);
-                }
-            }
-        }
-
-        // Add the tiles array to the "gameinfo" object
-        gameInfo.put("tiles", tilesArray);
-
-        // Create "extra tiles" object
-        JSONObject game_info_JSON = new JSONObject();
-        game_info_JSON.put("MirrorTiles", game_info[0]);
-        game_info_JSON.put("SplitterTiles", game_info[1]);
-        game_info_JSON.put("CheckPointTiles", game_info[2]);
-        game_info_JSON.put("DoubleTile", game_info[3]);
-        game_info_JSON.put("targets", game_info[4]);
-        game_info_JSON.put("level", game_info[5]);
-
-        // Create the root JSON object to hold both "gameinfo" and "extra tiles"
-        JSONObject boardState = new JSONObject();
-        boardState.put("gameinfo", gameInfo);
-        boardState.put("extra tiles", game_info_JSON);
-
-        // Save the JSON object to a file
-        //System.out.println("Saving game state to " + filename + ".json");
-        try (FileWriter file = new FileWriter("src/main/levels/custom/"+filename+ ".json")) {
-            file.write(boardState.toString(4)); // Write with indentation for readability
-            //System.out.println("Successfully Copied JSON Object to File...");
-            //System.out.println("\nJSON Object: " + boardState);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void saveTempAs(String file_name) {
-        String sourcePath = "src/main/levels/custom/temp.json"; // Path to the source file
-        String destinationPath = "src/main/levels/custom/" + file_name + ".json"; // Path to the destination file
-
-        try {
-            // Read the contents of the source file
-            String content = new String(Files.readAllBytes(Paths.get(sourcePath)));
-
-            // Write the contents to the destination file
-            try (FileWriter file = new FileWriter(destinationPath)) {
-                file.write(content); // Write the content without modification
-                System.out.println("Successfully copied contents to " + destinationPath);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void setCardLevel(String level) {
-        //System.out.println("Setting card level to: " + level);
-        this.level = level;
-        System.out.println("Setting card level to: " + level);
-        this.card = new Card(level);
-        tiles = card.getCard();
-        game_info = card.getPlaceableTiles();
-    }
-
-    public String getLevel() {
-        if (level.equals("game_state")) {
-            level = game_info[5]+"";
-        }
-        return level;
-    }
-
-    //public getCardLevel() {
-        //return this.card.;
-    //}
-
-    public int countMirrors() {
-        int mirrors = 0;
-        for (int i = 0; i < boardSize; i++) {
-            for (int j = 0; j < boardSize; j++) {
-                if (tiles[i][j] != null && !(tiles[i][j] instanceof CellBlockerTile || tiles[i][j] instanceof LaserTile)) {
-                    mirrors++;
-                }
-            }
-        }
-        return mirrors;
-
-    }
-
-    public boolean allMirrorsUsed(){
-        int placeabletiles = 0;
-        for (int i = 0; i < 4; i++) {
-            placeabletiles += game_info[i];
-        }
-        return placeabletiles == 0;
-    }
-
-
 
 }
 

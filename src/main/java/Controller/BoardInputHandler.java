@@ -29,7 +29,7 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
             @Override
             public void mouseMoved(MouseEvent e) {
                 if(e.getX()<board.getBoardSize()*board.getSquareSize()) {
-                    Board.setCursorPos(e.getX(), e.getY() - yOffset);
+                    board.setCursorPos(e.getX(), e.getY() - yOffset);
                     panel.repaint();
                 }
             }
@@ -46,13 +46,10 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
     public void mousePressed(MouseEvent e) {
         if(e.getX()<board.getBoardSize()*board.getSquareSize()) {
             if (e.getButton() == MouseEvent.BUTTON1) {
-                try {
-                    board.addTile(board.getSelectedTile().clone(),removeTileAfterPlace);
-                } catch (CloneNotSupportedException ex) {
-                    ex.printStackTrace();
-                }
+                board.addTile(removeTileAfterPlace);
+
             } else if (e.getButton() == MouseEvent.BUTTON3) {
-                Board.removeTile();
+                board.removeTile();
             }
             panel.repaint();
         }
@@ -61,7 +58,7 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_R) {
-            Board.rotateSelectedTile(false);
+            board.rotateSelectedTile(false);
         }
         panel.repaint();
     }

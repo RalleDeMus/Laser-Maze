@@ -55,8 +55,9 @@ public class LevelSelectPage extends JPanel{
                     // Get the text of the button (level number) and save it to selectedLevel
                     selectedLevel = Integer.parseInt(((JButton) e.getSource()).getText());
                     System.out.println("Selected Level: " + selectedLevel);
-                    Board.getInstance().setCardLevel(selectedLevel+"");
-                    BoardPage boardPage = new BoardPage(mainMenu,true);
+                    //Board.getInstance().setCardLevel(selectedLevel+"");
+                    Board board = new Board(String.valueOf(selectedLevel));
+                    BoardPage boardPage = new BoardPage(mainMenu,true, board);
                     mainMenu.getCardPanel().add(boardPage, "boardPage");
                     mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
                 }

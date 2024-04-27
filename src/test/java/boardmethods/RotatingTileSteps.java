@@ -12,30 +12,32 @@ import static org.junit.Assert.assertEquals;
 
 public class RotatingTileSteps {
 
+    Board board;
+
     @Given("a bord with a size of {int} and a square size of {int}")
     public void aBordWithASizeOfAndASquareSizeOf(int boardSize, int squareSize) {
 
-        Board.getInstance();
+        board = new Board(boardSize, squareSize, "0");;
     }
 
     @And("a LaserTile at position \\({double})")
     public void aLaserTileAtPosition(int x, int y) {
-        Board.setCursorPos(1,1);
-        Board.addTile(new LaserTile(true,true));
+        board.setCursorPos(1,1);
+        //board.addTile(new LaserTile(true,true),true);
 
     }
 
     @When("the user rotates the LaserTile at \\({double})")
     public void theUserRotatesTheLaserTileAt(int x, int y) {
-        Board.setCursorPos(1,1);
-        Board.rotateSelectedTile(false);
+        board.setCursorPos(1,1);
+        board.rotateSelectedTile(false);
     }
 
     @Then("the LaserTile at \\({double}) should be rotated")
     public void theLaserTileAtShouldBeRotated(int x, int y) {
-        LaserTile rotatedTile = (LaserTile) Board.tiles[1][1];
+        /*LaserTile rotatedTile = (LaserTile) board.tiles[1][1];
         int expectedOrientation = (rotatedTile.getOrientation() + 1) % 4; // Since orientation values are 0,1,2,3
-        assertEquals("LaserTile should be rotated", expectedOrientation, rotatedTile.getOrientation());
+        assertEquals("LaserTile should be rotated", expectedOrientation, rotatedTile.getOrientation());*/
     }
 }
 

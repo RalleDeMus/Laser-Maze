@@ -2,6 +2,7 @@ package View.Pages;
 
 import Controller.*;
 import Model.Logic.Board;
+import Model.Logic.JSONSaving;
 import Model.Tiles.Tile;
 import View.Renderers.BoardRenderer;
 import View.Renderers.ImageOverlayNumber;
@@ -32,10 +33,10 @@ public class LevelMakerPage extends JPanel {
     public LevelMakerPage(MainMenuPage mainMenu) {
         this.mainMenu = mainMenu;
         // Ensure the Board is accessible
-        board = Board.getInstance();
+        board = new Board("0");
 
         board.setCardLevel("0");
-        BoardPage boardPage = new BoardPage(mainMenu,true);
+        BoardPage boardPage = new BoardPage(mainMenu,true, board);
         mainMenu.getCardPanel().add(boardPage, "boardPage");
         mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
 
@@ -47,7 +48,7 @@ public class LevelMakerPage extends JPanel {
         // Setup based on feature inclusion
         BoardRenderer renderer;
 
-        renderer = new BoardRenderer();
+        renderer = new BoardRenderer(board);
         new LevelMakerInputHandler(board, this, topPanelHeight, false);
         initializeUI(mainMenu, topPanelHeight, renderer);
 
@@ -375,10 +376,10 @@ public class LevelMakerPage extends JPanel {
         // game info is array with len 6.
         board.set_game_info(new int[]{tileCounts[0], tileCounts[1], tileCounts[2], tileCounts[3], targets, 0});
 
-        Board.saveGameState("temp");
+        JSONSaving.saveGameState("temp",board);
 
         board.setCardLevel("temp");
-        BoardPage boardPage = new BoardPage(mainMenu, true);
+        BoardPage boardPage = new BoardPage(mainMenu, true,board);
         mainMenu.getCardPanel().add(boardPage, "boardPage");
         mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
     }

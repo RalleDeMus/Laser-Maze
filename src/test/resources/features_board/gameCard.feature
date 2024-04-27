@@ -10,6 +10,8 @@ Feature: Game card initializations and configurations based on levels
     Given I have initialized a game card with level <level>
     When I retrieve the card configuration
     Then the card should have the specified number of special tiles for that level
+    Examples:
+      | level |
 
   Scenario: Setting up the tiles on a level 1 card
     Given I have initialized a game card with level 1
