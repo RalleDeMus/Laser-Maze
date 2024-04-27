@@ -144,7 +144,7 @@ public class LaserCalculator {
 
     }
 
-    static Boolean canAddLaser(Set<Laser> lasersList, Laser adding) { // REMOVE
+    private static Boolean canAddLaser(Set<Laser> lasersList, Laser adding) { // REMOVE
         //Don't add if adding is already in the queue
         for (Laser laser : lasersList) {
             if (laser.Equals(adding)){
@@ -155,11 +155,11 @@ public class LaserCalculator {
         return true;
     }
 
-    static int subMod(int a, int b, int mod) { // REMOVE
+    private static int subMod(int a, int b, int mod) { // REMOVE
         return (a - b + mod) % mod;
     }
 
-    static Point orientationToPoint(int orientation) { // REMOVE
+    private static Point orientationToPoint(int orientation) { // REMOVE
         switch (orientation) {
             case 1:
                 return new Point(0, 1); // Up
@@ -175,7 +175,7 @@ public class LaserCalculator {
     }
 
 
-    static boolean allMirrorsUsed(Board board){ // REMOVE
+    private static boolean allMirrorsUsed(Board board){ // REMOVE
         int placeabletiles = 0;
         for (int i = 0; i < 4; i++) {
             placeabletiles += board.get_game_info_by_index(i);

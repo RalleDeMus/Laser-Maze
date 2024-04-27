@@ -1,36 +1,26 @@
 package Model.Logic;
 import Model.Tiles.*;
 import java.awt.*;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.*;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-import java.io.FileWriter;
-import java.util.List;
 
 
 //make singleton
 public class Board {
 
     private Tile[][] tiles; // in constructor
-    private int boardSize;
-    private int squareSize;
+    final private int boardSize;
+    final private int squareSize;
     private int mirrorsHit;
     private int targetsHit;
 
-    Card card; // in constructor
-    Point cursorPos;
+    private Point cursorPos;
 
     private int[] game_info; // in constructor
-    Tile selectedTile;
-    boolean laserWasFired = false;
+    private Tile selectedTile;
+    private boolean laserWasFired = false;
 
-    boolean win;
+    private boolean win;
 
-    String level = "0"; // in constructor
+    private String level = "0"; // in constructor
 
 
 
@@ -74,7 +64,7 @@ public class Board {
 Getters and setters (Maybe we can make some of these their own?)
 */
 
-    public Point getTilePos(int x, int y) {
+    private Point getTilePos(int x, int y) {
 
         return new Point(Math.min(x / squareSize,boardSize-1),  Math.min(y / squareSize,boardSize-1));
     }
@@ -115,7 +105,7 @@ Getters and setters (Maybe we can make some of these their own?)
     }
 
     // Get the first tile with tag
-    public Tile getLaserTile() {
+    private Tile getLaserTile() {
         for (int row = 0; row < boardSize; row++) {
             for (int col = 0; col < boardSize; col++) {
                 if (tiles[row][col] != null && tiles[row][col] instanceof LaserTile) {
@@ -167,13 +157,16 @@ Getters and setters (Maybe we can make some of these their own?)
     }
 
 
-        public void setLaserWasFired(boolean b) {
+    public void setLaserWasFired(boolean b) {
         laserWasFired = b;
 
     }
-    public void setCursorPos(int x, int y) {
+
+    public void setCursorLocation(int x, int y) {
         cursorPos = getTilePos(x, y);
     }
+
+
 
     public Point getCursorPos() {
         return cursorPos;
@@ -183,7 +176,8 @@ Getters and setters (Maybe we can make some of these their own?)
         //System.out.println("Setting card level to: " + level);
         this.level = level;
         //System.out.println("Setting card level to: " + level);
-        this.card = new Card(level);
+        // in constructor
+        Card card = new Card(level);
         this.tiles = card.getCard();
         this.game_info = card.getPlaceableTiles();
     }
@@ -206,7 +200,7 @@ Getters and setters (Maybe we can make some of these their own?)
         return true;
     }
 
-    public int countMirrors() {
+    private int countMirrors() {
         int mirrors = 0;
         for (int i = 0; i < boardSize; i++) {
             for (int j = 0; j < boardSize; j++) {
@@ -229,7 +223,7 @@ HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
     public void addTile(boolean unSelectSelectedTileAfterPlacement) {
         Tile t;
         try {
-            t = getSelectedTile().clone();
+            t = selectedTile.clone();
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
         }

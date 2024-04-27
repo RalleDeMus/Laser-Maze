@@ -46,7 +46,7 @@ public class ToolBar extends MouseAdapter implements KeyListener {
                 int y = e.getY()-yOffset;
                 if(y/board.getSquareSize()<tiles.size()) {
                     board.setSelectedTile(tiles.get(y / board.getSquareSize()));
-                    board.setCursorPos(0, 0);
+                    board.setCursorLocation(0, 0);
                 }
 
 
