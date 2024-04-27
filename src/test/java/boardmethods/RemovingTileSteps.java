@@ -37,8 +37,5 @@ public class RemovingTileSteps {
         assertNull(board.getTiles()[2][2]);
     }
 
-    @Then("the board should not have a tile at position x {int} and y {int}")
-    public void theBoardShouldNotHaveATileAtPositionXAndY(int x, int y) {
-        assertNull(board.getTiles()[x][y]);
-    }
+
 }

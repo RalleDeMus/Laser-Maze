@@ -5,21 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Fixed bugs and made tests actually run correctly">
-      <change afterPath="$PROJECT_DIR$/src/test/java/boardmethods/gamestate/SavingGameStateSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_board/levelMaker.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/BoardInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/BoardInputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ToolBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Laser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Laser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/LaserCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/LaserCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/PointStringPair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/PointStringPair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/JSONSaving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/JSONSaving.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/test.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/AddingLaserTileSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/boardmethods/AddingLaserTileSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/RotatingTileSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/boardmethods/RotatingTileSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/SavingGameStateSteps.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/temp.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/temp.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/test.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GameCard/GameCardSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GameCard/GameCardSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/RemovingTileSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/boardmethods/RemovingTileSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/gamestate/SavingGameStateSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/boardmethods/gamestate/SavingGameStateSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features_board/savingGameState.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features_board/savingGameState.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Laser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Laser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/PointStringPair.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/PointStringPair.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/features_board/savingGameState.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features_board/savingGameState.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +84,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "tests-for-JSON",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Rasmu/IdeaProjects/group-4/src/test/java/boardmethods/gamestate",
@@ -118,7 +117,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Saving a board with pieces">
+  <component name="RunManager" selected="Application.RUN GAME">
     <configuration name="RUN GAME" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="LaserGame-group-4" />
@@ -465,8 +464,16 @@
     <option name="LAST_COMMIT_MESSAGE" value="Fixed bugs and made tests actually run correctly" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/group_4$Feature__savingGameState.ic" NAME="Feature: savingGameState Coverage Results" MODIFIED="1714221866298" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.Logic.JSONSaving</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/group_4$Scenario__Saving_a_board_with_pieces.ic" NAME="Scenario: Saving a board with pieces Coverage Results" MODIFIED="1714214921725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>io.cucumber.core.cli.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__removingTile.ic" NAME="Feature: removingTile Coverage Results" MODIFIED="1714216739933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.*</FILTER>
     </SUITE>
   </component>
 </project>

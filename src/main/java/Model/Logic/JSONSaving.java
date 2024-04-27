@@ -1,6 +1,7 @@
 package Model.Logic;
 
 import Model.Tiles.Tile;
+import View.Pages.BoardPage;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -15,7 +16,10 @@ public class JSONSaving {
     public static void saveGameState(String filename, Board board) {
         JSONObject gameInfo = new JSONObject();
         JSONArray tilesArray = new JSONArray();
-
+        if (board == null) {
+            System.out.println("Board is null");
+            return;
+        }
         int boardSize = board.getBoardSize();
         Tile[][] tiles = board.getTiles();
         int[] game_info = board.get_game_info();
@@ -82,6 +86,32 @@ public class JSONSaving {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void saveLevel(Board board) {
+        Tile[][] tiles = board.getTiles();
+
+
+        // Set rotateable based on orientation
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (tiles[i][j] != null) {
+
+                    System.out.println("Tile at: " +i + " " + j + " rotation: " + tiles[i][j].getOrientation());
+                    if (tiles[i][j].getOrientation() == 4) {
+                        tiles[i][j].setIsRotatable(true);
+                        System.out.println("TILE AT: " + i + " " + j + " is rotateable");
+                    } else {
+                        tiles[i][j].setIsRotatable(false);
+                    }
+                }
+            }
+        }
+
+        // Set game info to match
+        // game info is array with len 6.
+
+
     }
 
 }

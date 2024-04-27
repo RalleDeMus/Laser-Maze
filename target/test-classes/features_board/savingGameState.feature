@@ -1,13 +1,16 @@
 Feature: Saving game state
 
-  Scenario: Saving the game state
-    Given a board with a size of 5 and a square size of 50
-    And several tiles placed on the board
-    When the user saves the game state
+  Scenario: Saving a board with pieces
+    Given a board
+    And a MirrorTile that is not movable and not rotatable placed on the board
+    And a LaserTile that is movable and rotatable placed on the board
+    When the user triggers the save game state
     Then a JSON file containing the board state and extra tiles information should be created
 
-    # Using the saveGameState() method
-
-
-
+  Scenario: Saving a board with extra tiles
+    Given a board
+    And a MirrorTile that is not movable and not rotatable placed on the board
+    And 2 extra MirrorTiles and 1 extra SplitterTile
+    When the user triggers the save game state
+    Then a JSON file containing the board state and extra tiles information should be created
 

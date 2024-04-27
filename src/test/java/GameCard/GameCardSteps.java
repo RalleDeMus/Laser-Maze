@@ -14,7 +14,7 @@ import Model.Logic.Card;
 public class GameCardSteps {
     private Card card;
     private Tile[][] tiles;
-    String level;
+    private String level;
 
     @Given("I have initialized a game card with level <level>")
     public void iHaveInitializedAGameCardWithLevelLevel() {
