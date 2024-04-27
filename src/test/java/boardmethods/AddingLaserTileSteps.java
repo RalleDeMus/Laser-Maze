@@ -2,7 +2,6 @@ package boardmethods;
 import Model.Logic.Board;
 import Model.Tiles.LaserTile;
 
-import Model.Tiles.MirrorTile;
 import Model.Tiles.Tile;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -25,7 +24,7 @@ public class AddingLaserTileSteps {
     @And("a cursor position at \\({int},{int})")
     public void aCursorPositionAt(int x, int y) {
 
-        board.setCursorPos(0,0);
+        board.setCursorLocation(0,0);
     }
 
     @When("the user adds a LaserTile to the cursor position")

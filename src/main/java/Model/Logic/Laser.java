@@ -33,7 +33,7 @@ public class Laser {
     }
 
     public boolean Equals(Laser l1) {
-        return l1.getX() == this.getX() && l1.getY() == this.getY() && l1.getOrientation() == this.getOrientation();
+        return l1.getX() == this.getX() && l1.getY() == this.getY() && l1.orientation == this.orientation;
     }
 
     // Setter for the label
@@ -44,7 +44,7 @@ public class Laser {
     // A method to return a string representation of the LabeledPoint
     @Override
     public String toString() {
-        return "Model.Logic.Laser{" +
+        return "Laser{" +
                 "x,y = " + x + "," + y +
                 " ; orientation = " + orientation +
                 '}';

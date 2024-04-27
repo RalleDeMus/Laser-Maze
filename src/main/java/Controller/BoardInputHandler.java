@@ -29,7 +29,7 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
             @Override
             public void mouseMoved(MouseEvent e) {
                 if(e.getX()<board.getBoardSize()*board.getSquareSize()) {
-                    board.setCursorPos(e.getX(), e.getY() - yOffset);
+                    board.setCursorLocation(e.getX(), e.getY() - yOffset);
                     panel.repaint();
                 }
             }

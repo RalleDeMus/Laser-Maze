@@ -1,8 +1,6 @@
 package boardmethods;
 import Model.Logic.Board;
 
-import Model.Tiles.LaserTile;
-
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -22,14 +20,14 @@ public class RotatingTileSteps {
 
     @And("a LaserTile at position \\({double})")
     public void aLaserTileAtPosition(int x, int y) {
-        board.setCursorPos(1,1);
+        board.setCursorLocation(1,1);
         //board.addTile(new LaserTile(true,true),true);
 
     }
 
     @When("the user rotates the LaserTile at \\({double})")
     public void theUserRotatesTheLaserTileAt(int x, int y) {
-        board.setCursorPos(1,1);
+        board.setCursorLocation(1,1);
         board.rotateSelectedTile(false);
     }
 

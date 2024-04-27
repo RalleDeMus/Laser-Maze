@@ -4,18 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="First test now works">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Fixed bugs and made tests actually run correctly">
+      <change afterPath="$PROJECT_DIR$/src/test/java/boardmethods/gamestate/SavingGameStateSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/RemovingTileSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/boardmethods/RemovingTileSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/BoardInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/BoardInputHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ToolBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Laser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Laser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/LaserCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/LaserCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/PointStringPair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/PointStringPair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/test.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/AddingLaserTileSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/boardmethods/AddingLaserTileSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/RotatingTileSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/boardmethods/RotatingTileSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/SavingGameStateSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/boardmethods/SavingGameStateSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/images/load/LoadImageSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features_board/gameCard.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features_board/gameCard.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features_board/removingTile.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features_board/removingTile.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/SavingGameStateSteps.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features_board/savingGameState.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features_board/savingGameState.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features_assetserver/ImageLoad.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features_board/removingTile.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features_board/removingTile.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +77,7 @@
     "Cucumber Java.Feature: loaded.executor": "Run",
     "Cucumber Java.Feature: removingTile.executor": "Run",
     "Cucumber Java.Scenario: Removing a tile from the board.executor": "Run",
+    "Cucumber Java.Scenario: Saving a board with pieces.executor": "Coverage",
     "Cucumber Java.Scenario: succesful start game.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "Maven.LaserGame-group-4 [clean].executor": "Run",
@@ -83,7 +88,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Rasmu/IdeaProjects/group-4/src/test/java/boardmethods",
+    "last_opened_file_path": "C:/Users/Rasmu/IdeaProjects/group-4/src/test/java/boardmethods/gamestate",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -113,7 +118,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.RUN GAME">
+  <component name="RunManager" selected="Cucumber Java.Scenario: Saving a board with pieces">
     <configuration name="RUN GAME" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="LaserGame-group-4" />
@@ -161,13 +166,36 @@
         <option name="MakeProject" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Scenario: Saving a board with pieces" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/savingGameState.feature" />
+      <option name="GLUE" value="boardmethods.gamestate" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="LaserGame-group-4" />
+      <option name="NAME_FILTER" value="^Saving a board with pieces$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Saving a board with pieces$&quot;" />
+      <shortenClasspath name="NONE" />
+      <option name="SUGGESTED_NAME" value="Scenario: Saving a board with pieces" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="MakeProject" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.RUN GAME" />
+      <item itemvalue="Cucumber Java.Scenario: Saving a board with pieces" />
       <item itemvalue="Cucumber Java.Feature: addingLaserTile" />
       <item itemvalue="Cucumber Java.Scenario: Removing a tile from the board" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber Java.Scenario: Saving a board with pieces" />
         <item itemvalue="Cucumber Java.Scenario: Removing a tile from the board" />
         <item itemvalue="Cucumber Java.Feature: addingLaserTile" />
       </list>
@@ -195,7 +223,9 @@
       <workItem from="1712732547695" duration="729000" />
       <workItem from="1714133420485" duration="532000" />
       <workItem from="1714134026371" duration="2251000" />
-      <workItem from="1714136844452" duration="1900000" />
+      <workItem from="1714136844452" duration="2010000" />
+      <workItem from="1714211771304" duration="269000" />
+      <workItem from="1714212054626" duration="3626000" />
     </task>
     <task id="LOCAL-00001" summary="kan jeg push">
       <option name="closed" value="true" />
@@ -381,7 +411,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713970495807</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Fixed bugs and made tests actually run correctly">
+      <option name="closed" value="true" />
+      <created>1714138808530</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1714138808530</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,6 +461,12 @@
     <MESSAGE value="Fixed missing check win." />
     <MESSAGE value="Made JSONSaving its own class&#10;Made addtile not get a tile as input but just use selected tile." />
     <MESSAGE value="First test now works" />
-    <option name="LAST_COMMIT_MESSAGE" value="First test now works" />
+    <MESSAGE value="Fixed bugs and made tests actually run correctly" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bugs and made tests actually run correctly" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/group_4$Scenario__Saving_a_board_with_pieces.ic" NAME="Scenario: Saving a board with pieces Coverage Results" MODIFIED="1714214921725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+    </SUITE>
   </component>
 </project>
