@@ -1,7 +1,7 @@
 {
     "gameinfo": {"tiles": [
         {
-            "col": 1,
+            "col": 2,
             "rotatable": false,
             "orientation": 0,
             "row": 2,
@@ -17,7 +17,7 @@
     ]},
     "extra tiles": {
         "CheckPointTiles": 0,
-        "MirrorTiles": 0,
+        "MirrorTiles": 1,
         "DoubleTile": 0,
         "level": 0,
         "SplitterTiles": 0,
