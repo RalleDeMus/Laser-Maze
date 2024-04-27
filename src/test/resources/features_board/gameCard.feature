@@ -1,5 +1,11 @@
 Feature: Game card initializations and configurations based on levels
 
+  Scenario: Load level data from a JSON fil e
+    Given I have a JSON configuration for level "<level>"
+    When I initialize the Card with the level "<level>"
+    Then the system should load the configuration from "level_<level>.json" if "<level>" is a number
+
+
   Scenario Outline: Initializing a game card with specific level
     Given I have initialized a game card with level <level>
     When I retrieve the card configuration
