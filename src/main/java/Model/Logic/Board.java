@@ -183,7 +183,7 @@ Getters and setters (Maybe we can make some of these their own?)
 Two logical getters
 */
 
-    public boolean laserExists() {
+    public boolean laserNeeded() {
         for (int row = 0; row < boardSize; row++) {
             for (int col = 0; col < boardSize; col++) {
                 if (tiles[row][col] != null && tiles[row][col] instanceof LaserTile) {
@@ -229,11 +229,11 @@ HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
         if (t != null) {
             if (tiles[cursorPos.y][cursorPos.x] == null) {
                 if (t instanceof LaserTile && getLaserTile() != null) {
-                    System.out.println("Laser already exists");
+                    //System.out.println("Laser already exists");
                     return;
                 } else if (t instanceof MirrorTile) {
                     if (game_info[0] == 0) {
-                        System.out.println("No more mirror tiles");
+                        //System.out.println("No more mirror tiles");
                         return;
                     } else {
                         game_info[0]--;
@@ -241,21 +241,21 @@ HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
 
                 } else if (t instanceof SplitterTile) {
                     if (game_info[1] == 0) {
-                        System.out.println("No more splitter tiles");
+                        //System.out.println("No more splitter tiles");
                         return;
                     } else {
                         game_info[1]--;
                     }
                 } else if (t instanceof CheckPointTile) {
                     if (game_info[2] == 0) {
-                        System.out.println("No more checkpoint tiles");
+                        //System.out.println("No more checkpoint tiles");
                         return;
                     } else {
                         game_info[2]--;
                     }
                 } else if (t instanceof DoubleTile) {
                     if (game_info[3] == 0) {
-                        System.out.println("No more double tiles");
+                        //System.out.println("No more double tiles");
                         return;
                     } else {
                         game_info[3]--;
@@ -284,8 +284,6 @@ HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
                 game_info[3]++;
             }
             tiles[cursorPos.y][cursorPos.x] = null;
-        } else{
-            System.out.println("Tile is not moveable");
         }
     }
 
@@ -293,25 +291,10 @@ HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
 
 
     public void rotateSelectedTile(boolean levelEditor) {
-        //Print all the tiles on the board
-//        System.out.println("Initial board state:");
-//        for (int i = 0; i < getBoardSize(); i++) {
-//            for (int j = 0; j < getBoardSize(); j++) {
-//                if (getTiles()[i][j] != null) {
-//                    System.out.println("Tile at (" + i + ", " + j + "): " + getTiles()[i][j].getClass().getSimpleName());
-//                }
-//            }
-//        }
-//        System.out.println();
-//
-//        System.out.println("Cursor position: " + cursorPos.x + ", " + cursorPos.y);
-//        System.out.println(tiles[cursorPos.y][cursorPos.x]);
 
         int mod = levelEditor ? 5 : 4;
         if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsRotatable()) {
             tiles[cursorPos.y][cursorPos.x].rotate(1,mod);
-        }else {
-            //System.out.println("Tile is not rotateable");
         }
     }
 

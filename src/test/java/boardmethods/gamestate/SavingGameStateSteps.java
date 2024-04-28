@@ -10,7 +10,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import java.io.File;
-import java.nio.file.Files;
 
 
 import static org.junit.Assert.*;
@@ -41,9 +40,10 @@ public class SavingGameStateSteps {
         board.setSelectedTile(new LaserTile(true,true));
         board.getCursorPos().setLocation(2,2);
         board.addTile(false);
-        assertTrue(board.getTiles()[2][2] instanceof LaserTile);
+        assertFalse(board.laserNeeded());
         assertTrue(board.getTiles()[2][2].getIsRotatable());
         assertTrue(board.getTiles()[2][2].getIsMovable());
+
     }
 
     @When("the user triggers the save game state")
@@ -56,13 +56,11 @@ public class SavingGameStateSteps {
     @Then("a JSON file containing the board state and extra tiles information should be created")
     public void aJSONFileContainingTheBoardStateAndExtraTilesInformationShouldBeCreated() {
         // Check if the file exists
+
         assertTrue(file.exists());
         // delete the file after the test
-        try {
-            file.delete();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        file.delete();
+
 
         //Another test exists to check if the file contains the board state
     }

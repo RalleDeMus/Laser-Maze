@@ -14,7 +14,7 @@ Feature: Adding and Removing a tile
       | SplitterTile   |
       | DoubleTile     |
       | CheckPointTile |
-
+      | CellBlockerTile|
   Scenario Outline: Removing a tile from the board
     Given the user adds a "<TileType>" to the cursor position
     When the user removes the tile at x 0 and y 0

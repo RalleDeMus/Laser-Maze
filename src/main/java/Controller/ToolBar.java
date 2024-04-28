@@ -35,7 +35,7 @@ public class ToolBar extends MouseAdapter implements KeyListener {
             if(e.getX()>board.getBoardSize()*board.getSquareSize()){
                 List<Tile> tiles = new ArrayList<>();
 
-                if (board.laserExists()) {
+                if (board.laserNeeded()) {
                     tiles.add(new LaserTile(true, true));
                 }
                 for (int i = 0; i < 4; i++) {

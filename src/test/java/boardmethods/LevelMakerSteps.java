@@ -31,6 +31,9 @@ public class LevelMakerSteps {
 
     @And("the user adds increments number of targets")
     public void theUserAddsIncrementsNumberOfTargets() {
+        levelMakerLogic.decrementTargets();
+        levelMakerLogic.incrementTargets();
+        levelMakerLogic.decrementTargets();
         levelMakerLogic.incrementTargets();
         assertEquals(board.get_game_info()[4], 1);
 
@@ -68,6 +71,7 @@ public class LevelMakerSteps {
         board.rotateSelectedTile(false);
         assertEquals(board.getTiles()[3][1].getOrientation(), 3);
         assertEquals(board.get_game_info_by_index(0), 0);
+        assertTrue(board.getSelectedTile() instanceof MirrorTile);
 
     }
 
@@ -110,6 +114,8 @@ public class LevelMakerSteps {
     @Then("the player can complete the level")
     public void thePlayerCanCompleteTheLevel() {
         LaserCalculator.constructLaserTree(board);
+        board.setLaserWasFired(true);
+        assertTrue(board.getLaserFired());
         assertTrue(board.getWin());
     }
 

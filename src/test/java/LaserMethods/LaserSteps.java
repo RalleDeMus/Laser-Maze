@@ -6,6 +6,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static org.junit.Assert.*;
+
 public class LaserSteps {
     private Laser laser;
     private Laser anotherLaser;
@@ -18,7 +20,7 @@ public class LaserSteps {
 
     @Then("the laser should be positioned at {int}, {int} with orientation {int}")
     public void theLaserShouldBePositionedAtWithOrientation(int x, int y, int orientation) {
-        assert laser.getX() == x;
+        assertEquals(laser.getX(), x);
         assert laser.getY() == y;
         assert laser.getOrientation() == orientation;
     }

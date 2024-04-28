@@ -22,6 +22,7 @@ public class ManipulatingTilesSteps {
     public void aBoard(int boardSize, int squareSize) {
 
         board = new Board(boardSize, squareSize, "0");
+        assertEquals(board.getSquareSize(), squareSize);
     }
 
     @And("a cursor position at \\({int},{int})")
@@ -63,6 +64,7 @@ public class ManipulatingTilesSteps {
             case "SplitterTile": return new SplitterTile(true,true);
             case "DoubleTile": return new DoubleTile(true,true);
             case "CheckPointTile": return new CheckPointTile(true,true);
+            case "CellBlockerTile": return new CellBlockerTile(true);
             default: throw new IllegalArgumentException("Unknown tile type: " + tileType);
         }
     }
@@ -76,12 +78,14 @@ public class ManipulatingTilesSteps {
         Point cp = board.getCursorPos();
 
         initialOrientation = board.getTiles()[cp.x][cp.y].getOrientation();
+
     }
 
 
     @When("the user rotates the tile at cursor position")
     public void theUserRotatesTheTileAt() {
         board.rotateSelectedTile(false);
+
     }
 
     @Then("the tile at cursor position should be rotated")

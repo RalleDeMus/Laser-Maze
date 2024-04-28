@@ -28,7 +28,7 @@ public class LaserToolBarRenderer extends BoardRenderer {
 
         List<BufferedImage> tiles = new ArrayList<>();
 
-        if (board.laserExists()) {
+        if (board.laserNeeded()) {
             tiles.add(AssetServer.getInstance().getImage("laser"));
         }
 

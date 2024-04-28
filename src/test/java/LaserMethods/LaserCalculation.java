@@ -62,20 +62,13 @@ public class LaserCalculation {
 
     @And("place a the splitter tile and rotate it")
     public void placeASplitterTile() {
-        board.setSelectedTile(new SplitterTile(true, true));
+        board.setSelectedTile(new SplitterTile(true, true,1));
 
         board.getCursorPos().setLocation(3,2);
         board.addTile(true);
         board.rotateSelectedTile(false);
 
-//        System.out.println("Current board state:");
-//        for (int i = 0; i < board.getBoardSize(); i++) {
-//            for (int j = 0; j < board.getBoardSize(); j++) {
-//                if (board.getTiles()[i][j] != null) {
-//                    System.out.println("Tile at (" + i + ", " + j + "): " + board.getTiles()[i][j].getClass().getSimpleName() + " Orientation: " + board.getTiles()[i][j].getOrientation());
-//                }
-//            }
-//        }
+        assertEquals(board.getSelectedTile().getOrientation(), 2);
     }
 
     @When("i calculate the laser tree")
