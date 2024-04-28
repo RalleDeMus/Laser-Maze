@@ -25,7 +25,7 @@ public class LevelMakerPage extends JPanel {
 
     //int[] tileCounts = new int[4];
 
-    LevelMakerLogic levelMakerLogic = new LevelMakerLogic(0,new int[4]);
+    LevelMakerLogic levelMakerLogic;
 
     ImageOverlayNumber[] tileLabels = new ImageOverlayNumber[5];
 
@@ -35,7 +35,7 @@ public class LevelMakerPage extends JPanel {
 
 
     public LevelMakerPage(MainMenuPage mainMenu) {
-        levelMakerLogic = new LevelMakerLogic(0,new int[4]);
+        levelMakerLogic = new LevelMakerLogic();
         this.mainMenu = mainMenu;
         // Ensure the Board is accessible
         board = new Board("0");
@@ -184,8 +184,8 @@ public class LevelMakerPage extends JPanel {
         minusButton.setMargin(new Insets(0,0,0,0));
         minusButton.setPreferredSize(new Dimension(40, 40));
         minusButton.addActionListener(e -> {
-            if(levelMakerLogic.getTargets() == 0) return;
-            levelMakerLogic.setTargets(levelMakerLogic.getTargets()-1);
+
+            levelMakerLogic.decrementTargets();
             updateTargetCounter();
             LevelMakerPage.this.requestFocusInWindow();
         });
@@ -198,7 +198,7 @@ public class LevelMakerPage extends JPanel {
         plusButton.setMargin(new Insets(0,0,0,0));
         plusButton.setPreferredSize(new Dimension(40, 40));
         plusButton.addActionListener(e -> {
-            levelMakerLogic.setTargets(levelMakerLogic.getTargets()+1);
+            levelMakerLogic.incrementTargets();
             updateTargetCounter();
             LevelMakerPage.this.requestFocusInWindow();
         });
@@ -254,7 +254,7 @@ public class LevelMakerPage extends JPanel {
             minusButtonTile.setMargin(new Insets(0,0,0,0));
             minusButtonTile.addActionListener(e -> {
                 System.out.println("Tile " + (index) + " minus");
-                levelMakerLogic.changeTileCount(index, -1);
+                levelMakerLogic.changeTileCount(index, false);
                 updateTileCount();
                 LevelMakerPage.this.requestFocusInWindow();
             });
@@ -271,7 +271,7 @@ public class LevelMakerPage extends JPanel {
             plusButtonTile.setMargin(new Insets(0,0,0,0));
             plusButtonTile.addActionListener(e -> {
                 System.out.println("Tile " + (index) + " plus");
-                levelMakerLogic.changeTileCount(index, 1);
+                levelMakerLogic.changeTileCount(index, true);
                 updateTileCount();
                 LevelMakerPage.this.requestFocusInWindow();
             });
