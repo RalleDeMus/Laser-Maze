@@ -55,7 +55,6 @@ public class LaserCalculator {
                     // Is the laser out of bounds?
                     if (current.getX() < 0 || current.getX() >= boardSize || current.getY() < 0 || current.getY() >= boardSize) {
 
-                        //System.out.println("Laser out of bounds");
                         continue;
                     }
                     hitLasers.add(current);
@@ -133,6 +132,9 @@ public class LaserCalculator {
 
             board.setMirrorsHit(mirrorsHit);
             board.setTargetsHit(targetsHit);
+
+
+            System.out.println("Mirrors hit: " + mirrorsHit + " Targets hit: " + targetsHit);
 
             board.setWin();
             return laserList;
