@@ -3,45 +3,31 @@
         {
             "col": 1,
             "rotatable": false,
-            "orientation": 3,
-            "row": 0,
-            "type": "MirrorTile"
-        },
-        {
-            "col": 0,
-            "rotatable": false,
             "orientation": 0,
-            "row": 1,
+            "row": 2,
             "type": "LaserTile"
         },
         {
-            "col": 4,
+            "col": 3,
             "rotatable": false,
-            "orientation": 1,
-            "row": 1,
-            "type": "MirrorTile"
-        },
-        {
-            "col": 1,
-            "rotatable": false,
-            "orientation": 3,
-            "row": 4,
+            "orientation": 0,
+            "row": 2,
             "type": "MirrorTile"
         },
         {
             "col": 4,
             "rotatable": false,
-            "orientation": 2,
-            "row": 4,
+            "orientation": 0,
+            "row": 3,
             "type": "MirrorTile"
         }
     ]},
     "extra tiles": {
         "CheckPointTiles": 0,
-        "MirrorTiles": 0,
-        "DoubleTile": 1,
-        "level": 5,
+        "MirrorTiles": 5,
+        "DoubleTile": 0,
+        "level": 0,
         "SplitterTiles": 0,
-        "targets": 1
+        "targets": 0
     }
 }
