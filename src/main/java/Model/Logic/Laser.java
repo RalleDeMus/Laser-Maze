@@ -7,7 +7,7 @@ public class Laser {
     private int orientation;   // An integer label for the point
 
     // Constructor to initialize the point and label
-    public Laser(int x, int y, int orientation) {
+    public Laser(int x, int y, int orientation) { //done
         this.x = x;
         this.y = y;
         this.orientation = orientation;
@@ -16,10 +16,10 @@ public class Laser {
     // Getter for the point
     public int getX() {
         return x;
-    }
+    } //done
     public int getY() {
         return y;
-    }
+    } //done
 
     // Getter for the label
     public int getOrientation() {
@@ -27,13 +27,9 @@ public class Laser {
     }
 
     // Setter for the point
-    public void setPos(int x, int y) {
+    public void setPos(int x, int y) { //done
         this.x = x;
         this.y = y;
-    }
-
-    public boolean Equals(Laser l1) {
-        return l1.getX() == this.getX() && l1.getY() == this.getY() && l1.orientation == this.orientation;
     }
 
     // Setter for the label
@@ -41,9 +37,15 @@ public class Laser {
         this.orientation = orientation;
     }
 
+    public boolean Equals(Laser l1) {
+        return l1.getX() == this.getX() && l1.getY() == this.getY() && l1.orientation == this.orientation;
+    }
+
+
+
     // A method to return a string representation of the LabeledPoint
     @Override
-    public String toString() {
+    public String toString() { // done
         return "Laser{" +
                 "x,y = " + x + "," + y +
                 " ; orientation = " + orientation +
