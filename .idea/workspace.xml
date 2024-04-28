@@ -252,11 +252,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber Java.Feature: manipulatingTilesOnBoard" />
         <item itemvalue="Cucumber Java.Scenario: Rotating tile on the board" />
-        <item itemvalue="Cucumber Java.Feature: addingAndRemovingATile" />
         <item itemvalue="Cucumber Java.Scenario: Removing a tile from the board" />
         <item itemvalue="Cucumber Java.Scenario: Adding a tile to the board" />
+        <item itemvalue="Cucumber Java.Feature: manipulatingTilesOnBoard" />
+        <item itemvalue="Cucumber Java.Feature: addingAndRemovingATile" />
       </list>
     </recent_temporary>
   </component>
