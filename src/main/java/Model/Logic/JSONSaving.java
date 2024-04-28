@@ -1,7 +1,6 @@
 package Model.Logic;
 
 import Model.Tiles.Tile;
-import View.Pages.BoardPage;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -16,10 +15,7 @@ public class JSONSaving {
     public static void saveGameState(String filename, Board board) {
         JSONObject gameInfo = new JSONObject();
         JSONArray tilesArray = new JSONArray();
-        if (board == null) {
-            System.out.println("Board is null");
-            return;
-        }
+
         int boardSize = board.getBoardSize();
         Tile[][] tiles = board.getTiles();
         int[] game_info = board.get_game_info();
@@ -88,7 +84,7 @@ public class JSONSaving {
         }
     }
 
-    public static void saveLevel(Board board) {
+    public static void saveLevelWithFreeRotations(Board board, int[] tileCounts, int targets) {
         Tile[][] tiles = board.getTiles();
 
 
@@ -110,7 +106,9 @@ public class JSONSaving {
 
         // Set game info to match
         // game info is array with len 6.
+        board.set_game_info(new int[]{tileCounts[0], tileCounts[1], tileCounts[2], tileCounts[3], targets, 0});
 
+        saveGameState("temp",board);
 
     }
 
