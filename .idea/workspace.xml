@@ -5,21 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Fixed bugs and made tests actually run correctly">
-      <change afterPath="$PROJECT_DIR$/src/test/java/boardmethods/ManipulatingTilesSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features_board/manipulatingTilesOnBoard.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tiles/CellBlockerTileSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tiles/CheckPointTileSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tiles/DoubleTileSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tiles/LaserTileSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tiles/MirrorTileSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tiles/SplitterTileSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tiles/TestAssetServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tiles/TileSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Tiles/CellBlockerTile.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Tiles/CheckPointTile.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Tiles/DoubleTile.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Tiles/LaserTile.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Tiles/MirrorTile.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Tiles/SplitterTile.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features_Tiles/TileFunctionality.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/temp.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/temp.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/AddingLaserTileSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/RemovingTileSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/RotatingTileSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features_board/addingLaserTile.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features_board/gameCard.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features_board/removingTile.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features_board/rotatingTile.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features_board/savingGameState.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AssetServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AssetServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/CellBlockerTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/CellBlockerTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/CheckPointTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/CheckPointTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controller/AssetServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/AssetServer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controller/ImageHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/ImageHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game.class" afterDir="false" />
@@ -34,10 +39,6 @@
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/MirrorTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/MirrorTile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/SplitterTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/SplitterTile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/Tile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features_board/addingLaserTile.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features_board/removingTile.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features_board/rotatingTile.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features_board/savingGameState.feature" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,12 +71,12 @@
     }
   }
 }</component>
-  <component name="GitLabMergeRequestsSettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;first&quot;: &quot;https://gitlab.gbar.dtu.dk/02160-f24/group-4.git&quot;,
-    &quot;second&quot;: &quot;60b3407f-8107-4a00-a763-4d7de78575b6&quot;
+  <component name="GitLabMergeRequestsSettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "first": "https://gitlab.gbar.dtu.dk/02160-f24/group-4.git",
+    "second": "4610cad5-fdfe-4d4c-bcc6-dbbced9c12b4"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -91,6 +92,7 @@
   "keyToString": {
     "Application.Game.executor": "Run",
     "Application.RUN GAME.executor": "Run",
+    "Cucumber Java.Feature: CellBlockerTile.executor": "Run",
     "Cucumber Java.Feature: addingAndRemovingATile.executor": "Coverage",
     "Cucumber Java.Feature: addingAndRemovingLaserTile.executor": "Coverage",
     "Cucumber Java.Feature: addingLaserTile.executor": "Run",
@@ -100,10 +102,31 @@
     "Cucumber Java.Feature: rotateTile.executor": "Coverage",
     "Cucumber Java.Feature: rotatingTile.executor": "Run",
     "Cucumber Java.Scenario: Adding a tile to the board.executor": "Run",
+    "Cucumber Java.Scenario: CellBlocker Interaction.executor": "Run",
+    "Cucumber Java.Scenario: Check CellBlocker Properties.executor": "Run",
+    "Cucumber Java.Scenario: Check CheckPoint Properties.executor": "Run",
+    "Cucumber Java.Scenario: Check Double Properties.executor": "Run",
+    "Cucumber Java.Scenario: Check Laser Properties.executor": "Run",
+    "Cucumber Java.Scenario: Check Mirror Properties.executor": "Run",
+    "Cucumber Java.Scenario: Check Splitter Properties.executor": "Run",
+    "Cucumber Java.Scenario: CheckPoint Interaction.executor": "Run",
+    "Cucumber Java.Scenario: Cloning a Tile.executor": "Run",
+    "Cucumber Java.Scenario: Creating a Tile.executor": "Run",
+    "Cucumber Java.Scenario: Double Interaction.executor": "Run",
+    "Cucumber Java.Scenario: Laser Interaction.executor": "Run",
+    "Cucumber Java.Scenario: Load CellBlocker Image.executor": "Run",
+    "Cucumber Java.Scenario: Load CheckPointTile Image.executor": "Run",
+    "Cucumber Java.Scenario: Load DoubleTile Image.executor": "Run",
+    "Cucumber Java.Scenario: Load LaserTile Image.executor": "Run",
+    "Cucumber Java.Scenario: Load MirrorTile Image.executor": "Run",
+    "Cucumber Java.Scenario: Load SplitterTile Image.executor": "Run",
+    "Cucumber Java.Scenario: Mirror Interaction.executor": "Run",
     "Cucumber Java.Scenario: Removing a tile from the board.executor": "Run",
+    "Cucumber Java.Scenario: Rotating a Tile.executor": "Run",
     "Cucumber Java.Scenario: Rotating a tile on the board.executor": "Run",
     "Cucumber Java.Scenario: Rotating tile on the board.executor": "Run",
     "Cucumber Java.Scenario: Saving a board with pieces.executor": "Coverage",
+    "Cucumber Java.Scenario: Splitter Interaction.executor": "Run",
     "Cucumber Java.Scenario: succesful start game.executor": "Run",
     "JUnit.java in LaserGame-group-4.executor": "Coverage",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
@@ -112,10 +135,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "board-tests",
+    "git-widget-placeholder": "UnitJtest",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Rasmu/IdeaProjects/group-4/src/test/java/boardmethods/gamestate",
+    "last_opened_file_path": "C:/Users/leali/Documents/Agile/group-4-new/src/test/java/tiles",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -145,7 +168,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Feature: manipulatingTilesOnBoard">
+  <component name="RunManager" selected="Cucumber Java.Scenario: Rotating a Tile">
     <configuration name="RUN GAME" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="LaserGame-group-4" />
@@ -153,84 +176,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Feature: addingAndRemovingATile" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Check Splitter Properties" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/addingAndRemovingATile.feature" />
-      <option name="GLUE" value="boardmethods" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_Tiles/SplitterTile.feature" />
+      <option name="GLUE" value="tiles" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="LaserGame-group-4" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
-      <shortenClasspath name="NONE" />
-      <option name="SUGGESTED_NAME" value="Feature: addingAndRemovingATile" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="Model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="MakeProject" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Feature: manipulatingTilesOnBoard" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/manipulatingTilesOnBoard.feature" />
-      <option name="GLUE" value="boardmethods" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="LaserGame-group-4" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
-      <shortenClasspath name="NONE" />
-      <option name="SUGGESTED_NAME" value="Feature: manipulatingTilesOnBoard" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="Model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="MakeProject" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: Adding a tile to the board" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/addingAndRemovingATile.feature" />
-      <option name="GLUE" value="boardmethods" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="LaserGame-group-4" />
-      <option name="NAME_FILTER" value="^Adding a tile to the board$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Adding a tile to the board$&quot;" />
-      <shortenClasspath name="NONE" />
-      <option name="SUGGESTED_NAME" value="Scenario: Adding a tile to the board" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="MakeProject" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: Removing a tile from the board" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/addingAndRemovingATile.feature" />
-      <option name="GLUE" value="boardmethods" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="LaserGame-group-4" />
-      <option name="NAME_FILTER" value="^Removing a tile from the board$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Removing a tile from the board$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Removing a tile from the board" />
+      <option name="NAME_FILTER" value="^Check Splitter Properties$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Check Splitter Properties$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Check Splitter Properties" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -242,48 +196,114 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Rotating tile on the board" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Cloning a Tile" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/manipulatingTilesOnBoard.feature" />
-      <option name="GLUE" value="boardmethods" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_Tiles/TileFunctionality.feature" />
+      <option name="GLUE" value="tiles" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="LaserGame-group-4" />
-      <option name="NAME_FILTER" value="^Rotating tile on the board$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Rotating tile on the board$&quot;" />
-      <shortenClasspath name="NONE" />
-      <option name="SUGGESTED_NAME" value="Scenario: Rotating tile on the board" />
+      <option name="NAME_FILTER" value="^Cloning a Tile$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Cloning a Tile$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Cloning a Tile" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="io.cucumber.core.cli.*" />
           <option name="ENABLED" value="true" />
         </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Creating a Tile" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_Tiles/TileFunctionality.feature" />
+      <option name="GLUE" value="tiles" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="LaserGame-group-4" />
+      <option name="NAME_FILTER" value="^Creating a Tile$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Creating a Tile$&quot;" />
+      <shortenClasspath name="NONE" />
+      <option name="SUGGESTED_NAME" value="Scenario: Creating a Tile" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Model.*" />
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <method v="2">
+        <option name="Make" enabled="true" />
         <option name="MakeProject" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Rotating a Tile" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_Tiles/TileFunctionality.feature" />
+      <option name="GLUE" value="tiles" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="LaserGame-group-4" />
+      <option name="NAME_FILTER" value="^Rotating a Tile$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Rotating a Tile$&quot;" />
+      <shortenClasspath name="NONE" />
+      <option name="SUGGESTED_NAME" value="Scenario: Rotating a Tile" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="MakeProject" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Splitter Interaction" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_Tiles/SplitterTile.feature" />
+      <option name="GLUE" value="tiles" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="LaserGame-group-4" />
+      <option name="NAME_FILTER" value="^Splitter Interaction$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Splitter Interaction$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Splitter Interaction" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.RUN GAME" />
-      <item itemvalue="Cucumber Java.Feature: addingAndRemovingATile" />
-      <item itemvalue="Cucumber Java.Feature: manipulatingTilesOnBoard" />
-      <item itemvalue="Cucumber Java.Scenario: Adding a tile to the board" />
-      <item itemvalue="Cucumber Java.Scenario: Removing a tile from the board" />
-      <item itemvalue="Cucumber Java.Scenario: Rotating tile on the board" />
+      <item itemvalue="Cucumber Java.Scenario: Cloning a Tile" />
+      <item itemvalue="Cucumber Java.Scenario: Rotating a Tile" />
+      <item itemvalue="Cucumber Java.Scenario: Check Splitter Properties" />
+      <item itemvalue="Cucumber Java.Scenario: Creating a Tile" />
+      <item itemvalue="Cucumber Java.Scenario: Splitter Interaction" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber Java.Feature: manipulatingTilesOnBoard" />
-        <item itemvalue="Cucumber Java.Scenario: Rotating tile on the board" />
-        <item itemvalue="Cucumber Java.Feature: addingAndRemovingATile" />
-        <item itemvalue="Cucumber Java.Scenario: Removing a tile from the board" />
-        <item itemvalue="Cucumber Java.Scenario: Adding a tile to the board" />
+        <item itemvalue="Cucumber Java.Scenario: Rotating a Tile" />
+        <item itemvalue="Cucumber Java.Scenario: Cloning a Tile" />
+        <item itemvalue="Cucumber Java.Scenario: Creating a Tile" />
+        <item itemvalue="Cucumber Java.Scenario: Splitter Interaction" />
+        <item itemvalue="Cucumber Java.Scenario: Check Splitter Properties" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-22-openjdk-22-4caba194b151-f504ca98" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -303,6 +323,7 @@
       <workItem from="1714211771304" duration="269000" />
       <workItem from="1714212054626" duration="3626000" />
       <workItem from="1714221502755" duration="4302000" />
+      <workItem from="1714294801733" duration="17178000" />
     </task>
     <task id="LOCAL-00001" summary="kan jeg push">
       <option name="closed" value="true" />

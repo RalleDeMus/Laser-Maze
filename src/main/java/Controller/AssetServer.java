@@ -14,7 +14,7 @@ public class AssetServer {
     private static AssetServer instance;
     final private Map<String, BufferedImage> images = new HashMap<>();
 
-    private AssetServer() {
+    protected AssetServer() {
         try {
             //loadImages("beamSplitter", "cellBlocker", "checkPoint", "doubleMirror", "empty", "laser", "targetMirror", "laserRay", "rotateBeamSplitter", "rotateCheckpoint", "rotateDoubleMirror", "rotateLaser", "rotateTargetMirror", "spotRotateTargetMirror", "spotTargetMirror");
             ArrayList<String> assets = listFilesForFolder(new File("src/main/assets"));

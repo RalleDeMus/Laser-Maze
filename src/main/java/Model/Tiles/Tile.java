@@ -4,7 +4,7 @@ import Controller.ImageHandler;
 
 import java.awt.image.BufferedImage;
 
-public abstract class Tile implements TileInterface, Cloneable{
+public class Tile implements TileInterface, Cloneable{
 
 
     protected boolean isMoveable;
@@ -62,14 +62,17 @@ public abstract class Tile implements TileInterface, Cloneable{
 
     @Override
     public int[] getMirror() {
+
         return mirror;
     }
     @Override
     public int[] getPass() {
+
         return pass;
     }
     @Override
     public int[] getTarget() {
+
         return target;
     }
 

@@ -11,3 +11,5 @@ public class CellBlockerTile extends Tile {
         this.setImage(AssetServer.getInstance().getImage("cellBlocker"));
     }
 }
+
+

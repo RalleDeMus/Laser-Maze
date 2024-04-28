@@ -23,3 +23,7 @@ public class CheckPointTile extends Tile {
         this.rotate(orientation,5);
     }
 }
+
+
+
+
