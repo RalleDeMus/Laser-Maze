@@ -1,12 +1,11 @@
 package LaserMethods;
 
 import Model.Logic.Laser;
+import static org.junit.Assert.*;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import static org.junit.Assert.*;
 
 public class LaserSteps {
     private Laser laser;
@@ -20,9 +19,9 @@ public class LaserSteps {
 
     @Then("the laser should be positioned at {int}, {int} with orientation {int}")
     public void theLaserShouldBePositionedAtWithOrientation(int x, int y, int orientation) {
-        assertEquals(laser.getX(), x);
-        assert laser.getY() == y;
-        assert laser.getOrientation() == orientation;
+        assertEquals("X coordinate mismatch", x, laser.getX());
+        assertEquals("Y coordinate mismatch", y, laser.getY());
+        assertEquals("Orientation mismatch", orientation, laser.getOrientation());
     }
 
     @Given("a laser is positioned at {int}, {int} with orientation {int}")
@@ -37,8 +36,8 @@ public class LaserSteps {
 
     @Then("the result should be x={int} and y={int}")
     public void theResultShouldBeXAndY(int x, int y) {
-        assert laser.getX() == x;
-        assert laser.getY() == y;
+        assertEquals("X coordinate mismatch on retrieval", x, laser.getX());
+        assertEquals("Y coordinate mismatch on retrieval", y, laser.getY());
     }
 
     @When("I set the new position to {int}, {int}")
@@ -48,8 +47,8 @@ public class LaserSteps {
 
     @Then("the laser should move to {int}, {int}")
     public void theLaserShouldMoveToNewXNewY(int newX, int newY) {
-        assert laser.getX() == newX;
-        assert laser.getY() == newY;
+        assertEquals("New X coordinate mismatch after move", newX, laser.getX());
+        assertEquals("New Y coordinate mismatch after move", newY, laser.getY());
     }
 
     @When("I set the orientation to {int}")
@@ -59,7 +58,7 @@ public class LaserSteps {
 
     @Then("the orientation should be {int}")
     public void theOrientationShouldBeNewOrientation(int newOrientation) {
-        assert laser.getOrientation() == newOrientation;
+        assertEquals("Orientation mismatch after setting new orientation", newOrientation, laser.getOrientation());
     }
 
     @And("another laser is positioned at {int}, {int} with orientation {int}")
@@ -69,12 +68,12 @@ public class LaserSteps {
 
     @When("I compare the two lasers")
     public void iCompareTheTwoLasers() {
-        assert laser.Equals(anotherLaser);
+        assertTrue("Lasers should be considered equal", laser.Equals(anotherLaser));
     }
 
     @Then("they should be considered equal")
     public void theyShouldBeConsideredEqual() {
-        assert laser.Equals(anotherLaser);
+        assertTrue("Lasers comparison failed", laser.Equals(anotherLaser));
     }
 
     @When("I check the string representation of the laser")
@@ -84,9 +83,6 @@ public class LaserSteps {
 
     @Then("the output should be {string}")
     public void theOutputShouldBe(String expectedOutput) {
-        assert output.equals(expectedOutput) : "Expected: " + expectedOutput + ", but got: " + output;
+        assertEquals("String representation mismatch", expectedOutput, output);
     }
-
-
 }
-
