@@ -215,18 +215,18 @@ HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
 
     // Add the cursor tile to the board and check if placement is valid
     public void addTile(boolean unSelectSelectedTileAfterPlacement) {
-        Tile t;
-        System.out.println("Adding tile");
-        System.out.println(selectedTile);
-
-        try {
-            t = selectedTile.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new RuntimeException(e);
-        }
 
 
-        if (t != null) {
+
+        if (selectedTile != null) {
+            Tile t;
+
+            try {
+                t = selectedTile.clone();
+            } catch (CloneNotSupportedException e) {
+                throw new RuntimeException(e);
+            }
+
             if (tiles[cursorPos.y][cursorPos.x] == null) {
                 if (t instanceof LaserTile && getLaserTile() != null) {
                     //System.out.println("Laser already exists");

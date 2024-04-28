@@ -9,7 +9,7 @@ public class LevelMakerLogic {
 
     public LevelMakerLogic() {
         this.targets = 0;
-        this.tileCounts = new int[]{0,0,0,0,0};
+        this.tileCounts = new int[]{0,0,0,0};
     }
 
     public int getTargets() {
