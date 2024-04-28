@@ -24,15 +24,6 @@ public class Board {
 
 
 
-
-
-    // Model.Logic.Laser tree ???
-
-    // Constructor
-        // Gets the board size
-        // Initializes the tiles array based json file
-        // Initializes the cursor tile
-        // Reads from the asset server
     public Board(int boardSize, int squareSize,String level) {
         this.boardSize = boardSize;
         this.squareSize = squareSize;
@@ -188,6 +179,9 @@ Getters and setters (Maybe we can make some of these their own?)
         }
         return level;
     }
+/*
+Two logical getters
+*/
 
     public boolean laserExists() {
         for (int row = 0; row < boardSize; row++) {

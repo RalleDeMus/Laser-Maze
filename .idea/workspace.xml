@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Made tests for the Laser class">
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Fixed bugs and made tests actually run correctly">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/LevelMakerLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ToolBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/BoardInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/BoardInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/JSONSaving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/JSONSaving.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/LevelMakerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/LevelMakerPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/temp.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/temp.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,49 +66,19 @@
   "keyToString": {
     "Application.Game.executor": "Run",
     "Application.RUN GAME.executor": "Run",
-    "Cucumber Java.Feature: Laser.executor": "Run",
     "Cucumber Java.Feature: addingAndRemovingATile.executor": "Coverage",
     "Cucumber Java.Feature: addingAndRemovingLaserTile.executor": "Coverage",
     "Cucumber Java.Feature: addingLaserTile.executor": "Run",
-    "Cucumber Java.Feature: create_laser.executor": "Run",
-    "Cucumber Java.Feature: laser_class_methods.executor": "Run",
-    "Cucumber Java.Feature: laser_comparing_two.executor": "Run",
-    "Cucumber Java.Feature: laser_comparison.executor": "Run",
-    "Cucumber Java.Feature: laser_functionality.executor": "Run",
-    "Cucumber Java.Feature: laser_getters_setters.executor": "Run",
     "Cucumber Java.Feature: loaded.executor": "Run",
-    "Cucumber Java.Feature: manipulatingTilesOnBoard.executor": "Coverage",
+    "Cucumber Java.Feature: manipulatingTilesOnBoard.executor": "Run",
     "Cucumber Java.Feature: removingTile.executor": "Run",
     "Cucumber Java.Feature: rotateTile.executor": "Coverage",
     "Cucumber Java.Feature: rotatingTile.executor": "Run",
     "Cucumber Java.Scenario: Adding a tile to the board.executor": "Run",
-    "Cucumber Java.Scenario: Check equality of two lasers.executor": "Run",
-    "Cucumber Java.Scenario: Check the toString output of the laser.executor": "Run",
-    "Cucumber Java.Scenario: Comparing two different Laser objects in orientation.executor": "Run",
-    "Cucumber Java.Scenario: Comparing two different Laser objects in y coordinates.executor": "Run",
-    "Cucumber Java.Scenario: Comparing two identical Laser objects.executor": "Run",
-    "Cucumber Java.Scenario: Constructing a Laser object with x, y coordinates, and orientation.executor": "Run",
-    "Cucumber Java.Scenario: Get and set orientation.executor": "Run",
-    "Cucumber Java.Scenario: Get coordinates of the laser.executor": "Run",
-    "Cucumber Java.Scenario: Getting x and y coordinates and orientation of a Laser object.executor": "Run",
-    "Cucumber Java.Scenario: Initialize a new laser.executor": "Run",
-    "Cucumber Java.Scenario: Initializing a Laser object with specific values.executor": "Run",
-    "Cucumber Java.Scenario: Initializing a Laser object with valid x, y, and orientation values.executor": "Run",
     "Cucumber Java.Scenario: Removing a tile from the board.executor": "Run",
-    "Cucumber Java.Scenario: Retrieve orientation from a Laser object.executor": "Run",
-    "Cucumber Java.Scenario: Retrieve x coordinate from a Laser object.executor": "Run",
-    "Cucumber Java.Scenario: Retrieve y coordinate from a Laser object.executor": "Run",
-    "Cucumber Java.Scenario: Retrieving orientation from a Laser object (1).executor": "Run",
-    "Cucumber Java.Scenario: Retrieving orientation from a Laser object.executor": "Run",
     "Cucumber Java.Scenario: Rotating a tile on the board.executor": "Run",
     "Cucumber Java.Scenario: Rotating tile on the board.executor": "Run",
     "Cucumber Java.Scenario: Saving a board with pieces.executor": "Coverage",
-    "Cucumber Java.Scenario: Set new coordinates of the laser.executor": "Run",
-    "Cucumber Java.Scenario: Setting and getting new x and y coordinates of a Laser object.executor": "Run",
-    "Cucumber Java.Scenario: Setting orientation of a Laser object (1).executor": "Run",
-    "Cucumber Java.Scenario: Setting orientation of a Laser object.executor": "Run",
-    "Cucumber Java.Scenario: Setting position of a Laser object.executor": "Run",
-    "Cucumber Java.Scenario: String representation of a Laser object.executor": "Run",
     "Cucumber Java.Scenario: succesful start game.executor": "Run",
     "JUnit.java in LaserGame-group-4.executor": "Coverage",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
@@ -110,7 +87,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "LaserTests",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Rasmu/IdeaProjects/group-4/src/test/java/boardmethods/gamestate",
@@ -132,11 +109,9 @@
       <recent name="C:\Users\Rasmu\Desktop\Agil\Exercises\Project\LaserMazeProject\src\main" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\JavaProjects\group-4\src\test\java" />
-      <recent name="C:\JavaProjects\group-4\src\test\resources" />
-      <recent name="C:\JavaProjects\group-4\src\test\resources\features_laser" />
       <recent name="$PROJECT_DIR$/src/main/levels" />
       <recent name="C:\Users\Rasmu\IdeaProjects\group-4\src\main\levels" />
+      <recent name="C:\Users\Rasmu\Desktop\Agil\Exercises\Project\LaserMazeProject\src\main" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -145,7 +120,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Feature: Laser">
+  <component name="RunManager">
     <configuration name="RUN GAME" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="LaserGame-group-4" />
@@ -153,23 +128,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Feature: Laser" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Feature: addingAndRemovingATile" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_laser/Laser.feature" />
-      <option name="GLUE" value="LaserMethods" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/addingAndRemovingATile.feature" />
+      <option name="GLUE" value="boardmethods" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="LaserGame-group-4" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
-      <option name="SUGGESTED_NAME" value="Feature: Laser" />
+      <shortenClasspath name="NONE" />
+      <option name="SUGGESTED_NAME" value="Feature: addingAndRemovingATile" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="io.cucumber.core.cli.*" />
           <option name="ENABLED" value="true" />
         </pattern>
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
       </extension>
       <method v="2">
-        <option name="Make" enabled="true" />
+        <option name="MakeProject" enabled="true" />
       </method>
     </configuration>
     <configuration name="Feature: manipulatingTilesOnBoard" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
@@ -179,6 +159,7 @@
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="LaserGame-group-4" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <shortenClasspath name="NONE" />
       <option name="SUGGESTED_NAME" value="Feature: manipulatingTilesOnBoard" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
@@ -186,21 +167,25 @@
           <option name="PATTERN" value="io.cucumber.core.cli.*" />
           <option name="ENABLED" value="true" />
         </pattern>
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
       </extension>
       <method v="2">
-        <option name="Make" enabled="true" />
+        <option name="MakeProject" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Check the toString output of the laser" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Adding a tile to the board" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_laser/Laser.feature" />
-      <option name="GLUE" value="LaserMethods" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/addingAndRemovingATile.feature" />
+      <option name="GLUE" value="boardmethods" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="LaserGame-group-4" />
-      <option name="NAME_FILTER" value="^Check the toString output of the laser$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Check the toString output of the laser$&quot;" />
+      <option name="NAME_FILTER" value="^Adding a tile to the board$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Adding a tile to the board$&quot;" />
       <shortenClasspath name="NONE" />
-      <option name="SUGGESTED_NAME" value="Scenario: Check the toString output of the laser" />
+      <option name="SUGGESTED_NAME" value="Scenario: Adding a tile to the board" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -212,15 +197,15 @@
         <option name="MakeProject" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Get coordinates of the laser" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Removing a tile from the board" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_laser/Laser.feature" />
-      <option name="GLUE" value="LaserMethods" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/addingAndRemovingATile.feature" />
+      <option name="GLUE" value="boardmethods" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="LaserGame-group-4" />
-      <option name="NAME_FILTER" value="^Get coordinates of the laser$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Get coordinates of the laser$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Get coordinates of the laser" />
+      <option name="NAME_FILTER" value="^Removing a tile from the board$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Removing a tile from the board$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Removing a tile from the board" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -232,20 +217,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Initialize a new laser" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Rotating tile on the board" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_laser/Laser.feature" />
-      <option name="GLUE" value="LaserMethods" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/manipulatingTilesOnBoard.feature" />
+      <option name="GLUE" value="boardmethods" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="LaserGame-group-4" />
-      <option name="NAME_FILTER" value="^Initialize a new laser$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Initialize a new laser$&quot;" />
+      <option name="NAME_FILTER" value="^Rotating tile on the board$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Rotating tile on the board$&quot;" />
       <shortenClasspath name="NONE" />
-      <option name="SUGGESTED_NAME" value="Scenario: Initialize a new laser" />
+      <option name="SUGGESTED_NAME" value="Scenario: Rotating tile on the board" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -255,28 +244,21 @@
     </configuration>
     <list>
       <item itemvalue="Application.RUN GAME" />
-      <item itemvalue="Cucumber Java.Scenario: Get coordinates of the laser" />
+      <item itemvalue="Cucumber Java.Feature: addingAndRemovingATile" />
       <item itemvalue="Cucumber Java.Feature: manipulatingTilesOnBoard" />
-      <item itemvalue="Cucumber Java.Feature: Laser" />
-      <item itemvalue="Cucumber Java.Scenario: Check the toString output of the laser" />
-      <item itemvalue="Cucumber Java.Scenario: Initialize a new laser" />
+      <item itemvalue="Cucumber Java.Scenario: Adding a tile to the board" />
+      <item itemvalue="Cucumber Java.Scenario: Removing a tile from the board" />
+      <item itemvalue="Cucumber Java.Scenario: Rotating tile on the board" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber Java.Feature: Laser" />
-        <item itemvalue="Cucumber Java.Scenario: Get coordinates of the laser" />
-        <item itemvalue="Cucumber Java.Scenario: Initialize a new laser" />
         <item itemvalue="Cucumber Java.Feature: manipulatingTilesOnBoard" />
-        <item itemvalue="Cucumber Java.Scenario: Check the toString output of the laser" />
+        <item itemvalue="Cucumber Java.Scenario: Rotating tile on the board" />
+        <item itemvalue="Cucumber Java.Feature: addingAndRemovingATile" />
+        <item itemvalue="Cucumber Java.Scenario: Removing a tile from the board" />
+        <item itemvalue="Cucumber Java.Scenario: Adding a tile to the board" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -296,11 +278,6 @@
       <workItem from="1714211771304" duration="269000" />
       <workItem from="1714212054626" duration="3626000" />
       <workItem from="1714221502755" duration="4302000" />
-      <workItem from="1714239916257" duration="7631000" />
-      <workItem from="1714247584086" duration="3500000" />
-      <workItem from="1714251121569" duration="996000" />
-      <workItem from="1714252128903" duration="27000" />
-      <workItem from="1714298174136" duration="2316000" />
     </task>
     <task id="LOCAL-00001" summary="kan jeg push">
       <option name="closed" value="true" />
@@ -494,15 +471,7 @@
       <option name="project" value="LOCAL" />
       <updated>1714138808530</updated>
     </task>
-    <task id="LOCAL-00025" summary="Made tests for the Laser class">
-      <option name="closed" value="true" />
-      <created>1714302724550</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1714302724550</updated>
-    </task>
-    <option name="localTasksCounter" value="26" />
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -544,8 +513,8 @@
     <MESSAGE value="Made JSONSaving its own class&#10;Made addtile not get a tile as input but just use selected tile." />
     <MESSAGE value="First test now works" />
     <MESSAGE value="Fixed bugs and made tests actually run correctly" />
-    <MESSAGE value="Made tests for the Laser class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made tests for the Laser class" />
+    <MESSAGE value="made changes to solve null error?" />
+    <option name="LAST_COMMIT_MESSAGE" value="made changes to solve null error?" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/group_4$Scenario__Saving_a_board_with_pieces.ic" NAME="Scenario: Saving a board with pieces Coverage Results" MODIFIED="1714214921725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
