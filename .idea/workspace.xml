@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Fixed bugs and made tests actually run correctly">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/LevelMakerLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ToolBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/BoardInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/BoardInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/JSONSaving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/JSONSaving.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/LevelMakerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/LevelMakerPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/temp.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/temp.json" afterDir="false" />
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="GameCard tests virker">
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features_board/gameCard.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features_board/gameCard.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,47 +55,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Game.executor&quot;: &quot;Run&quot;,
-    &quot;Application.RUN GAME.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Feature: addingAndRemovingATile.executor&quot;: &quot;Coverage&quot;,
-    &quot;Cucumber Java.Feature: addingAndRemovingLaserTile.executor&quot;: &quot;Coverage&quot;,
-    &quot;Cucumber Java.Feature: addingLaserTile.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Feature: loaded.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Feature: manipulatingTilesOnBoard.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Feature: removingTile.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Feature: rotateTile.executor&quot;: &quot;Coverage&quot;,
-    &quot;Cucumber Java.Feature: rotatingTile.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Adding a tile to the board.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Removing a tile from the board.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Rotating a tile on the board.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Rotating tile on the board.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Saving a board with pieces.executor&quot;: &quot;Coverage&quot;,
-    &quot;Cucumber Java.Scenario: succesful start game.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.java in LaserGame-group-4.executor&quot;: &quot;Coverage&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.LaserGame-group-4 [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.LaserGame-group-4 [install].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rasmu/IdeaProjects/group-4/src/test/java/boardmethods/gamestate&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Game.executor": "Run",
+    "Application.RUN GAME.executor": "Run",
+    "Cucumber Java.Feature: addingAndRemovingATile.executor": "Coverage",
+    "Cucumber Java.Feature: addingAndRemovingLaserTile.executor": "Coverage",
+    "Cucumber Java.Feature: addingLaserTile.executor": "Run",
+    "Cucumber Java.Feature: loaded.executor": "Run",
+    "Cucumber Java.Feature: manipulatingTilesOnBoard.executor": "Run",
+    "Cucumber Java.Feature: removingTile.executor": "Run",
+    "Cucumber Java.Feature: rotateTile.executor": "Coverage",
+    "Cucumber Java.Feature: rotatingTile.executor": "Run",
+    "Cucumber Java.Scenario: Adding a tile to the board.executor": "Run",
+    "Cucumber Java.Scenario: Removing a tile from the board.executor": "Run",
+    "Cucumber Java.Scenario: Rotating a tile on the board.executor": "Run",
+    "Cucumber Java.Scenario: Rotating tile on the board.executor": "Run",
+    "Cucumber Java.Scenario: Saving a board with pieces.executor": "Coverage",
+    "Cucumber Java.Scenario: Start a level and test for card tiles and configuration.executor": "Run",
+    "Cucumber Java.Scenario: Start a level.executor": "Run",
+    "Cucumber Java.Scenario: succesful start game.executor": "Run",
+    "JUnit.java in LaserGame-group-4.executor": "Coverage",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.LaserGame-group-4 [clean].executor": "Run",
+    "Maven.LaserGame-group-4 [install].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "cardtest",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Rasmu/IdeaProjects/group-4/src/test/java/boardmethods/gamestate",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/levels" />
@@ -120,36 +115,12 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Start a level">
+  <component name="RunManager" selected="Cucumber Java.Scenario: Start a level and test for card tiles and configuration">
     <configuration name="RUN GAME" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="LaserGame-group-4" />
       <method v="2">
         <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Feature: manipulatingTilesOnBoard" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/manipulatingTilesOnBoard.feature" />
-      <option name="GLUE" value="boardmethods" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="LaserGame-group-4" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
-      <shortenClasspath name="NONE" />
-      <option name="SUGGESTED_NAME" value="Feature: manipulatingTilesOnBoard" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="Model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="MakeProject" enabled="true" />
       </method>
     </configuration>
     <configuration name="Scenario: Adding a tile to the board" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
@@ -218,9 +189,29 @@
         <option name="MakeProject" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Scenario: Start a level and test for card tiles and configuration" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/gameCard.feature" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="LaserGame-group-4" />
+      <option name="NAME_FILTER" value="^Start a level and test for card tiles and configuration$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Start a level and test for card tiles and configuration$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Start a level and test for card tiles and configuration" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Scenario: Start a level" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/gameCard.feature" />
+      <option name="GLUE" value="GameCard" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="LaserGame-group-4" />
       <option name="NAME_FILTER" value="^Start a level$" />
@@ -240,18 +231,18 @@
     <list>
       <item itemvalue="Application.RUN GAME" />
       <item itemvalue="Cucumber Java.Scenario: Start a level" />
-      <item itemvalue="Cucumber Java.Feature: manipulatingTilesOnBoard" />
+      <item itemvalue="Cucumber Java.Scenario: Start a level and test for card tiles and configuration" />
       <item itemvalue="Cucumber Java.Scenario: Adding a tile to the board" />
       <item itemvalue="Cucumber Java.Scenario: Removing a tile from the board" />
       <item itemvalue="Cucumber Java.Scenario: Rotating tile on the board" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber Java.Scenario: Start a level and test for card tiles and configuration" />
         <item itemvalue="Cucumber Java.Scenario: Start a level" />
         <item itemvalue="Cucumber Java.Scenario: Rotating tile on the board" />
         <item itemvalue="Cucumber Java.Scenario: Removing a tile from the board" />
         <item itemvalue="Cucumber Java.Scenario: Adding a tile to the board" />
-        <item itemvalue="Cucumber Java.Feature: manipulatingTilesOnBoard" />
       </list>
     </recent_temporary>
   </component>
@@ -466,7 +457,23 @@
       <option name="project" value="LOCAL" />
       <updated>1714138808530</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="skal commit for at kunne update">
+      <option name="closed" value="true" />
+      <created>1714307468865</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1714307468865</updated>
+    </task>
+    <task id="LOCAL-00026" summary="GameCard tests virker">
+      <option name="closed" value="true" />
+      <created>1714307571921</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1714307571921</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,8 +491,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added dependencies" />
-    <MESSAGE value="started doing unit tests" />
     <MESSAGE value="continued doing unit tests" />
     <MESSAGE value="workspace" />
     <MESSAGE value="Fixed the board having an offset in placement of tiles due to a toppanel (and some other small stuff)" />
@@ -509,7 +514,9 @@
     <MESSAGE value="First test now works" />
     <MESSAGE value="Fixed bugs and made tests actually run correctly" />
     <MESSAGE value="made changes to solve null error?" />
-    <option name="LAST_COMMIT_MESSAGE" value="made changes to solve null error?" />
+    <MESSAGE value="skal commit for at kunne update" />
+    <MESSAGE value="GameCard tests virker" />
+    <option name="LAST_COMMIT_MESSAGE" value="GameCard tests virker" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/group_4$Scenario__Saving_a_board_with_pieces.ic" NAME="Scenario: Saving a board with pieces Coverage Results" MODIFIED="1714214921725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
