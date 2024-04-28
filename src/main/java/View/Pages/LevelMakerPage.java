@@ -255,8 +255,9 @@ public class LevelMakerPage extends JPanel {
             minusButtonTile.addActionListener(e -> {
                 System.out.println("Tile " + (index) + " minus");
                 levelMakerLogic.changeTileCount(index, false);
-                updateTileCount();
                 LevelMakerPage.this.requestFocusInWindow();
+                updateTileCount();
+
             });
             minusButtonTile.setPreferredSize(new Dimension(buttonsize, buttonsize));
             ecGbc.gridy = i+1;
@@ -272,8 +273,9 @@ public class LevelMakerPage extends JPanel {
             plusButtonTile.addActionListener(e -> {
                 System.out.println("Tile " + (index) + " plus");
                 levelMakerLogic.changeTileCount(index, true);
-                updateTileCount();
                 LevelMakerPage.this.requestFocusInWindow();
+                updateTileCount();
+
             });
             plusButtonTile.setPreferredSize(new Dimension(buttonsize, buttonsize));
             ecGbc.gridy = i+1;

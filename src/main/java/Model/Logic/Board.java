@@ -216,8 +216,6 @@ HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
     // Add the cursor tile to the board and check if placement is valid
     public void addTile(boolean unSelectSelectedTileAfterPlacement) {
         Tile t;
-        System.out.println("Adding tile");
-        System.out.println(selectedTile);
 
         try {
             t = selectedTile.clone();
