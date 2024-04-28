@@ -22,7 +22,7 @@ public class GameCardSteps {
     private static final Map<String, List<Map<String, Object>>> tilePlacements = new HashMap<>();
 
     static {
-        //count extra tiles
+        //count loose tiles
         levelConfigs.put("1", new int[]{0, 0, 0, 1, 1});// Mirror, Splitter, Checkpoint, Double, Targets
         levelConfigs.put("3", new int[]{0, 0, 0, 0, 1});
         levelConfigs.put("8", new int[]{1, 1, 0, 0, 2});
@@ -30,7 +30,7 @@ public class GameCardSteps {
         //configuration of levels
         tilePlacements.put("1", Arrays.asList(
                 createTileConfig(1, 1, "LaserTile", false, 1),
-                createTileConfig(3, 3, "MirrorTile", false, 0)  // Example, adjust if this tile type doesn't exist
+                createTileConfig(3, 3, "MirrorTile", false, 0)
         ));
         tilePlacements.put("3", Arrays.asList(
                 createTileConfig(3, 0, "MirrorTile", true, 4),
@@ -73,9 +73,9 @@ public class GameCardSteps {
     @Then("the card should load with the configuration of the level")
     public void theCardShouldLoadWithTheConfigurationOfTheLevel() {
         assertNotNull("Card should be initialized", board);
-        assertNotNull( "Tiles array should be initialized",board.getTiles());  // Ensure the tiles are loaded
+        assertNotNull( "Tiles array should be initialized",board.getTiles());
 
-        String currentLevel = board.getLevel();  // Assuming you have a method to get the current level
+        String currentLevel = board.getLevel();
         int[] expectedTiles = levelConfigs.get(currentLevel);
         int[] actualTiles = board.get_game_info();
 

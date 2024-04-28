@@ -120,36 +120,12 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.RUN GAME">
+  <component name="RunManager" selected="Cucumber Java.Scenario: Start a level">
     <configuration name="RUN GAME" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="LaserGame-group-4" />
       <method v="2">
         <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Feature: addingAndRemovingATile" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/addingAndRemovingATile.feature" />
-      <option name="GLUE" value="boardmethods" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="LaserGame-group-4" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
-      <shortenClasspath name="NONE" />
-      <option name="SUGGESTED_NAME" value="Feature: addingAndRemovingATile" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="Model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="MakeProject" enabled="true" />
       </method>
     </configuration>
     <configuration name="Feature: manipulatingTilesOnBoard" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
@@ -242,9 +218,28 @@
         <option name="MakeProject" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Scenario: Start a level" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/gameCard.feature" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="LaserGame-group-4" />
+      <option name="NAME_FILTER" value="^Start a level$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Start a level$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Start a level" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.RUN GAME" />
-      <item itemvalue="Cucumber Java.Feature: addingAndRemovingATile" />
+      <item itemvalue="Cucumber Java.Scenario: Start a level" />
       <item itemvalue="Cucumber Java.Feature: manipulatingTilesOnBoard" />
       <item itemvalue="Cucumber Java.Scenario: Adding a tile to the board" />
       <item itemvalue="Cucumber Java.Scenario: Removing a tile from the board" />
@@ -252,11 +247,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber Java.Scenario: Start a level" />
         <item itemvalue="Cucumber Java.Scenario: Rotating tile on the board" />
         <item itemvalue="Cucumber Java.Scenario: Removing a tile from the board" />
         <item itemvalue="Cucumber Java.Scenario: Adding a tile to the board" />
         <item itemvalue="Cucumber Java.Feature: manipulatingTilesOnBoard" />
-        <item itemvalue="Cucumber Java.Feature: addingAndRemovingATile" />
       </list>
     </recent_temporary>
   </component>
