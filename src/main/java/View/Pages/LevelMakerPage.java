@@ -152,6 +152,8 @@ public class LevelMakerPage extends JPanel {
     }
 
     void updateTileCount() {
+
+
         for (int i = 0; i < levelMakerLogic.getTileCounts().length; i++) {
             tileLabels[i].setNumber(levelMakerLogic.getTileCounts()[i]);
             tileLabels[i].revalidate();
@@ -232,7 +234,6 @@ public class LevelMakerPage extends JPanel {
 
         // Create and add 5 tiles with plus and minus buttons
         for (int i = 0; i < 4; i++) {
-            int index = i; // Effective final index for use in lambda expressions
             ecGbc.insets = new Insets(0, 0, 0, 5);
             // Tile image with number
             BufferedImage tileImage = getTileImage(i);
@@ -240,12 +241,15 @@ public class LevelMakerPage extends JPanel {
             ImageIcon tileIcon = new ImageIcon(scaledImage);
             tileLabels[i] = new ImageOverlayNumber(tileIcon, 0, 50, 50);
             tileLabels[i].setFont(new Font("Baloo Bhaijaan", Font.BOLD, 40));
-            ecGbc.gridy = i+1;
+            ecGbc.gridy = i + 1;
             ecGbc.gridx = 0;
             ecGbc.gridwidth = 1;
             ecGbc.fill = GridBagConstraints.NONE;
             ecGbc.weightx = 0;
             eastContainer.add(tileLabels[i], ecGbc);
+
+
+            int index = i; // Effective final index for use in lambda expressions
 
             int buttonsize = 35;
             // Minus button
@@ -253,7 +257,6 @@ public class LevelMakerPage extends JPanel {
             minusButtonTile.setFont(new Font("Baloo Bhaijaan", Font.BOLD, 20));
             minusButtonTile.setMargin(new Insets(0,0,0,0));
             minusButtonTile.addActionListener(e -> {
-                System.out.println("Tile " + (index) + " minus");
                 levelMakerLogic.changeTileCount(index, false);
                 LevelMakerPage.this.requestFocusInWindow();
                 updateTileCount();
@@ -271,7 +274,6 @@ public class LevelMakerPage extends JPanel {
             plusButtonTile.setFont(new Font("Baloo Bhaijaan", Font.BOLD, 20));
             plusButtonTile.setMargin(new Insets(0,0,0,0));
             plusButtonTile.addActionListener(e -> {
-                System.out.println("Tile " + (index) + " plus");
                 levelMakerLogic.changeTileCount(index, true);
                 LevelMakerPage.this.requestFocusInWindow();
                 updateTileCount();
