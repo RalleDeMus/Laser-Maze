@@ -29,6 +29,8 @@ public class LevelMakerPage extends JPanel {
 
     TargetRender targetCircle = new TargetRender(targets, new Color(222, 48, 48), Color.WHITE, 60);
 
+    private AssetServer assetServer = AssetServer.getInstance();
+
 
     public LevelMakerPage(MainMenuPage mainMenu) {
         this.mainMenu = mainMenu;
@@ -290,7 +292,7 @@ public class LevelMakerPage extends JPanel {
         eastContainer.add(textTestLabel, ecGbc);
 
         // Add the allTiles image below the buttons
-        BufferedImage allTilesImage = AssetServer.getInstance().getImage("allTiles");
+        BufferedImage allTilesImage = assetServer.getImage("allTiles");
         Image scaledAllTilesImage = allTilesImage.getScaledInstance(120, 80, Image.SCALE_SMOOTH);
         JLabel allTilesLabel = new JLabel(new ImageIcon(scaledAllTilesImage));
         JPanel allTilesPanel = new JPanel();
@@ -331,21 +333,22 @@ public class LevelMakerPage extends JPanel {
 
     BufferedImage getTileImage (int tileType) {
         BufferedImage tileImage = null;
+
         switch (tileType) {
             case 0:
-                tileImage = AssetServer.getInstance().getImage("targetMirror");
+                tileImage = assetServer.getImage("targetMirror");
                 break;
             case 1:
-                tileImage = AssetServer.getInstance().getImage("beamSplitter");
+                tileImage = assetServer.getImage("beamSplitter");
                 break;
             case 2:
-                tileImage = AssetServer.getInstance().getImage("checkPoint");
+                tileImage = assetServer.getImage("checkPoint");
                 break;
             case 3:
-                tileImage = AssetServer.getInstance().getImage("doubleMirror");
+                tileImage = assetServer.getImage("doubleMirror");
                 break;
             case 4:
-                tileImage = AssetServer.getInstance().getImage("laser");
+                tileImage = assetServer.getImage("laser");
                 break;
         }
         return tileImage;

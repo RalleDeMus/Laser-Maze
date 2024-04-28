@@ -9,4 +9,11 @@ Feature: level maker for the game to create your own levels
  Scenario: User tests own level
    Given a newly created level
    When the user places the correct tiles
-   Then the user should be able to complete the level
+   And the user completes the level
+   Then the user should be able to save the level
+
+ Scenario: User plays custom level
+   Given a selected custom level
+   When the player loads the level
+   And plays the level
+   Then the player can complete the level
