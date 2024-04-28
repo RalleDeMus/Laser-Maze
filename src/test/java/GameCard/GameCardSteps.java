@@ -38,6 +38,7 @@ public class GameCardSteps {
         assertNotNull( "Tiles array should be initialized",board.getTiles());  // Ensure the tiles are loaded
         int[] placeableTiles = board.get_game_info();
 
+
         assertEquals(placeableTiles[0], 0, "Mirror tiles should match the expected count");
         assertEquals(placeableTiles[1], 0, "Splitter tiles should match the expected count");
         assertEquals(placeableTiles[2], 0, "Checkpoint tiles should match the expected count");

@@ -5,12 +5,12 @@ Feature: load levels and test configurations
     When I load the level
     Then the card should load with the configuration of the level
     Examples:
-      | level_2.json  |
-      | level_7.json  |
-      | level_11.json |
+      | level  |
+      | 1  |
+
 
   Scenario: Load level 1
-    Given I have loaded the card "<level_1.json>"
+    Given I have loaded the card "1"
     Then the card should have the specified number of special tiles for that level
 
   Scenario: Checking placeable tiles array

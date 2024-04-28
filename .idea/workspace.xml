@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="skal commit for at kunne update">
-      <change afterPath="$PROJECT_DIR$/src/test/java/GameCard/cardSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/javaGameCard/StepDef.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features_board/card.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/GameCard/GameCardSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GameCard/GameCardSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GameCard/cardSteps.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features_board/gameCard.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features_board/gameCard.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Laser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Laser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/PointStringPair.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/PointStringPair.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features_board/savingGameState.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features_board/savingGameState.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +65,7 @@
     "Application.Game.executor": "Run",
     "Application.RUN GAME.executor": "Run",
     "Cucumber Java.Feature: addingLaserTile.executor": "Run",
+    "Cucumber Java.Feature: gameCard.executor": "Run",
     "Cucumber Java.Feature: loaded.executor": "Run",
     "Cucumber Java.Feature: removingTile.executor": "Run",
     "Cucumber Java.Scenario: Checking placeable tiles array.executor": "Run",
@@ -92,7 +85,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "cardtest",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Rasmu/IdeaProjects/group-4/src/test/java/boardmethods/gamestate",
@@ -125,12 +118,32 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Checking placeable tiles array">
+  <component name="RunManager" selected="Cucumber Java.Scenario: Start a level (1)">
     <configuration name="RUN GAME" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="LaserGame-group-4" />
       <method v="2">
         <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Feature: gameCard" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/gameCard.feature" />
+      <option name="GLUE" value="GameCard" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="LaserGame-group-4" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <shortenClasspath name="NONE" />
+      <option name="SUGGESTED_NAME" value="Feature: gameCard" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="MakeProject" enabled="true" />
       </method>
     </configuration>
     <configuration name="Scenario: Checking placeable tiles array" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
@@ -142,26 +155,6 @@
       <option name="NAME_FILTER" value="^Checking placeable tiles array$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Checking placeable tiles array$&quot;" />
       <option name="SUGGESTED_NAME" value="Scenario: Checking placeable tiles array" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: Initializing a game card with various level" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/gameCard.feature" />
-      <option name="GLUE" value="GameCard" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="LaserGame-group-4" />
-      <option name="NAME_FILTER" value="^Initializing a game card with various level$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Initializing a game card with various level$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Initializing a game card with various level" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -201,6 +194,7 @@
       <module name="LaserGame-group-4" />
       <option name="NAME_FILTER" value="^Start a level$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Start a level$&quot;" />
+      <shortenClasspath name="NONE" />
       <option name="SUGGESTED_NAME" value="Scenario: Start a level" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
@@ -210,7 +204,7 @@
         </pattern>
       </extension>
       <method v="2">
-        <option name="Make" enabled="true" />
+        <option name="MakeProject" enabled="true" />
       </method>
     </configuration>
     <configuration name="Scenario: Start a level" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
@@ -236,19 +230,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.RUN GAME" />
+      <item itemvalue="Cucumber Java.Feature: gameCard" />
       <item itemvalue="Cucumber Java.Scenario: Checking placeable tiles array" />
       <item itemvalue="Cucumber Java.Scenario: Load level 1" />
       <item itemvalue="Cucumber Java.Scenario: Start a level (1)" />
-      <item itemvalue="Cucumber Java.Scenario: Initializing a game card with various level" />
       <item itemvalue="Cucumber Java.Scenario: Start a level" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber Java.Scenario: Checking placeable tiles array" />
         <item itemvalue="Cucumber Java.Scenario: Start a level (1)" />
         <item itemvalue="Cucumber Java.Scenario: Load level 1" />
+        <item itemvalue="Cucumber Java.Feature: gameCard" />
+        <item itemvalue="Cucumber Java.Scenario: Checking placeable tiles array" />
         <item itemvalue="Cucumber Java.Scenario: Start a level" />
-        <item itemvalue="Cucumber Java.Scenario: Initializing a game card with various level" />
       </list>
     </recent_temporary>
   </component>
