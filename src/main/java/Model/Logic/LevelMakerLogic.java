@@ -10,11 +10,23 @@ public class LevelMakerLogic {
         this.tileCounts = tileCounts;
     }
 
+    public LevelMakerLogic() {
+        this.targets = 0;
+        this.tileCounts = new int[]{0,0,0,0,0};
+    }
+
     public int getTargets() {
         return targets;
     }
     public void setTargets(int targets) {
         this.targets = targets;
+    }
+    public void decrementTargets(){
+        if (targets == 0) return;
+        targets--;
+    }
+    public void incrementTargets(){
+        targets++;
     }
 
     public int[] getTileCounts() {
@@ -24,8 +36,15 @@ public class LevelMakerLogic {
         this.tileCounts = tileCounts;
     }
 
-    public void changeTileCount(int tileType, int change) {
+    public void changeTileCount(int tileType, boolean isIncrement) {
         int count = 0;
+        int change;
+        if(isIncrement){
+            change = 1;
+        } else {
+            change = -1;
+        }
+
         for(int i = 0; i < 4; i++) {
             count+=tileCounts[i];
         }

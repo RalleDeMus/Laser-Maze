@@ -25,15 +25,17 @@ public class LevelMakerPage extends JPanel {
 
     //int[] tileCounts = new int[4];
 
-    LevelMakerLogic levelMakerLogic = new LevelMakerLogic(0,new int[4]);
+    LevelMakerLogic levelMakerLogic;
 
     ImageOverlayNumber[] tileLabels = new ImageOverlayNumber[5];
 
     TargetRender targetCircle = new TargetRender(0, new Color(222, 48, 48), Color.WHITE, 60);
 
+    private AssetServer assetServer = AssetServer.getInstance();
+
 
     public LevelMakerPage(MainMenuPage mainMenu) {
-        levelMakerLogic = new LevelMakerLogic(0,new int[4]);
+        levelMakerLogic = new LevelMakerLogic();
         this.mainMenu = mainMenu;
         // Ensure the Board is accessible
         board = new Board("0");
@@ -182,8 +184,8 @@ public class LevelMakerPage extends JPanel {
         minusButton.setMargin(new Insets(0,0,0,0));
         minusButton.setPreferredSize(new Dimension(40, 40));
         minusButton.addActionListener(e -> {
-            if(levelMakerLogic.getTargets() == 0) return;
-            levelMakerLogic.setTargets(levelMakerLogic.getTargets()-1);
+
+            levelMakerLogic.decrementTargets();
             updateTargetCounter();
             LevelMakerPage.this.requestFocusInWindow();
         });
@@ -196,7 +198,7 @@ public class LevelMakerPage extends JPanel {
         plusButton.setMargin(new Insets(0,0,0,0));
         plusButton.setPreferredSize(new Dimension(40, 40));
         plusButton.addActionListener(e -> {
-            levelMakerLogic.setTargets(levelMakerLogic.getTargets()+1);
+            levelMakerLogic.incrementTargets();
             updateTargetCounter();
             LevelMakerPage.this.requestFocusInWindow();
         });
@@ -252,7 +254,7 @@ public class LevelMakerPage extends JPanel {
             minusButtonTile.setMargin(new Insets(0,0,0,0));
             minusButtonTile.addActionListener(e -> {
                 System.out.println("Tile " + (index) + " minus");
-                levelMakerLogic.changeTileCount(index, -1);
+                levelMakerLogic.changeTileCount(index, false);
                 updateTileCount();
                 LevelMakerPage.this.requestFocusInWindow();
             });
@@ -269,7 +271,7 @@ public class LevelMakerPage extends JPanel {
             plusButtonTile.setMargin(new Insets(0,0,0,0));
             plusButtonTile.addActionListener(e -> {
                 System.out.println("Tile " + (index) + " plus");
-                levelMakerLogic.changeTileCount(index, 1);
+                levelMakerLogic.changeTileCount(index, true);
                 updateTileCount();
                 LevelMakerPage.this.requestFocusInWindow();
             });
@@ -295,7 +297,7 @@ public class LevelMakerPage extends JPanel {
         eastContainer.add(textTestLabel, ecGbc);
 
         // Add the allTiles image below the buttons
-        BufferedImage allTilesImage = AssetServer.getInstance().getImage("allTiles");
+        BufferedImage allTilesImage = assetServer.getImage("allTiles");
         Image scaledAllTilesImage = allTilesImage.getScaledInstance(120, 80, Image.SCALE_SMOOTH);
         JLabel allTilesLabel = new JLabel(new ImageIcon(scaledAllTilesImage));
         JPanel allTilesPanel = new JPanel();
@@ -319,21 +321,22 @@ public class LevelMakerPage extends JPanel {
 
     BufferedImage getTileImage (int tileType) {
         BufferedImage tileImage = null;
+
         switch (tileType) {
             case 0:
-                tileImage = AssetServer.getInstance().getImage("targetMirror");
+                tileImage = assetServer.getImage("targetMirror");
                 break;
             case 1:
-                tileImage = AssetServer.getInstance().getImage("beamSplitter");
+                tileImage = assetServer.getImage("beamSplitter");
                 break;
             case 2:
-                tileImage = AssetServer.getInstance().getImage("checkPoint");
+                tileImage = assetServer.getImage("checkPoint");
                 break;
             case 3:
-                tileImage = AssetServer.getInstance().getImage("doubleMirror");
+                tileImage = assetServer.getImage("doubleMirror");
                 break;
             case 4:
-                tileImage = AssetServer.getInstance().getImage("laser");
+                tileImage = assetServer.getImage("laser");
                 break;
         }
         return tileImage;

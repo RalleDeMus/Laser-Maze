@@ -216,6 +216,9 @@ HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
     // Add the cursor tile to the board and check if placement is valid
     public void addTile(boolean unSelectSelectedTileAfterPlacement) {
         Tile t;
+        System.out.println("Adding tile");
+        System.out.println(selectedTile);
+
         try {
             t = selectedTile.clone();
         } catch (CloneNotSupportedException e) {
@@ -290,11 +293,25 @@ HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
 
 
     public void rotateSelectedTile(boolean levelEditor) {
+        //Print all the tiles on the board
+//        System.out.println("Initial board state:");
+//        for (int i = 0; i < getBoardSize(); i++) {
+//            for (int j = 0; j < getBoardSize(); j++) {
+//                if (getTiles()[i][j] != null) {
+//                    System.out.println("Tile at (" + i + ", " + j + "): " + getTiles()[i][j].getClass().getSimpleName());
+//                }
+//            }
+//        }
+//        System.out.println();
+//
+//        System.out.println("Cursor position: " + cursorPos.x + ", " + cursorPos.y);
+//        System.out.println(tiles[cursorPos.y][cursorPos.x]);
+
         int mod = levelEditor ? 5 : 4;
         if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsRotatable()) {
             tiles[cursorPos.y][cursorPos.x].rotate(1,mod);
         }else {
-            System.out.println("Tile is not rotateable");
+            //System.out.println("Tile is not rotateable");
         }
     }
 
