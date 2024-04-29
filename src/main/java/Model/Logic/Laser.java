@@ -1,12 +1,22 @@
 package Model.Logic;
 
 
+/**
+ * Laser class to represent a laser beam in the game. Not to be confused with the laser tile.
+ * The laser class is used to represent the path of the laser beam in the game.
+ */
 public class Laser {
-    private int x;
-    private int y;
+    private int x; // The x coordinate of the beam
+    private int y; // The y coordinate of the beam
     private int orientation;   // An integer label for the point
 
-    // Constructor to initialize the point and label
+    /**
+     * Constructs a new Laser instance with specified x, y and orientation.
+     *
+     * @param x the x coordinate of the beam
+     * @param y the y coordinate of the beam
+     * @param orientation the orientation of the beam.
+     */
     public Laser(int x, int y, int orientation) { //done
         this.x = x;
         this.y = y;

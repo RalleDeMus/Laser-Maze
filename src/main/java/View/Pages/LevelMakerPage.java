@@ -117,10 +117,10 @@ public class LevelMakerPage extends JPanel {
         gbc.fill = GridBagConstraints.VERTICAL;
         add(eastContainer, gbc); // Add east container to the right side
 
-// Circle panel setup
+        // Circle panel setup
         JPanel circlePanel = createCirclePanel(); // Method to create the circle panel
 
-// New button setup in the bottom left of the same row
+        // New button setup in the bottom left of the same row
         JButton newButton = new JButton("Save and play level");
         newButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
         newButton.addActionListener(e -> {

@@ -9,9 +9,18 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/**
+ * Class for handling saving of game states to JSON files.
+ */
 public class JSONSaving {
 
 
+    /**
+     * Saves the current game state to a JSON file with the specified filename.
+     * The JSON file will contain the positions and types of all tiles on the board.
+     * The JSON file will also contain the number of each type of tile available to the player.
+     * The JSON file will be saved in the "src/main/levels/custom" directory.
+     */
     public static void saveGameState(String filename, Board board) {
         JSONObject gameInfo = new JSONObject();
         JSONArray tilesArray = new JSONArray();
@@ -30,8 +39,6 @@ public class JSONSaving {
                     tileObject.put("type", tile.getClass().getSimpleName());
                     tileObject.put("orientation", tile.getOrientation());
                     tileObject.put("rotatable", tile.getIsRotatable());
-
-                    // Add other properties for different tile types if needed
 
                     tilesArray.put(tileObject);
                 }
@@ -66,6 +73,12 @@ public class JSONSaving {
         }
     }
 
+
+    /**
+     * Gets the game info from the JSON file with the temp.json filename.
+     * The this info is essentially just copied over to a new file with the specified filename.
+     * Used when making costum levels.
+     */
     public static void saveTempAs(String file_name) {
         String sourcePath = "src/main/levels/custom/temp.json"; // Path to the source file
         String destinationPath = "src/main/levels/custom/" + file_name + ".json"; // Path to the destination file
@@ -83,6 +96,13 @@ public class JSONSaving {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Modifies the board to allow for free rotations when user rotates tiles in the level editor to the fifth "free" rotation
+     * This is done by setting the isRotatable attribute of the tiles to true if the orientation is 4.
+     * The tile counts and targets are also set to the specified values by the user in the level editor. Level is set to 0
+     * Then we save this new Tile array to a JSON file with the name "temp.json".
+     */
 
     public static void saveLevelWithFreeRotations(Board board, int[] tileCounts, int targets) {
         Tile[][] tiles = board.getTiles();

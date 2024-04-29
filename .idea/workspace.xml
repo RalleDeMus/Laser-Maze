@@ -5,9 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Coverage now 92%">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AssetServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AssetServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/JSONSaving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/JSONSaving.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Laser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Laser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/LaserCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/LaserCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/LevelMakerLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/LevelMakerLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/BoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/BoardPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/InstructionsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/InstructionsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/LevelMakerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/LevelMakerPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/lol.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/lol.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/temp.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/temp.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Laser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Laser.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -854,30 +867,21 @@
     <option name="LAST_COMMIT_MESSAGE" value="Coverage now 92%" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/group_4$All_Features_in__test.ic" NAME="All Features in: test Coverage Results" MODIFIED="1714336079911" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/group_4$Feature__savingGameState.ic" NAME="Feature: savingGameState Coverage Results" MODIFIED="1714308642969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.cucumber.core.cli.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__CalculateLaser.ic" NAME="Feature: CalculateLaser Coverage Results" MODIFIED="1714379972734" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$java_in_LaserGame_group_4.ic" NAME="java in LaserGame-group-4 Coverage Results" MODIFIED="1714374009845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/group_4$Scenario__Saving_a_board_with_pieces.ic" NAME="Scenario: Saving a board with pieces Coverage Results" MODIFIED="1714214921725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>io.cucumber.core.cli.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__addingAndRemovingATile.ic" NAME="Feature: addingAndRemovingATile Coverage Results" MODIFIED="1714225459937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/group_4$Feature__rotateTile.ic" NAME="Feature: rotateTile Coverage Results" MODIFIED="1714223068017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.cucumber.core.cli.*</FILTER>
       <FILTER>Model.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__manipulatingTilesOnBoard.ic" NAME="Feature: manipulatingTilesOnBoard Coverage Results" MODIFIED="1714379921847" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__removingTile.ic" NAME="Feature: removingTile Coverage Results" MODIFIED="1714216658120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.Logic.Board</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__savingGameState.ic" NAME="Feature: savingGameState Coverage Results" MODIFIED="1714379944638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/group_4$Feature__gameCard.ic" NAME="Feature: gameCard Coverage Results" MODIFIED="1714308741346" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.cucumber.core.cli.*</FILTER>
       <FILTER>Model.*</FILTER>
     </SUITE>
@@ -885,33 +889,41 @@
       <FILTER>io.cucumber.core.cli.*</FILTER>
       <FILTER>Model.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__addingAndRemovingATile.ic" NAME="Feature: addingAndRemovingATile Coverage Results" MODIFIED="1714225459937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/group_4$Feature__manipulatingTilesOnBoard.ic" NAME="Feature: manipulatingTilesOnBoard Coverage Results" MODIFIED="1714308636196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.cucumber.core.cli.*</FILTER>
       <FILTER>Model.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__addingAndRemovingLaserTile.ic" NAME="Feature: addingAndRemovingLaserTile Coverage Results" MODIFIED="1714221719215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/group_4$Feature__boardinfo.ic" NAME="Feature: boardinfo Coverage Results" MODIFIED="1714336001928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.cucumber.core.cli.*</FILTER>
       <FILTER>Model.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__gameCard.ic" NAME="Feature: gameCard Coverage Results" MODIFIED="1714379872236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/group_4$All_Features_in__test.ic" NAME="All Features in: test Coverage Results" MODIFIED="1714336079911" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__levelMaker.ic" NAME="Feature: levelMaker Coverage Results" MODIFIED="1714308697146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.cucumber.core.cli.*</FILTER>
       <FILTER>Model.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__boardinfo.ic" NAME="Feature: boardinfo Coverage Results" MODIFIED="1714379844042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/group_4$Feature__CalculateLaser.ic" NAME="Feature: CalculateLaser Coverage Results" MODIFIED="1714308651942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.cucumber.core.cli.*</FILTER>
       <FILTER>Model.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__levelMaker.ic" NAME="Feature: levelMaker Coverage Results" MODIFIED="1714379894685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/group_4$Feature__Laser.ic" NAME="Feature: Laser Coverage Results" MODIFIED="1714308657928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.cucumber.core.cli.*</FILTER>
       <FILTER>Model.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__Laser.ic" NAME="Feature: Laser Coverage Results" MODIFIED="1714379995211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/group_4$java_in_LaserGame_group_4.ic" NAME="java in LaserGame-group-4 Coverage Results" MODIFIED="1714375387542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/group_4$Feature__removingTile.ic" NAME="Feature: removingTile Coverage Results" MODIFIED="1714216658120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
+      <FILTER>Model.Logic.Board</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/group_4$Feature__addingLaserTile.ic" NAME="Feature: addingLaserTile Coverage Results" MODIFIED="1714219837078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.cucumber.core.cli.*</FILTER>
       <EXCLUDED_FILTER>*</EXCLUDED_FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__addingAndRemovingLaserTile.ic" NAME="Feature: addingAndRemovingLaserTile Coverage Results" MODIFIED="1714221719215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.*</FILTER>
     </SUITE>
   </component>
 </project>

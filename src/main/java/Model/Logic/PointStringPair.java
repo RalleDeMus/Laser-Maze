@@ -2,6 +2,10 @@ package Model.Logic;
 
 import java.awt.Point;
 
+
+/**
+ * Class for handling the pair of a point and a string. Used in the laser calculation.
+ */
 public class PointStringPair {
     private final Point point;
     private final String value;

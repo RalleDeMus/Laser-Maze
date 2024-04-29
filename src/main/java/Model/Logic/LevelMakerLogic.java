@@ -1,10 +1,12 @@
 package Model.Logic;
 
+/**
+ * Class for handling the level maker logic.
+ * The level maker logic is used to keep track of the number of targets and tiles available to the player.
+ */
 public class LevelMakerLogic {
-
-    private int targets;
-    final private int[] tileCounts;
-
+    private int targets; // The number of targets in the level
+    final private int[] tileCounts; // The number of each tile type available to the player
 
 
     public LevelMakerLogic() {
@@ -32,7 +34,8 @@ public class LevelMakerLogic {
 
 
     public void changeTileCount(int tileType, boolean isIncrement) {
-        int count = 0;
+
+        // Get the change in tile count
         int change;
         if(isIncrement){
             change = 1;
@@ -40,6 +43,8 @@ public class LevelMakerLogic {
             change = -1;
         }
 
+        //Make sure the tile count is within the bounds
+        int count = 0;
         for(int i = 0; i < 4; i++) {
             count+=tileCounts[i];
         }
@@ -47,12 +52,17 @@ public class LevelMakerLogic {
             return;
         }
 
+        // Make sure the tile count is within the bounds
         if (tileCounts[tileType] + change < 0) {
             return;
         }
+
+        // Only add one laser tile
         if (tileType == 4 && tileCounts[tileType] + change > 1) {
             return;
         }
+
+        // Update the tile count
         tileCounts[tileType] += change;
     }
 

@@ -93,7 +93,7 @@ public class BoardPage extends JPanel {
         System.out.println("Win: " + board.getWin());
         if (board.getWin()) {
 
-            JLabel winLabel = new JLabel("YOU WIN! " );
+            JLabel winLabel = new JLabel("YOU WIN! ");
             winLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 40));
             winPanel.add(winLabel);
 

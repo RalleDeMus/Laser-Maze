@@ -9,17 +9,27 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/**
+ * Class for handling the card and its contents.
+ * The card is the level configuration and contains the tiles and the number of placeable tiles as well as the number of targets.
+ */
 public class Card {
 
-     private String content;
-     private int targetMirrorTiles = 0;
-     private int splitterTiles = 0;
-     private int checkPointTiles = 0;
-     private int doubleTiles = 0;
-     private int targets;
-     private int level;
+     private String content; // The level being used to create the card. We use this to load from the json levels.
+     private int targetMirrorTiles = 0; // The number of target mirrors in the level
+     private int splitterTiles = 0; // The number of splitters in the level
+     private int checkPointTiles = 0; // The number of checkpoints in the level
+     private int doubleTiles = 0; // The number of double tiles in the level
+     private int targets; // The number of targets in the level
+     private int level; // The level number
 
-     final private Tile[][] tiles = new Tile[5][5];;
+     final private Tile[][] tiles = new Tile[5][5]; // The tiles on the board
+
+    /**
+     * Constructs a new Card instance with specified level.
+     *
+     * @param level the level of the game, can be a number for premade levels or "game_state", "temp" or custom levels.
+     */
      public Card(String level){
 
 
@@ -36,21 +46,14 @@ public class Card {
          } catch (IOException | JSONException e) {
              e.printStackTrace();
          }
-         for (int row = 0; row < 5; row++) {
-             for (int col = 0; col < 5; col++) {
-                 this.tiles[row][col] = null;
-
-             }
-         }
-         //add json implementation
      }
 
 
 
-
+    /**
+     * Gets a card from the level file and returns the tiles.
+     */
     public Tile[][] getCard(){
-
-
 
             JSONObject jsonObject = new JSONObject(content);
             JSONObject gameInfo = jsonObject.getJSONObject("gameinfo");
@@ -104,18 +107,13 @@ public class Card {
             this.targets = extraTiles.getInt("targets");
             this.level = extraTiles.getInt("level");
 
-
-
-
-
-
-
          return this.tiles;
-
-
 
      }
 
+    /**
+     * Gets the number of placeable tiles and targets for the current level aswell as the level number.
+     */
      public int[] getPlaceableTiles(){
 
          int[] game_info = new int[6];

@@ -1,7 +1,11 @@
 package View.Pages;
 
+import Controller.AssetServer;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+
 public class InstructionsPage extends JPanel{
     InstructionsPage(MainMenuPage mainMenu) {
         setLayout(new BorderLayout());
@@ -63,5 +67,6 @@ public class InstructionsPage extends JPanel{
         // Add components to the InstructionsPage layout
         add(topPanel, BorderLayout.NORTH);
         add(label, BorderLayout.CENTER);
+
     }
 }

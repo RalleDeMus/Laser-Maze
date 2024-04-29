@@ -3,27 +3,39 @@ import Model.Tiles.*;
 import java.awt.*;
 
 
-//make singleton
+
+/**
+ * The Board class represents the game board.
+ * It manages the game state, including tile placements, cursor position, and win conditions.
+ * It also handles the logic for adding, removing, and rotating tiles.
+ */
 public class Board {
 
-    private Tile[][] tiles; // in constructor
-    final private int boardSize;
-    final private int squareSize;
-    private int mirrorsHit;
-    private int targetsHit;
+    private Tile[][] tiles; // Tiles on our board
+    final private int boardSize; // Size of the board
+    final private int squareSize; // Pixel size of the squares on the board
+    private int mirrorsHit; // Number of mirrors hit by the laser
+    private int targetsHit; // Number of targets hit by the laser
 
-    private Point cursorPos;
+    private Point cursorPos; // Position of the cursor
 
-    private int[] game_info; // in constructor
-    private Tile selectedTile;
-    private boolean laserWasFired = false;
+    private int[] game_info; // Number of each tile type available and the number of targets
+    private Tile selectedTile; // The tile currently selected by the player
+    private boolean laserWasFired = false; // Whether the laser has been fired
 
-    private boolean win;
+    private boolean win; // Whether the player has won the level
 
-    private String level = "0"; // in constructor
+    private String level = "0"; // The level of the game, can be a number for premade levels or "game_state", "temp" or custom levels.
 
 
-
+    /**
+     * Constructs a new Board instance with specified size, square size, and level.
+     * Initializes the board to a starting state without win and a reset cursor position.
+     *
+     * @param boardSize the size of the board (number of tiles across and down)
+     * @param squareSize the visual size of each tile in pixels
+     * @param level the initial level configuration
+     */
     public Board(int boardSize, int squareSize,String level) {
         this.boardSize = boardSize;
         this.squareSize = squareSize;
@@ -36,6 +48,12 @@ public class Board {
 
 
     }
+    /**
+     * Constructs a new Board instance with only a level. The board size and square size are set to default values.
+     * Initializes the board to a starting state with no wins and a reset cursor position.
+     *
+     * @param level the initial level configuration
+     */
 
     public Board(String level) {
         this.boardSize = 5;
@@ -212,12 +230,8 @@ Two logical getters
 HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
 */
 
-
-
-    // Add the cursor tile to the board and check if placement is valid
+    //Add a tile
     public void addTile(boolean unSelectSelectedTileAfterPlacement) {
-
-
 
         if (selectedTile != null) {
             Tile t;
@@ -293,7 +307,7 @@ HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
 
     public void rotateSelectedTile(boolean levelEditor) {
 
-        int mod = levelEditor ? 5 : 4;
+        int mod = levelEditor ? 5 : 4; // If we have a level editor we can rotate 5 times, otherwise 4 times. Fifth rotation is for free rotation.
         if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsRotatable()) {
             tiles[cursorPos.y][cursorPos.x].rotate(1,mod);
         }
