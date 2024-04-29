@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Logic.Board;
+import Model.Logic.BoardInfo;
 import Model.Tiles.*;
 import View.Renderers.BoardRenderer;
 
@@ -34,12 +35,12 @@ public class ToolBar extends MouseAdapter implements KeyListener {
             if(e.getX()>board.getBoardSize()*board.getSquareSize()){
                 List<Tile> tiles = new ArrayList<>();
 
-                if (board.laserExists()) {
+                if (board.laserNeeded()) {
                     tiles.add(new LaserTile(true, true));
                 }
                 for (int i = 0; i < 4; i++) {
                     for (int j = 0; j < board.get_game_info_by_index(i); j++) {
-                        tiles.add(intToTile(i));
+                        tiles.add(BoardInfo.intToTile(i));
                     }
 
                 }
@@ -55,22 +56,7 @@ public class ToolBar extends MouseAdapter implements KeyListener {
         }
     }
 
-    Tile intToTile (int i) {
-        switch(i) {
-            case 0:
-                return new MirrorTile(true,true);
-            case 1:
-                return new SplitterTile(true, true);
-            case 2:
-                return new CheckPointTile(true, true);
-            case 3:
-                return new DoubleTile(true,true);
-            case 4:
-                return new LaserTile(true,true);
-            default:
-                return null;
-        }
-    }
+
 
     @Override
     public void keyTyped(KeyEvent e) {

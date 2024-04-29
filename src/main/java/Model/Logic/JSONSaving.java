@@ -84,4 +84,32 @@ public class JSONSaving {
         }
     }
 
+    public static void saveLevelWithFreeRotations(Board board, int[] tileCounts, int targets) {
+        Tile[][] tiles = board.getTiles();
+
+
+        // Set rotateable based on orientation
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (tiles[i][j] != null) {
+
+                    System.out.println("Tile at: " +i + " " + j + " rotation: " + tiles[i][j].getOrientation());
+                    if (tiles[i][j].getOrientation() == 4) {
+                        tiles[i][j].setIsRotatable(true);
+                        System.out.println("TILE AT: " + i + " " + j + " is rotateable");
+                    } else {
+                        tiles[i][j].setIsRotatable(false);
+                    }
+                }
+            }
+        }
+
+        // Set game info to match
+        // game info is array with len 6.
+        board.set_game_info(new int[]{tileCounts[0], tileCounts[1], tileCounts[2], tileCounts[3], targets, 0});
+
+        saveGameState("temp",board);
+
+    }
+
 }

@@ -1,83 +1,115 @@
 package GameCard;
 
-import io.cucumber.java.en.And;
+
+import Model.Logic.Board;
+import Model.Tiles.Tile;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import Model.Tiles.*;
-import Model.Logic.Card;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
+
 public class GameCardSteps {
-    private Card card;
+    private Board board;
     private Tile[][] tiles;
-    String level;
+    private static final Map<String, int[]> levelConfigs = new HashMap<>();
+    private static final Map<String, List<Map<String, Object>>> tilePlacements = new HashMap<>();
 
-    @Given("I have initialized a game card with level <level>")
-    public void iHaveInitializedAGameCardWithLevelLevel() {
-        card = new Card(level);
+    static {
+        //count loose tiles
+        levelConfigs.put("1", new int[]{0, 0, 0, 1, 1});// Mirror, Splitter, Checkpoint, Double, Targets
+        levelConfigs.put("3", new int[]{0, 0, 0, 0, 1});
+        levelConfigs.put("4", new int[]{2, 0, 0, 0, 1});
+        levelConfigs.put("8", new int[]{1, 1, 0, 0, 2});
+
+
+        //configuration of levels
+        tilePlacements.put("1", Arrays.asList(
+                createTileConfig(1, 1, "LaserTile", false, 1),
+                createTileConfig(3, 3, "MirrorTile", false, 0)
+        ));
+        tilePlacements.put("3", Arrays.asList(
+                createTileConfig(3, 0, "MirrorTile", true, 4),
+                createTileConfig(3, 4, "MirrorTile", false, 1),
+                createTileConfig(4, 0, "MirrorTile", true, 4),
+                createTileConfig(4, 1, "MirrorTile", true, 4)
+        ));
+        tilePlacements.put("4", Arrays.asList(
+                createTileConfig(0, 1, "LaserTile", false, 1),
+                createTileConfig(1, 0, "CheckPointTile", false, 0),
+                createTileConfig(4, 0, "MirrorTile", true, 4)
+        ));
+        tilePlacements.put("8", Arrays.asList(
+                createTileConfig(0, 0, "LaserTile", true, 4),
+                createTileConfig(0, 4, "MirrorTile", true, 4),
+                createTileConfig(1, 3, "DoubleTile", false, 1)
+        ));
+    }
+    private static Map<String, Object> createTileConfig(int row, int col, String type, boolean rotatable, int orientation) {
+        Map<String, Object> config = new HashMap<>();
+        config.put("row", row);
+        config.put("col", col);
+        config.put("type", type);
+        config.put("rotatable", rotatable);
+        config.put("orientation", orientation);
+        return config;
     }
 
-    @When("I retrieve the card configuration")
-    public void iRetrieveTheCardConfiguration() {
-        tiles = card.getCard();
+    @Given("I have started a game with multiple {string}")
+    public void iHaveStartedAGameWithMultiple(String level) {
+        try {
+            board = new Board(level);
+        } catch (Exception e ){
+            System.err.println("Error initializing the game card: " + e.getMessage());
+            throw new RuntimeException("Failed to initialize the Card with level: " + level, e);
+        }
     }
 
-    @Then("the card should have the specified number of special tiles for that level")
-    public void theCardShouldHaveTheSpecifiedNumberOfSpecialTilesForThatLevel(int targetMirrorTiles, int splitterTiles, int checkPointTiles, int doubleTiles, int cellBlockerTiles) {
-        int[] placeableTiles = card.getPlaceableTiles();
-        assertAll(
-                () -> assertEquals(targetMirrorTiles, placeableTiles[0]),
-                () -> assertEquals(splitterTiles, placeableTiles[1]),
-                () -> assertEquals(checkPointTiles, placeableTiles[2]),
-                () -> assertEquals(doubleTiles, placeableTiles[3]),
-                () -> assertEquals(cellBlockerTiles, placeableTiles[4])
-        );
-
+    @When("I load the level")
+    public void iLoadTheLevel() {
+        tiles = board.getTiles();
+        assertNotNull("Tiles should not be null after loading the card", tiles);
     }
 
+    @Then("the card should load with the configuration of the level")
+    public void theCardShouldLoadWithTheConfigurationOfTheLevel() {
+        assertNotNull("Card should be initialized", board);
+        assertNotNull( "Tiles array should be initialized",board.getTiles());
 
-    @Then("the card should contain a LaserTile at position ({int}, {int})")
-    public void theCardShouldContainALaserTileAtPosition(int row, int col) {
-        assertTrue(tiles[row][col] instanceof LaserTile);
-    }
-    @And("the card should contain a CellBlockerTile at position ({int}, {int})")
-    public void theCardShouldContainACellBlockerTileAtPosition(int row, int col) {
-        assertTrue(tiles[row][col] instanceof CellBlockerTile);
+        String currentLevel = board.getLevel();
+        int[] expectedTiles = levelConfigs.get(currentLevel);
+        int[] actualTiles = board.get_game_info();
+
+        for (int i = 0; i < expectedTiles.length; i++) {
+            assertEquals(expectedTiles[i], actualTiles[i], "Mismatch in tile count for type " + i + " at level " + currentLevel);
+        }
+
+        List<Map<String, Object>> expectedTilePlacements = tilePlacements.get(currentLevel);
+        if (expectedTilePlacements != null) {
+            for (Map<String, Object> config : expectedTilePlacements) {
+                int row = (Integer) config.get("row");
+                int col = (Integer) config.get("col");
+                if (row >= tiles.length || col >= tiles[row].length) {
+                    fail("Tile position (" + row + "," + col + ") is out of bounds.");
+                }
+
+                Tile tile = tiles[row][col];
+                if (tile == null) {
+                    fail("Expected tile at position (" + row + "," + col + ") is missing. In level"+ currentLevel);
+                }
+
+                assertEquals(config.get("type"), tile.getClass().getSimpleName(), "Mismatch in tile type at position (" + row + "," + col + "). In level" + currentLevel);
+                assertEquals(config.get("rotatable"), tile.getIsRotatable(), "Mismatch in rotatability at position (" + row + "," + col + "). In level"+ currentLevel);
+                assertEquals(config.get("orientation"), tile.getOrientation(), "Mismatch in orientation at position (" + row + "," + col + "). In level" + currentLevel);
+            }
+        }
     }
 
-    @And("the card should contain a CheckPointTile at position ({int}, {int})")
-    public void theCardShouldContainACheckPointTileAtPosition(int row, int col) {
-        assertTrue(tiles[row][col] instanceof CheckPointTile);
-    }
-
-    @And("the card should contain a SplitterTile at position ({int}, {int})")
-    public void theCardShouldContainASplitterTileAtPosition(int row, int col) {
-        assertTrue(tiles[row][col] instanceof SplitterTile);
-    }
-
-    @And("the card should contain a MirrorTile at position ({int}, {int})")
-    public void theCardShouldContainAMirrorTileAtPosition(int row, int col) {
-        assertTrue(tiles[row][col] instanceof MirrorTile);
-    }
-
-    @When("I request the array of placeable tiles")
-    public void iRequestTheArrayOfPlaceableTiles() {
-        // This method is implemented with the assumption that getPlaceableTiles is called
-        // In reality, the response is handled in the corresponding Then step.
-    }
-
-    @Then("the array should reflect counts of {int} for targetMirrorTiles, {int} for splitterTiles, {int} for checkPointTiles, {int} for doubleTiles, and {int} for cellBlockerTiles")
-    public void theArrayShouldReflectCountsOfForTargetMirrorTilesForSplitterTilesForCheckPointTilesForDoubleTilesAndForCellBlockerTiles(int targetMirrorTiles, int splitterTiles, int checkPointTiles, int doubleTiles, int cellBlockerTiles) {
-        int[] placeableTiles = card.getPlaceableTiles();
-        assertEquals(targetMirrorTiles, placeableTiles[0]);
-        assertEquals(splitterTiles, placeableTiles[1]);
-        assertEquals(checkPointTiles, placeableTiles[2]);
-        assertEquals(doubleTiles, placeableTiles[3]);
-        assertEquals(cellBlockerTiles, placeableTiles[4]);
-    }
 }
 

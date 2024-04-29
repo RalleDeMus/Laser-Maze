@@ -24,15 +24,6 @@ public class Board {
 
 
 
-
-
-    // Model.Logic.Laser tree ???
-
-    // Constructor
-        // Gets the board size
-        // Initializes the tiles array based json file
-        // Initializes the cursor tile
-        // Reads from the asset server
     public Board(int boardSize, int squareSize,String level) {
         this.boardSize = boardSize;
         this.squareSize = squareSize;
@@ -149,7 +140,8 @@ Getters and setters (Maybe we can make some of these their own?)
     }
 
     public void setWin() {
-
+        System.out.println("Mirrors hit: " + mirrorsHit + " Count mirrors: " + countMirrors());
+        System.out.println("Targets hit: " + targetsHit + " Count targets: " + game_info[4]);
         if (mirrorsHit >= countMirrors() && targetsHit == game_info[4]){
             System.out.println("Win condition met");
             win = true;
@@ -188,8 +180,11 @@ Getters and setters (Maybe we can make some of these their own?)
         }
         return level;
     }
+/*
+Two logical getters
+*/
 
-    public boolean laserExists() {
+    public boolean laserNeeded() {
         for (int row = 0; row < boardSize; row++) {
             for (int col = 0; col < boardSize; col++) {
                 if (tiles[row][col] != null && tiles[row][col] instanceof LaserTile) {
@@ -221,22 +216,25 @@ HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
 
     // Add the cursor tile to the board and check if placement is valid
     public void addTile(boolean unSelectSelectedTileAfterPlacement) {
-        Tile t;
-        try {
-            t = selectedTile.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new RuntimeException(e);
-        }
 
 
-        if (t != null) {
+
+        if (selectedTile != null) {
+            Tile t;
+
+            try {
+                t = selectedTile.clone();
+            } catch (CloneNotSupportedException e) {
+                throw new RuntimeException(e);
+            }
+
             if (tiles[cursorPos.y][cursorPos.x] == null) {
                 if (t instanceof LaserTile && getLaserTile() != null) {
-                    System.out.println("Laser already exists");
+                    //System.out.println("Laser already exists");
                     return;
                 } else if (t instanceof MirrorTile) {
                     if (game_info[0] == 0) {
-                        System.out.println("No more mirror tiles");
+                        //System.out.println("No more mirror tiles");
                         return;
                     } else {
                         game_info[0]--;
@@ -244,21 +242,21 @@ HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
 
                 } else if (t instanceof SplitterTile) {
                     if (game_info[1] == 0) {
-                        System.out.println("No more splitter tiles");
+                        //System.out.println("No more splitter tiles");
                         return;
                     } else {
                         game_info[1]--;
                     }
                 } else if (t instanceof CheckPointTile) {
                     if (game_info[2] == 0) {
-                        System.out.println("No more checkpoint tiles");
+                        //System.out.println("No more checkpoint tiles");
                         return;
                     } else {
                         game_info[2]--;
                     }
                 } else if (t instanceof DoubleTile) {
                     if (game_info[3] == 0) {
-                        System.out.println("No more double tiles");
+                        //System.out.println("No more double tiles");
                         return;
                     } else {
                         game_info[3]--;
@@ -287,8 +285,6 @@ HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
                 game_info[3]++;
             }
             tiles[cursorPos.y][cursorPos.x] = null;
-        } else{
-            System.out.println("Tile is not moveable");
         }
     }
 
@@ -296,11 +292,10 @@ HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
 
 
     public void rotateSelectedTile(boolean levelEditor) {
+
         int mod = levelEditor ? 5 : 4;
         if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsRotatable()) {
             tiles[cursorPos.y][cursorPos.x].rotate(1,mod);
-        }else {
-            System.out.println("Tile is not rotateable");
         }
     }
 

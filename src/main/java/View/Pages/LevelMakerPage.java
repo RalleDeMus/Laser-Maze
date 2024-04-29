@@ -3,7 +3,7 @@ package View.Pages;
 import Controller.*;
 import Model.Logic.Board;
 import Model.Logic.JSONSaving;
-import Model.Tiles.Tile;
+import Model.Logic.LevelMakerLogic;
 import View.Renderers.BoardRenderer;
 import View.Renderers.ImageOverlayNumber;
 import View.Renderers.TargetRender;
@@ -21,16 +21,21 @@ public class LevelMakerPage extends JPanel {
 
     final private MainMenuPage mainMenu;
 
-    private int targets = 0;
+    //private int targets = 0;
 
-    int[] tileCounts = new int[4];
+    //int[] tileCounts = new int[4];
+
+    LevelMakerLogic levelMakerLogic;
 
     ImageOverlayNumber[] tileLabels = new ImageOverlayNumber[5];
 
-    TargetRender targetCircle = new TargetRender(targets, new Color(222, 48, 48), Color.WHITE, 60);
+    TargetRender targetCircle = new TargetRender(0, new Color(222, 48, 48), Color.WHITE, 60);
+
+    private AssetServer assetServer = AssetServer.getInstance();
 
 
     public LevelMakerPage(MainMenuPage mainMenu) {
+        levelMakerLogic = new LevelMakerLogic();
         this.mainMenu = mainMenu;
         // Ensure the Board is accessible
         board = new Board("0");
@@ -64,7 +69,7 @@ public class LevelMakerPage extends JPanel {
 
     // Update the target counter
     public void updateTargetCounter() {
-        targetCircle.setTargets(targets);
+        targetCircle.setTargets(levelMakerLogic.getTargets());
         targetCircle.revalidate();
         targetCircle.repaint();
     }
@@ -147,8 +152,10 @@ public class LevelMakerPage extends JPanel {
     }
 
     void updateTileCount() {
-        for (int i = 0; i < tileCounts.length; i++) {
-            tileLabels[i].setNumber(tileCounts[i]);
+
+
+        for (int i = 0; i < levelMakerLogic.getTileCounts().length; i++) {
+            tileLabels[i].setNumber(levelMakerLogic.getTileCounts()[i]);
             tileLabels[i].revalidate();
             tileLabels[i].repaint();
         }
@@ -169,7 +176,7 @@ public class LevelMakerPage extends JPanel {
         circlePanel.add(normalLabel, gbc);
 
         // Create and configure the target circle
-        targetCircle = new TargetRender(targets, new Color(222, 48, 48), Color.WHITE, 60);
+        targetCircle = new TargetRender(levelMakerLogic.getTargets(), new Color(222, 48, 48), Color.WHITE, 60);
         gbc.gridx++;
         circlePanel.add(targetCircle, gbc);
 
@@ -179,8 +186,8 @@ public class LevelMakerPage extends JPanel {
         minusButton.setMargin(new Insets(0,0,0,0));
         minusButton.setPreferredSize(new Dimension(40, 40));
         minusButton.addActionListener(e -> {
-            if(targets == 0) return;
-            targets--;
+
+            levelMakerLogic.decrementTargets();
             updateTargetCounter();
             LevelMakerPage.this.requestFocusInWindow();
         });
@@ -193,7 +200,7 @@ public class LevelMakerPage extends JPanel {
         plusButton.setMargin(new Insets(0,0,0,0));
         plusButton.setPreferredSize(new Dimension(40, 40));
         plusButton.addActionListener(e -> {
-            targets++;
+            levelMakerLogic.incrementTargets();
             updateTargetCounter();
             LevelMakerPage.this.requestFocusInWindow();
         });
@@ -227,7 +234,6 @@ public class LevelMakerPage extends JPanel {
 
         // Create and add 5 tiles with plus and minus buttons
         for (int i = 0; i < 4; i++) {
-            int index = i; // Effective final index for use in lambda expressions
             ecGbc.insets = new Insets(0, 0, 0, 5);
             // Tile image with number
             BufferedImage tileImage = getTileImage(i);
@@ -235,12 +241,15 @@ public class LevelMakerPage extends JPanel {
             ImageIcon tileIcon = new ImageIcon(scaledImage);
             tileLabels[i] = new ImageOverlayNumber(tileIcon, 0, 50, 50);
             tileLabels[i].setFont(new Font("Baloo Bhaijaan", Font.BOLD, 40));
-            ecGbc.gridy = i+1;
+            ecGbc.gridy = i + 1;
             ecGbc.gridx = 0;
             ecGbc.gridwidth = 1;
             ecGbc.fill = GridBagConstraints.NONE;
             ecGbc.weightx = 0;
             eastContainer.add(tileLabels[i], ecGbc);
+
+
+            int index = i; // Effective final index for use in lambda expressions
 
             int buttonsize = 35;
             // Minus button
@@ -248,9 +257,10 @@ public class LevelMakerPage extends JPanel {
             minusButtonTile.setFont(new Font("Baloo Bhaijaan", Font.BOLD, 20));
             minusButtonTile.setMargin(new Insets(0,0,0,0));
             minusButtonTile.addActionListener(e -> {
-                System.out.println("Tile " + (index) + " minus");
-                changeTileCount(index, -1);
+                levelMakerLogic.changeTileCount(index, false);
                 LevelMakerPage.this.requestFocusInWindow();
+                updateTileCount();
+
             });
             minusButtonTile.setPreferredSize(new Dimension(buttonsize, buttonsize));
             ecGbc.gridy = i+1;
@@ -264,9 +274,10 @@ public class LevelMakerPage extends JPanel {
             plusButtonTile.setFont(new Font("Baloo Bhaijaan", Font.BOLD, 20));
             plusButtonTile.setMargin(new Insets(0,0,0,0));
             plusButtonTile.addActionListener(e -> {
-                System.out.println("Tile " + (index) + " plus");
-                changeTileCount(index, 1);
+                levelMakerLogic.changeTileCount(index, true);
                 LevelMakerPage.this.requestFocusInWindow();
+                updateTileCount();
+
             });
             plusButtonTile.setPreferredSize(new Dimension(buttonsize, buttonsize));
             ecGbc.gridy = i+1;
@@ -290,7 +301,7 @@ public class LevelMakerPage extends JPanel {
         eastContainer.add(textTestLabel, ecGbc);
 
         // Add the allTiles image below the buttons
-        BufferedImage allTilesImage = AssetServer.getInstance().getImage("allTiles");
+        BufferedImage allTilesImage = assetServer.getImage("allTiles");
         Image scaledAllTilesImage = allTilesImage.getScaledInstance(120, 80, Image.SCALE_SMOOTH);
         JLabel allTilesLabel = new JLabel(new ImageIcon(scaledAllTilesImage));
         JPanel allTilesPanel = new JPanel();
@@ -310,73 +321,33 @@ public class LevelMakerPage extends JPanel {
 
     }
 
-    void changeTileCount(int tileType, int change) {
-        int count = 0;
-        for(int i = 0; i < 4; i++) {
-            count+=tileCounts[i];
-        }
-        if (count+change > 5){
-            return;
-        }
 
-        if (tileCounts[tileType] + change < 0) {
-            return;
-        }
-        if (tileType == 4 && tileCounts[tileType] + change > 1) {
-            return;
-        }
-        tileCounts[tileType] += change;
-        updateTileCount();
-    }
 
     BufferedImage getTileImage (int tileType) {
         BufferedImage tileImage = null;
+
         switch (tileType) {
             case 0:
-                tileImage = AssetServer.getInstance().getImage("targetMirror");
+                tileImage = assetServer.getImage("targetMirror");
                 break;
             case 1:
-                tileImage = AssetServer.getInstance().getImage("beamSplitter");
+                tileImage = assetServer.getImage("beamSplitter");
                 break;
             case 2:
-                tileImage = AssetServer.getInstance().getImage("checkPoint");
+                tileImage = assetServer.getImage("checkPoint");
                 break;
             case 3:
-                tileImage = AssetServer.getInstance().getImage("doubleMirror");
+                tileImage = assetServer.getImage("doubleMirror");
                 break;
             case 4:
-                tileImage = AssetServer.getInstance().getImage("laser");
+                tileImage = assetServer.getImage("laser");
                 break;
         }
         return tileImage;
-
     }
 
-    void saveLevel() {
-        Tile[][] tiles = board.getTiles();
-
-
-        // Set rotateable based on orientation
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                if (tiles[i][j] != null) {
-
-                    System.out.println("Tile at: " +i + " " + j + " rotation: " + tiles[i][j].getOrientation());
-                    if (tiles[i][j].getOrientation() == 4) {
-                        tiles[i][j].setIsRotatable(true);
-                        System.out.println("TILE AT: " + i + " " + j + " is rotateable");
-                    } else {
-                        tiles[i][j].setIsRotatable(false);
-                    }
-                }
-            }
-        }
-
-        // Set game info to match
-        // game info is array with len 6.
-        board.set_game_info(new int[]{tileCounts[0], tileCounts[1], tileCounts[2], tileCounts[3], targets, 0});
-
-        JSONSaving.saveGameState("temp",board);
+    private void saveLevel() {
+        JSONSaving.saveLevelWithFreeRotations(board, levelMakerLogic.getTileCounts(), levelMakerLogic.getTargets());
 
         board.setCardLevel("temp");
         BoardPage boardPage = new BoardPage(mainMenu, true,board);

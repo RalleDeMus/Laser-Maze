@@ -9,13 +9,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.File;
+
 
 import static org.junit.Assert.*;
 
 public class SavingGameStateSteps {
-    Board board;
+    private Board board;
+    private final File file = new File("src/main/levels/custom/test.json");
+
     @Given("a board")
     public void aBoard() {
         board = new Board("0");
@@ -38,27 +40,40 @@ public class SavingGameStateSteps {
         board.setSelectedTile(new LaserTile(true,true));
         board.getCursorPos().setLocation(2,2);
         board.addTile(false);
-        assertTrue(board.getTiles()[2][2] instanceof LaserTile);
+        assertFalse(board.laserNeeded());
         assertTrue(board.getTiles()[2][2].getIsRotatable());
         assertTrue(board.getTiles()[2][2].getIsMovable());
+
     }
 
     @When("the user triggers the save game state")
     public void theUserTriggersTheSaveGameState() {
+        board.setCardLevel("0");
         JSONSaving.saveGameState("test",board);
+
     }
 
     @Then("a JSON file containing the board state and extra tiles information should be created")
     public void aJSONFileContainingTheBoardStateAndExtraTilesInformationShouldBeCreated() {
         // Check if the file exists
-        assertTrue(Files.exists(Paths.get("src/main/levels/custom/test.json")));
+
+        assertTrue(file.exists());
+        // delete the file after the test
+        file.delete();
+
+
+        //Another test exists to check if the file contains the board state
     }
 
-    @Given("an empty board")
-    public void anEmptyBoard() {
-    }
+
 
     @And("{int} extra MirrorTiles and {int} extra SplitterTile")
-    public void extraMirrorTilesAndExtraSplitterTile(int arg0, int arg1) {
+    public void extraMirrorTilesAndExtraSplitterTile(int mirrortiles, int splittertiles) {
+        board.set_game_info(new int[]{mirrortiles,splittertiles,0,0,0});
+        assertEquals(board.get_game_info_by_index(0),2);
+        assertEquals(board.get_game_info_by_index(1),1);
     }
+
+
+
 }
