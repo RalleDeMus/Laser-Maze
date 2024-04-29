@@ -14,7 +14,7 @@ public class AssetServer {
     private static AssetServer instance;
     final private Map<String, BufferedImage> images = new HashMap<>();
 
-    protected AssetServer() {
+    private AssetServer() {
         try {
             //loadImages("beamSplitter", "cellBlocker", "checkPoint", "doubleMirror", "empty", "laser", "targetMirror", "laserRay", "rotateBeamSplitter", "rotateCheckpoint", "rotateDoubleMirror", "rotateLaser", "rotateTargetMirror", "spotRotateTargetMirror", "spotTargetMirror");
             ArrayList<String> assets = listFilesForFolder(new File("src/main/assets"));
@@ -49,7 +49,7 @@ public class AssetServer {
         return images.get(assetName+".png");
     }
 
-    public ArrayList<String> listFilesForFolder(final File folder) {
+    private ArrayList<String> listFilesForFolder(final File folder) {
 
             ArrayList<String> filenames = new ArrayList<>();
             for (final File fileEntry : Objects.requireNonNull(folder.listFiles())) {
