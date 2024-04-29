@@ -1,6 +1,6 @@
 package boardmethods;
 
-import Model.Logic.BoardInfo;
+import Controller.ToolBar;
 import Model.Tiles.Tile;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -18,7 +18,7 @@ public class BoardinfoSteps {
 
     @When("the intToTile method is called")
     public void theIntToTileMethodIsCalled() {
-        result = BoardInfo.intToTile(input);
+        result = ToolBar.intToTile(input);
     }
 
     @Then("it should return a {string} object")

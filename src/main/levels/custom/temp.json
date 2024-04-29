@@ -2,8 +2,8 @@
     "gameinfo": {"tiles": [
         {
             "col": 1,
-            "rotatable": false,
-            "orientation": 1,
+            "rotatable": true,
+            "orientation": 4,
             "row": 1,
             "type": "LaserTile"
         },

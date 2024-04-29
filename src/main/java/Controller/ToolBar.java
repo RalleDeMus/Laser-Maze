@@ -1,7 +1,6 @@
 package Controller;
 
 import Model.Logic.Board;
-import Model.Logic.BoardInfo;
 import Model.Tiles.*;
 import View.Renderers.BoardRenderer;
 
@@ -10,7 +9,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ToolBar extends MouseAdapter implements KeyListener {
+public class ToolBar extends MouseAdapter {
     protected Board board;
     protected JPanel panel;
 
@@ -40,7 +39,7 @@ public class ToolBar extends MouseAdapter implements KeyListener {
                 }
                 for (int i = 0; i < 4; i++) {
                     for (int j = 0; j < board.get_game_info_by_index(i); j++) {
-                        tiles.add(BoardInfo.intToTile(i));
+                        tiles.add(intToTile(i));
                     }
 
                 }
@@ -56,20 +55,25 @@ public class ToolBar extends MouseAdapter implements KeyListener {
         }
     }
 
-
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-
+    public static Tile intToTile (int i) {
+        switch(i) {
+            case 0:
+                return new MirrorTile(true,true);
+            case 1:
+                return new SplitterTile(true, true);
+            case 2:
+                return new CheckPointTile(true, true);
+            case 3:
+                return new DoubleTile(true,true);
+            case 4:
+                return new LaserTile(true,true);
+            default:
+                return null;
+        }
     }
 
-    @Override
-    public void keyPressed(KeyEvent e) {
 
-    }
 
-    @Override
-    public void keyReleased(KeyEvent e) {
 
-    }
+
 }

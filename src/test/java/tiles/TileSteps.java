@@ -1,5 +1,6 @@
 package tiles;
 
+import Model.Tiles.MirrorTile;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -18,7 +19,7 @@ public class TileSteps {
 
     @Given("a non-moveable and rotateable tile")
     public void aNonMoveableAndRotateableTile() {
-        tile = new Tile(false,true);
+        tile = new MirrorTile(false,true);
     }
 
     @When("the tile is created")

@@ -14,16 +14,29 @@ public class LevelMakerSteps {
     Board board = new Board("0");
     String customLevel;
 
+    void rotatetimes(int times) {
+        for (int i = 0; i < times; i++) {
+            board.rotateSelectedTile(true);
+        }
+    }
+
     @When("the user places a MirrorTile and LaserTile on the board")
     public void theUserPlacesAMirrorTileAndLaserTileOnTheBoard() {
         board.getCursorPos().setLocation(1, 1);
-        board.setSelectedTile(new LaserTile(false, false, 1));
+        board.setSelectedTile(new LaserTile(false, true, 0));
         board.addTile(false);
         board.getCursorPos().setLocation(3, 3);
         board.setSelectedTile(new MirrorTile(false, false, 0));
         board.addTile(false);
         assertTrue(board.getTiles()[1][1] instanceof LaserTile);
         assertTrue(board.getTiles()[3][3] instanceof MirrorTile);
+
+    }
+    @And("makes the LaserTile rotateable")
+    public void makesTheLaserTileRotateable() {
+        board.getCursorPos().setLocation(1, 1);
+        rotatetimes(4);
+        assertEquals(4, board.getTiles()[1][1].getOrientation());
 
     }
 
@@ -63,12 +76,12 @@ public class LevelMakerSteps {
 
     @When("the user places the correct tiles")
     public void theUserPlacesTheCorrectTiles() {
+        board.getCursorPos().setLocation(1, 1);
+        rotatetimes(2);
         board.setSelectedTile(new MirrorTile(true, true));
         board.getCursorPos().setLocation(1, 3);
         board.addTile(false);
-        board.rotateSelectedTile(false);
-        board.rotateSelectedTile(false);
-        board.rotateSelectedTile(false);
+        rotatetimes(3);
         assertEquals(board.getTiles()[3][1].getOrientation(), 3);
         assertEquals(board.get_game_info_by_index(0), 0);
         assertTrue(board.getSelectedTile() instanceof MirrorTile);
@@ -101,12 +114,12 @@ public class LevelMakerSteps {
 
     @And("plays the level")
     public void playsTheLevel() {
+        board.getCursorPos().setLocation(1, 1);
+        rotatetimes(2);
         board.setSelectedTile(new MirrorTile(true, true));
         board.getCursorPos().setLocation(1, 3);
         board.addTile(false);
-        board.rotateSelectedTile(false);
-        board.rotateSelectedTile(false);
-        board.rotateSelectedTile(false);
+        rotatetimes(3);
         assertEquals(board.getTiles()[3][1].getOrientation(), 3);
         assertEquals(board.get_game_info_by_index(0), 0);
     }

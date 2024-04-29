@@ -1,4 +1,4 @@
-package boardmethods.gamestate;
+package boardmethods;
 
 import Model.Logic.Board;
 

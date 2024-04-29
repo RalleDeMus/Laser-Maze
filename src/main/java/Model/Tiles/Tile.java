@@ -4,7 +4,7 @@ import Controller.ImageHandler;
 
 import java.awt.image.BufferedImage;
 
-public class Tile implements TileInterface, Cloneable{
+abstract public class Tile implements TileInterface, Cloneable{
 
 
     protected boolean isMoveable;

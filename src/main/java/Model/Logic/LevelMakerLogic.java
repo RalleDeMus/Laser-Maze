@@ -3,7 +3,7 @@ package Model.Logic;
 public class LevelMakerLogic {
 
     private int targets;
-    private int[] tileCounts;
+    final private int[] tileCounts;
 
 
 
