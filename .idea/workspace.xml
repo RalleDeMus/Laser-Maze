@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Made the rest of the pages more modular">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/ReadyPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/ReadyPage.java" afterDir="false" />
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Fixed ReadyPage back button">
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/LevelSelectPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/LevelSelectPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1005,7 +1004,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714421394979</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Fixed ReadyPage back button">
+      <option name="closed" value="true" />
+      <created>1714421646792</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1714421646792</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1023,7 +1030,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removed exesive print statements" />
     <MESSAGE value="Fixed checkwincondition" />
     <MESSAGE value="Added showing number of targets hit as a circle" />
     <MESSAGE value="Added &quot;YOU WIN!&quot; label when you complete a level" />
@@ -1048,7 +1054,8 @@
     <MESSAGE value="Comments and documentation for model/logic" />
     <MESSAGE value="Made changes to a bunch of pages to make them more readibly and modifiable." />
     <MESSAGE value="Made the rest of the pages more modular" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made the rest of the pages more modular" />
+    <MESSAGE value="Fixed ReadyPage back button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed ReadyPage back button" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/group_4$Feature__PickLevel.ic" NAME="Feature: PickLevel Coverage Results" MODIFIED="1714410292236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">

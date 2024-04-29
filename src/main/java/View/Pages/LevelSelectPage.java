@@ -35,7 +35,7 @@ public class LevelSelectPage extends JPanel{
         JPanel gridPanel = new JPanel(new GridLayout(0, 5, 10, 10)); // 0 rows, 5 columns
         gridPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // Add some padding
 
-        // Add 50 level squares to the grid
+        // Add 25 level squares to the grid
         for (int i = 1; i <= 25; i++) {
             JButton levelButton = new JButton(String.valueOf(i)); // Button with level number
             levelButton.setPreferredSize(new Dimension(160, 80)); // Set button size
