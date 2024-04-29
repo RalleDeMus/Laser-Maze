@@ -25,7 +25,9 @@ public class GameCardSteps {
         //count loose tiles
         levelConfigs.put("1", new int[]{0, 0, 0, 1, 1});// Mirror, Splitter, Checkpoint, Double, Targets
         levelConfigs.put("3", new int[]{0, 0, 0, 0, 1});
+        levelConfigs.put("4", new int[]{2, 0, 0, 0, 1});
         levelConfigs.put("8", new int[]{1, 1, 0, 0, 2});
+
 
         //configuration of levels
         tilePlacements.put("1", Arrays.asList(
@@ -37,6 +39,11 @@ public class GameCardSteps {
                 createTileConfig(3, 4, "MirrorTile", false, 1),
                 createTileConfig(4, 0, "MirrorTile", true, 4),
                 createTileConfig(4, 1, "MirrorTile", true, 4)
+        ));
+        tilePlacements.put("4", Arrays.asList(
+                createTileConfig(0, 1, "LaserTile", false, 1),
+                createTileConfig(1, 0, "CheckPointTile", false, 0),
+                createTileConfig(4, 0, "MirrorTile", true, 4)
         ));
         tilePlacements.put("8", Arrays.asList(
                 createTileConfig(0, 0, "LaserTile", true, 4),

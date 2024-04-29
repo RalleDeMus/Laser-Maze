@@ -8,5 +8,6 @@ Feature: load levels and test configurations
       | level  |
       | 1      |
       | 3      |
+      | 4      |
       | 8      |
 

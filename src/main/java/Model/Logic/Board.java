@@ -140,7 +140,8 @@ Getters and setters (Maybe we can make some of these their own?)
     }
 
     public void setWin() {
-
+        System.out.println("Mirrors hit: " + mirrorsHit + " Count mirrors: " + countMirrors());
+        System.out.println("Targets hit: " + targetsHit + " Count targets: " + game_info[4]);
         if (mirrorsHit >= countMirrors() && targetsHit == game_info[4]){
             System.out.println("Win condition met");
             win = true;

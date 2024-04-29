@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Same fix, but now also fixed error.">
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Fixed run time error where we throw an error if the user tries to place a tile without having a selected tile">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/levelMakerTest.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/levelMakerTest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/temp.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/temp.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/LaserCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/LaserCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GameCard/GameCardSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GameCard/GameCardSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LaserMethods/LaserCalculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LaserMethods/LaserCalculation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features_board/gameCard.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features_board/gameCard.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features_laser/CalculateLaser.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features_laser/CalculateLaser.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,56 +64,58 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Game.executor": "Run",
-    "Application.RUN GAME.executor": "Run",
-    "Cucumber Java.All Features in: test.executor": "Coverage",
-    "Cucumber Java.Feature: CalculateLaser.executor": "Coverage",
-    "Cucumber Java.Feature: Laser.executor": "Coverage",
-    "Cucumber Java.Feature: addingAndRemovingATile.executor": "Coverage",
-    "Cucumber Java.Feature: addingAndRemovingLaserTile.executor": "Coverage",
-    "Cucumber Java.Feature: addingLaserTile.executor": "Run",
-    "Cucumber Java.Feature: boardinfo.executor": "Coverage",
-    "Cucumber Java.Feature: gameCard.executor": "Coverage",
-    "Cucumber Java.Feature: levelMaker.executor": "Coverage",
-    "Cucumber Java.Feature: loaded.executor": "Run",
-    "Cucumber Java.Feature: manipulatingTilesOnBoard.executor": "Coverage",
-    "Cucumber Java.Feature: removingTile.executor": "Run",
-    "Cucumber Java.Feature: rotateTile.executor": "Coverage",
-    "Cucumber Java.Feature: rotatingTile.executor": "Run",
-    "Cucumber Java.Feature: savingGameState.executor": "Coverage",
-    "Cucumber Java.Scenario: Adding a tile to the board.executor": "Run",
-    "Cucumber Java.Scenario: Calculate the laser on the board.executor": "Run",
-    "Cucumber Java.Scenario: Removing a tile from the board.executor": "Run",
-    "Cucumber Java.Scenario: Rotating a tile on the board.executor": "Run",
-    "Cucumber Java.Scenario: Rotating tile on the board.executor": "Run",
-    "Cucumber Java.Scenario: Saving a board with extra tiles.executor": "Run",
-    "Cucumber Java.Scenario: Saving a board with pieces.executor": "Run",
-    "Cucumber Java.Scenario: succesful start game.executor": "Run",
-    "JUnit.java in LaserGame-group-4.executor": "Coverage",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "Maven.LaserGame-group-4 [clean].executor": "Run",
-    "Maven.LaserGame-group-4 [install].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Rasmu/IdeaProjects/group-4/src/test/java/boardmethods/gamestate",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Game.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RUN GAME.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.All Features in: test.executor&quot;: &quot;Coverage&quot;,
+    &quot;Cucumber Java.Feature: CalculateLaser.executor&quot;: &quot;Coverage&quot;,
+    &quot;Cucumber Java.Feature: Laser.executor&quot;: &quot;Coverage&quot;,
+    &quot;Cucumber Java.Feature: addingAndRemovingATile.executor&quot;: &quot;Coverage&quot;,
+    &quot;Cucumber Java.Feature: addingAndRemovingLaserTile.executor&quot;: &quot;Coverage&quot;,
+    &quot;Cucumber Java.Feature: addingLaserTile.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Feature: boardinfo.executor&quot;: &quot;Coverage&quot;,
+    &quot;Cucumber Java.Feature: gameCard.executor&quot;: &quot;Coverage&quot;,
+    &quot;Cucumber Java.Feature: levelMaker.executor&quot;: &quot;Coverage&quot;,
+    &quot;Cucumber Java.Feature: loaded.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Feature: manipulatingTilesOnBoard.executor&quot;: &quot;Coverage&quot;,
+    &quot;Cucumber Java.Feature: removingTile.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Feature: rotateTile.executor&quot;: &quot;Coverage&quot;,
+    &quot;Cucumber Java.Feature: rotatingTile.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Feature: savingGameState.executor&quot;: &quot;Coverage&quot;,
+    &quot;Cucumber Java.Scenario: Adding a tile to the board.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Calculate the laser on the board.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Removing a tile from the board.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Rotating a tile on the board.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Rotating tile on the board.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Saving a board with extra tiles.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Saving a board with pieces.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Start a level and test for card tiles and configuration.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Valid integer input returns corresponding Tile.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: succesful start game.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in LaserGame-group-4.executor&quot;: &quot;Coverage&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.LaserGame-group-4 [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.LaserGame-group-4 [install].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rasmu/IdeaProjects/group-4/src/test/java/boardmethods/gamestate&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/levels" />
@@ -124,7 +133,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Feature: Laser">
+  <component name="RunManager" selected="JUnit.java in LaserGame-group-4">
     <configuration name="RUN GAME" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="LaserGame-group-4" />
@@ -132,28 +141,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Feature: CalculateLaser" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="All Features in: test" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_laser/CalculateLaser.feature" />
-      <option name="GLUE" value="LaserMethods" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test" />
+      <option name="GLUE" value="LaserMethods GameCard boardmethods" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="LaserGame-group-4" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
-      <shortenClasspath name="NONE" />
-      <option name="SUGGESTED_NAME" value="Feature: CalculateLaser" />
+      <option name="SUGGESTED_NAME" value="All Features in: test" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="io.cucumber.core.cli.*" />
           <option name="ENABLED" value="true" />
         </pattern>
-        <pattern>
-          <option name="PATTERN" value="Model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
       </extension>
       <method v="2">
-        <option name="MakeProject" enabled="true" />
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="Feature: Laser" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" nameIsGenerated="true">
@@ -250,15 +254,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Feature: manipulatingTilesOnBoard" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Feature: savingGameState" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/manipulatingTilesOnBoard.feature" />
-      <option name="GLUE" value="boardmethods" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/savingGameState.feature" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="LaserGame-group-4" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
       <shortenClasspath name="NONE" />
-      <option name="SUGGESTED_NAME" value="Feature: manipulatingTilesOnBoard" />
+      <option name="SUGGESTED_NAME" value="Feature: savingGameState" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -274,14 +277,15 @@
         <option name="MakeProject" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Feature: savingGameState" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" nameIsGenerated="true">
+    <configuration name="Scenario: Adding a tile to the board" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/savingGameState.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/manipulatingTilesOnBoard.feature" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="LaserGame-group-4" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="NAME_FILTER" value="^Adding a tile to the board$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Adding a tile to the board$&quot;" />
       <shortenClasspath name="NONE" />
-      <option name="SUGGESTED_NAME" value="Feature: savingGameState" />
+      <option name="SUGGESTED_NAME" value="Scenario: Adding a tile to the board" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -473,6 +477,47 @@
         <option name="MakeProject" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Scenario: Start a level and test for card tiles and configuration" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/gameCard.feature" />
+      <option name="GLUE" value="GameCard" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="LaserGame-group-4" />
+      <option name="NAME_FILTER" value="^Start a level and test for card tiles and configuration$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Start a level and test for card tiles and configuration$&quot;" />
+      <shortenClasspath name="NONE" />
+      <option name="SUGGESTED_NAME" value="Scenario: Start a level and test for card tiles and configuration" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="MakeProject" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Valid integer input returns corresponding Tile" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features_board/boardinfo.feature" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="LaserGame-group-4" />
+      <option name="NAME_FILTER" value="^Valid integer input returns corresponding Tile$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Valid integer input returns corresponding Tile$&quot;" />
+      <shortenClasspath name="NONE" />
+      <option name="SUGGESTED_NAME" value="Scenario: Valid integer input returns corresponding Tile" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="MakeProject" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="java in LaserGame-group-4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LaserGame-group-4" />
       <option name="TEST_OBJECT" value="directory" />
@@ -483,6 +528,8 @@
     </configuration>
     <list>
       <item itemvalue="Application.RUN GAME" />
+      <item itemvalue="Cucumber Java.Scenario: Adding a tile to the board" />
+      <item itemvalue="Cucumber Java.Scenario: Valid integer input returns corresponding Tile" />
       <item itemvalue="Cucumber Java.Feature: gameCard" />
       <item itemvalue="Cucumber Java.Feature: savingGameState" />
       <item itemvalue="Cucumber Java.Scenario: Saving a board with extra tiles" />
@@ -495,19 +542,19 @@
       <item itemvalue="Cucumber Java.Scenario: Get coordinates of the laser" />
       <item itemvalue="Cucumber Java.Scenario: Initialize a new laser" />
       <item itemvalue="Cucumber Java.Scenario: Set new coordinates of the laser" />
+      <item itemvalue="Cucumber Java.All Features in: test" />
+      <item itemvalue="Cucumber Java.Scenario: Start a level and test for card tiles and configuration" />
       <item itemvalue="Cucumber Java.Feature: boardinfo" />
       <item itemvalue="Cucumber Java.Feature: levelMaker" />
-      <item itemvalue="Cucumber Java.Feature: CalculateLaser" />
-      <item itemvalue="Cucumber Java.Feature: manipulatingTilesOnBoard" />
       <item itemvalue="JUnit.java in LaserGame-group-4" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.java in LaserGame-group-4" />
+        <item itemvalue="Cucumber Java.Scenario: Start a level and test for card tiles and configuration" />
+        <item itemvalue="Cucumber Java.All Features in: test" />
         <item itemvalue="Cucumber Java.Feature: boardinfo" />
         <item itemvalue="Cucumber Java.Feature: levelMaker" />
-        <item itemvalue="Cucumber Java.Feature: manipulatingTilesOnBoard" />
-        <item itemvalue="Cucumber Java.Feature: CalculateLaser" />
-        <item itemvalue="JUnit.java in LaserGame-group-4" />
       </list>
     </recent_temporary>
   </component>
@@ -530,6 +577,7 @@
       <workItem from="1714212054626" duration="3626000" />
       <workItem from="1714221502755" duration="4302000" />
       <workItem from="1714303685363" duration="4002000" />
+      <workItem from="1714374948605" duration="392000" />
     </task>
     <task id="LOCAL-00001" summary="kan jeg push">
       <option name="closed" value="true" />
@@ -793,10 +841,52 @@
     <option name="LAST_COMMIT_MESSAGE" value="Same fix, but now also fixed error." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/group_4$Feature__savingGameState.ic" NAME="Feature: savingGameState Coverage Results" MODIFIED="1714308642969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__addingAndRemovingATile.ic" NAME="Feature: addingAndRemovingATile Coverage Results" MODIFIED="1714225459937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/group_4$Scenario__Saving_a_board_with_pieces.ic" NAME="Scenario: Saving a board with pieces Coverage Results" MODIFIED="1714214921725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>io.cucumber.core.cli.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$java_in_LaserGame_group_4.ic" NAME="java in LaserGame-group-4 Coverage Results" MODIFIED="1714221709586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/group_4$Feature__rotateTile.ic" NAME="Feature: rotateTile Coverage Results" MODIFIED="1714223068017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__gameCard.ic" NAME="Feature: gameCard Coverage Results" MODIFIED="1714308741346" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__manipulatingTilesOnBoard.ic" NAME="Feature: manipulatingTilesOnBoard Coverage Results" MODIFIED="1714308636196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__boardinfo.ic" NAME="Feature: boardinfo Coverage Results" MODIFIED="1714336001928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$All_Features_in__test.ic" NAME="All Features in: test Coverage Results" MODIFIED="1714336079911" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__levelMaker.ic" NAME="Feature: levelMaker Coverage Results" MODIFIED="1714308697146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__CalculateLaser.ic" NAME="Feature: CalculateLaser Coverage Results" MODIFIED="1714308651942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__Laser.ic" NAME="Feature: Laser Coverage Results" MODIFIED="1714308657928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$java_in_LaserGame_group_4.ic" NAME="java in LaserGame-group-4 Coverage Results" MODIFIED="1714374009845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/group_4$Feature__removingTile.ic" NAME="Feature: removingTile Coverage Results" MODIFIED="1714216658120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.Logic.Board</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/group_4$Feature__addingLaserTile.ic" NAME="Feature: addingLaserTile Coverage Results" MODIFIED="1714219837078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.cucumber.core.cli.*</FILTER>
       <EXCLUDED_FILTER>*</EXCLUDED_FILTER>
@@ -804,48 +894,6 @@
     <SUITE FILE_PATH="coverage/group_4$Feature__addingAndRemovingLaserTile.ic" NAME="Feature: addingAndRemovingLaserTile Coverage Results" MODIFIED="1714221719215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.cucumber.core.cli.*</FILTER>
       <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__boardinfo.ic" NAME="Feature: boardinfo Coverage Results" MODIFIED="1714315617076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__CalculateLaser.ic" NAME="Feature: CalculateLaser Coverage Results" MODIFIED="1714315483855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__gameCard.ic" NAME="Feature: gameCard Coverage Results" MODIFIED="1714315526031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__Laser.ic" NAME="Feature: Laser Coverage Results" MODIFIED="1714315648348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__rotateTile.ic" NAME="Feature: rotateTile Coverage Results" MODIFIED="1714223068017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__addingAndRemovingATile.ic" NAME="Feature: addingAndRemovingATile Coverage Results" MODIFIED="1714225459937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__levelMaker.ic" NAME="Feature: levelMaker Coverage Results" MODIFIED="1714315514850" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$All_Features_in__test.ic" NAME="All Features in: test Coverage Results" MODIFIED="1714303402703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__manipulatingTilesOnBoard.ic" NAME="Feature: manipulatingTilesOnBoard Coverage Results" MODIFIED="1714315505703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__removingTile.ic" NAME="Feature: removingTile Coverage Results" MODIFIED="1714216658120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.Logic.Board</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__savingGameState.ic" NAME="Feature: savingGameState Coverage Results" MODIFIED="1714315495876" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
     </SUITE>
   </component>
 </project>

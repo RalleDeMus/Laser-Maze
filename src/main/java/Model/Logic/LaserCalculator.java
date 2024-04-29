@@ -134,7 +134,7 @@ public class LaserCalculator {
             board.setTargetsHit(targetsHit);
 
 
-            System.out.println("Mirrors hit: " + mirrorsHit + " Targets hit: " + targetsHit);
+            //System.out.println("Mirrors hit: " + mirrorsHit + " Targets hit: " + targetsHit);
 
             board.setWin();
             return laserList;
