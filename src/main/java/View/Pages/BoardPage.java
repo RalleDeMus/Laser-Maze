@@ -22,6 +22,9 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+/**
+ * The BoardPage class is responsible for displaying the board and handling the input from the user on the board.
+ */
 
 public class BoardPage extends JPanel {
 
@@ -34,6 +37,12 @@ public class BoardPage extends JPanel {
 
     final protected MainMenuPage mainMenu;
 
+    /**
+     * Constructor for the BoardPage class.
+     * @param mainMenu The main menu page to navigate back to.
+     * @param includeLaserFeatures Whether to include laser features in the board.
+     * @param board The board to display.
+     */
     public BoardPage(MainMenuPage mainMenu, boolean includeLaserFeatures, Board board) {
         this.mainMenu = mainMenu;
         // Ensure the Board is accessible
@@ -64,6 +73,7 @@ public class BoardPage extends JPanel {
         });
     }
 
+    // when a level is completed the user can go to the next level
     protected JButton goToNextLevelPageButton() {
         JButton nextLevelButton = new JButton("Next Level");
 
@@ -84,10 +94,11 @@ public class BoardPage extends JPanel {
         return nextLevelButton;
 
     }
-
+    //do nothing unless it is a multiplayer game
     protected void stopTimer() {
     }
 
+    // Update the win status of the board and notify the player that they have won
     public void updateWinStatus() { // Make this method more pretty...
         winPanel.removeAll(); // Safely remove all components
         System.out.println("Win: " + board.getWin());
@@ -99,6 +110,7 @@ public class BoardPage extends JPanel {
 
             stopTimer();
 
+            //check if the player is playing a newly made custom level
             if (board.get_game_info_by_index(5) != 0) {
 
                 JButton nextLevelButton = goToNextLevelPageButton();
@@ -136,11 +148,12 @@ public class BoardPage extends JPanel {
         return nextLevelButton;
     }
 
+    // Only get text if it is a multiplayer game
     protected JLabel getTimerText() {
         return new JLabel("");
     }
 
-
+    // Initialize the UI of the board page
     public void initializeUI(MainMenuPage mainMenu, int topPanelHeight, int targets) {
         // Create the top panel
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));

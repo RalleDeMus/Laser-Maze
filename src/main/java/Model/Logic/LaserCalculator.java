@@ -138,7 +138,8 @@ public class LaserCalculator {
             board.setMirrorsHit(mirrorsHit);
             board.setTargetsHit(targetsHit);
 
-            board.setWin();
+            //check if the win condition is met
+            board.checkWinCondition();
             return laserList;
         } else {
 

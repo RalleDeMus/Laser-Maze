@@ -23,6 +23,7 @@ public class LaserInputHandler extends BoardInputHandler {
         this.panel = panel;
     }
 
+    //fire laser when L key is pressed
     @Override
     public void keyPressed(KeyEvent e) {
         super.keyPressed(e); // Call super to handle common key events
@@ -32,6 +33,7 @@ public class LaserInputHandler extends BoardInputHandler {
         }
     }
 
+    //stop firing laser when L key is released
     @Override
     public void keyReleased(KeyEvent e) {
         super.keyReleased(e); // Call super to handle common key release events

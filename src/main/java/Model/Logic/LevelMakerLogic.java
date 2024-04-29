@@ -32,7 +32,11 @@ public class LevelMakerLogic {
         return tileCounts;
     }
 
-
+    /**
+     * Changes the number of a specific tile type available to the player.
+     * @param tileType the type of tile to change
+     * @param isIncrement whether to increment or decrement the tile count
+     */
     public void changeTileCount(int tileType, boolean isIncrement) {
 
         // Get the change in tile count

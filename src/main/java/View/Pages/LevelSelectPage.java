@@ -6,45 +6,24 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ * The LevelSelectPage class is responsible for displaying the level select page.
+ */
 public class LevelSelectPage extends JPanel{
 
     private int selectedLevel = -1; // Variable to store the selected level, initialized to -1 (no level selected)
 
-
-
-    protected JPanel getTopPanel(MainMenuPage mainMenu) {
-        JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JButton backButton = new JButton("Back");
-        backButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
-        backButton.addActionListener(e -> mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu"));
-        topPanel.add(backButton);
-        JLabel textLabel = new JLabel("Please select a level: ");
-        textLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
-        topPanel.add(textLabel);
-        return  topPanel;
-    }
-
-    protected void goToBoardPage(MainMenuPage mainMenu, Board board) {
-        BoardPage boardPage = new BoardPage(mainMenu,true, board);
-        mainMenu.getCardPanel().add(boardPage, "boardPage");
-        mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
-    }
-
+    /**
+     * Constructor for the LevelSelectPage class.
+     * @param mainMenu The main menu page to navigate back to.
+     */
     LevelSelectPage(MainMenuPage mainMenu) {
 
         setLayout(new BorderLayout());
 
-
-
         JPanel cardPanel = new JPanel();
         CardLayout cardLayout = new CardLayout();
         cardPanel.setLayout(cardLayout);
-
-        //JPanel mainMenuPanel = createMainMenuPanel();
-        //this.cardPanel.add(mainMenuPanel, "mainMenu");
-
-
 
         add(cardPanel, BorderLayout.CENTER);
 
@@ -96,6 +75,33 @@ public class LevelSelectPage extends JPanel{
 
         // Add the grid panel to the center of the LevelSelectPage
         add(gridPanel, BorderLayout.CENTER);
+    }
+
+    /**
+     * Get the top panel of the LevelSelectPage.
+     * @param mainMenu The main menu page to navigate back to.
+     * @return The top panel of the LevelSelectPage.
+     */
+    protected JPanel getTopPanel(MainMenuPage mainMenu) {
+        JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JButton backButton = new JButton("Back");
+        backButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+        backButton.addActionListener(e -> mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu"));
+        topPanel.add(backButton);
+        JLabel textLabel = new JLabel("Please select a level: ");
+        textLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+        topPanel.add(textLabel);
+        return  topPanel;
+    }
+    /**
+     * Go to the board page with the selected level.
+     * @param mainMenu The main menu page to navigate back to.
+     * @param board The board to go to.
+     */
+    protected void goToBoardPage(MainMenuPage mainMenu, Board board) {
+        BoardPage boardPage = new BoardPage(mainMenu,true, board);
+        mainMenu.getCardPanel().add(boardPage, "boardPage");
+        mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
     }
 
 

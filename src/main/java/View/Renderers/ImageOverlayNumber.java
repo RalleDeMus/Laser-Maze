@@ -3,6 +3,10 @@ package View.Renderers;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * The ImageOverlayNumber class is responsible for displaying an image with a number overlay.
+ * This is used in the level maker for the UI
+ */
 public class ImageOverlayNumber extends JComponent {
     final private ImageIcon imageIcon;
     private int number;

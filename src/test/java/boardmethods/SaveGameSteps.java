@@ -14,7 +14,7 @@ import java.io.File;
 
 import static org.junit.Assert.*;
 
-public class SavingGameStateSteps {
+public class SaveGameSteps {
     private Board board;
     private final File file = new File("src/main/levels/custom/test.json");
 

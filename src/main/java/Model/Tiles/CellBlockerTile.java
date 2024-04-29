@@ -2,6 +2,10 @@ package Model.Tiles;
 
 import Controller.AssetServer;
 
+/**
+ * Class for the cell blocker tile.
+ * The cell blocker tile is used to block the placement of another tile.
+ */
 public class CellBlockerTile extends Tile {
     public CellBlockerTile(boolean isMoveable) {
         super(isMoveable, false);

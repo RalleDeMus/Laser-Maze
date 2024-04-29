@@ -8,7 +8,7 @@ import io.cucumber.java.en.When;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BoardinfoSteps {
+public class BoardInfoSteps {
     private int input;
     private Tile result;
     @Given("a valid integer input {int}")

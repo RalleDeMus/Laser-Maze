@@ -8,26 +8,24 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
+/**
+ * The MultiplayerBoardPage class is responsible for displaying the board and handling UI for the multiplayer game mode.
+ */
 public class MultiplayerBoardPage extends BoardPage{
     private int centiSecondsPassed = 0;
     private Timer timer;
 
     private JLabel timeLabel;
-    String currentPlayer;
+    private String currentPlayer;
 
-    protected MultiPlayerLogic multiPlayerLogic;
+    final private MultiPlayerLogic multiPlayerLogic;
 
     public MultiplayerBoardPage(MainMenuPage mainMenu, boolean includeLaserFeatures, Board board, MultiPlayerLogic multiPlayerLogic) {
         super(mainMenu, includeLaserFeatures, board);
         this.multiPlayerLogic = multiPlayerLogic;
     }
 
-    public MultiplayerBoardPage(MainMenuPage mainMenu, boolean includeLaserFeatures, Board board,int players) {
-        super(mainMenu, includeLaserFeatures, board);
-        this.multiPlayerLogic = new MultiPlayerLogic(players);
-    }
-
+    // Get the timer text
     @Override
     protected JLabel getTimerText() {
         timeLabel = new JLabel("Time: 0");
@@ -47,12 +45,13 @@ public class MultiplayerBoardPage extends BoardPage{
         return timeLabel;
     }
 
+    //stops the timer
     @Override
     protected void stopTimer() {
         timer.stop();
     }
 
-    @Override
+    // Switch to the next player
     protected JButton goToNextLevelPageButton() {
         JButton nextLevelButton = new JButton("");
         if (multiPlayerLogic.playerEqualPlayers()){

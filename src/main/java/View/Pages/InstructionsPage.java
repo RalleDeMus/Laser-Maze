@@ -5,7 +5,9 @@ import Controller.AssetServer;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-
+/**
+ * The InstructionsPage class is responsible for displaying the instructions for the game.
+ */
 public class InstructionsPage extends JPanel{
     InstructionsPage(MainMenuPage mainMenu) {
         setLayout(new BorderLayout());

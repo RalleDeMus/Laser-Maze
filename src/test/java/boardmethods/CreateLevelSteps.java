@@ -10,7 +10,7 @@ import io.cucumber.java.en.When;
 
 import static org.junit.Assert.*;
 
-public class LevelMakerSteps {
+public class CreateLevelSteps {
     Board board = new Board("0");
     String customLevel;
 

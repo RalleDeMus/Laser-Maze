@@ -1,19 +1,14 @@
 package LaserMethods;
 
 import Model.Logic.Board;
-import Model.Logic.Laser;
 import Model.Logic.LaserCalculator;
-import Model.Tiles.LaserTile;
-import Model.Tiles.MirrorTile;
 import Model.Tiles.SplitterTile;
 import io.cucumber.java.en.*;
-
-import java.awt.*;
 
 import static org.junit.Assert.*;
 
 
-public class LaserCalculation {
+public class CheckWinConditionSteps {
 
     Board board;
     @Given("i load level 6")

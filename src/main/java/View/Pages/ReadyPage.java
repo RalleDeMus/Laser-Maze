@@ -5,7 +5,10 @@ import Model.Logic.MultiPlayerLogic;
 
 import javax.swing.*;
 import java.awt.*;
-
+/**
+ * The ReadyPage class is responsible for displaying the ready page for multiplayer mode.
+ * The page is made so the players can choose when they are ready to play.
+ */
 public class ReadyPage extends JPanel {
 
     MultiPlayerLogic multiPlayerLogic;
@@ -13,7 +16,12 @@ public class ReadyPage extends JPanel {
     MainMenuPage mainMenu;
 
     Board board;
-
+    /**
+     * Create the ready page for multiplayer mode
+     * @param mainMenu The main menu page
+     * @param board The board to play on
+     * @param multiPlayerLogic The multiplayer logic
+     */
     public ReadyPage(MainMenuPage mainMenu, Board board, MultiPlayerLogic multiPlayerLogic) {
         this.multiPlayerLogic = multiPlayerLogic;
         this.mainMenu = mainMenu;
@@ -28,7 +36,7 @@ public class ReadyPage extends JPanel {
         setup();
     }
 
-    public void setup() {
+    private void setup() {
         setLayout(new GridBagLayout()); // Ensure this panel uses GridBagLayout
         GridBagConstraints gbc = new GridBagConstraints();
 
@@ -69,7 +77,7 @@ public class ReadyPage extends JPanel {
 
     }
 
-    protected void addTopPanel(GridBagConstraints constraints) {
+    private void addTopPanel(GridBagConstraints constraints) {
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JButton backButton = new JButton("Back");
         backButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
@@ -78,8 +86,8 @@ public class ReadyPage extends JPanel {
 
         add(topPanel, constraints);  // add the top panel to the main panel with constraints
     }
-
-    protected void addReadyButton(GridBagConstraints constraints) {
+    // Add the ready button to the panel and start the game when pressed
+    private void addReadyButton(GridBagConstraints constraints) {
         JButton readyButton = new JButton("Ready");
         readyButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 50));
 

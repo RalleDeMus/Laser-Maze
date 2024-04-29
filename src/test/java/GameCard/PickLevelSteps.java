@@ -15,7 +15,7 @@ import java.util.Map;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class GameCardSteps {
+public class PickLevelSteps {
     private Board board;
     private Tile[][] tiles;
     private static final Map<String, int[]> levelConfigs = new HashMap<>();

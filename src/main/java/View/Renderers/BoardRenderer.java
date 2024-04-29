@@ -8,7 +8,9 @@ import Model.Tiles.Tile;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-
+/**
+ * The BoardRenderer class is responsible for drawing the board.
+ */
 public class BoardRenderer extends JPanel {
     protected Board board;
 
@@ -23,6 +25,7 @@ public class BoardRenderer extends JPanel {
         drawBoard(g);
     }
 
+    // Draw the board
     public void drawBoard(Graphics g) {
         int boardSize = board.getBoardSize();
         int squareSize = board.getSquareSize();

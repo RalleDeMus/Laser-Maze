@@ -3,7 +3,11 @@ package Model.Tiles;
 import Controller.ImageHandler;
 
 import java.awt.image.BufferedImage;
-
+/**
+ * Abstract class for the tiles.
+ * The tiles are the building blocks of the game.
+ * They are placed on the board and the laser is reflected by them.
+ */
 abstract public class Tile implements TileInterface, Cloneable{
 
 
@@ -39,6 +43,8 @@ abstract public class Tile implements TileInterface, Cloneable{
         this.isRotateable = isRotateable;
     }
 
+    // Clone method for the tile
+    // Clones the selected tile for placement on the board
     @Override
     public Tile clone() throws CloneNotSupportedException {
         try {
@@ -137,7 +143,7 @@ abstract public class Tile implements TileInterface, Cloneable{
     /**
      * Rotate the tile by howMuch times.
      * If mod is 4 we can rotate it 4 times.
-     * If mod is 5 we can rotate it 5 times where the fifth time is free rotation.
+     * If mod is 5 we can rotate it 5 times where the fifth time is free rotation for the level maker.
      */
     public void rotate(int howMuch, int mod){
         if (orientation == 4 && mod == 4) {

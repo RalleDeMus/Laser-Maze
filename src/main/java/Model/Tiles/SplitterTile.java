@@ -2,7 +2,10 @@ package Model.Tiles;
 
 import Controller.AssetServer;
 
-
+/**
+ * Class for the splitter tile.
+ * The splitter tile is a tile that can split the laser beam in two directions.
+ */
 public class SplitterTile extends Tile {
 
     public SplitterTile(boolean isMoveable, boolean isRotatable) {

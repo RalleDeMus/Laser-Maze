@@ -41,7 +41,7 @@ public class ToolBar extends MouseAdapter  {
     }
 
 
-
+    //select tile from toolbar with left click
     @Override
     public void mousePressed(MouseEvent e) {
         if(e.getButton() == MouseEvent.BUTTON1) {
@@ -69,6 +69,7 @@ public class ToolBar extends MouseAdapter  {
         }
     }
 
+    //converts an integer to a tile
     public static Tile intToTile (int i) {
         switch(i) {
             case 0:

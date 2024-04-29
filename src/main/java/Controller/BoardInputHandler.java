@@ -7,7 +7,7 @@ import java.awt.event.*;
 /**
  * The BoardInputHandler class is responsible for handling the input from the user on the board.
  */
-public class BoardInputHandler extends MouseAdapter implements KeyListener {
+public class BoardInputHandler extends MouseAdapter implements KeyListener{
     protected Board board;
     protected JPanel panel;
 
@@ -53,6 +53,7 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
         });
     }
 
+    //remove or add tile with left or right click
     @Override
     public void mousePressed(MouseEvent e) {
         if(e.getX()<board.getBoardSize()*board.getSquareSize()) {
@@ -66,7 +67,13 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
         }
     }
 
+
     @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    //rotate tile with R
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_R) {
             board.rotateSelectedTile(false);
@@ -75,8 +82,9 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
     }
 
     @Override
-    public void keyReleased(KeyEvent e) { }
+    public void keyReleased(KeyEvent e) {
 
-    @Override
-    public void keyTyped(KeyEvent e) { }
+    }
+
+
 }

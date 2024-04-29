@@ -13,7 +13,7 @@ import java.awt.*;
 
 import static org.junit.Assert.*;
 
-public class ManipulatingTilesSteps {
+public class ManipulateTilesSteps {
 
     Board board;
     Tile selectedTile;

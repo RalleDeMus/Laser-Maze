@@ -7,7 +7,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
-
+/**
+ * The ScoreboardPage class is responsible for displaying the scoreboard page for multiplayer mode.
+ * The scoreboard is displayed after a multiplayer game has ended.
+ */
 public class ScoreboardPage extends JPanel {
 
     MainMenuPage mainMenu;

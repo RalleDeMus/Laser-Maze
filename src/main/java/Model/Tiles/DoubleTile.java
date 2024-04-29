@@ -2,7 +2,10 @@ package Model.Tiles;
 
 import Controller.AssetServer;
 
-
+/**
+ * Class for the double mirror tile.
+ * The double mirror tile is a tile that can reflect the laser beam on two sides.
+ */
 public class DoubleTile extends Tile {
     public DoubleTile(boolean isMoveable, boolean isRotateable) {
         super( isMoveable,  isRotateable);

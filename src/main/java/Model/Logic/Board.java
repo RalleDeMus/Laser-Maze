@@ -69,10 +69,7 @@ public class Board {
     }
 
 
-/*
-Getters and setters (Maybe we can make some of these their own?)
-*/
-
+    //calculate the position of the tile
     private Point getTilePos(int x, int y) {
 
         return new Point(Math.min(x / squareSize,boardSize-1),  Math.min(y / squareSize,boardSize-1));
@@ -84,6 +81,7 @@ Getters and setters (Maybe we can make some of these their own?)
 
     public void setSelectedTile(Tile tile){
         if (tile != null ) {
+            //if tile already selected set null
             if(selectedTile != null) {
                 if (selectedTile.getClass() == tile.getClass()) {
                     selectedTile = null;
@@ -113,7 +111,7 @@ Getters and setters (Maybe we can make some of these their own?)
         return laserWasFired;
     }
 
-    // Get the first tile with tag
+    // Get the laser tile on the board
     private Tile getLaserTile() {
         for (int row = 0; row < boardSize; row++) {
             for (int col = 0; col < boardSize; col++) {
@@ -125,6 +123,7 @@ Getters and setters (Maybe we can make some of these their own?)
         return null;
     }
 
+    // Get the game_info by index
     public int get_game_info_by_index(int index) {
         if (index < 0 || index > game_info.length - 1) {
             throw new IllegalArgumentException("Index out of bounds");
@@ -133,7 +132,6 @@ Getters and setters (Maybe we can make some of these their own?)
     }
 
     public int[] get_game_info() {
-
         return game_info;
     }
 
@@ -157,7 +155,8 @@ Getters and setters (Maybe we can make some of these their own?)
         win = false;
     }
 
-    public void setWin() {
+    // check if wincondition is met
+    public void checkWinCondition() {
         System.out.println("Mirrors hit: " + mirrorsHit + " Count mirrors: " + countMirrors());
         System.out.println("Targets hit: " + targetsHit + " Count targets: " + game_info[4]);
         if (mirrorsHit >= countMirrors() && targetsHit == game_info[4]){
@@ -182,6 +181,7 @@ Getters and setters (Maybe we can make some of these their own?)
         return cursorPos;
     }
 
+    // Set the level of the game
     public void setCardLevel(String level) {
         //System.out.println("Setting card level to: " + level);
         this.level = level;
@@ -198,10 +198,8 @@ Getters and setters (Maybe we can make some of these their own?)
         }
         return level;
     }
-/*
-Two logical getters
-*/
 
+    // Check if a laser is needed
     public boolean laserNeeded() {
         for (int row = 0; row < boardSize; row++) {
             for (int col = 0; col < boardSize; col++) {
@@ -213,6 +211,7 @@ Two logical getters
         return true;
     }
 
+    // count number of mirrors placed on the board
     private int countMirrors() {
         int mirrors = 0;
         for (int i = 0; i < boardSize; i++) {
@@ -226,13 +225,9 @@ Two logical getters
 
     }
 
-/*
-HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
-*/
-
     //Add a tile
     public void addTile(boolean unSelectSelectedTileAfterPlacement) {
-
+        // player has to select a tile first
         if (selectedTile != null) {
             Tile t;
 
@@ -241,8 +236,9 @@ HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
             } catch (CloneNotSupportedException e) {
                 throw new RuntimeException(e);
             }
-
+            // the position needs to be empty for a tile to be placed
             if (tiles[cursorPos.y][cursorPos.x] == null) {
+                // Check if a new tile can be placed
                 if (t instanceof LaserTile && getLaserTile() != null) {
                     //System.out.println("Laser already exists");
                     return;
@@ -277,8 +273,10 @@ HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
                     }
                 }
 
-
+                // only used in levelmaker
                 if(unSelectSelectedTileAfterPlacement) selectedTile = null;
+
+                //place tile
                 tiles[cursorPos.y][cursorPos.x] = t;
 
             }
@@ -286,9 +284,11 @@ HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
     }
 
 
-    // Remove a tile
+    // Remove a tile from the board
     public void removeTile() {
+        //check if there is a tile and if it is moveable
         if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsMovable()) {
+            // add one extra to placeable tiles
             if (tiles[cursorPos.y][cursorPos.x] instanceof MirrorTile) {
                 game_info[0]++;
             } else if (tiles[cursorPos.y][cursorPos.x] instanceof SplitterTile) {
@@ -298,16 +298,18 @@ HERE WE HAVE ADD TILES AND REMOVE TILES AND ROTATE TILES
             } else if (tiles[cursorPos.y][cursorPos.x] instanceof DoubleTile) {
                 game_info[3]++;
             }
+            //remove tile
             tiles[cursorPos.y][cursorPos.x] = null;
         }
     }
 
 
 
-
+    // Rotate the tile at cursor position
     public void rotateSelectedTile(boolean levelEditor) {
-
+        //used in levelmaker to check if a tile needs to be rotatable in custom level
         int mod = levelEditor ? 5 : 4; // If we have a level editor we can rotate 5 times, otherwise 4 times. Fifth rotation is for free rotation.
+        // check if there is a tile and if it is rotatable
         if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsRotatable()) {
             tiles[cursorPos.y][cursorPos.x].rotate(1,mod);
         }

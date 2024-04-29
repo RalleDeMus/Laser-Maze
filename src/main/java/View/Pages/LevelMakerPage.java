@@ -13,7 +13,9 @@ import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.image.BufferedImage;
-
+/**
+ * The LevelMakerPage class is responsible for displaying the UI for the level maker.
+ */
 public class LevelMakerPage extends JPanel {
 
 
@@ -21,19 +23,18 @@ public class LevelMakerPage extends JPanel {
 
     final private MainMenuPage mainMenu;
 
-    //private int targets = 0;
+    final private LevelMakerLogic levelMakerLogic;
 
-    //int[] tileCounts = new int[4];
+    final private ImageOverlayNumber[] tileLabels = new ImageOverlayNumber[5];
 
-    LevelMakerLogic levelMakerLogic;
+    private TargetRender targetCircle = new TargetRender(0, new Color(222, 48, 48), Color.WHITE, 60);
 
-    ImageOverlayNumber[] tileLabels = new ImageOverlayNumber[5];
+    final private AssetServer assetServer = AssetServer.getInstance();
 
-    TargetRender targetCircle = new TargetRender(0, new Color(222, 48, 48), Color.WHITE, 60);
-
-    private AssetServer assetServer = AssetServer.getInstance();
-
-
+    /**
+     * Constructor for the LevelMakerPage class.
+     * @param mainMenu The main menu page to navigate back to.
+     */
     public LevelMakerPage(MainMenuPage mainMenu) {
         levelMakerLogic = new LevelMakerLogic();
         this.mainMenu = mainMenu;
@@ -152,6 +153,7 @@ public class LevelMakerPage extends JPanel {
 
     }
 
+    //update the displayed tile count for extra tiles
     void updateTileCount() {
 
 
@@ -162,6 +164,7 @@ public class LevelMakerPage extends JPanel {
         }
     }
 
+    //create the circle panel for the targets
     private JPanel createCirclePanel() {
         // Create the panel with GridBagLayout
         JPanel circlePanel = new JPanel(new GridBagLayout());
@@ -212,6 +215,7 @@ public class LevelMakerPage extends JPanel {
 
     }
 
+    //Create a small area to show what buttons to push for the different tiles
     private JPanel createEastContainer() {
         JPanel eastContainer = new JPanel(new GridBagLayout());
         GridBagConstraints ecGbc = new GridBagConstraints();
@@ -287,7 +291,7 @@ public class LevelMakerPage extends JPanel {
             ecGbc.fill = GridBagConstraints.NONE;
             eastContainer.add(plusButtonTile, ecGbc);
 
-            ecGbc.insets = new Insets(0, 0, 0, 0);
+            new Insets(0, 0, 0, 0);
         }
 
         ecGbc.insets = new Insets(10, 0, 0, 0);
@@ -323,8 +327,8 @@ public class LevelMakerPage extends JPanel {
     }
 
 
-
-    BufferedImage getTileImage (int tileType) {
+    //get the image for the tile
+    private BufferedImage getTileImage (int tileType) {
         BufferedImage tileImage = null;
 
         switch (tileType) {
@@ -347,6 +351,7 @@ public class LevelMakerPage extends JPanel {
         return tileImage;
     }
 
+    //save the level and start playing it
     private void saveLevel() {
         JSONSaving.saveLevelWithFreeRotations(board, levelMakerLogic.getTileCounts(), levelMakerLogic.getTargets());
 

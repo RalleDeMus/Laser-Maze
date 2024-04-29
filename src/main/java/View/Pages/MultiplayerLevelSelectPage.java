@@ -4,7 +4,9 @@ import Model.Logic.Board;
 
 import javax.swing.*;
 import java.awt.*;
-
+/**
+ * The MultiplayerLevelSelectPage class is responsible for displaying the level select page for multiplayer mode.
+ */
 public class MultiplayerLevelSelectPage extends LevelSelectPage{
 
     SpinnerModel spinnerModel; // initial value, min, max, step
@@ -13,7 +15,7 @@ public class MultiplayerLevelSelectPage extends LevelSelectPage{
     public MultiplayerLevelSelectPage(MainMenuPage mainMenuPage){
         super(mainMenuPage);
     }
-
+    // Create the page for the multiplayer level select
     @Override
     protected JPanel getTopPanel(MainMenuPage mainMenu) {
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -36,6 +38,7 @@ public class MultiplayerLevelSelectPage extends LevelSelectPage{
         return  topPanel;
     }
 
+    // Go to the board page with the selected level
     @Override
     protected void goToBoardPage(MainMenuPage mainMenu, Board board) {
         ReadyPage readyPage = new ReadyPage(mainMenu, board, (Integer) spinnerModel.getValue());

@@ -2,7 +2,10 @@ package Model.Tiles;
 
 import Controller.AssetServer;
 
-
+/**
+ * Class for the mirror tile.
+ * The mirror tile is a tile that can reflect the laser beam on one side and has the target on another side.
+ */
 public class MirrorTile extends Tile {
 
     public MirrorTile(boolean isMoveable, boolean isRotateable) {

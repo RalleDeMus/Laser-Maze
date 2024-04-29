@@ -10,8 +10,13 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
+/**
+    * The LaserToolBarRenderer class is responsible for drawing the laser and the toolbar.
 
+ */
 public class LaserToolBarRenderer extends BoardRenderer {
+
+    final private AssetServer assetServer = AssetServer.getInstance();
 
     public LaserToolBarRenderer(Board board) {
         super(board);
@@ -29,7 +34,7 @@ public class LaserToolBarRenderer extends BoardRenderer {
         List<BufferedImage> tiles = new ArrayList<>();
 
         if (board.laserNeeded()) {
-            tiles.add(AssetServer.getInstance().getImage("laser"));
+            tiles.add(assetServer.getImage("laser"));
         }
 
         for (int i = 0; i < 4; i++) {
@@ -45,23 +50,25 @@ public class LaserToolBarRenderer extends BoardRenderer {
 
     }
 
-    BufferedImage getTileImage(int i) {
+    private BufferedImage getTileImage(int i) {
+
         switch (i) {
             case 0:
-                return AssetServer.getInstance().getImage("targetMirror");
+                return assetServer.getImage("targetMirror");
             case 1:
-                return AssetServer.getInstance().getImage("beamSplitter");
+                return assetServer.getImage("beamSplitter");
             case 2:
-                return AssetServer.getInstance().getImage("checkPoint");
+                return assetServer.getImage("checkPoint");
             case 3:
-                return AssetServer.getInstance().getImage("doubleMirror");
+                return assetServer.getImage("doubleMirror");
             case 4:
-                return AssetServer.getInstance().getImage("laser");
+                return assetServer.getImage("laser");
         }
         return null;
     }
 
-    void drawLaser(Graphics g){
+    // draw the laserRay
+    private void drawLaser(Graphics g){
 
         if(board.getLaserFired()) {
             List<PointStringPair> laserMap = LaserCalculator.constructLaserTree(board);
@@ -78,13 +85,13 @@ public class LaserToolBarRenderer extends BoardRenderer {
                     String value = pair.getValue();
 
                     if (!value.equals("___")) {
-                        BufferedImage image = AssetServer.getInstance().getImage("laserRay");
+                        BufferedImage image = assetServer.getImage("laserRay");
 
                         if (value.charAt(0) != '_') {
                             if (value.charAt(1) == '8') {
                                 int direction = Character.getNumericValue(value.charAt(0));
 
-                                g.drawImage(ImageHandler.rotateImage(AssetServer.getInstance().getImage("laserRayTarget"), 90 * direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
+                                g.drawImage(ImageHandler.rotateImage(assetServer.getImage("laserRayTarget"), 90 * direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
 
                             } else {
                                 int direction = Character.getNumericValue(value.charAt(0));

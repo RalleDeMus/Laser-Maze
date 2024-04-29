@@ -20,6 +20,8 @@ public class LevelMakerInputHandler extends BoardInputHandler {
         super(board, panel, yOffset, removeTileAfterPlace);
     }
 
+    //rotate tile when R key is pressed
+    //select tiles when 1-6 key is pressed
     @Override
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {

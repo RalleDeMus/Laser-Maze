@@ -1,7 +1,10 @@
 package Model.Tiles;
 
 import Controller.AssetServer;
-
+/**
+ * Class for the laser tile.
+ * The laser tile is the tile that shoots the laser.
+ */
 
 public class LaserTile extends Tile {
 

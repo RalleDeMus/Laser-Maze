@@ -1,7 +1,10 @@
 package Model.Tiles;
 
 import Controller.AssetServer;
-
+/**
+ * Class for the check point tile.
+ * The check point tile is a tile the laser has to pass through in a specific direction.
+ */
 
 public class CheckPointTile extends Tile {
     public CheckPointTile(boolean isMoveable, boolean isRotateable) {

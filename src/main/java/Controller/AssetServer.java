@@ -11,7 +11,7 @@ import java.util.Objects;
 
 /**
  * Singleton class to handle the assets of the game.
-
+ * Facade to easily get the assets when needed.
  */
 public class AssetServer {
 

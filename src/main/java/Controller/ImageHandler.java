@@ -7,10 +7,11 @@ import java.awt.AlphaComposite;
 
 /**
  * Class to handle image manipulation.
- * Swing doesnt support rotation and transparency of images so we make this class to handle that.
+ * Swing doesn't support rotation and transparency of images so we make this class to handle that.
  */
 public class ImageHandler {
 
+    //makes the image transparent
     public static BufferedImage transImage(BufferedImage image, float alphaValue) {
         // Create a new BufferedImage with the same dimensions and a format that supports alpha
         BufferedImage transparentImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
@@ -31,6 +32,7 @@ public class ImageHandler {
         return transparentImage;
     }
 
+    //rotates the image
     public static BufferedImage rotateImage(BufferedImage image, double degrees) {
         double radians = Math.toRadians(degrees);
         double sin = Math.abs(Math.sin(radians));

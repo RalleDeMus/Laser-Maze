@@ -6,7 +6,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
-
+/**
+ * The CustomLevelsPage class is responsible for displaying the custom levels.
+ */
 public class CustomLevelsPage extends JPanel {
 
 

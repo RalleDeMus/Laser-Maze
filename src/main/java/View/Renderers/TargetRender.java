@@ -3,6 +3,10 @@ package View.Renderers;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * The TargetRender class is responsible for drawing when a target is hit.
+ */
+
 public class TargetRender extends JComponent {
     private int number;
     private Color circleColor;

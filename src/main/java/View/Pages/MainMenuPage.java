@@ -7,11 +7,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
-
+/**
+ * The MainMenuPage class is responsible for displaying the main menu and handling the input from the user on the main menu.
+ */
 public class MainMenuPage extends JFrame implements ActionListener {
     final private JPanel cardPanel;
     final private CardLayout cardLayout;
-
+    /**
+     * Constructor for the MainMenuPage class.
+     */
     public MainMenuPage() {
         setTitle("Laser Maze");
         setSize(800, 800);
@@ -54,6 +58,10 @@ public class MainMenuPage extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * Create the main menu panel with all buttons.
+     * @return The main menu panel.
+     */
     private JPanel createMainMenuPanel() {
         JPanel panel = new JPanel();
         panel.setOpaque(false);
@@ -105,6 +113,7 @@ public class MainMenuPage extends JFrame implements ActionListener {
         return panel;
     }
 
+    //create cooler buttons
     private JButton createStyledButton(String text) {
         Color buttonColor = new Color(100, 0, 0);
 
@@ -158,7 +167,7 @@ public class MainMenuPage extends JFrame implements ActionListener {
         return button;
     }
 
-
+    //action listener for the buttons that open the different pages
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
 
@@ -191,6 +200,7 @@ public class MainMenuPage extends JFrame implements ActionListener {
         }
     }
 
+    //switch to a specific panel
     private void switchToPanel(String name, JPanel panel) {
         cardPanel.add(panel, name);
         cardLayout.show(cardPanel, name);
