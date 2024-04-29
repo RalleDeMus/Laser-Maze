@@ -119,7 +119,10 @@ public class BoardPage extends JPanel {
     }
 
     private JLabel createLevelLabel() {
-        return new JLabel("   Level: " + board.getLevel(), JLabel.LEFT);
+        JLabel levelText = new JLabel("   Level: " + board.getLevel(), JLabel.LEFT);
+        levelText.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+
+        return levelText;
     }
 
     private void addTemporaryLevelFields(JPanel panel) {

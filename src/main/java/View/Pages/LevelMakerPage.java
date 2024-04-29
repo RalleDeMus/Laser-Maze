@@ -80,80 +80,58 @@ public class LevelMakerPage extends JPanel {
 
 
     public void initializeUI(MainMenuPage mainMenu, int topPanelHeight, BoardRenderer renderer) {
-        setLayout(new GridBagLayout()); // Set the main layout to GridBagLayout
-        GridBagConstraints gbc = new GridBagConstraints();
+        setLayout(new GridBagLayout());
 
-        // Top panel setup
+        // Add top panel
+        JPanel topPanel = createTopPanel(mainMenu, topPanelHeight);
+        addComponent(topPanel, 0, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0));
+
+        // Add renderer
+        addComponent(renderer, 0, 1, 2, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0));
+
+        // Add east container
+        JPanel eastContainer = createEastContainer();
+        addComponent(eastContainer, 2, 1, 1, 1, 0, 1.0, GridBagConstraints.EAST, GridBagConstraints.VERTICAL, new Insets(0, 0, 0, 0));
+
+        // Add circle panel
+        JPanel circlePanel = createCirclePanel();
+        addComponent(circlePanel, 0, 3, 1, 1, 0, 0, GridBagConstraints.SOUTHWEST, GridBagConstraints.HORIZONTAL, new Insets(10, 10, 10, 0));
+
+        // Add "Save and play level" button
+        JButton newButton = createButton("Save and play level", new Font("Baloo Bhaijaan", Font.PLAIN, 20), new Dimension(200, 40), e -> {
+            saveLevel();
+        });
+        addComponent(newButton, 1, 3, GridBagConstraints.REMAINDER, 1, 0, 0, GridBagConstraints.SOUTHEAST, GridBagConstraints.NONE, new Insets(10, 10, 10, 10));
+    }
+
+    private JPanel createTopPanel(MainMenuPage mainMenu, int topPanelHeight) {
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JButton backButton = new JButton("Back");
-        backButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
-        backButton.addActionListener(e -> mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu"));
+        JButton backButton = createButton("Back", new Font("Baloo Bhaijaan", Font.PLAIN, 20), null, e -> {
+            mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu");
+        });
         topPanel.setPreferredSize(new Dimension(getWidth(), topPanelHeight));
         topPanel.add(backButton);
         topPanel.add(Box.createHorizontalGlue());
-
-        // Add top panel to the top of the layout
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.gridwidth = 1;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        add(topPanel, gbc);
-
-        // Renderer setup
-        gbc.gridx = 0;
-        gbc.gridy = 1; // Moved down by one to make space for the allTiles image
-        gbc.gridwidth = 2; // Spanning two columns to provide space for the board
-        gbc.gridheight = 1; // Spanning only one row high
-        gbc.weightx = 1.0; // Allow horizontal expansion
-        gbc.weighty = 1.0; // Allow vertical expansion - important for the board
-        gbc.fill = GridBagConstraints.BOTH;
-        add(renderer, gbc);
-
-
-
-        // East container setup
-        JPanel eastContainer = createEastContainer(); // Method to create the east container
-        gbc.gridx = 2; // Move to the last column
-        gbc.gridy = 1; // Adjusted to the new row
-        gbc.anchor = GridBagConstraints.EAST;
-        gbc.fill = GridBagConstraints.VERTICAL;
-        add(eastContainer, gbc); // Add east container to the right side
-
-        // Circle panel setup
-        JPanel circlePanel = createCirclePanel(); // Method to create the circle panel
-
-        // New button setup in the bottom left of the same row
-        JButton newButton = new JButton("Save and play level");
-        newButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
-        newButton.addActionListener(e -> {
-            saveLevel();
-        });
-
-        gbc.gridx = 0;
-        gbc.gridy = 3; // Adjusted for the new row
-        gbc.gridwidth = 1;
-        gbc.gridheight = 1; // Make sure it's set to 1 to not affect other rows
-        gbc.weightx = 0; // No horizontal expansion for the circle panel
-        gbc.weighty = 0; // No vertical expansion for the circle panel
-        gbc.anchor = GridBagConstraints.SOUTHWEST; // Align to the bottom left
-        gbc.fill = GridBagConstraints.HORIZONTAL; // Fill horizontally if needed
-        gbc.insets = new Insets(10, 10, 10, 0); // Adjust for padding
-        add(circlePanel, gbc);
-
-        gbc.gridx = 1; // Adjust the position based on your layout
-        gbc.gridy = 3; // Adjusted for the new row
-        gbc.gridwidth = GridBagConstraints.REMAINDER; // Take up the remainder of the row
-        gbc.anchor = GridBagConstraints.SOUTHEAST; // Align to the bottom right
-        gbc.fill = GridBagConstraints.NONE; // Do not stretch the button
-        gbc.insets = new Insets(10, 10, 10, 10); // Adjust for padding
-        add(newButton, gbc);
-
+        return topPanel;
     }
+
+    private void addComponent(JComponent component, int gridx, int gridy, int gridwidth, int gridheight, double weightx, double weighty, int anchor, int fill, Insets insets) {
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = gridx;
+        gbc.gridy = gridy;
+        gbc.gridwidth = gridwidth;
+        gbc.gridheight = gridheight;
+        gbc.weightx = weightx;
+        gbc.weighty = weighty;
+        gbc.anchor = anchor;
+        gbc.fill = fill;
+        gbc.insets = insets;
+        add(component, gbc);
+    }
+
 
     //update the displayed tile count for extra tiles
     void updateTileCount() {
-
-
         for (int i = 0; i < levelMakerLogic.getTileCounts().length; i++) {
             tileLabels[i].setNumber(levelMakerLogic.getTileCounts()[i]);
             tileLabels[i].revalidate();
@@ -163,53 +141,47 @@ public class LevelMakerPage extends JPanel {
 
     //create the circle panel for the targets
     private JPanel createCirclePanel() {
-        // Create the panel with GridBagLayout
         JPanel circlePanel = new JPanel(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5); // Margin between components
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.anchor = GridBagConstraints.CENTER;
 
-        // Create and configure the "Targets:" label
-        JLabel normalLabel = new JLabel(" Targets: ");
-        normalLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 40));
-        circlePanel.add(normalLabel, gbc);
+        // Add "Targets:" label
+        JLabel normalLabel = createLabel("Targets: ", new Font("Baloo Bhaijaan", Font.PLAIN, 40));
+        circlePanel.add(normalLabel, getDefaultGBC(0, 0));
 
-        // Create and configure the target circle
-        targetCircle = new TargetRender(levelMakerLogic.getTargets(), new Color(222, 48, 48), Color.WHITE, 60);
-        gbc.gridx++;
-        circlePanel.add(targetCircle, gbc);
+        // Add target circle
+        targetCircle = createTargetCircle();
+        circlePanel.add(targetCircle, getDefaultGBC(1, 0));
 
-        // Create and configure the minus button
-        JButton minusButton = new JButton("-");
-        minusButton.setFont(new Font("Baloo Bhaijaan", Font.BOLD, 20));
-        minusButton.setMargin(new Insets(0,0,0,0));
-        minusButton.setPreferredSize(new Dimension(40, 40));
-        minusButton.addActionListener(e -> {
-
+        // Add minus button
+        JButton minusButton = createButton("-", new Font("Baloo Bhaijaan", Font.BOLD, 20), new Dimension(40, 40), e -> {
             levelMakerLogic.decrementTargets();
             updateTargetCounter();
             LevelMakerPage.this.requestFocusInWindow();
         });
-        gbc.gridx++;
-        circlePanel.add(minusButton, gbc);
+        circlePanel.add(minusButton, getDefaultGBC(2, 0));
 
-        // Create and configure the plus button
-        JButton plusButton = new JButton("+");
-        plusButton.setFont(new Font("Baloo Bhaijaan", Font.BOLD, 20));
-        plusButton.setMargin(new Insets(0,0,0,0));
-        plusButton.setPreferredSize(new Dimension(40, 40));
-        plusButton.addActionListener(e -> {
+        // Add plus button
+        JButton plusButton = createButton("+", new Font("Baloo Bhaijaan", Font.BOLD, 20), new Dimension(40, 40), e -> {
             levelMakerLogic.incrementTargets();
             updateTargetCounter();
             LevelMakerPage.this.requestFocusInWindow();
         });
-        gbc.gridx++;
-        circlePanel.add(plusButton, gbc);
+        circlePanel.add(plusButton, getDefaultGBC(3, 0));
 
         return circlePanel;
+    }
 
+    private TargetRender createTargetCircle() {
+        // Assuming TargetRender is a valid class that extends JComponent
+        return new TargetRender(levelMakerLogic.getTargets(), new Color(222, 48, 48), Color.WHITE, 60);
+    }
+
+    private GridBagConstraints getDefaultGBC(int gridx, int gridy) {
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = gridx;
+        gbc.gridy = gridy;
+        gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.anchor = GridBagConstraints.CENTER;
+        return gbc;
     }
 
     //Create a small area to show what buttons to push for the different tiles

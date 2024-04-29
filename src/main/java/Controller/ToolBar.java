@@ -58,8 +58,10 @@ public class ToolBar extends MouseAdapter  {
 
                 }
                 int y = e.getY()-yOffset;
-                if(y/board.getSquareSize()<tiles.size()) {
-                    board.setSelectedTile(tiles.get(y / board.getSquareSize()));
+
+                int toolbarSize = board.getSquareSize()/10*8;
+                if(y/toolbarSize<tiles.size()) {
+                    board.setSelectedTile(tiles.get(y / toolbarSize));
                     board.setCursorLocation(0, 0);
                 }
 

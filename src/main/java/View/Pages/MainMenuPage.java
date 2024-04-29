@@ -67,50 +67,30 @@ public class MainMenuPage extends JFrame implements ActionListener {
         panel.setOpaque(false);
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
-        JButton openLastGameButton = createStyledButton("Continue Game");
-        JButton campaignButton = createStyledButton("Campaign");
-        JButton levelSelectButton = createStyledButton("Level Select");
-        JButton levelMakerButton = createStyledButton("Level Maker");
-        JButton multiplayerButton = createStyledButton("Multiplayer");
-        JButton InstructionsButton = createStyledButton("Instructions");
-        JButton customButton = createStyledButton("Custom levels");
-
-        openLastGameButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        campaignButton.setAlignmentX(Component.CENTER_ALIGNMENT); // Center align buttons horizontally
-        levelSelectButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        levelMakerButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        multiplayerButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        InstructionsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        customButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-
-        openLastGameButton.addActionListener(this);
-        campaignButton.addActionListener(this);
-        levelSelectButton.addActionListener(this);
-        levelMakerButton.addActionListener(this);
-        multiplayerButton.addActionListener(this);
-        InstructionsButton.addActionListener(this);
-        customButton.addActionListener(this);
-
-
-        panel.add(Box.createVerticalGlue()); // Add glue to center buttons vertically
-        panel.add(openLastGameButton);
-        panel.add(Box.createVerticalStrut(10)); // Add spacing between buttons
-        panel.add(campaignButton);
-        panel.add(Box.createVerticalStrut(10)); // Add spacing between buttons
-        panel.add(levelSelectButton);
-        panel.add(Box.createVerticalStrut(10));
-        panel.add(levelMakerButton);
-        panel.add(Box.createVerticalStrut(10));
-        panel.add(multiplayerButton);
-        panel.add(Box.createVerticalStrut(10)); // Add spacing between buttons
-        panel.add(customButton);
-        panel.add(Box.createVerticalGlue());
-        panel.add(InstructionsButton);
-        panel.add(Box.createVerticalGlue());
-
+        // Add buttons with spacing
+        panel.add(Box.createVerticalGlue());  // Add glue to center buttons vertically
+        addButtonWithSpacing(panel, createAndSetupButton("Continue Game"), 10);
+        addButtonWithSpacing(panel, createAndSetupButton("Campaign"), 10);
+        addButtonWithSpacing(panel, createAndSetupButton("Level Select"), 10);
+        addButtonWithSpacing(panel, createAndSetupButton("Level Maker"), 10);
+        addButtonWithSpacing(panel, createAndSetupButton("Multiplayer"), 10);
+        addButtonWithSpacing(panel, createAndSetupButton("Custom levels"), 50);
+        addButtonWithSpacing(panel, createAndSetupButton("Instructions"), 0);  // Last button with no extra strut below
+        panel.add(Box.createVerticalGlue());  // Add glue to center buttons vertically
 
         return panel;
+    }
+    private JButton createAndSetupButton(String text) {
+        JButton button = createStyledButton(text);  // Assuming createStyledButton already handles button styling
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        button.addActionListener(this);
+        return button;
+    }
+    private void addButtonWithSpacing(JPanel panel, JButton button, int strutHeight) {
+        panel.add(button);
+        if (strutHeight > 0) {
+            panel.add(Box.createVerticalStrut(strutHeight));  // Adds spacing between buttons
+        }
     }
 
     //create cooler buttons

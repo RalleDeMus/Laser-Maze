@@ -44,8 +44,9 @@ public class LaserToolBarRenderer extends BoardRenderer {
 
         }
 
+        int toolbarSize = board.getSquareSize()/10*8;
         for (int i = 0; i < tiles.size(); i++) {
-            g.drawImage(tiles.get(i), board.getBoardSize() * board.getSquareSize()+board.getSquareSize()/2, i * board.getSquareSize(), board.getSquareSize(), board.getSquareSize(), null);
+            g.drawImage(tiles.get(i), board.getBoardSize() * board.getSquareSize()+board.getSquareSize()/2, i * toolbarSize, toolbarSize, toolbarSize, null);
         }
 
     }

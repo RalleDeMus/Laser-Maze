@@ -37,44 +37,52 @@ public class ReadyPage extends JPanel {
     }
 
     private void setup() {
-        setLayout(new GridBagLayout()); // Ensure this panel uses GridBagLayout
-        GridBagConstraints gbc = new GridBagConstraints();
+        setLayout(new GridBagLayout()); // Set the layout for the panel
 
-        // Constraints for the top panel with the back button
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.gridwidth = 1; // This should only take up the space it needs
-        gbc.anchor = GridBagConstraints.NORTHWEST; // Anchor to the top-left corner
-        gbc.weightx = 0; // Do not stretch horizontally
-        gbc.weighty = 1; // Do not stretch vertically
-        gbc.fill = GridBagConstraints.NONE; // No resizing
-        gbc.insets = new Insets(10, 10, 10, 10); // Padding
+        // Add components to the panel
+        addTopPanel();
+        addCurrentPlayerLabel();
+        addReadyButton();
+    }
+
+    private void addTopPanel() {
+        GridBagConstraints gbc = createDefaultConstraints();
+        gbc.anchor = GridBagConstraints.NORTHWEST;
+        gbc.insets = new Insets(10, 10, 10, 10);
+        // Assuming addTopPanel method adds the component and sets the constraints
         addTopPanel(gbc);
+    }
 
-        // Constraints for the ready button
-        gbc.gridx = 0; // Center horizontally in the panel
-        gbc.gridy = 1; // The second row
-        gbc.weightx = 1; // Stretch to fill the panel width
-        gbc.weighty = 0; // Stretch vertically to push it to the middle
-        gbc.gridwidth = GridBagConstraints.REMAINDER; // Take up the remainder of the row
-        gbc.fill = GridBagConstraints.NONE; // Fill horizontally
-        gbc.anchor = GridBagConstraints.CENTER; // Center this component
+    private void addCurrentPlayerLabel() {
+        GridBagConstraints gbc = createDefaultConstraints();
+        gbc.gridy = 1;
+        gbc.weightx = 1;
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        gbc.anchor = GridBagConstraints.CENTER;
+
         JLabel currentPlayerLabel = new JLabel(multiPlayerLogic.getCurrentPlayer());
         currentPlayerLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 30));
         add(currentPlayerLabel, gbc);
+    }
 
-        // Constraints for the ready button
-        gbc.gridx = 0; // Center horizontally in the panel
-        gbc.gridy = 2; // The second row
-        gbc.weightx = 1; // Stretch to fill the panel width
-        gbc.weighty = 0; // Stretch vertically to push it to the middle
-        gbc.gridwidth = GridBagConstraints.REMAINDER; // Take up the remainder of the row
-        gbc.fill = GridBagConstraints.NONE; // Fill horizontally
-        gbc.anchor = GridBagConstraints.CENTER; // Center this component
-        gbc.insets = new Insets(0, 0, 200, 0); // Reduce vertical padding
+    private void addReadyButton() {
+        GridBagConstraints gbc = createDefaultConstraints();
+        gbc.gridy = 2;
+        gbc.weightx = 1;
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        gbc.insets = new Insets(0, 0, 200, 0);
 
-        addReadyButton(gbc);
+        addReadyButton(gbc); // Assuming addReadyButton method adds the button and sets the constraints
+    }
 
+    private GridBagConstraints createDefaultConstraints() {
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0; // Default column
+        gbc.fill = GridBagConstraints.NONE; // Default fill
+        gbc.weighty = 0; // Default weighty
+        gbc.weightx = 0; // Default weightx, overridden when necessary
+
+        return gbc;
     }
 
     private void addTopPanel(GridBagConstraints constraints) {
