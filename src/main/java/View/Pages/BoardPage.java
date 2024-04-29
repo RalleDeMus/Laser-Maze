@@ -50,7 +50,8 @@ public class BoardPage extends JPanel {
         board.resetWin();
         setLayout(new BorderLayout());
         int topPanelHeight = 40;
-        initializeUI(mainMenu, topPanelHeight, board.get_game_info_by_index(4));
+
+        initializeUI(topPanelHeight, board.get_game_info_by_index(4));
 
 
         // Setup based on feature inclusion
@@ -63,8 +64,10 @@ public class BoardPage extends JPanel {
             renderer = new BoardRenderer(board);
             new BoardInputHandler(board, this, topPanelHeight, true);
         }
+
         add(renderer);
         this.setFocusable(true);
+
         addComponentListener(new ComponentAdapter() {
             @Override
             public void componentShown(ComponentEvent e) {
@@ -73,29 +76,95 @@ public class BoardPage extends JPanel {
         });
     }
 
-    // when a level is completed the user can go to the next level
-    protected JButton goToNextLevelPageButton() {
-        JButton nextLevelButton = new JButton("Next Level");
-
-
-        nextLevelButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
-        nextLevelButton.addActionListener(e -> {
-            try{
-
-                board.setCardLevel(String.valueOf(Integer.parseInt(board.getLevel())+1));
-            } catch (Exception exception) {
-                board.setCardLevel(String.valueOf(board.get_game_info_by_index(5)+1));
-            }
-
-            BoardPage boardPage = new BoardPage(mainMenu, true, board);
-            mainMenu.getCardPanel().add(boardPage, "boardPage");
-            mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
-        });
-        return nextLevelButton;
+    // Initialize the UI of the board page
+    public void initializeUI(int topPanelHeight, int targets) {
+        setupTopPanel(topPanelHeight);
+        setupTargetDisplay(targets);
+        setupWinPanel();
 
     }
-    //do nothing unless it is a multiplayer game
-    protected void stopTimer() {
+
+
+    // Creating the Top Panel
+    private void setupTopPanel(int topPanelHeight) {
+        JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+
+        JButton backButton = createBackButton();
+        topPanel.add(backButton);
+
+        JLabel levelText = createLevelLabel();
+        topPanel.add(levelText);
+
+        if (board.get_game_info_by_index(5) == 0 && board.getLevel().equals("temp")) {
+            addTemporaryLevelFields(topPanel);
+        }
+
+        topPanel.add(getMultiPlayerText());
+        add(topPanel, BorderLayout.NORTH);
+    }
+
+    // Only get text if it is a multiplayer game
+    protected JLabel getMultiPlayerText() {
+        return new JLabel("");
+    }
+
+    private JButton createBackButton() {
+        JButton backButton = new JButton("Back");
+        backButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+        backButton.addActionListener(e -> {
+            JSONSaving.saveGameState("game_state", board);
+            mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu");
+        });
+        return backButton;
+    }
+
+    private JLabel createLevelLabel() {
+        return new JLabel("   Level: " + board.getLevel(), JLabel.LEFT);
+    }
+
+    private void addTemporaryLevelFields(JPanel panel) {
+        JLabel textLabel = new JLabel("Level name (exit with TAB):");
+        textField.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+        textField.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                SwingUtilities.invokeLater(() -> {
+                    requestFocus();
+                });
+            }
+        });
+        panel.add(textLabel);
+        panel.add(textField);
+        panel.add(Box.createHorizontalGlue());
+    }
+
+    // Setting Up the Target Display
+    private void setupTargetDisplay(int targets) {
+        JPanel circlePanel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 1;
+        gbc.weighty = 1;
+        gbc.anchor = GridBagConstraints.CENTER;
+
+        JLabel normalLabel = new JLabel(" Targets: ", JLabel.LEFT);
+        normalLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 40));
+        circlePanel.add(normalLabel, gbc);
+
+        TargetRender numberedCircle = new TargetRender(targets, new Color(222, 48, 48), Color.WHITE, 60);
+        gbc.gridx++;
+        circlePanel.add(numberedCircle, gbc);
+
+        JPanel southContainer = new JPanel(new BorderLayout());
+        southContainer.add(circlePanel, BorderLayout.WEST);
+        southContainer.add(winPanel, BorderLayout.EAST);
+        add(southContainer, BorderLayout.SOUTH);
+    }
+
+    // Configuring the Win Panel
+    private void setupWinPanel() {
+        winPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
     }
 
     // Update the win status of the board and notify the player that they have won
@@ -148,95 +217,33 @@ public class BoardPage extends JPanel {
         return nextLevelButton;
     }
 
-    // Only get text if it is a multiplayer game
-    protected JLabel getTimerText() {
-        return new JLabel("");
-    }
+    // when a level is completed the user can go to the next level
+    protected JButton goToNextLevelPageButton() {
+        JButton nextLevelButton = new JButton("Next Level");
 
-    // Initialize the UI of the board page
-    public void initializeUI(MainMenuPage mainMenu, int topPanelHeight, int targets) {
-        // Create the top panel
-        JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        
-        // Add a back button to navigate to the main menu
-        JButton backButton = new JButton("Back");
-        backButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
-        backButton.addActionListener(e -> {
-            JSONSaving.saveGameState("game_state",board);
-            mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu");
-        });
-        topPanel.add(backButton);
-        
-        // Add the level text to display the current level
-        JLabel levelText = new JLabel("   Level: " + board.getLevel());
-        levelText.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
-        topPanel.add(levelText);
-        
-        // Add level name input field if it's a temporary level
-        if (board.get_game_info_by_index(5) == 0 && board.getLevel().equals("temp")){
-            JLabel textLabel = new JLabel("Level name (exit with TAB):");
-            
-            textField = new JTextField("LEVEL NAME", 10); // 10 columns width
-            textField.addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusLost(FocusEvent e) {
-                SwingUtilities.invokeLater(() -> {
-                requestFocus();
-                });
+
+        nextLevelButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+        nextLevelButton.addActionListener(e -> {
+            try{
+
+                board.setCardLevel(String.valueOf(Integer.parseInt(board.getLevel())+1));
+            } catch (Exception exception) {
+                board.setCardLevel(String.valueOf(board.get_game_info_by_index(5)+1));
             }
-            });
-            
-            topPanel.setPreferredSize(new Dimension(getWidth(), topPanelHeight));
-            topPanel.add(textLabel);
-            topPanel.add(textField);
-            topPanel.add(Box.createHorizontalGlue());
-        }
 
-        topPanel.add(getTimerText());
-        
-        // Create the circle panel to display the targets
-        JPanel circlePanel = new JPanel();
-        circlePanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-        
-        // Create a numbered circle to represent the targets
-        TargetRender numberedCircle = new TargetRender(targets, new Color(222, 48, 48), Color.WHITE, 60);
-        
-        // Add a label for the targets
-        JLabel normalLabel = new JLabel(" Targets: ");
-        normalLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 40));
-        
-        circlePanel.add(normalLabel);
-        circlePanel.add(numberedCircle);
-        
-        // Create the win panel to display win status and buttons
-        winPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-        
-        // Set up the grid bag constraints for the circle panel
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.weightx = 1;
-        gbc.weighty = 1;
-        gbc.anchor = GridBagConstraints.CENTER;
-        
-        circlePanel.setLayout(new GridBagLayout());
-        circlePanel.add(normalLabel, gbc);
-        gbc.gridx++;
-        circlePanel.add(numberedCircle, gbc);
-        
-        // Set up the grid bag constraints for the win panel
-        gbc.gridx = 0;
-        winPanel.setLayout(new GridBagLayout());
-        
-        // Create a container for the circle panel and win panel
-        JPanel southContainer = new JPanel(new BorderLayout());
-        southContainer.add(circlePanel, BorderLayout.WEST);
-        southContainer.add(winPanel, BorderLayout.EAST);
-        
-        // Add the top panel and the container to the board page
-        add(topPanel, BorderLayout.NORTH);
-        add(southContainer, BorderLayout.SOUTH);
-
+            BoardPage boardPage = new BoardPage(mainMenu, true, board);
+            mainMenu.getCardPanel().add(boardPage, "boardPage");
+            mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
+        });
+        return nextLevelButton;
 
     }
+
+    // Setup method to be overwritten by subclasses
+    protected void stopTimer() {
+    }
+
+
+
+
 }

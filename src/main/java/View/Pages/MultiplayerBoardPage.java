@@ -27,7 +27,7 @@ public class MultiplayerBoardPage extends BoardPage{
 
     // Get the timer text
     @Override
-    protected JLabel getTimerText() {
+    protected JLabel getMultiPlayerText() {
         timeLabel = new JLabel("Time: 0");
         timeLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
 

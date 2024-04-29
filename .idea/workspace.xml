@@ -5,65 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Comments and documentation for model/logic">
-      <change afterPath="$PROJECT_DIR$/src/test/java/boardmethods/PlayMultiplayerSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features_board/PlayMultiplayer.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AssetServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AssetServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/BoardInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/BoardInputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ImageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ImageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LaserInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LaserInputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LevelMakerInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LevelMakerInputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ToolBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/LaserCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/LaserCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/LevelMakerLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/LevelMakerLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/CellBlockerTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/CellBlockerTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/CheckPointTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/CheckPointTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/DoubleTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/DoubleTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/LaserTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/LaserTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/MirrorTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/MirrorTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/SplitterTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/SplitterTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/TileInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/TileInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/BoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/BoardPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/CustomLevelsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/CustomLevelsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/InstructionsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/InstructionsPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/LevelMakerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/LevelMakerPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/LevelSelectPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/LevelSelectPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/MainMenuPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/MainMenuPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/MultiplayerBoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/MultiplayerBoardPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/MultiplayerLevelSelectPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/MultiplayerLevelSelectPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/ReadyPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/ReadyPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/ScoreboardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/ScoreboardPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Renderers/BoardRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Renderers/BoardRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Renderers/ImageOverlayNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Renderers/ImageOverlayNumber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Renderers/LaserToolBarRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Renderers/LaserToolBarRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/Renderers/TargetRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Renderers/TargetRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/levelMakerTest.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/levelMakerTest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/temp.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/temp.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/GameCard/GameCardSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GameCard/PickLevelSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LaserMethods/LaserCalculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LaserMethods/CheckWinConditionSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/BoardinfoSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/boardmethods/BoardInfoSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/LevelMakerSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/boardmethods/CreateLevelSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/ManipulatingTilesSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/boardmethods/ManipulateTilesSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/SavingGameStateSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/boardmethods/SaveGameSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tiles/CellBlockerTileSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tiles/CheckPointTileSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tiles/DoubleTileSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tiles/LaserTileSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tiles/MirrorTileSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tiles/SplitterTileSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tiles/TestAssetServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features_board/boardinfo.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features_board/BoardInfo.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features_board/gameCard.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features_board/PickLevel.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features_board/levelMaker.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features_board/CreateLevel.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features_board/manipulatingTilesOnBoard.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features_board/ManipulateTiles.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features_board/savingGameState.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features_board/SaveGame.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features_laser/CalculateLaser.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features_laser/CheckWinCondition.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controller/AssetServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/AssetServer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controller/ImageHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/ImageHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Laser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Laser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/PointStringPair.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/PointStringPair.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/CellBlockerTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/CellBlockerTile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/CheckPointTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/CheckPointTile.class" afterDir="false" />
@@ -134,7 +88,7 @@
     "Cucumber Java.Feature: PickLevel.executor": "Coverage",
     "Cucumber Java.Feature: PlayMultiplayer.executor": "Coverage",
     "Cucumber Java.Feature: SaveGame.executor": "Coverage",
-    "Cucumber Java.Feature: TileFunctionality.executor": "Coverage",
+    "Cucumber Java.Feature: TileFunctionality.executor": "Run",
     "Cucumber Java.Feature: addingAndRemovingATile.executor": "Coverage",
     "Cucumber Java.Feature: addingAndRemovingLaserTile.executor": "Coverage",
     "Cucumber Java.Feature: addingLaserTile.executor": "Run",
@@ -197,7 +151,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Feature: TileFunctionality">
+  <component name="RunManager">
     <configuration name="RUN GAME" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="LaserGame-group-4" />
@@ -1100,18 +1054,52 @@
     <option name="LAST_COMMIT_MESSAGE" value="Comments and documentation for model/logic" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/group_4$Feature__addingLaserTile.ic" NAME="Feature: addingLaserTile Coverage Results" MODIFIED="1714219837078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/group_4$Feature__PickLevel.ic" NAME="Feature: PickLevel Coverage Results" MODIFIED="1714410292236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>io.cucumber.core.cli.*</FILTER>
-      <EXCLUDED_FILTER>*</EXCLUDED_FILTER>
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__savingGameState.ic" NAME="Feature: savingGameState Coverage Results" MODIFIED="1714308642969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Scenario__Saving_a_board_with_pieces.ic" NAME="Scenario: Saving a board with pieces Coverage Results" MODIFIED="1714214921725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__addingAndRemovingATile.ic" NAME="Feature: addingAndRemovingATile Coverage Results" MODIFIED="1714225459937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__rotateTile.ic" NAME="Feature: rotateTile Coverage Results" MODIFIED="1714223068017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__gameCard.ic" NAME="Feature: gameCard Coverage Results" MODIFIED="1714308741346" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__BoardInfo.ic" NAME="Feature: BoardInfo Coverage Results" MODIFIED="1714410221260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__TileFunctionality.ic" NAME="Feature: TileFunctionality Coverage Results" MODIFIED="1714380034052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__manipulatingTilesOnBoard.ic" NAME="Feature: manipulatingTilesOnBoard Coverage Results" MODIFIED="1714308636196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__boardinfo.ic" NAME="Feature: boardinfo Coverage Results" MODIFIED="1714336001928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__CreateLevel.ic" NAME="Feature: CreateLevel Coverage Results" MODIFIED="1714410247177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/group_4$All_Features_in__test.ic" NAME="All Features in: test Coverage Results" MODIFIED="1714336079911" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.cucumber.core.cli.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__addingAndRemovingLaserTile.ic" NAME="Feature: addingAndRemovingLaserTile Coverage Results" MODIFIED="1714221719215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__PickLevel.ic" NAME="Feature: PickLevel Coverage Results" MODIFIED="1714410292236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/group_4$Feature__levelMaker.ic" NAME="Feature: levelMaker Coverage Results" MODIFIED="1714308697146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.cucumber.core.cli.*</FILTER>
       <FILTER>Model.*</FILTER>
     </SUITE>
@@ -1123,50 +1111,7 @@
       <FILTER>io.cucumber.core.cli.*</FILTER>
       <FILTER>Model.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__SaveGame.ic" NAME="Feature: SaveGame Coverage Results" MODIFIED="1714410315167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$java_in_LaserGame_group_4.ic" NAME="java in LaserGame-group-4 Coverage Results" MODIFIED="1714375387542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/group_4$Feature__removingTile.ic" NAME="Feature: removingTile Coverage Results" MODIFIED="1714216658120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.Logic.Board</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__CreateLevel.ic" NAME="Feature: CreateLevel Coverage Results" MODIFIED="1714410247177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__rotateTile.ic" NAME="Feature: rotateTile Coverage Results" MODIFIED="1714223068017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__addingAndRemovingATile.ic" NAME="Feature: addingAndRemovingATile Coverage Results" MODIFIED="1714225459937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__manipulatingTilesOnBoard.ic" NAME="Feature: manipulatingTilesOnBoard Coverage Results" MODIFIED="1714308636196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__savingGameState.ic" NAME="Feature: savingGameState Coverage Results" MODIFIED="1714308642969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__levelMaker.ic" NAME="Feature: levelMaker Coverage Results" MODIFIED="1714308697146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__boardinfo.ic" NAME="Feature: boardinfo Coverage Results" MODIFIED="1714336001928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__BoardInfo.ic" NAME="Feature: BoardInfo Coverage Results" MODIFIED="1714410221260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-      <FILTER>Model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Scenario__Saving_a_board_with_pieces.ic" NAME="Scenario: Saving a board with pieces Coverage Results" MODIFIED="1714214921725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>io.cucumber.core.cli.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__TileFunctionality.ic" NAME="Feature: TileFunctionality Coverage Results" MODIFIED="1714380034052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/group_4$Feature__ManipulateTiles.ic" NAME="Feature: ManipulateTiles Coverage Results" MODIFIED="1714410272091" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>io.cucumber.core.cli.*</FILTER>
       <FILTER>Model.*</FILTER>
     </SUITE>
@@ -1174,11 +1119,20 @@
       <FILTER>io.cucumber.core.cli.*</FILTER>
       <FILTER>Model.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__ManipulateTiles.ic" NAME="Feature: ManipulateTiles Coverage Results" MODIFIED="1714410272091" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/group_4$java_in_LaserGame_group_4.ic" NAME="java in LaserGame-group-4 Coverage Results" MODIFIED="1714375387542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/group_4$Feature__SaveGame.ic" NAME="Feature: SaveGame Coverage Results" MODIFIED="1714410315167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>io.cucumber.core.cli.*</FILTER>
       <FILTER>Model.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/group_4$Feature__gameCard.ic" NAME="Feature: gameCard Coverage Results" MODIFIED="1714308741346" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/group_4$Feature__removingTile.ic" NAME="Feature: removingTile Coverage Results" MODIFIED="1714216658120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <FILTER>Model.Logic.Board</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__addingLaserTile.ic" NAME="Feature: addingLaserTile Coverage Results" MODIFIED="1714219837078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+      <EXCLUDED_FILTER>*</EXCLUDED_FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/group_4$Feature__addingAndRemovingLaserTile.ic" NAME="Feature: addingAndRemovingLaserTile Coverage Results" MODIFIED="1714221719215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.cucumber.core.cli.*</FILTER>
       <FILTER>Model.*</FILTER>
     </SUITE>

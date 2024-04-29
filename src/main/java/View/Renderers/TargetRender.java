@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * The TargetRender class is responsible for drawing when a target is hit.
+ * The TargetRender class is responsible for drawing a circle with number of targets in it
  */
 
 public class TargetRender extends JComponent {
