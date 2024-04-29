@@ -9,7 +9,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ToolBar extends MouseAdapter {
+public class ToolBar extends MouseAdapter  {
     protected Board board;
     protected JPanel panel;
 
@@ -71,9 +71,6 @@ public class ToolBar extends MouseAdapter {
                 return null;
         }
     }
-
-
-
 
 
 }

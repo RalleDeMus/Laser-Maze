@@ -11,14 +11,31 @@ public class LevelSelectPage extends JPanel{
 
     private int selectedLevel = -1; // Variable to store the selected level, initialized to -1 (no level selected)
 
+
+
+    protected JPanel getTopPanel(MainMenuPage mainMenu) {
+        JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JButton backButton = new JButton("Back");
+        backButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+        backButton.addActionListener(e -> mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu"));
+        topPanel.add(backButton);
+        JLabel textLabel = new JLabel("Please select a level: ");
+        textLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+        topPanel.add(textLabel);
+        return  topPanel;
+    }
+
+    protected void goToBoardPage(MainMenuPage mainMenu, Board board) {
+        BoardPage boardPage = new BoardPage(mainMenu,true, board);
+        mainMenu.getCardPanel().add(boardPage, "boardPage");
+        mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
+    }
+
     LevelSelectPage(MainMenuPage mainMenu) {
 
         setLayout(new BorderLayout());
 
-        JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JButton backButton = new JButton("Back");
-        backButton.addActionListener(e -> mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu"));
-        topPanel.add(backButton);
+
 
         JPanel cardPanel = new JPanel();
         CardLayout cardLayout = new CardLayout();
@@ -32,7 +49,7 @@ public class LevelSelectPage extends JPanel{
         add(cardPanel, BorderLayout.CENTER);
 
         JLabel label = new JLabel("Level Select Page", SwingConstants.CENTER);
-        add(topPanel, BorderLayout.NORTH);
+        add(getTopPanel(mainMenu), BorderLayout.NORTH);
         add(label, BorderLayout.CENTER);
 
         // Create a panel for the grid of levels
@@ -40,9 +57,9 @@ public class LevelSelectPage extends JPanel{
         gridPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // Add some padding
 
         // Add 50 level squares to the grid
-        for (int i = 1; i <= 50; i++) {
+        for (int i = 1; i <= 25; i++) {
             JButton levelButton = new JButton(String.valueOf(i)); // Button with level number
-            levelButton.setPreferredSize(new Dimension(80, 80)); // Set button size
+            levelButton.setPreferredSize(new Dimension(160, 80)); // Set button size
             levelButton.setFont(new Font("Arial", Font.BOLD, 20)); // Set font
             levelButton.setBackground(Color.WHITE); // Set background color
             levelButton.setForeground(Color.BLACK); // Set text color
@@ -57,9 +74,9 @@ public class LevelSelectPage extends JPanel{
                     System.out.println("Selected Level: " + selectedLevel);
                     //Board.getInstance().setCardLevel(selectedLevel+"");
                     Board board = new Board(String.valueOf(selectedLevel));
-                    BoardPage boardPage = new BoardPage(mainMenu,true, board);
-                    mainMenu.getCardPanel().add(boardPage, "boardPage");
-                    mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
+
+                    goToBoardPage(mainMenu, board);
+
                 }
             });
 

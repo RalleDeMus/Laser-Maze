@@ -15,7 +15,6 @@ import Model.Logic.JSONSaving;
 import View.Renderers.BoardRenderer;
 import View.Renderers.LaserToolBarRenderer;
 import View.Renderers.TargetRender;
-import io.cucumber.cienvironment.internal.com.eclipsesource.json.Json;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,13 +26,13 @@ import java.awt.event.FocusEvent;
 public class BoardPage extends JPanel {
 
 
-    final private Board board;
+    final protected Board board;
     final private JPanel winPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); // Initialize here
 
     JTextField textField = new JTextField("test", 10); // 10 columns width
 
 
-    final private MainMenuPage mainMenu;
+    final protected MainMenuPage mainMenu;
 
     public BoardPage(MainMenuPage mainMenu, boolean includeLaserFeatures, Board board) {
         this.mainMenu = mainMenu;
@@ -65,6 +64,30 @@ public class BoardPage extends JPanel {
         });
     }
 
+    protected JButton goToNextLevelPageButton() {
+        JButton nextLevelButton = new JButton("Next Level");
+
+
+        nextLevelButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
+        nextLevelButton.addActionListener(e -> {
+            try{
+
+                board.setCardLevel(String.valueOf(Integer.parseInt(board.getLevel())+1));
+            } catch (Exception exception) {
+                board.setCardLevel(String.valueOf(board.get_game_info_by_index(5)+1));
+            }
+
+            BoardPage boardPage = new BoardPage(mainMenu, true, board);
+            mainMenu.getCardPanel().add(boardPage, "boardPage");
+            mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
+        });
+        return nextLevelButton;
+
+    }
+
+    protected void stopTimer() {
+    }
+
     public void updateWinStatus() { // Make this method more pretty...
         winPanel.removeAll(); // Safely remove all components
         System.out.println("Win: " + board.getWin());
@@ -74,23 +97,11 @@ public class BoardPage extends JPanel {
             winLabel.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 40));
             winPanel.add(winLabel);
 
+            stopTimer();
+
             if (board.get_game_info_by_index(5) != 0) {
 
-                JButton nextLevelButton = getjButton("Next Level");
-                nextLevelButton.addActionListener(e -> {
-                            try{
-
-                                board.setCardLevel(String.valueOf(Integer.parseInt(board.getLevel())+1));
-                            } catch (Exception exception) {
-                                board.setCardLevel(String.valueOf(board.get_game_info_by_index(5)+1));
-                            }
-
-                            BoardPage boardPage = new BoardPage(mainMenu, true, board);
-                            mainMenu.getCardPanel().add(boardPage, "boardPage");
-                            mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
-
-                        }
-                );
+                JButton nextLevelButton = goToNextLevelPageButton();
                 winPanel.add(nextLevelButton);
 
             } else if (board.getLevel().equals("temp")){
@@ -125,6 +136,10 @@ public class BoardPage extends JPanel {
         return nextLevelButton;
     }
 
+    protected JLabel getTimerText() {
+        return new JLabel("");
+    }
+
 
     public void initializeUI(MainMenuPage mainMenu, int topPanelHeight, int targets) {
         // Create the top panel
@@ -132,6 +147,7 @@ public class BoardPage extends JPanel {
         
         // Add a back button to navigate to the main menu
         JButton backButton = new JButton("Back");
+        backButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
         backButton.addActionListener(e -> {
             JSONSaving.saveGameState("game_state",board);
             mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu");
@@ -162,6 +178,8 @@ public class BoardPage extends JPanel {
             topPanel.add(textField);
             topPanel.add(Box.createHorizontalGlue());
         }
+
+        topPanel.add(getTimerText());
         
         // Create the circle panel to display the targets
         JPanel circlePanel = new JPanel();

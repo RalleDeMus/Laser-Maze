@@ -1,16 +1,18 @@
 package View.Pages;
 
 import Model.Logic.Board;
+import Model.Logic.MultiPlayerLogic;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
 
-public class CustomLevelsPage extends JPanel {
+public class ScoreboardPage extends JPanel {
 
-
-    CustomLevelsPage(MainMenuPage mainMenu) {
+    MainMenuPage mainMenu;
+    public ScoreboardPage(MainMenuPage mainMenu, MultiPlayerLogic multiPlayerLogic) {
+        this.mainMenu = mainMenu;
 
         setLayout(new GridBagLayout()); // Set the main layout to GridBagLayout
 
@@ -47,37 +49,15 @@ public class CustomLevelsPage extends JPanel {
         levelConstraints.fill = GridBagConstraints.HORIZONTAL; // Stretch to fill the horizontal space
         levelConstraints.insets = new Insets(2, 5, 2, 5); // Padding
 
-        File customLevelsDir = new File("src/main/levels/custom/");
-        if (customLevelsDir.exists() && customLevelsDir.isDirectory()) {
-            File[] files = customLevelsDir.listFiles();
-            if (files != null) {
-                for (File file : files) {
-                    if (file.isFile() && file.getName().endsWith(".json") && !file.getName().equals("game_state.json") && !file.getName().equals("temp.json")) {
-                        String levelName = file.getName().replace(".json", "");
-                        JButton levelButton = new JButton(levelName);
-                        levelButton.addActionListener((ActionEvent e) -> {
+        add( GetJLabel("Scoreboard:",30), levelConstraints);
+        levelConstraints.gridy++;
 
-                            System.out.println("Selected Level: " + levelName);
-                            //Board.getInstance().setCardLevel(levelName);
-                            Board board = new Board(levelName);
-                            BoardPage boardPage = new BoardPage(mainMenu,true,board);
-                            mainMenu.getCardPanel().add(boardPage, "boardPage");
-                            mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "boardPage");
-                        });
-
-                        // Set the preferred size of the button to influence its initial size
-                        levelButton.setPreferredSize(new Dimension(200, 40));
-                        levelButton.setFont(new Font("Arial", Font.BOLD, 20));
-
-                        // Add each button on a new line, using one-third of the line
-                        add(levelButton, levelConstraints);
-
-                        // Increment the row counter after each button
-                        levelConstraints.gridy++;
-                    }
-                }
-            }
+        for (int i = 0; i < multiPlayerLogic.getSortedPlayerTimes().size(); i++){
+            JLabel playerLabel = GetJLabel(multiPlayerLogic.getSortedPlayerTimes().get(i),20);
+            add(playerLabel, levelConstraints);
+            levelConstraints.gridy++;
         }
+
 
         // Add a filler component to push everything to the top
         constraints.gridx = 0;
@@ -91,4 +71,15 @@ public class CustomLevelsPage extends JPanel {
         constraints.fill = GridBagConstraints.VERTICAL;
         add(filler, constraints);
     }
+
+    private JLabel GetJLabel(String text, int size){
+        JLabel label = new JLabel(text);
+
+        // Set the preferred size of the button to influence its initial size
+        label.setPreferredSize(new Dimension(200, 40));
+        label.setFont(new Font("Baloo Bhaijaan", Font.BOLD, size));
+
+        return label;
+    }
+
 }

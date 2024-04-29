@@ -8,6 +8,7 @@ public class InstructionsPage extends JPanel{
 
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JButton backButton = new JButton("Back");
+        backButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
         backButton.addActionListener(e -> mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu"));
         topPanel.add(backButton);
         // Instructions text with HTML for formatting and inclusion of the image content
