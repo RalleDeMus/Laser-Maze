@@ -47,8 +47,13 @@ public class ReadyPage extends JPanel {
 
     private void addTopPanel() {
         GridBagConstraints gbc = createDefaultConstraints();
-        gbc.anchor = GridBagConstraints.NORTHWEST;
-        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.gridx = 0; // First column
+        gbc.gridy = 0; // First row
+        gbc.anchor = GridBagConstraints.NORTHWEST; // Anchor to the top-left corner
+        gbc.weightx = 0; // No extra horizontal space
+        gbc.weighty = 1; // No extra vertical space
+        gbc.insets = new Insets(5, 5, 5, 5);
+
         // Assuming addTopPanel method adds the component and sets the constraints
         addTopPanel(gbc);
     }
