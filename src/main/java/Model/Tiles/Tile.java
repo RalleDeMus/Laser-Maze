@@ -7,18 +7,18 @@ import java.awt.image.BufferedImage;
 abstract public class Tile implements TileInterface, Cloneable{
 
 
-    protected boolean isMoveable;
+    protected boolean isMoveable; // If the tile is moveable or not. Defines if you can remove it from the board and add it again.
 
-    protected boolean isRotateable;
-    private BufferedImage image;
-    private BufferedImage rotatedImage;
+    protected boolean isRotateable; // If the tile rotatable or not.
+    private BufferedImage image; // Image of the tile
+    private BufferedImage rotatedImage; // Image of the tile if it is rotatable
 
-    private int orientation;
+    private int orientation; // Orrientation of the tile. 0 is right, 1 is down, 2 is left, 3 is up, 4 is free rotation.
 
-    protected int[] mirror;
-    protected int[] pass;
+    protected int[] mirror; // Mirror values of the tile. Used to define the laser path. 1 is rotate 90 degrees, 3 is rotate 270 degrees.
+    protected int[] pass; // Pass values of the tile. Used to define the laser path.
 
-    protected int[] target;
+    protected int[] target; // Target values of the tile. Used to check if we hit a target.
 
     public Tile(boolean isMoveable, boolean isRotateable, int orientation){
         this.orientation = orientation;
@@ -134,6 +134,11 @@ abstract public class Tile implements TileInterface, Cloneable{
 
 
 
+    /**
+     * Rotate the tile by howMuch times.
+     * If mod is 4 we can rotate it 4 times.
+     * If mod is 5 we can rotate it 5 times where the fifth time is free rotation.
+     */
     public void rotate(int howMuch, int mod){
         if (orientation == 4 && mod == 4) {
             orientation = 0;
@@ -153,7 +158,6 @@ abstract public class Tile implements TileInterface, Cloneable{
         }
 
 
-        //System.out.println("Tile rotated to orientation: " + orientation + " with this much: " + howMuch);
     }
 
 }
