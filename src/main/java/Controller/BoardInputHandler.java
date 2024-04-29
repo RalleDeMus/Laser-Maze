@@ -4,16 +4,24 @@ import Model.Logic.Board;
 
 import javax.swing.*;
 import java.awt.event.*;
-
+/**
+ * The BoardInputHandler class is responsible for handling the input from the user on the board.
+ */
 public class BoardInputHandler extends MouseAdapter implements KeyListener {
     protected Board board;
     protected JPanel panel;
 
     protected int yOffset;
 
-    final private boolean removeTileAfterPlace;
+    final private boolean removeTileAfterPlace; //
 
-
+    /**
+     * Constructor for the BoardInputHandler class.
+     * @param board The board to handle input for.
+     * @param panel The panel to handle input for.
+     * @param yOffset The offset of the board because we have a back button.
+     * @param removeTileAfterPlace Whether to remove the tile after placing it. We do this in a normal game but not in the level maker.
+     */
     public BoardInputHandler(Board board, JPanel panel,int yOffset, boolean removeTileAfterPlace) {
         this.board = board;
         this.panel = panel;
@@ -22,6 +30,9 @@ public class BoardInputHandler extends MouseAdapter implements KeyListener {
         setupListeners();
     }
 
+    /**
+     * Sets up the listeners for the panel.
+     */
     private void setupListeners() {
         panel.setFocusable(true);
         panel.addMouseListener(this);

@@ -9,11 +9,18 @@ import javax.imageio.ImageIO;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Singleton class to handle the assets of the game.
+
+ */
 public class AssetServer {
 
     private static AssetServer instance;
     final private Map<String, BufferedImage> images = new HashMap<>();
 
+    /**
+     * Load the images being used in the game. We use BufferedImage as the type.
+     */
     private AssetServer() {
         try {
             //loadImages("beamSplitter", "cellBlocker", "checkPoint", "doubleMirror", "empty", "laser", "targetMirror", "laserRay", "rotateBeamSplitter", "rotateCheckpoint", "rotateDoubleMirror", "rotateLaser", "rotateTargetMirror", "spotRotateTargetMirror", "spotTargetMirror");
@@ -27,7 +34,7 @@ public class AssetServer {
 
     }
 
-
+    // Singleton pattern
     public static AssetServer getInstance(){
         if (instance == null){
             instance = new AssetServer();
@@ -45,22 +52,24 @@ public class AssetServer {
 
     }
 
+    // We get an image based on a string name plus the .png extension
     public BufferedImage getImage(String assetName) {
         return images.get(assetName+".png");
     }
 
+
+    // List all files in a folder as an ArrayList of strings
     private ArrayList<String> listFilesForFolder(final File folder) {
 
-            ArrayList<String> filenames = new ArrayList<>();
-            for (final File fileEntry : Objects.requireNonNull(folder.listFiles())) {
-                if (fileEntry.isDirectory()) {
-                    listFilesForFolder(fileEntry);
-                } else {
-                    filenames.add(fileEntry.getName());
-                }
+        ArrayList<String> filenames = new ArrayList<>();
+        for (final File fileEntry : Objects.requireNonNull(folder.listFiles())) {
+            if (fileEntry.isDirectory()) {
+                listFilesForFolder(fileEntry);
+            } else {
+                filenames.add(fileEntry.getName());
             }
-            return filenames;
+        }
+        return filenames;
 
-
-}
+    }
 }

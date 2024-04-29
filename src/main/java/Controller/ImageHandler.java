@@ -5,6 +5,10 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.awt.AlphaComposite;
 
+/**
+ * Class to handle image manipulation.
+ * Swing doesnt support rotation and transparency of images so we make this class to handle that.
+ */
 public class ImageHandler {
 
     public static BufferedImage transImage(BufferedImage image, float alphaValue) {

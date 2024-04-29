@@ -6,7 +6,16 @@ import View.Pages.LevelMakerPage;
 
 import java.awt.event.KeyEvent;
 
+/**
+ * Level maker input handler class.
+ * This class is responsible for handling the input from the user on the level maker.
+ */
 public class LevelMakerInputHandler extends BoardInputHandler {
+
+    /**
+     * Constructor for the LevelMakerInputHandler class.
+     * See BoardInputHandler for more information on the parameters.
+     */
     public LevelMakerInputHandler(Board board, LevelMakerPage panel, int yOffset, boolean removeTileAfterPlace){
         super(board, panel, yOffset, removeTileAfterPlace);
     }

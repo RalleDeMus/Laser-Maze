@@ -9,6 +9,11 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Toolbar input handler class.
+ * This class is responsible for handling the input from the user on the toolbar.
+ * It makes sure that the user can select a tile from the toolbar given a mouse press and position.
+ */
 public class ToolBar extends MouseAdapter  {
     protected Board board;
     protected JPanel panel;
@@ -17,6 +22,13 @@ public class ToolBar extends MouseAdapter  {
 
     protected BoardRenderer laserToolBarRenderer;
 
+    /**
+     * Constructor for the BoardInputHandler class.
+     * @param board The board to handle input for.
+     * @param panel The panel to handle input for.
+     * @param yOffset The offset of the board because we have a back button.
+     * @param laserToolBarRenderer The renderer for the laser toolbar.
+     */
     public ToolBar(Board board, JPanel panel,int yOffset, BoardRenderer laserToolBarRenderer) {
         this.board = board;
         this.panel = panel;
@@ -27,6 +39,8 @@ public class ToolBar extends MouseAdapter  {
         panel.setFocusable(true);
         panel.addMouseListener(this);
     }
+
+
 
     @Override
     public void mousePressed(MouseEvent e) {
