@@ -10,7 +10,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ToolBar extends MouseAdapter implements KeyListener {
+public class ToolBar extends MouseAdapter  {
     protected Board board;
     protected JPanel panel;
 
@@ -58,18 +58,4 @@ public class ToolBar extends MouseAdapter implements KeyListener {
 
 
 
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
-    }
 }

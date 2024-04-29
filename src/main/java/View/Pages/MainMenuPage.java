@@ -63,6 +63,7 @@ public class MainMenuPage extends JFrame implements ActionListener {
         JButton campaignButton = createStyledButton("Campaign");
         JButton levelSelectButton = createStyledButton("Level Select");
         JButton levelMakerButton = createStyledButton("Level Maker");
+        JButton multiplayerButton = createStyledButton("Multiplayer");
         JButton InstructionsButton = createStyledButton("Instructions");
         JButton customButton = createStyledButton("Custom levels");
 
@@ -70,6 +71,7 @@ public class MainMenuPage extends JFrame implements ActionListener {
         campaignButton.setAlignmentX(Component.CENTER_ALIGNMENT); // Center align buttons horizontally
         levelSelectButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         levelMakerButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        multiplayerButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         InstructionsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         customButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -78,6 +80,7 @@ public class MainMenuPage extends JFrame implements ActionListener {
         campaignButton.addActionListener(this);
         levelSelectButton.addActionListener(this);
         levelMakerButton.addActionListener(this);
+        multiplayerButton.addActionListener(this);
         InstructionsButton.addActionListener(this);
         customButton.addActionListener(this);
 
@@ -90,6 +93,8 @@ public class MainMenuPage extends JFrame implements ActionListener {
         panel.add(levelSelectButton);
         panel.add(Box.createVerticalStrut(10));
         panel.add(levelMakerButton);
+        panel.add(Box.createVerticalStrut(10));
+        panel.add(multiplayerButton);
         panel.add(Box.createVerticalStrut(10)); // Add spacing between buttons
         panel.add(customButton);
         panel.add(Box.createVerticalGlue());
@@ -168,6 +173,9 @@ public class MainMenuPage extends JFrame implements ActionListener {
                 break;
             case "Level Maker":
                 switchToPanel("levelMakerPage", new LevelMakerPage(this));
+                break;
+            case "Multiplayer":
+                switchToPanel("CustomLevelsPage", new MultiplayerLevelSelectPage(this));
                 break;
             case "Instructions":
                 switchToPanel("InstructionsPage", new InstructionsPage(this));

@@ -84,6 +84,7 @@ public class LevelMakerPage extends JPanel {
 // Top panel setup
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JButton backButton = new JButton("Back");
+        backButton.setFont(new Font("Baloo Bhaijaan", Font.PLAIN, 20));
         backButton.addActionListener(e -> mainMenu.getCardLayout().show(mainMenu.getCardPanel(), "mainMenu"));
         topPanel.setPreferredSize(new Dimension(getWidth(), topPanelHeight));
         topPanel.add(backButton);
