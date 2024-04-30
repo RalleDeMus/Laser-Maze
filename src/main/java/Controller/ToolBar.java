@@ -55,8 +55,7 @@ public class ToolBar extends MouseAdapter  {
 
                 //board.get_game_info().printTiles();
 
-                List<Tile> tilesWithIsMirror = TileInfo.getTiles();
-                tilesWithIsMirror.removeIf(tile -> !tile.getIsMirror());
+                List<Tile> tilesWithIsMirror = TileInfo.getTiles(true);
 
                 System.out.println("size "+tilesWithIsMirror.size());
                 board.get_game_info().printTiles();
@@ -80,23 +79,7 @@ public class ToolBar extends MouseAdapter  {
         }
     }
 
-    //converts an integer to a tile
-    public static Tile intToTile (int i) {
-        switch(i) {
-            case 0:
-                return new MirrorTile(true,true);
-            case 1:
-                return new SplitterTile(true, true);
-            case 2:
-                return new CheckPointTile(true, true);
-            case 3:
-                return new DoubleTile(true,true);
-            case 4:
-                return new LaserTile(true,true);
-            default:
-                return null;
-        }
-    }
+
 
 
 }

@@ -56,7 +56,7 @@ public class TileInfo {
         return null;
     }
 
-    public static List<Tile> getTiles() {
+    public static List<Tile> getTiles(boolean checkIsMirror) {
         List<Tile> tiles = new ArrayList<>();
         Reflections reflections = new Reflections("Model.Tiles.GameTiles");
 
@@ -83,6 +83,10 @@ public class TileInfo {
             } catch (Exception e) {
                 System.err.println("Error creating instance of " + tileClass.getSimpleName() + ": " + e);
             }
+        }
+
+        if (checkIsMirror) {
+            tiles.removeIf(tile -> !tile.getIsMirror());
         }
 
         return tiles;

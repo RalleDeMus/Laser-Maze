@@ -1,6 +1,7 @@
 package Model.Logic;
 
 import Model.Tiles.Tile;
+import Model.Tiles.TileInfo;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -52,10 +53,14 @@ public class JSONSaving {
 
         // Create "extra tiles" object
         JSONObject game_info_JSON = new JSONObject();
-        game_info_JSON.put("MirrorTiles", game_info.getTileFromDictionary("MirrorTile"));
-        game_info_JSON.put("SplitterTiles", game_info.getTileFromDictionary("SplitterTile"));
-        game_info_JSON.put("CheckPointTiles", game_info.getTileFromDictionary("CheckPointTile"));
-        game_info_JSON.put("DoubleTiles", game_info.getTileFromDictionary("DoubleTile"));
+        // Foreach tile type, add the number of placeable tiles to the map
+        TileInfo.getTiles(true).forEach(tile -> {
+            if (game_info.getTileFromDictionary(tile.getClass().getSimpleName()) != 0) {
+                game_info_JSON.put(tile.getClass().getSimpleName() + "s", game_info.getTileFromDictionary(tile.getClass().getSimpleName()));
+            }
+
+        });
+
         game_info_JSON.put("targets", game_info.getTargets());
         game_info_JSON.put("level", game_info.getLevel());
 
@@ -106,7 +111,7 @@ public class JSONSaving {
      * Then we save this new Tile array to a JSON file with the name "temp.json".
      */
 
-    public static void saveLevelWithFreeRotations(Board board, int[] tileCounts, int targets) {
+    public static void saveLevelWithFreeRotations(Board board, Map<String, Integer> tilesInfo, int targets) {
         Tile[][] tiles = board.getTiles();
 
 
@@ -128,11 +133,11 @@ public class JSONSaving {
 
         // Set game info to match
 
-        Map<String, Integer> tilesInfo = new HashMap<>();
-        tilesInfo.put("MirrorTile", tileCounts[0]);
-        tilesInfo.put("SplitterTile", tileCounts[1]);
-        tilesInfo.put("CheckPointTile", tileCounts[2]);
-        tilesInfo.put("DoubleTile", tileCounts[3]);
+//        Map<String, Integer> tilesInfo = new HashMap<>();
+//        tilesInfo.put("MirrorTile", tileCounts[0]);
+//        tilesInfo.put("SplitterTile", tileCounts[1]);
+//        tilesInfo.put("CheckPointTile", tileCounts[2]);
+//        tilesInfo.put("DoubleTile", tileCounts[3]);
 
         GameInfo game_info = new GameInfo(0,targets,tilesInfo);
         board.set_game_info(game_info);

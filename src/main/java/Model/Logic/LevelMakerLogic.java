@@ -1,17 +1,26 @@
 package Model.Logic;
 
+import Model.Tiles.TileInfo;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 /**
  * Class for handling the level maker logic.
  * The level maker logic is used to keep track of the number of targets and tiles available to the player.
  */
 public class LevelMakerLogic {
     private int targets; // The number of targets in the level
-    final private int[] tileCounts; // The number of each tile type available to the player
+    final private Map<String,Integer> tileCounts; // The number of each tile type available to the player
 
 
     public LevelMakerLogic() {
         this.targets = 0;
-        this.tileCounts = new int[]{0,0,0,0};
+        this.tileCounts = new HashMap<>();
+        TileInfo.getTiles(true).forEach(tile -> {
+            tileCounts.put(tile.getClass().getSimpleName(), 0);
+        });
     }
 
     public int getTargets() {
@@ -28,7 +37,7 @@ public class LevelMakerLogic {
         targets++;
     }
 
-    public int[] getTileCounts() {
+    public Map<String, Integer> getTileCounts() {
         return tileCounts;
     }
 
@@ -37,7 +46,7 @@ public class LevelMakerLogic {
      * @param tileType the type of tile to change
      * @param isIncrement whether to increment or decrement the tile count
      */
-    public void changeTileCount(int tileType, boolean isIncrement) {
+    public void changeTileCount(String tileType, boolean isIncrement) {
 
         // Get the change in tile count
         int change;
@@ -48,26 +57,25 @@ public class LevelMakerLogic {
         }
 
         //Make sure the tile count is within the bounds
-        int count = 0;
-        for(int i = 0; i < 4; i++) {
-            count+=tileCounts[i];
-        }
-        if (count+change > 5){
+        final int[] count = {0};
+        tileCounts.forEach((key, value) -> count[0]+=value);
+
+        if (count[0]+change > 5){
             return;
         }
 
         // Make sure the tile count is within the bounds
-        if (tileCounts[tileType] + change < 0) {
+        if (tileCounts.get(tileType) + change < 0) {
             return;
         }
 
         // Only add one laser tile
-        if (tileType == 4 && tileCounts[tileType] + change > 1) {
+        if (Objects.equals(tileType, "LaserTile") && tileCounts.get(tileType) + change > 1) {
             return;
         }
 
         // Update the tile count
-        tileCounts[tileType] += change;
+        tileCounts.put(tileType, tileCounts.get(tileType)+change);
     }
 
 

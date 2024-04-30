@@ -3,7 +3,7 @@ import Model.Tiles.*;
 import Model.Tiles.GameTiles.*;
 
 import java.awt.*;
-
+import java.util.List;
 
 
 /**
@@ -94,6 +94,8 @@ public class Board {
                 selectedTile = tile;
 
             }
+        } else {
+            selectedTile = null;
         }
 
     }
@@ -241,37 +243,17 @@ public class Board {
             // the position needs to be empty for a tile to be placed
             if (tiles[cursorPos.y][cursorPos.x] == null) {
                 // Check if a new tile can be placed
-                if (t instanceof LaserTile && getLaserTile() != null) {
-                    //System.out.println("Laser already exists");
-                    return;
-                } else if (t instanceof MirrorTile) {
-                    if (game_info.getTileFromDictionary("MirrorTile") == 0) {
-                        //System.out.println("No more mirror tiles");
-                        return;
-                    } else {
-                        game_info.decrementAtKey(t.getClass().getSimpleName());
-                    }
+                List<Tile> tilesWithIsMirror = TileInfo.getTiles(true);
 
-                } else if (t instanceof SplitterTile) {
-                    if (game_info.getTileFromDictionary("SplitterTile") == 0) {
-                        //System.out.println("No more splitter tiles");
-                        return;
-                    } else {
-                        game_info.decrementAtKey(t.getClass().getSimpleName());
-                    }
-                } else if (t instanceof CheckPointTile) {
-                    if (game_info.getTileFromDictionary("CheckPointTile") == 0) {
-                        //System.out.println("No more checkpoint tiles");
-                        return;
-                    } else {
-                        game_info.decrementAtKey(t.getClass().getSimpleName());
-                    }
-                } else if (t instanceof DoubleTile) {
-                    if (game_info.getTileFromDictionary("DoubleTile") == 0) {
-                        //System.out.println("No more double tiles");
-                        return;
-                    } else {
-                        game_info.decrementAtKey(t.getClass().getSimpleName());
+
+
+                if (t instanceof LaserTile && getLaserTile() != null) {
+                    return;
+                } else {
+                    for (int i = 0; i < tilesWithIsMirror.size(); i++) {
+                        if (tilesWithIsMirror.get(i).getClass() == t.getClass() && game_info.getTileFromDictionary(tilesWithIsMirror.get(i).getClass().getSimpleName()) != 0) {
+                            game_info.decrementAtKey(t.getClass().getSimpleName());
+                        }
                     }
                 }
 
@@ -291,15 +273,16 @@ public class Board {
         //check if there is a tile and if it is moveable
         if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsMovable()) {
             // add one extra to placeable tiles
-            if (tiles[cursorPos.y][cursorPos.x] instanceof MirrorTile) {
-                game_info.incrementAtKey(tiles[cursorPos.y][cursorPos.x].getClass().getSimpleName());
-            } else if (tiles[cursorPos.y][cursorPos.x] instanceof SplitterTile) {
-                game_info.incrementAtKey(tiles[cursorPos.y][cursorPos.x].getClass().getSimpleName());
-            } else if (tiles[cursorPos.y][cursorPos.x] instanceof CheckPointTile) {
-                game_info.incrementAtKey(tiles[cursorPos.y][cursorPos.x].getClass().getSimpleName());
-            } else if (tiles[cursorPos.y][cursorPos.x] instanceof DoubleTile) {
-                game_info.incrementAtKey(tiles[cursorPos.y][cursorPos.x].getClass().getSimpleName());
+            List<Tile> tilesWithIsMirror = TileInfo.getTiles(true);
+
+            Tile t = tiles[cursorPos.y][cursorPos.x];
+
+            for (int i = 0; i < tilesWithIsMirror.size(); i++) {
+                if (tilesWithIsMirror.get(i).getClass() == t.getClass()) {
+                    game_info.incrementAtKey(t.getClass().getSimpleName());
+                }
             }
+
             //remove tile
             tiles[cursorPos.y][cursorPos.x] = null;
         }

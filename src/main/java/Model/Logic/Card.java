@@ -19,10 +19,7 @@ import java.util.Map;
 public class Card {
 
      private String content; // The level being used to create the card. We use this to load from the json levels.
-     private int targetMirrorTiles = 0; // The number of target mirrors in the level
-     private int splitterTiles = 0; // The number of splitters in the level
-     private int checkPointTiles = 0; // The number of checkpoints in the level
-     private int doubleTiles = 0; // The number of double tiles in the level
+     private Map<String, Integer> placeableTiles; // The number of placeable tiles for the current level
      private int targets; // The number of targets in the level
      private int level; // The level number
 
@@ -73,40 +70,33 @@ public class Card {
                 }
                 String type = tileObject.getString("type");
 
-                switch (type) {
-                    case "LaserTile":
-                        this.tiles[row][col] = new LaserTile(false, rotatable, orientation);
+                this.tiles[row][col] = TileInfo.TileFromKey(type);
 
-                        break;
-                    case "CellBlockerTile":
-                        this.tiles[row][col] = new CellBlockerTile(false, false);
+                this.tiles[row][col].rotate(orientation,5);
 
-                        break;
-                    case "CheckPointTile":
-                        this.tiles[row][col] = new CheckPointTile(false, rotatable, orientation);
+                this.tiles[row][col].setIsRotatable(rotatable);
+                this.tiles[row][col].setIsMoveable(false);
 
-                        break;
-                    case "SplitterTile":
-                        this.tiles[row][col] = new SplitterTile(false, rotatable, orientation);
 
-                        break;
-                    case "MirrorTile":
-                        this.tiles[row][col] = new MirrorTile(false, rotatable, orientation);
-
-                        break;
-                    case "DoubleTile":
-                        this.tiles[row][col] = new DoubleTile(false, rotatable, orientation);
-
-                        break;
-
-                }
             }
 
             JSONObject extraTiles = jsonObject.getJSONObject("extra tiles");
-            this.checkPointTiles = extraTiles.getInt("CheckPointTiles");
-            this.splitterTiles = extraTiles.getInt("SplitterTiles");
-            this.targetMirrorTiles = extraTiles.getInt("MirrorTiles");
-            this.doubleTiles = extraTiles.getInt("DoubleTiles");
+
+
+            this.placeableTiles = new HashMap<>();
+            // Foreach tile type, add the number of placeable tiles to the map
+            TileInfo.getTiles(true).forEach(tile -> {
+                    System.out.println(tile.getClass().getSimpleName()+"s");
+                    if (extraTiles.has(tile.getClass().getSimpleName() + "s")){
+
+                        this.placeableTiles.put(tile.getClass().getSimpleName(), extraTiles.getInt(tile.getClass().getSimpleName() + "s"));
+                    }
+                    else{
+                        this.placeableTiles.put(tile.getClass().getSimpleName(), 0);
+                    }
+
+            });
+
             this.targets = extraTiles.getInt("targets");
             this.level = extraTiles.getInt("level");
 
@@ -118,14 +108,9 @@ public class Card {
      * Gets the number of placeable tiles and targets for the current level aswell as the level number.
      */
      public GameInfo getPlaceableTiles(){
-        Map<String, Integer> tiles = new HashMap<>();
-        tiles.put("MirrorTile", targetMirrorTiles);
-        tiles.put("SplitterTile", splitterTiles);
-        tiles.put("CheckPointTile", checkPointTiles);
-        tiles.put("DoubleTile", doubleTiles);
 
 
-        GameInfo gameInfo = new GameInfo(level, targets, tiles);
+        GameInfo gameInfo = new GameInfo(level, targets, placeableTiles);
 
 
          return gameInfo;

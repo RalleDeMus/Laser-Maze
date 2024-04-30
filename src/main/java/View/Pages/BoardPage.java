@@ -32,7 +32,7 @@ public class BoardPage extends JPanel {
     final protected Board board;
     final private JPanel winPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); // Initialize here
 
-    JTextField textField = new JTextField("test", 10); // 10 columns width
+    JTextField textField = new JTextField("", 10); // 10 columns width
 
 
     final protected MainMenuPage mainMenu;
@@ -47,6 +47,7 @@ public class BoardPage extends JPanel {
         this.mainMenu = mainMenu;
         // Ensure the Board is accessible
         this.board = board;
+        board.setSelectedTile(null);
         board.resetWin();
         setLayout(new BorderLayout());
         int topPanelHeight = 40;

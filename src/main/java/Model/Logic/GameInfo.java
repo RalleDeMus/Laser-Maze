@@ -38,10 +38,7 @@ public class GameInfo {
         tiles.put(key, value);
     }
 
-    public Integer getTileFromDictionary(String key) {
-        // print all keys and their values
-        //printTiles();
-
+    public int getTileFromDictionary(String key) {
         if (!tiles.containsKey(key)) {
             return 0;
         }

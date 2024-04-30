@@ -4,9 +4,11 @@ import Controller.*;
 import Model.Logic.Board;
 import Model.Logic.JSONSaving;
 import Model.Logic.LevelMakerLogic;
+import Model.Tiles.TileInfo;
 import View.Renderers.BoardRenderer;
 import View.Renderers.ImageOverlayNumber;
 import View.Renderers.TargetRender;
+import io.cucumber.java.sl.In;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,6 +16,9 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.image.BufferedImage;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * The LevelMakerPage class is responsible for displaying the UI for the level maker.
  */
@@ -26,7 +31,7 @@ public class LevelMakerPage extends JPanel {
 
     final private LevelMakerLogic levelMakerLogic;
 
-    final private ImageOverlayNumber[] tileLabels = new ImageOverlayNumber[5];
+    final private Map<String,ImageOverlayNumber> tileLabels = new HashMap<>();
 
     private TargetRender targetCircle = new TargetRender(0, new Color(222, 48, 48), Color.WHITE, 60);
 
@@ -132,11 +137,11 @@ public class LevelMakerPage extends JPanel {
 
     //update the displayed tile count for extra tiles
     void updateTileCount() {
-        for (int i = 0; i < levelMakerLogic.getTileCounts().length; i++) {
-            tileLabels[i].setNumber(levelMakerLogic.getTileCounts()[i]);
-            tileLabels[i].revalidate();
-            tileLabels[i].repaint();
-        }
+        levelMakerLogic.getTileCounts().forEach((key, value) -> {
+            tileLabels.get(key).setNumber(value);
+            tileLabels.get(key).revalidate();
+            tileLabels.get(key).repaint();
+        });
     }
 
     //create the circle panel for the targets
@@ -193,9 +198,11 @@ public class LevelMakerPage extends JPanel {
         eastContainer.add(textTestLabel, getGridBagConstraints(0, 0, 3, GridBagConstraints.HORIZONTAL, 0, new Insets(0, 0, 10, 0)));
     
         // Create and add 5 tiles with plus and minus buttons
-        for (int i = 0; i < 4; i++) {
-            addTileWithButtons(eastContainer, i, getGridBagConstraints(0, i + 1, 1, GridBagConstraints.NONE, 0, new Insets(0, 0, 0, 5)));
+        for (int i = 0; i < TileInfo.getTiles(true).size(); i++) {
+            addTileWithButtons(eastContainer, TileInfo.getTiles(true).get(i).getClass().getSimpleName(), i, getGridBagConstraints(0, i + 1, 1, GridBagConstraints.NONE, 0, new Insets(0, 0, 0, 5)));
         }
+
+
     
         textTestLabel = createLabel("Keys for each tile:", new Font("Baloo Bhaijaan", Font.BOLD, 20));
         eastContainer.add(textTestLabel, getGridBagConstraints(0, 6, 3, GridBagConstraints.HORIZONTAL, 0, new Insets(10, 0, 0, 0)));
@@ -236,55 +243,57 @@ public class LevelMakerPage extends JPanel {
         return button;
     }
 
-    private void addTileWithButtons(JPanel panel, int index, GridBagConstraints gbc) {
+    private void addTileWithButtons(JPanel panel, String type, Integer index, GridBagConstraints gbc) {
         // Tile image with number
-        BufferedImage tileImage = getTileImage(index);
+        BufferedImage tileImage = TileInfo.TileFromKey(type).getImage();
         Image scaledImage = tileImage.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         ImageIcon tileIcon = new ImageIcon(scaledImage);
-        tileLabels[index] = new ImageOverlayNumber(tileIcon, 0, 50, 50);
-        tileLabels[index].setFont(new Font("Baloo Bhaijaan", Font.BOLD, 40));
+
+        ImageOverlayNumber tileLabel = new ImageOverlayNumber(tileIcon, 0, 50, 50);
+        tileLabel.setFont(new Font("Baloo Bhaijaan", Font.BOLD, 40));
+        tileLabels.put(type, tileLabel);
 
         JButton minusButton = createButton("-", new Font("Baloo Bhaijaan", Font.BOLD, 20), new Dimension(35, 35), (ActionListener) e -> {
-            levelMakerLogic.changeTileCount(index, false);
+            levelMakerLogic.changeTileCount(type, false);
             LevelMakerPage.this.requestFocusInWindow();
             updateTileCount();
         });
 
         JButton plusButton = createButton("+", new Font("Baloo Bhaijaan", Font.BOLD, 20), new Dimension(35, 35), (ActionListener) e -> {
-            levelMakerLogic.changeTileCount(index, true);
+            levelMakerLogic.changeTileCount(type, true);
             LevelMakerPage.this.requestFocusInWindow();
             updateTileCount();
         });
 
-        panel.add(tileLabels[index], gbc);
+        panel.add(tileLabels.get(type), gbc);
         panel.add(minusButton, getGridBagConstraints(1, index+1, 1, GridBagConstraints.NONE, 0, new Insets(0, 0, 0, 5)));
         panel.add(plusButton, getGridBagConstraints(2, index+1, 1, GridBagConstraints.NONE, 0, new Insets(0, 0, 0, 5)));
     }
 
 
     //get the image for the tile
-    private BufferedImage getTileImage (int tileType) {
-        BufferedImage tileImage = null;
-
-        switch (tileType) {
-            case 0:
-                tileImage = assetServer.getImage("targetMirror");
-                break;
-            case 1:
-                tileImage = assetServer.getImage("beamSplitter");
-                break;
-            case 2:
-                tileImage = assetServer.getImage("checkPoint");
-                break;
-            case 3:
-                tileImage = assetServer.getImage("doubleMirror");
-                break;
-            case 4:
-                tileImage = assetServer.getImage("laser");
-                break;
-        }
-        return tileImage;
-    }
+//    private BufferedImage getTileImage (int tileType) {
+//        BufferedImage tileImage = null;
+//
+//        switch (tileType) {
+//            case 0:
+//                tileImage = assetServer.getImage("targetMirror");
+//                break;
+//            case 1:
+//                tileImage = assetServer.getImage("beamSplitter");
+//                break;
+//            case 2:
+//                tileImage = assetServer.getImage("checkPoint");
+//                break;
+//            case 3:
+//                tileImage = assetServer.getImage("doubleMirror");
+//                break;
+//            case 4:
+//                tileImage = assetServer.getImage("laser");
+//                break;
+//        }
+//        return tileImage;
+//    }
 
     //save the level and start playing it
     private void saveLevel() {

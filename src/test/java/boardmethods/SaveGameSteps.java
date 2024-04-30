@@ -2,6 +2,7 @@ package boardmethods;
 
 import Model.Logic.Board;
 
+import Model.Logic.GameInfo;
 import Model.Logic.JSONSaving;
 import Model.Tiles.GameTiles.LaserTile;
 import Model.Tiles.GameTiles.MirrorTile;
@@ -11,6 +12,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 
 import static org.junit.Assert.*;
@@ -70,9 +73,13 @@ public class SaveGameSteps {
 
     @And("{int} extra MirrorTiles and {int} extra SplitterTile")
     public void extraMirrorTilesAndExtraSplitterTile(int mirrortiles, int splittertiles) {
-        board.set_game_info(new int[]{mirrortiles,splittertiles,0,0,0});
-        assertEquals(board.get_game_info_by_index(0),2);
-        assertEquals(board.get_game_info_by_index(1),1);
+        Map<String, Integer> tileMap = new HashMap<>();
+        tileMap.put("MirrorTile",mirrortiles);
+        tileMap.put("SplitterTile",splittertiles);
+        GameInfo gameInfo = new GameInfo(0,0,tileMap);
+        board.set_game_info(gameInfo);
+        assertEquals(board.get_game_info().getTileFromDictionary("MirrorTile"),2);
+        assertEquals(board.get_game_info().getTileFromDictionary("SplitterTile"),1);
     }
 
 

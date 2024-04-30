@@ -42,8 +42,7 @@ public class LaserToolBarRenderer extends BoardRenderer {
         }
 
 
-        List<Tile> tilesWithIsMirror = TileInfo.getTiles();
-        tilesWithIsMirror.removeIf(tile -> !tile.getIsMirror());
+        List<Tile> tilesWithIsMirror = TileInfo.getTiles(true);
 
         for (int i = 0; i < tilesWithIsMirror.size(); i++) {
             for (int j = 0; j < board.get_game_info().getTileFromDictionary(tilesWithIsMirror.get(i).getClass().getSimpleName()); j++) {

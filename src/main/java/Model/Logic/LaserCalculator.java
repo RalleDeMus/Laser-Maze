@@ -192,8 +192,7 @@ public class LaserCalculator {
         int placeabletiles = 0;
 
 
-        List<Tile> tilesWithIsMirror = TileInfo.getTiles();
-        tilesWithIsMirror.removeIf(tile -> !tile.getIsMirror());
+        List<Tile> tilesWithIsMirror = TileInfo.getTiles(true);
 
         for (int i = 0; i < tilesWithIsMirror.size(); i++) {
             placeabletiles += board.get_game_info().getTileFromDictionary(tilesWithIsMirror.get(i).getClass().getSimpleName());
