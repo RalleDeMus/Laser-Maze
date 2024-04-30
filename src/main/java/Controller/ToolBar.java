@@ -53,12 +53,9 @@ public class ToolBar extends MouseAdapter  {
                     tiles.add(new LaserTile(true, true));
                 }
 
-                board.get_game_info().printTiles();
 
                 List<Tile> tilesWithIsMirror = TileInfo.getTiles(true);
 
-                System.out.println("size "+tilesWithIsMirror.size());
-                board.get_game_info().printTiles();
                 for (int i = 0; i < tilesWithIsMirror.size(); i++) {
                     for (int j = 0; j < board.get_game_info().getTileFromDictionary(tilesWithIsMirror.get(i).getClass().getSimpleName()); j++) {
                         tiles.add(TileInfo.TileFromKey(tilesWithIsMirror.get(i).getClass().getSimpleName()));

@@ -50,15 +50,6 @@ public class GameInfo {
         return tiles;
     }
 
-    public void printTiles() {
-        System.out.println("Printing tiles dictionary: "+ tiles.size());
-        for (Map.Entry<String, Integer> entry : tiles.entrySet()) {
-            System.out.println("Key = " + entry.getKey() +
-                    ", Value = " + entry.getValue());
-        }
-    }
-
-
 
     public void setTiles(Map<String, Integer> tiles) {
         this.tiles = tiles;

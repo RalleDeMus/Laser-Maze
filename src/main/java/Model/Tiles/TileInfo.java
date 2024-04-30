@@ -92,24 +92,4 @@ public class TileInfo {
         return tiles;
     }
 
-    public static List<String> getTileNames() {
-        List<String> classNames = new ArrayList<>();
-
-        File directory = new File("src/main/java/Model/Tiles/GameTiles");
-        if (directory.exists() && directory.isDirectory()) {
-
-            File[] files = directory.listFiles();
-            if (files != null) {
-                System.out.println("Files: " + files.length);
-                for (File file : files) {
-                    if (file.isFile() && file.getName().endsWith(".java")) {
-                        String className = file.getName().replace(".java", "");
-                        classNames.add(className);
-                    }
-                }
-            }
-        }
-
-        return classNames;
-    }
 }
