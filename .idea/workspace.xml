@@ -4,27 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Deleted files">
-      <change afterPath="$PROJECT_DIR$/src/main/levels/custom/Fun Level.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/levels/custom/Spiral.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/GameTiles/SplitterTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/GameTiles/SplitterTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/LevelMakerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/LevelMakerPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Renderers/LaserToolBarRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Renderers/LaserToolBarRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/Fancy Level wuhu.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/HEY.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/LEVELTEST.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/TESTLMAU.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/boring....json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/levelMakerTest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/lol.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/no laser sad.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/okay.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/rotateNotTestLOL.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/temp.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/temp.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/twoBeamsTest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/levels/custom/with blocker.json" beforeDir="false" />
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Added and removed some custom levels. And changed a bunch of levels (10-25) to be correct.">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/GameInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/GameInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/TileInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/TileInfo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1074,7 +1056,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714498142653</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Added and removed some custom levels. And changed a bunch of levels (10-25) to be correct.">
+      <option name="closed" value="true" />
+      <created>1714504331161</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1714504331161</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1092,7 +1082,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="now doesnt save random level_17 file..." />
     <MESSAGE value="Made correct setup of classes to fit Model-View-Controller" />
     <MESSAGE value="Organised Board" />
     <MESSAGE value="Refactored constructlaser also in tests" />
@@ -1117,7 +1106,8 @@
     <MESSAGE value="removed unnecessary lines" />
     <MESSAGE value="Made tiles more seamless with a setup tiles class instead of two constructers with the same info." />
     <MESSAGE value="Deleted files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deleted files" />
+    <MESSAGE value="Added and removed some custom levels. And changed a bunch of levels (10-25) to be correct." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added and removed some custom levels. And changed a bunch of levels (10-25) to be correct." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/group_4$Feature__PickLevel.ic" NAME="Feature: PickLevel Coverage Results" MODIFIED="1714497757575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

@@ -13,15 +13,12 @@ import java.util.Set;
 import Model.Tiles.Tile;
 
 
-
+/**
+ * Class to get information about the tiles.
+ * This class is used to get the tiles from the package and create instances of them.
+ */
 
 public class TileInfo {
-    // Dictionary containing the ID of each tile
-    // 0: MirrorTile
-    // 1: SplitterTile
-    // 2: CheckPointTile
-    // 3: DoubleTile
-
 
     public static Tile TileFromKey(String className) {
         Reflections reflections = new Reflections("Model.Tiles.GameTiles");
@@ -45,12 +42,10 @@ public class TileInfo {
                     return tileInstance;
 
                 } catch (Exception e) {
-                    //System.err.println("Error creating instance of " + tileClass.getSimpleName() + ": " + e);
                 }
             }
         }
 
-        //System.err.println("No class found with the name: " + className);
         return null;
     }
 
@@ -75,10 +70,8 @@ public class TileInfo {
                 }
 
                 tiles.add(tileInstance);
-                //System.out.println("Loaded tile class: " + tileClass.getSimpleName());
             } catch (Exception e) {
                 throw new AssertionError(e);
-                //System.err.println("Error creating instance of " + tileClass.getSimpleName() + ": " + e);
             }
         }
 

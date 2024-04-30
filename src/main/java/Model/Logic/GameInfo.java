@@ -6,11 +6,22 @@ import io.cucumber.java.sl.In;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class is used to store the game information.
+ */
+
 public class GameInfo {
     private int level;
     private int targets;
     private Map<String, Integer> tiles;
 
+    /**
+     * Constructor for the GameInfo class.
+     * This class is used to store the game information.
+     * @param level level of the game
+     * @param targets how many tiles in the game
+     * @param tiles a map of the tiles and the number of them
+     */
     public GameInfo(int level, int targets, Map<String, Integer> tiles) {
         this.level = level;
         this.targets = targets;
