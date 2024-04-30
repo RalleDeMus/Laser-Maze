@@ -28,6 +28,8 @@ public interface TileInterface {
 
     int getIsSplitter();
 
+    void SetupTile();
+
 
 
 }

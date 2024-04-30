@@ -11,17 +11,16 @@ import Model.Tiles.Tile;
 public class CheckPointTile extends Tile {
     public CheckPointTile(boolean isMoveable, boolean isRotateable) {
         super( isMoveable,  isRotateable);
-        this.mirror = new int[]{0, 0, 0, 0};
-        this.pass = new int[]{0, 1, 0, 1};
-        this.target = new int[]{0,0,0,0};
-        this.splitter = 0;
-        this.isMirror = true;
-        this.setImage(AssetServer.getInstance().getImage("checkPoint"));
-        this.setRotatedImage(AssetServer.getInstance().getImage("checkPointFree"));
+
     }
 
     public CheckPointTile(boolean isMoveable, boolean isRotateable, int orientation) {
-        super( isMoveable,  isRotateable, 0);
+        super(isMoveable,  isRotateable, orientation);
+
+    }
+
+    @Override
+    public void SetupTile() {
         this.mirror = new int[]{0, 0, 0, 0};
         this.pass = new int[]{0, 1, 0, 1};
         this.target = new int[]{0,0,0,0};
@@ -29,7 +28,6 @@ public class CheckPointTile extends Tile {
         this.isMirror = true;
         this.setImage(AssetServer.getInstance().getImage("checkPoint"));
         this.setRotatedImage(AssetServer.getInstance().getImage("checkPointFree"));
-        this.rotate(orientation,5);
     }
 
 

@@ -32,27 +32,22 @@ public class TileInfo {
                 try {
                     Tile tileInstance = null;
 
-                    // Check if there is a no-argument constructor
                     try {
                         Constructor<? extends Tile> constructor = tileClass.getDeclaredConstructor();
                         tileInstance = constructor.newInstance();
                     } catch (NoSuchMethodException e) {
-                        // No no-arg constructor, try with two boolean args
                         Constructor<? extends Tile> constructor = tileClass.getDeclaredConstructor(boolean.class, boolean.class);
                         tileInstance = constructor.newInstance(true, true);  // Assuming all need true, true
                     }
 
-                    if (tileInstance != null) {
-                        //System.out.println("Loaded tile class: " + tileClass.getSimpleName());
-                        return tileInstance;
-                    }
+                    return tileInstance;
+
                 } catch (Exception e) {
-                    System.err.println("Error creating instance of " + tileClass.getSimpleName() + ": " + e);
+                    //System.err.println("Error creating instance of " + tileClass.getSimpleName() + ": " + e);
                 }
             }
         }
 
-        System.err.println("No class found with the name: " + className);
         return null;
     }
 
@@ -81,7 +76,7 @@ public class TileInfo {
                     //System.out.println("Loaded tile class: " + tileClass.getSimpleName());
                 }
             } catch (Exception e) {
-                System.err.println("Error creating instance of " + tileClass.getSimpleName() + ": " + e);
+                //System.err.println("Error creating instance of " + tileClass.getSimpleName() + ": " + e);
             }
         }
 

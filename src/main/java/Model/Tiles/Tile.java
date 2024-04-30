@@ -28,20 +28,15 @@ abstract public class Tile implements TileInterface, Cloneable{
     protected boolean isMirror; // If the tile is a mirror or laser/cell blocker
 
     public Tile(boolean isMoveable, boolean isRotateable, int orientation){
-        this.orientation = orientation;
-        this.mirror = new int[]{};
-        this.pass = new int[]{};
-        this.target = new int[]{};
+        SetupTile();
         this.isMoveable = isMoveable;
         this.isRotateable = isRotateable;
+        this.rotate(orientation,5);
 
     }
 
     public Tile(boolean isMoveable, boolean isRotateable){
-        this.orientation = 0;
-        this.mirror = new int[]{};
-        this.pass = new int[]{};
-        this.target = new int[]{};
+        SetupTile();
         this.isMoveable = isMoveable;
         this.isRotateable = isRotateable;
     }
@@ -69,6 +64,7 @@ abstract public class Tile implements TileInterface, Cloneable{
 
 
 
+
     @Override
     public int[] getMirror() {
 
@@ -88,6 +84,11 @@ abstract public class Tile implements TileInterface, Cloneable{
     @Override
     public int getIsSplitter() {
         return splitter;
+    }
+
+    @Override
+    public void SetupTile() {
+
     }
 
     @Override
@@ -178,5 +179,7 @@ abstract public class Tile implements TileInterface, Cloneable{
 
 
     }
+
+
 
 }
