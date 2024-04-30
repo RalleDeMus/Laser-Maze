@@ -6,7 +6,6 @@ import java.awt.image.BufferedImage;
  * The tiles are the building blocks of the game.
  */
 public interface TileInterface {
-
     int[] getMirror();
     int[] getPass();
     int[] getTarget();

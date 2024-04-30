@@ -96,12 +96,12 @@ abstract public class Tile implements TileInterface, Cloneable{
 
     }
     // getter and setter of image for tile
-    @Override
+
     public void setImage(BufferedImage image) {
         this.image = image;
     }
 
-    @Override
+
     public BufferedImage getImage() {
         if (orientation == 4){
             return rotatedImage;
@@ -109,12 +109,12 @@ abstract public class Tile implements TileInterface, Cloneable{
         return image;
     }
 
-    @Override
+
     public void setRotatedImage(BufferedImage rotatedImage) {
         this.rotatedImage = rotatedImage;
     }
 
-    @Override
+
     public BufferedImage getRotatedImage() {
         return rotatedImage;
     }
