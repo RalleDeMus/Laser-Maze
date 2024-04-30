@@ -4,18 +4,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Fixed ReadyPage back button">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/GameInfo.java" afterDir="false" />
+    <list default="true" id="8049fb56-ca5c-4766-acde-08946b78d707" name="Changes" comment="Game info remade">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/TileInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LevelMakerInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LevelMakerInputHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ToolBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/GameInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/GameInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/JSONSaving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/JSONSaving.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Logic/LaserCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Logic/LaserCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/BoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/BoardPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Pages/MultiplayerBoardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Pages/MultiplayerBoardPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/CellBlockerTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/GameTiles/CellBlockerTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/CheckPointTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/GameTiles/CheckPointTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/DoubleTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/GameTiles/DoubleTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/LaserTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/GameTiles/LaserTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/MirrorTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/GameTiles/MirrorTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/SplitterTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/GameTiles/SplitterTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Tiles/TileInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Tiles/TileInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/Renderers/LaserToolBarRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Renderers/LaserToolBarRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/custom/game_state.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/level_0.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/level_0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/level_1.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/level_1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/level_2.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/level_2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/level_3.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/level_3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/level_4.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/level_4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/levels/level_5.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/levels/level_5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LaserMethods/CheckWinConditionSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LaserMethods/CheckWinConditionSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/CreateLevelSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/boardmethods/CreateLevelSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/ManipulateTilesSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/boardmethods/ManipulateTilesSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/boardmethods/SaveGameSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/boardmethods/SaveGameSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tiles/TileSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tiles/TileSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/AssetServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/AssetServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/ImageHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/ImageHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/Laser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/Laser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Logic/PointStringPair.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Logic/PointStringPair.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/CellBlockerTile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/CheckPointTile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/DoubleTile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/LaserTile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/MirrorTile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/SplitterTile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/Tile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Tiles/TileInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Tiles/TileInterface.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +144,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "tiles-made-scalable",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Rasmu/IdeaProjects/group-4/src/test/java/boardmethods",
@@ -1022,7 +1058,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714421646792</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Game info remade">
+      <option name="closed" value="true" />
+      <created>1714466393821</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1714466393821</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1040,7 +1084,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed checkwincondition" />
     <MESSAGE value="Added showing number of targets hit as a circle" />
     <MESSAGE value="Added &quot;YOU WIN!&quot; label when you complete a level" />
     <MESSAGE value="Now easier to unselect tile" />
@@ -1065,7 +1108,8 @@
     <MESSAGE value="Made changes to a bunch of pages to make them more readibly and modifiable." />
     <MESSAGE value="Made the rest of the pages more modular" />
     <MESSAGE value="Fixed ReadyPage back button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed ReadyPage back button" />
+    <MESSAGE value="Game info remade" />
+    <option name="LAST_COMMIT_MESSAGE" value="Game info remade" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/group_4$Feature__PickLevel.ic" NAME="Feature: PickLevel Coverage Results" MODIFIED="1714410292236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">

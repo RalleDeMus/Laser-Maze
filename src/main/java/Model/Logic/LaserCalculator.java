@@ -1,9 +1,10 @@
 package Model.Logic;
 
-import Model.Tiles.CellBlockerTile;
-import Model.Tiles.LaserTile;
-import Model.Tiles.SplitterTile;
+import Model.Tiles.GameTiles.CellBlockerTile;
+import Model.Tiles.GameTiles.LaserTile;
+import Model.Tiles.GameTiles.SplitterTile;
 import Model.Tiles.Tile;
+import Model.Tiles.TileInfo;
 
 import java.awt.*;
 import java.util.*;
@@ -189,8 +190,13 @@ public class LaserCalculator {
     // Helper function to check if all mirrors are used
     private static boolean allMirrorsUsed(Board board){ // REMOVE
         int placeabletiles = 0;
-        for (int i = 0; i < 4; i++) {
-            placeabletiles += board.get_game_info().getTileAtIndex(i);
+
+
+        List<Tile> tilesWithIsMirror = TileInfo.getTiles();
+        tilesWithIsMirror.removeIf(tile -> !tile.getIsMirror());
+
+        for (int i = 0; i < tilesWithIsMirror.size(); i++) {
+            placeabletiles += board.get_game_info().getTileFromDictionary(tilesWithIsMirror.get(i).getClass().getSimpleName());
         }
 
         // CHECK FOR MIRRORS THAT ARE ROTATED AND RETURN FALSE IF ANY ARE

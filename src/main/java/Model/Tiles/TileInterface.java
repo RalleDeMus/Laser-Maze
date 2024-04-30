@@ -11,6 +11,8 @@ public interface TileInterface {
     int[] getPass();
     int[] getTarget();
 
+    boolean getIsMirror();
+
     boolean getIsMovable();
 
     boolean getIsRotatable();
@@ -22,6 +24,8 @@ public interface TileInterface {
 
     BufferedImage getRotatedImage();
     void setIsRotatable(boolean isRotatable);
+
+    void setIsMirror(boolean isMirror);
 
 
 

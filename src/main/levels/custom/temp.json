@@ -8,18 +8,18 @@
             "type": "LaserTile"
         },
         {
-            "col": 1,
+            "col": 3,
             "rotatable": false,
-            "orientation": 2,
-            "row": 4,
+            "orientation": 0,
+            "row": 2,
             "type": "MirrorTile"
         }
     ]},
     "extra tiles": {
         "CheckPointTiles": 0,
-        "MirrorTiles": 2,
-        "DoubleTile": 0,
+        "MirrorTiles": 0,
         "level": 0,
+        "DoubleTiles": 0,
         "SplitterTiles": 0,
         "targets": 1
     }

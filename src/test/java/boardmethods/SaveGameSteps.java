@@ -3,7 +3,8 @@ package boardmethods;
 import Model.Logic.Board;
 
 import Model.Logic.JSONSaving;
-import Model.Tiles.*;
+import Model.Tiles.GameTiles.LaserTile;
+import Model.Tiles.GameTiles.MirrorTile;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

@@ -1,14 +1,12 @@
 package tiles;
 
-import Model.Tiles.MirrorTile;
+import Model.Tiles.GameTiles.MirrorTile;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import Model.Tiles.LaserTile;
+import Model.Tiles.GameTiles.LaserTile;
 import Model.Tiles.Tile;
-
-import java.awt.image.BufferedImage;
 
 import static org.junit.Assert.*;
 

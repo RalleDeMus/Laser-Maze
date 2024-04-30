@@ -1,8 +1,7 @@
 package boardmethods;
 import Model.Logic.Board;
-import Model.Tiles.*;
 
-import Model.Tiles.MirrorTile;
+import Model.Tiles.GameTiles.*;
 import Model.Tiles.Tile;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -70,7 +69,7 @@ public class ManipulateTilesSteps {
             case "SplitterTile": return new SplitterTile(true,true);
             case "DoubleTile": return new DoubleTile(true,true);
             case "CheckPointTile": return new CheckPointTile(true,true);
-            case "CellBlockerTile": return new CellBlockerTile(true);
+            case "CellBlockerTile": return new CellBlockerTile(true, false);
             default: throw new IllegalArgumentException("Unknown tile type: " + tileType);
         }
     }

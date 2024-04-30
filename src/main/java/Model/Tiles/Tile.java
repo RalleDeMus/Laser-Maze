@@ -24,6 +24,8 @@ abstract public class Tile implements TileInterface, Cloneable{
 
     protected int[] target; // Target values of the tile. Used to check if we hit a target.
 
+    protected boolean isMirror;
+
     public Tile(boolean isMoveable, boolean isRotateable, int orientation){
         this.orientation = orientation;
         this.mirror = new int[]{};
@@ -80,6 +82,16 @@ abstract public class Tile implements TileInterface, Cloneable{
     public int[] getTarget() {
 
         return target;
+    }
+
+    @Override
+    public void setIsMirror(boolean isMirror) {
+        this.isMirror = isMirror;
+    }
+
+    @Override
+    public boolean getIsMirror() {
+        return isMirror;
     }
 
 

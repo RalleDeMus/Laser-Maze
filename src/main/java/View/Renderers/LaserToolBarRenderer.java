@@ -5,11 +5,15 @@ import Controller.ImageHandler;
 import Model.Logic.Board;
 import Model.Logic.LaserCalculator;
 import Model.Logic.PointStringPair;
+import Model.Tiles.Tile;
+import Model.Tiles.TileInfo;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
 /**
     * The LaserToolBarRenderer class is responsible for drawing the laser and the toolbar.
 
@@ -37,9 +41,14 @@ public class LaserToolBarRenderer extends BoardRenderer {
             tiles.add(assetServer.getImage("laser"));
         }
 
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < board.get_game_info().getTileAtIndex(i); j++) {
-                tiles.add(getTileImage(i));
+
+        List<Tile> tilesWithIsMirror = TileInfo.getTiles();
+        tilesWithIsMirror.removeIf(tile -> !tile.getIsMirror());
+
+        for (int i = 0; i < tilesWithIsMirror.size(); i++) {
+            for (int j = 0; j < board.get_game_info().getTileFromDictionary(tilesWithIsMirror.get(i).getClass().getSimpleName()); j++) {
+                tiles.add(Objects.requireNonNull(TileInfo.TileFromKey(tilesWithIsMirror.get(i).getClass().getSimpleName())).getImage());
+
             }
 
         }

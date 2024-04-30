@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Logic.Board;
 import Model.Tiles.*;
+import Model.Tiles.GameTiles.*;
 import View.Renderers.BoardRenderer;
 
 import javax.swing.*;
@@ -51,9 +52,17 @@ public class ToolBar extends MouseAdapter  {
                 if (board.laserNeeded()) {
                     tiles.add(new LaserTile(true, true));
                 }
-                for (int i = 0; i < 4; i++) {
-                    for (int j = 0; j < board.get_game_info().getTileAtIndex(i); j++) {
-                        tiles.add(intToTile(i));
+
+                //board.get_game_info().printTiles();
+
+                List<Tile> tilesWithIsMirror = TileInfo.getTiles();
+                tilesWithIsMirror.removeIf(tile -> !tile.getIsMirror());
+
+                System.out.println("size "+tilesWithIsMirror.size());
+                board.get_game_info().printTiles();
+                for (int i = 0; i < tilesWithIsMirror.size(); i++) {
+                    for (int j = 0; j < board.get_game_info().getTileFromDictionary(tilesWithIsMirror.get(i).getClass().getSimpleName()); j++) {
+                        tiles.add(TileInfo.TileFromKey(tilesWithIsMirror.get(i).getClass().getSimpleName()));
                     }
 
                 }

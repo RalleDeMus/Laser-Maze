@@ -1,7 +1,7 @@
 package Controller;
 
 import Model.Logic.Board;
-import Model.Tiles.*;
+import Model.Tiles.GameTiles.*;
 import View.Pages.LevelMakerPage;
 
 import java.awt.event.KeyEvent;
@@ -44,7 +44,7 @@ public class LevelMakerInputHandler extends BoardInputHandler {
                 board.setSelectedTile(new CheckPointTile(true, true));
                 break;
             case KeyEvent.VK_6:
-                board.setSelectedTile(new CellBlockerTile(true));
+                board.setSelectedTile(new CellBlockerTile(true, false));
                 break;
         }
         panel.repaint();

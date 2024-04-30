@@ -1,8 +1,8 @@
 package boardmethods;
 
 import Model.Logic.*;
-import Model.Tiles.LaserTile;
-import Model.Tiles.MirrorTile;
+import Model.Tiles.GameTiles.LaserTile;
+import Model.Tiles.GameTiles.MirrorTile;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

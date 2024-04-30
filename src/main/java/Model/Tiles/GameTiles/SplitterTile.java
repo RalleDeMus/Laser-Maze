@@ -1,6 +1,7 @@
-package Model.Tiles;
+package Model.Tiles.GameTiles;
 
 import Controller.AssetServer;
+import Model.Tiles.Tile;
 
 /**
  * Class for the splitter tile.
@@ -14,6 +15,7 @@ public class SplitterTile extends Tile {
         this.pass = new int[]{1, 1, 1, 1};
         this.target = new int[]{0,0,0,0};
         this.isMoveable = isMoveable;
+        this.isMirror = true;
         this.setImage(AssetServer.getInstance().getImage("beamSplitter"));
         this.setRotatedImage(AssetServer.getInstance().getImage("beamSplitterFree"));
     }
@@ -24,6 +26,7 @@ public class SplitterTile extends Tile {
         this.pass = new int[]{1, 1, 1, 1};
         this.target = new int[]{0,0,0,0};
         this.isMoveable = isMoveable;
+        this.isMirror = true;
         this.setImage(AssetServer.getInstance().getImage("beamSplitter"));
         this.setRotatedImage(AssetServer.getInstance().getImage("beamSplitterFree"));
         this.rotate(orientation,5);

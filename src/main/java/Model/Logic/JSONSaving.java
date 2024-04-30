@@ -8,6 +8,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Class for handling saving of game states to JSON files.
@@ -50,10 +52,10 @@ public class JSONSaving {
 
         // Create "extra tiles" object
         JSONObject game_info_JSON = new JSONObject();
-        game_info_JSON.put("MirrorTiles", game_info.getTileAtIndex(0));
-        game_info_JSON.put("SplitterTiles", game_info.getTileAtIndex(1));
-        game_info_JSON.put("CheckPointTiles", game_info.getTileAtIndex(2));
-        game_info_JSON.put("DoubleTile", game_info.getTileAtIndex(3));
+        game_info_JSON.put("MirrorTiles", game_info.getTileFromDictionary("MirrorTile"));
+        game_info_JSON.put("SplitterTiles", game_info.getTileFromDictionary("SplitterTile"));
+        game_info_JSON.put("CheckPointTiles", game_info.getTileFromDictionary("CheckPointTile"));
+        game_info_JSON.put("DoubleTiles", game_info.getTileFromDictionary("DoubleTile"));
         game_info_JSON.put("targets", game_info.getTargets());
         game_info_JSON.put("level", game_info.getLevel());
 
@@ -125,8 +127,14 @@ public class JSONSaving {
         }
 
         // Set game info to match
-        int[] info_ties = {tileCounts[0], tileCounts[1], tileCounts[2], tileCounts[3]};
-        GameInfo game_info = new GameInfo(0,targets,info_ties);
+
+        Map<String, Integer> tilesInfo = new HashMap<>();
+        tilesInfo.put("MirrorTile", tileCounts[0]);
+        tilesInfo.put("SplitterTile", tileCounts[1]);
+        tilesInfo.put("CheckPointTile", tileCounts[2]);
+        tilesInfo.put("DoubleTile", tileCounts[3]);
+
+        GameInfo game_info = new GameInfo(0,targets,tilesInfo);
         board.set_game_info(game_info);
 
         saveGameState("temp",board);

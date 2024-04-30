@@ -1,6 +1,7 @@
 package Model.Logic;
 
 import Model.Tiles.*;
+import Model.Tiles.GameTiles.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -8,6 +9,8 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Class for handling the card and its contents.
@@ -76,7 +79,7 @@ public class Card {
 
                         break;
                     case "CellBlockerTile":
-                        this.tiles[row][col] = new CellBlockerTile(false);
+                        this.tiles[row][col] = new CellBlockerTile(false, false);
 
                         break;
                     case "CheckPointTile":
@@ -103,7 +106,7 @@ public class Card {
             this.checkPointTiles = extraTiles.getInt("CheckPointTiles");
             this.splitterTiles = extraTiles.getInt("SplitterTiles");
             this.targetMirrorTiles = extraTiles.getInt("MirrorTiles");
-            this.doubleTiles = extraTiles.getInt("DoubleTile");
+            this.doubleTiles = extraTiles.getInt("DoubleTiles");
             this.targets = extraTiles.getInt("targets");
             this.level = extraTiles.getInt("level");
 
@@ -115,11 +118,16 @@ public class Card {
      * Gets the number of placeable tiles and targets for the current level aswell as the level number.
      */
      public GameInfo getPlaceableTiles(){
-         int[] tile_info = new int[4];
-         tile_info[0] = targetMirrorTiles;
-         tile_info[1] = splitterTiles;
-         tile_info[2] = checkPointTiles;
-         tile_info[3] = doubleTiles;
-         return new GameInfo(level, targets, tile_info);
+        Map<String, Integer> tiles = new HashMap<>();
+        tiles.put("MirrorTile", targetMirrorTiles);
+        tiles.put("SplitterTile", splitterTiles);
+        tiles.put("CheckPointTile", checkPointTiles);
+        tiles.put("DoubleTile", doubleTiles);
+
+
+        GameInfo gameInfo = new GameInfo(level, targets, tiles);
+
+
+         return gameInfo;
      }
 }
