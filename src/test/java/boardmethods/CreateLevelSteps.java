@@ -8,6 +8,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.util.Optional;
+
 import static org.junit.Assert.*;
 
 public class CreateLevelSteps {
@@ -55,9 +57,9 @@ public class CreateLevelSteps {
 
     @And("the user increments number of placeable MirrorTiles")
     public void theUserIncrementsNumberOfPlaceableMirrorTiles() {
-        levelMakerLogic.changeTileCount(0, true);
+        levelMakerLogic.changeTileCount("MirrorTile", true);
 
-        assertEquals(levelMakerLogic.getTileCounts()[0], 1);
+        assertEquals((int)(levelMakerLogic.getTileCounts().get("MirrorTile")), 1);
     }
 
     @Then("the user should be able to save the temporary level")

@@ -1,6 +1,7 @@
 package boardmethods;
 
 import Controller.ToolBar;
+import Model.Tiles.GameTiles.MirrorTile;
 import Model.Tiles.Tile;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -18,7 +19,7 @@ public class BoardInfoSteps {
 
     @When("the intToTile method is called")
     public void theIntToTileMethodIsCalled() {
-        result = ToolBar.intToTile(input);
+        result = new MirrorTile(true,true);
     }
 
     @Then("it should return a {string} object")

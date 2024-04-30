@@ -16,11 +16,8 @@
         }
     ]},
     "extra tiles": {
-        "CheckPointTiles": 0,
         "MirrorTiles": 1,
         "level": 0,
-        "DoubleTiles": 0,
-        "SplitterTiles": 0,
         "targets": 1
     }
 }

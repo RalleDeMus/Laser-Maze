@@ -32,48 +32,19 @@ public class LevelMakerInputHandler extends BoardInputHandler {
     public void keyPressed(KeyEvent e) {
         List<Tile> tiles = getTiles();
 
-        switch (e.getKeyCode()) {
-            case KeyEvent.VK_R:
-                board.rotateSelectedTile(true);
-                break;
-            case KeyEvent.VK_1:
-                board.setSelectedTile(getTiles().get(0));
-                break;
-            case KeyEvent.VK_2:
-                board.setSelectedTile(getTiles().get(1));
-                break;
-            case KeyEvent.VK_3:
-                board.setSelectedTile(getTiles().get(2));
-                break;
-            case KeyEvent.VK_4:
-                board.setSelectedTile(getTiles().get(3));
-                break;
-            case KeyEvent.VK_5:
-                board.setSelectedTile(getTiles().get(4));
-                break;
-            case KeyEvent.VK_6:
-                board.setSelectedTile(getTiles().get(5));
-                break;
-            case KeyEvent.VK_7:
-                if (tiles.size() > 6) {
-                    board.setSelectedTile(tiles.get(6));
-                }
-                break;
-            case KeyEvent.VK_8:
-                if (tiles.size() > 7) {
-                    board.setSelectedTile(tiles.get(7));
-                }
-                break;
-            case KeyEvent.VK_9:
-                if (tiles.size() > 8) {
-                    board.setSelectedTile(tiles.get(8));
-                }
-                break;
-            case KeyEvent.VK_0:
-                if (tiles.size() > 9) {
-                    board.setSelectedTile(tiles.get(9));
-                }
-                break;
+        if (e.getKeyCode() == KeyEvent.VK_R) {
+            board.rotateSelectedTile(true);
+        }
+
+        int keyCode = e.getKeyCode();
+        int index = -1;
+        if (keyCode >= KeyEvent.VK_1 && keyCode <= KeyEvent.VK_9) {
+            index = keyCode - KeyEvent.VK_1; // VK_1 maps to index 0
+        } else if (keyCode == KeyEvent.VK_0) {
+            index = 9; // VK_0 maps to index 9
+        }
+        if (index != -1 && index < getTiles().size()) {
+            board.setSelectedTile(getTiles().get(index));
         }
 
         TileInfo.getTiles(false);
