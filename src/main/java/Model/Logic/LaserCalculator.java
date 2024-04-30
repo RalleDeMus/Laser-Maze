@@ -2,7 +2,6 @@ package Model.Logic;
 
 import Model.Tiles.GameTiles.CellBlockerTile;
 import Model.Tiles.GameTiles.LaserTile;
-import Model.Tiles.GameTiles.SplitterTile;
 import Model.Tiles.Tile;
 import Model.Tiles.TileInfo;
 
@@ -75,7 +74,7 @@ public class LaserCalculator {
 
                     // Fromdir and todir handles which direction the laser is coming from and going to
                     String fromDir = String.valueOf(current.getOrientation());
-                    String toDir = String.valueOf(current.getOrientation()) + "__";
+                    String toDir = (current.getOrientation()) + "__";
 
 
                     // Is there a tile at the current position?
@@ -143,9 +142,9 @@ public class LaserCalculator {
                             } else if (tile.getIsSplitter() == 1) {
                                 toDir += fromDir + "_";
                             } else if (tile.getIsSplitter() == 2) {
-                                toDir += "_" + (String.valueOf((nextLaserOrientation+2)%4));
+                                toDir += "_" + ((nextLaserOrientation + 2) % 4);
                             } else if (tile.getIsSplitter() == 3) {
-                                toDir += fromDir + (String.valueOf((nextLaserOrientation+2)%4));
+                                toDir += fromDir + ((nextLaserOrientation + 2) % 4);
                             }
                         }
 
@@ -157,7 +156,7 @@ public class LaserCalculator {
                     }
 
                     // Now we add the current laser to the list of lasers to be drawn
-                    laserList.add(new PointStringPair(new Point(current.getX(), current.getY()), String.valueOf(fromDir) + String.valueOf(toDir)));
+                    laserList.add(new PointStringPair(new Point(current.getX(), current.getY()), fromDir + toDir));
 
 
                 }
@@ -182,11 +181,11 @@ public class LaserCalculator {
      * Helper function to check if a laser can be added to the list of lasers. Only being used if the laser goes in a circle
      */
 
-    private static Boolean canAddLaser(Set<Laser> lasersList, Laser adding) { // REMOVE
+    private static Boolean canAddLaser(Set<Laser> lasersList, Laser adding) {
         //Don't add if adding is already in the queue
         for (Laser laser : lasersList) {
             if (laser.Equals(adding)){
-                System.out.println("Laser already exists");
+                //System.out.println("Laser already exists");
                 return false;
             }
         }
@@ -194,12 +193,12 @@ public class LaserCalculator {
     }
 
     // Regular modulo function that returns a positive number always
-    private static int subMod(int a, int b, int mod) { // REMOVE
+    private static int subMod(int a, int b, int mod) {
         return (a - b + mod) % mod;
     }
 
     // Helper function to convert an orientation to a point
-    private static Point orientationToPoint(int orientation) { // REMOVE
+    private static Point orientationToPoint(int orientation) {
         switch (orientation) {
             case 1:
                 return new Point(0, 1); // Up
@@ -216,14 +215,14 @@ public class LaserCalculator {
 
 
     // Helper function to check if all mirrors are used
-    private static boolean allMirrorsUsed(Board board){ // REMOVE
+    private static boolean allMirrorsUsed(Board board){
         int placeabletiles = 0;
 
 
         List<Tile> tilesWithIsMirror = TileInfo.getTiles(true);
 
-        for (int i = 0; i < tilesWithIsMirror.size(); i++) {
-            placeabletiles += board.get_game_info().getTileFromDictionary(tilesWithIsMirror.get(i).getClass().getSimpleName());
+        for (Tile tile : tilesWithIsMirror) {
+            placeabletiles += board.get_game_info().getTileFromDictionary(tile.getClass().getSimpleName());
         }
 
         // CHECK FOR MIRRORS THAT ARE ROTATED AND RETURN FALSE IF ANY ARE

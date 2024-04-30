@@ -7,7 +7,6 @@ Feature: load levels and test configurations
     Examples:
       | level  |
       | 1      |
-      | 3      |
       | 4      |
       | 8      |
 

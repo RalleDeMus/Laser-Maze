@@ -1,24 +1,10 @@
 {
     "gameinfo": {"tiles": [
         {
-            "col": 0,
-            "rotatable": true,
-            "orientation": 2,
-            "row": 2,
-            "type": "MirrorTile"
-        },
-        {
-            "col": 2,
-            "rotatable": true,
-            "orientation": 0,
-            "row": 2,
-            "type": "BiSplitterTile"
-        },
-        {
             "col": 4,
-            "rotatable": true,
-            "orientation": 1,
-            "row": 2,
+            "rotatable": false,
+            "orientation": 3,
+            "row": 0,
             "type": "MirrorTile"
         },
         {
@@ -26,32 +12,19 @@
             "rotatable": false,
             "orientation": 0,
             "row": 3,
-            "type": "LaserTile"
-        },
-        {
-            "col": 2,
-            "rotatable": false,
-            "orientation": 2,
-            "row": 3,
-            "type": "DoubleTile"
-        },
-        {
-            "col": 4,
-            "rotatable": true,
-            "orientation": 2,
-            "row": 3,
             "type": "MirrorTile"
         },
         {
-            "col": 2,
-            "rotatable": false,
-            "orientation": 1,
+            "col": 0,
+            "rotatable": true,
+            "orientation": 4,
             "row": 4,
-            "type": "MirrorTile"
+            "type": "LaserTile"
         }
     ]},
     "extra tiles": {
-        "level": 0,
-        "targets": 0
+        "MirrorTiles": 1,
+        "level": 2,
+        "targets": 1
     }
 }
