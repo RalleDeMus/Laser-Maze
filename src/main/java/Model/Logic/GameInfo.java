@@ -34,10 +34,6 @@ public class GameInfo {
     }
 
 
-    public void addToTileDictionary(String key, Integer value) {
-        tiles.put(key, value);
-    }
-
     public int getTileFromDictionary(String key) {
         if (!tiles.containsKey(key)) {
             return 0;
