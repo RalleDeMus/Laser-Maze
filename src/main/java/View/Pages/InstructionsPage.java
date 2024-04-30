@@ -47,6 +47,7 @@ public class InstructionsPage extends JPanel{
                 + "4 = Beam Splitter Tile<br>"
                 + "5 = Checkpoint Tile<br>"
                 + "6 = Cell Blocker Tile</p>"
+                + "7,8, 9, 0 = New custom tiles<br>"
                 + "<p>After selecting the pieces, choose which pieces should be in the toolbar. "
                 + "Also decide how many targets need to be hit. "
                 + "If you rotate a piece 5 times, it gets a new icon making the piece rotatable.</p>"
