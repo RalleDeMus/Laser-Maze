@@ -27,7 +27,7 @@ public class JSONSaving {
 
         int boardSize = board.getBoardSize();
         Tile[][] tiles = board.getTiles();
-        int[] game_info = board.get_game_info();
+        GameInfo game_info = board.get_game_info();
 
         for (int i = 0; i < boardSize; i++) {
             for (int j = 0; j < boardSize; j++) {
@@ -50,12 +50,12 @@ public class JSONSaving {
 
         // Create "extra tiles" object
         JSONObject game_info_JSON = new JSONObject();
-        game_info_JSON.put("MirrorTiles", game_info[0]);
-        game_info_JSON.put("SplitterTiles", game_info[1]);
-        game_info_JSON.put("CheckPointTiles", game_info[2]);
-        game_info_JSON.put("DoubleTile", game_info[3]);
-        game_info_JSON.put("targets", game_info[4]);
-        game_info_JSON.put("level", game_info[5]);
+        game_info_JSON.put("MirrorTiles", game_info.getTileAtIndex(0));
+        game_info_JSON.put("SplitterTiles", game_info.getTileAtIndex(1));
+        game_info_JSON.put("CheckPointTiles", game_info.getTileAtIndex(2));
+        game_info_JSON.put("DoubleTile", game_info.getTileAtIndex(3));
+        game_info_JSON.put("targets", game_info.getTargets());
+        game_info_JSON.put("level", game_info.getLevel());
 
         // Create the root JSON object to hold both "gameinfo" and "extra tiles"
         JSONObject boardState = new JSONObject();
@@ -125,8 +125,9 @@ public class JSONSaving {
         }
 
         // Set game info to match
-        // game info is array with len 6.
-        board.set_game_info(new int[]{tileCounts[0], tileCounts[1], tileCounts[2], tileCounts[3], targets, 0});
+        int[] info_ties = {tileCounts[0], tileCounts[1], tileCounts[2], tileCounts[3]};
+        GameInfo game_info = new GameInfo(0,targets,info_ties);
+        board.set_game_info(game_info);
 
         saveGameState("temp",board);
 

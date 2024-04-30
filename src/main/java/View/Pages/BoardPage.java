@@ -51,7 +51,7 @@ public class BoardPage extends JPanel {
         setLayout(new BorderLayout());
         int topPanelHeight = 40;
 
-        initializeUI(topPanelHeight, board.get_game_info_by_index(4));
+        initializeUI(topPanelHeight, board.get_game_info().getTargets());
 
 
         // Setup based on feature inclusion
@@ -95,7 +95,7 @@ public class BoardPage extends JPanel {
         JLabel levelText = createLevelLabel();
         topPanel.add(levelText);
 
-        if (board.get_game_info_by_index(5) == 0 && board.getLevel().equals("temp")) {
+        if (board.get_game_info().getLevel() == 0 && board.getLevel().equals("temp")) {
             addTemporaryLevelFields(topPanel);
         }
 
@@ -183,7 +183,7 @@ public class BoardPage extends JPanel {
             stopTimer();
 
             //check if the player is playing a newly made custom level
-            if (board.get_game_info_by_index(5) != 0) {
+            if (board.get_game_info().getLevel() != 0) {
 
                 JButton nextLevelButton = goToNextLevelPageButton();
                 winPanel.add(nextLevelButton);
@@ -231,7 +231,7 @@ public class BoardPage extends JPanel {
 
                 board.setCardLevel(String.valueOf(Integer.parseInt(board.getLevel())+1));
             } catch (Exception exception) {
-                board.setCardLevel(String.valueOf(board.get_game_info_by_index(5)+1));
+                board.setCardLevel(String.valueOf(board.get_game_info().getLevel()+1));
             }
 
             BoardPage boardPage = new BoardPage(mainMenu, true, board);

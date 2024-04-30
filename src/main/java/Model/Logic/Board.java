@@ -19,7 +19,7 @@ public class Board {
 
     private Point cursorPos; // Position of the cursor
 
-    private int[] game_info; // Number of each tile type available and the number of targets
+    private GameInfo game_info; // Number of each tile type available and the number of targets
     private Tile selectedTile; // The tile currently selected by the player
     private boolean laserWasFired = false; // Whether the laser has been fired
 
@@ -124,19 +124,19 @@ public class Board {
     }
 
     // Get the game_info by index
-    public int get_game_info_by_index(int index) {
-        if (index < 0 || index > game_info.length - 1) {
-            throw new IllegalArgumentException("Index out of bounds");
-        }
-        return game_info[index];
-    }
+//    public int get_game_info_by_index(int index) {
+//        if (index < 0 || index > game_info.length - 1) {
+//            throw new IllegalArgumentException("Index out of bounds");
+//        }
+//        return game_info[index];
+//    }
 
-    public int[] get_game_info() {
+    public GameInfo get_game_info() {
         return game_info;
     }
 
-    public void set_game_info(int[] _game_info) {
-        game_info = _game_info;
+    public void set_game_info(GameInfo game_info) {
+        this.game_info = game_info;
     }
 
     public void setMirrorsHit(int mirrorsHit) {
@@ -158,8 +158,8 @@ public class Board {
     // check if wincondition is met
     public void checkWinCondition() {
         System.out.println("Mirrors hit: " + mirrorsHit + " Count mirrors: " + countMirrors());
-        System.out.println("Targets hit: " + targetsHit + " Count targets: " + game_info[4]);
-        if (mirrorsHit >= countMirrors() && targetsHit == game_info[4]){
+        System.out.println("Targets hit: " + targetsHit + " Count targets: " + game_info.getTargets());
+        if (mirrorsHit >= countMirrors() && targetsHit == game_info.getTargets()) {
             System.out.println("Win condition met");
             win = true;
         }
@@ -194,7 +194,7 @@ public class Board {
 
     public String getLevel() {
         if (level.equals("game_state")) {
-            level = game_info[5]+"";
+            level = game_info.getLevel()+"";
         }
         return level;
     }
@@ -243,33 +243,33 @@ public class Board {
                     //System.out.println("Laser already exists");
                     return;
                 } else if (t instanceof MirrorTile) {
-                    if (game_info[0] == 0) {
+                    if (game_info.getTileAtIndex(0) == 0) {
                         //System.out.println("No more mirror tiles");
                         return;
                     } else {
-                        game_info[0]--;
+                        game_info.decrementTileAtIndex(0);
                     }
 
                 } else if (t instanceof SplitterTile) {
-                    if (game_info[1] == 0) {
+                    if (game_info.getTileAtIndex(1) == 0) {
                         //System.out.println("No more splitter tiles");
                         return;
                     } else {
-                        game_info[1]--;
+                        game_info.decrementTileAtIndex(1);
                     }
                 } else if (t instanceof CheckPointTile) {
-                    if (game_info[2] == 0) {
+                    if (game_info.getTileAtIndex(2) == 0) {
                         //System.out.println("No more checkpoint tiles");
                         return;
                     } else {
-                        game_info[2]--;
+                        game_info.decrementTileAtIndex(2);
                     }
                 } else if (t instanceof DoubleTile) {
-                    if (game_info[3] == 0) {
+                    if (game_info.getTileAtIndex(3) == 0) {
                         //System.out.println("No more double tiles");
                         return;
                     } else {
-                        game_info[3]--;
+                        game_info.decrementTileAtIndex(3);
                     }
                 }
 
@@ -290,13 +290,13 @@ public class Board {
         if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsMovable()) {
             // add one extra to placeable tiles
             if (tiles[cursorPos.y][cursorPos.x] instanceof MirrorTile) {
-                game_info[0]++;
+                game_info.incrementTileAtIndex(0);
             } else if (tiles[cursorPos.y][cursorPos.x] instanceof SplitterTile) {
-                game_info[1]++;
+                game_info.incrementTileAtIndex(1);
             } else if (tiles[cursorPos.y][cursorPos.x] instanceof CheckPointTile) {
-                game_info[2]++;
+                game_info.incrementTileAtIndex(2);
             } else if (tiles[cursorPos.y][cursorPos.x] instanceof DoubleTile) {
-                game_info[3]++;
+                game_info.incrementTileAtIndex(3);
             }
             //remove tile
             tiles[cursorPos.y][cursorPos.x] = null;

@@ -52,7 +52,7 @@ public class ToolBar extends MouseAdapter  {
                     tiles.add(new LaserTile(true, true));
                 }
                 for (int i = 0; i < 4; i++) {
-                    for (int j = 0; j < board.get_game_info_by_index(i); j++) {
+                    for (int j = 0; j < board.get_game_info().getTileAtIndex(i); j++) {
                         tiles.add(intToTile(i));
                     }
 

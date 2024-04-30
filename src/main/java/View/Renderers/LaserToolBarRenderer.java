@@ -38,7 +38,7 @@ public class LaserToolBarRenderer extends BoardRenderer {
         }
 
         for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < board.get_game_info_by_index(i); j++) {
+            for (int j = 0; j < board.get_game_info().getTileAtIndex(i); j++) {
                 tiles.add(getTileImage(i));
             }
 

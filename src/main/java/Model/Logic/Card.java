@@ -114,15 +114,12 @@ public class Card {
     /**
      * Gets the number of placeable tiles and targets for the current level aswell as the level number.
      */
-     public int[] getPlaceableTiles(){
-
-         int[] game_info = new int[6];
-         game_info[0] = targetMirrorTiles;
-         game_info[1] = splitterTiles;
-         game_info[2] = checkPointTiles;
-         game_info[3] = doubleTiles;
-         game_info[4] = targets;
-         game_info[5] = level;
-         return game_info;
+     public GameInfo getPlaceableTiles(){
+         int[] tile_info = new int[4];
+         tile_info[0] = targetMirrorTiles;
+         tile_info[1] = splitterTiles;
+         tile_info[2] = checkPointTiles;
+         tile_info[3] = doubleTiles;
+         return new GameInfo(level, targets, tile_info);
      }
 }

@@ -190,7 +190,7 @@ public class LaserCalculator {
     private static boolean allMirrorsUsed(Board board){ // REMOVE
         int placeabletiles = 0;
         for (int i = 0; i < 4; i++) {
-            placeabletiles += board.get_game_info_by_index(i);
+            placeabletiles += board.get_game_info().getTileAtIndex(i);
         }
 
         // CHECK FOR MIRRORS THAT ARE ROTATED AND RETURN FALSE IF ANY ARE
