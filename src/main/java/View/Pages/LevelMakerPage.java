@@ -192,12 +192,10 @@ public class LevelMakerPage extends JPanel {
     //Create a small area to show what buttons to push for the different tiles
     private JPanel createEastContainer() {
         JPanel eastContainer = new JPanel(new GridBagLayout());
-        GridBagConstraints ecGbc = new GridBagConstraints();
-    
+
         JLabel textTestLabel = createLabel("Tiles for toolbar:", new Font("Baloo Bhaijaan", Font.BOLD, 20));
-        eastContainer.add(textTestLabel, getGridBagConstraints(0, 0, 3, GridBagConstraints.HORIZONTAL, 0, new Insets(0, 0, 10, 0)));
+        eastContainer.add(textTestLabel, getGridBagConstraints(0, 0, 3, GridBagConstraints.HORIZONTAL, 0, new Insets(0, 0, 0, 0)));
     
-        // Create and add 5 tiles with plus and minus buttons
         for (int i = 0; i < TileInfo.getTiles(true).size(); i++) {
             addTileWithButtons(eastContainer, TileInfo.getTiles(true).get(i).getClass().getSimpleName(), i, getGridBagConstraints(0, i + 1, 1, GridBagConstraints.NONE, 0, new Insets(0, 0, 0, 5)));
         }
@@ -205,14 +203,14 @@ public class LevelMakerPage extends JPanel {
 
     
         textTestLabel = createLabel("Keys for each tile:", new Font("Baloo Bhaijaan", Font.BOLD, 20));
-        eastContainer.add(textTestLabel, getGridBagConstraints(0, 6, 3, GridBagConstraints.HORIZONTAL, 0, new Insets(10, 0, 0, 0)));
+        eastContainer.add(textTestLabel, getGridBagConstraints(0, TileInfo.getTiles(true).size()+1, 3, GridBagConstraints.HORIZONTAL, 0, new Insets(10, 0, 0, 0)));
     
         BufferedImage allTilesImage = assetServer.getImage("allTiles");
         Image scaledAllTilesImage = allTilesImage.getScaledInstance(120, 80, Image.SCALE_SMOOTH);
         JLabel allTilesLabel = new JLabel(new ImageIcon(scaledAllTilesImage));
         JPanel allTilesPanel = new JPanel();
         allTilesPanel.add(allTilesLabel);
-        eastContainer.add(allTilesPanel, getGridBagConstraints(0, 7, 3, GridBagConstraints.HORIZONTAL, 0, new Insets(0, 0, 0, 0)));
+        eastContainer.add(allTilesPanel, getGridBagConstraints(0, TileInfo.getTiles(true).size()+2, 3, GridBagConstraints.HORIZONTAL, 0, new Insets(0, 0, 0, 0)));
     
         return eastContainer;
     }
@@ -249,7 +247,7 @@ public class LevelMakerPage extends JPanel {
         Image scaledImage = tileImage.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         ImageIcon tileIcon = new ImageIcon(scaledImage);
 
-        ImageOverlayNumber tileLabel = new ImageOverlayNumber(tileIcon, 0, 50, 50);
+        ImageOverlayNumber tileLabel = new ImageOverlayNumber(tileIcon, 0, 40, 40);
         tileLabel.setFont(new Font("Baloo Bhaijaan", Font.BOLD, 40));
         tileLabels.put(type, tileLabel);
 

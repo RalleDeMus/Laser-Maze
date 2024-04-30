@@ -59,22 +59,6 @@ public class LaserToolBarRenderer extends BoardRenderer {
 
     }
 
-    private BufferedImage getTileImage(int i) {
-
-        switch (i) {
-            case 0:
-                return assetServer.getImage("targetMirror");
-            case 1:
-                return assetServer.getImage("beamSplitter");
-            case 2:
-                return assetServer.getImage("checkPoint");
-            case 3:
-                return assetServer.getImage("doubleMirror");
-            case 4:
-                return assetServer.getImage("laser");
-        }
-        return null;
-    }
 
     // draw the laserRay
     private void drawLaser(Graphics g){
