@@ -17,7 +17,7 @@ abstract public class Tile implements TileInterface, Cloneable{
     private BufferedImage image; // Image of the tile
     private BufferedImage rotatedImage; // Image of the tile if it is rotatable
 
-    private int orientation; // Orrientation of the tile. 0 is right, 1 is down, 2 is left, 3 is up, 4 is free rotation.
+    private int orientation; // Orientation of the tile. 0 is right, 1 is down, 2 is left, 3 is up, 4 is free rotation.
 
     protected int[] mirror; // Mirror values of the tile. Used to define the laser path. 1 is rotate 90 degrees, 3 is rotate 270 degrees.
     protected int[] pass; // Pass values of the tile. Used to define the laser path.
