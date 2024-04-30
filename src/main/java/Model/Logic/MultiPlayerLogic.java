@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  * MultiPlayerLogic class to represent the logic of the multiplayer game.
  */
 public class MultiPlayerLogic {
-    private int players; // The number of players in the game
+    final private int players; // The number of players in the game
 
     private int currentplayer; // The current player in the game
 
