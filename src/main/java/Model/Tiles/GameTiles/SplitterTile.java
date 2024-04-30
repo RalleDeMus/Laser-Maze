@@ -23,7 +23,6 @@ public class SplitterTile extends Tile {
         this.pass = new int[]{1, 1, 1, 1};
         this.target = new int[]{0,0,0,0};
         this.splitter = 3;
-        this.isMoveable = isMoveable;
         this.isMirror = true;
         this.setImage(AssetServer.getInstance().getImage("beamSplitter"));
         this.setRotatedImage(AssetServer.getInstance().getImage("beamSplitterFree"));
