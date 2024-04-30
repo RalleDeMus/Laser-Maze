@@ -14,6 +14,7 @@ public class CheckPointTile extends Tile {
         this.mirror = new int[]{0, 0, 0, 0};
         this.pass = new int[]{0, 1, 0, 1};
         this.target = new int[]{0,0,0,0};
+        this.splitter = 0;
         this.isMirror = true;
         this.setImage(AssetServer.getInstance().getImage("checkPoint"));
         this.setRotatedImage(AssetServer.getInstance().getImage("checkPointFree"));
@@ -24,6 +25,7 @@ public class CheckPointTile extends Tile {
         this.mirror = new int[]{0, 0, 0, 0};
         this.pass = new int[]{0, 1, 0, 1};
         this.target = new int[]{0,0,0,0};
+        this.splitter = 0;
         this.isMirror = true;
         this.setImage(AssetServer.getInstance().getImage("checkPoint"));
         this.setRotatedImage(AssetServer.getInstance().getImage("checkPointFree"));

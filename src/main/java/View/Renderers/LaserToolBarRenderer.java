@@ -93,7 +93,7 @@ public class LaserToolBarRenderer extends BoardRenderer {
 
                     String value = pair.getValue();
 
-                    if (!value.equals("___")) {
+                    if (!value.equals("____")) {
                         BufferedImage image = assetServer.getImage("laserRay");
 
                         if (value.charAt(0) != '_') {
@@ -120,6 +120,10 @@ public class LaserToolBarRenderer extends BoardRenderer {
 
                         if (value.charAt(2) != '_') {
                             int direction = Character.getNumericValue(value.charAt(2)) + 2;
+                            g.drawImage(ImageHandler.rotateImage(image, 90 * direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
+                        }
+                        if (value.charAt(3) != '_') {
+                            int direction = Character.getNumericValue(value.charAt(3)) + 2;
                             g.drawImage(ImageHandler.rotateImage(image, 90 * direction), j * squareSize, i * squareSize, squareSize, squareSize, null);
                         }
                     }

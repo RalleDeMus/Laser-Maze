@@ -13,6 +13,7 @@ public class CellBlockerTile extends Tile {
         this.mirror = new int[]{0, 0, 0, 0};
         this.pass = new int[]{1, 1, 1, 1};
         this.target = new int[]{0,0,0,0};
+        this.splitter = 0;
         this.isMirror = false;
         this.setImage(AssetServer.getInstance().getImage("cellBlocker"));
     }

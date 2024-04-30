@@ -14,6 +14,7 @@ public class MirrorTile extends Tile {
         this.mirror = new int[]{0, 1, 3, 0};
         this.pass = new int[]{0, 1, 1, 0};
         this.target = new int[]{1,0,0,0};
+        this.splitter = 0;
         this.isMirror = true;
         this.setImage(AssetServer.getInstance().getImage("targetMirror"));
         this.setRotatedImage(AssetServer.getInstance().getImage("targetMirrorFree"));
@@ -25,6 +26,7 @@ public class MirrorTile extends Tile {
         this.mirror = new int[]{0, 1, 3, 0};
         this.pass = new int[]{0, 1, 1, 0};
         this.target = new int[]{1,0,0,0};
+        this.splitter = 0;
         this.isMirror = true;
         this.setImage(AssetServer.getInstance().getImage("targetMirror"));
         this.setRotatedImage(AssetServer.getInstance().getImage("targetMirrorFree"));

@@ -24,7 +24,8 @@ abstract public class Tile implements TileInterface, Cloneable{
 
     protected int[] target; // Target values of the tile. Used to check if we hit a target.
 
-    protected boolean isMirror;
+    protected int splitter; // Splitter value of the tile. Used to define the laser path.
+    protected boolean isMirror; // If the tile is a mirror or laser/cell blocker
 
     public Tile(boolean isMoveable, boolean isRotateable, int orientation){
         this.orientation = orientation;
@@ -85,8 +86,8 @@ abstract public class Tile implements TileInterface, Cloneable{
     }
 
     @Override
-    public void setIsMirror(boolean isMirror) {
-        this.isMirror = isMirror;
+    public int getIsSplitter() {
+        return splitter;
     }
 
     @Override

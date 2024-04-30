@@ -12,18 +12,12 @@
             "rotatable": true,
             "orientation": 4,
             "row": 2,
-            "type": "MirrorTile"
-        },
-        {
-            "col": 3,
-            "rotatable": false,
-            "orientation": 1,
-            "row": 4,
-            "type": "MirrorTile"
+            "type": "BiSplitterTile"
         }
     ]},
     "extra tiles": {
+        "MirrorTiles": 2,
         "level": 0,
-        "targets": 1
+        "targets": 2
     }
 }

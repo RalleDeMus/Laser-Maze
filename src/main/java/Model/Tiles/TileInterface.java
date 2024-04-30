@@ -25,7 +25,8 @@ public interface TileInterface {
     BufferedImage getRotatedImage();
     void setIsRotatable(boolean isRotatable);
 
-    void setIsMirror(boolean isMirror);
+
+    int getIsSplitter();
 
 
 
