@@ -77,7 +77,7 @@ public class MultiplayerBoardPage extends BoardPage{
 
                     board.setCardLevel(String.valueOf(Integer.parseInt(board.getLevel())));
                 } catch (Exception exception) {
-                    board.setCardLevel(String.valueOf(board.get_game_info_by_index(5)));
+                    board.setCardLevel(String.valueOf(board.get_game_info().getLevel()));
                 }
 
                 ReadyPage readyPage = new ReadyPage(mainMenu, board, multiPlayerLogic);

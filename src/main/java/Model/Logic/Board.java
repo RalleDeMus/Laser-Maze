@@ -1,7 +1,9 @@
 package Model.Logic;
 import Model.Tiles.*;
-import java.awt.*;
+import Model.Tiles.GameTiles.*;
 
+import java.awt.*;
+import java.util.List;
 
 
 /**
@@ -19,7 +21,7 @@ public class Board {
 
     private Point cursorPos; // Position of the cursor
 
-    private int[] game_info; // Number of each tile type available and the number of targets
+    private GameInfo game_info; // Number of each tile type available and the number of targets
     private Tile selectedTile; // The tile currently selected by the player
     private boolean laserWasFired = false; // Whether the laser has been fired
 
@@ -92,6 +94,8 @@ public class Board {
                 selectedTile = tile;
 
             }
+        } else {
+            selectedTile = null;
         }
 
     }
@@ -124,19 +128,19 @@ public class Board {
     }
 
     // Get the game_info by index
-    public int get_game_info_by_index(int index) {
-        if (index < 0 || index > game_info.length - 1) {
-            throw new IllegalArgumentException("Index out of bounds");
-        }
-        return game_info[index];
-    }
+//    public int get_game_info_by_index(int index) {
+//        if (index < 0 || index > game_info.length - 1) {
+//            throw new IllegalArgumentException("Index out of bounds");
+//        }
+//        return game_info[index];
+//    }
 
-    public int[] get_game_info() {
+    public GameInfo get_game_info() {
         return game_info;
     }
 
-    public void set_game_info(int[] _game_info) {
-        game_info = _game_info;
+    public void set_game_info(GameInfo game_info) {
+        this.game_info = game_info;
     }
 
     public void setMirrorsHit(int mirrorsHit) {
@@ -158,8 +162,8 @@ public class Board {
     // check if wincondition is met
     public void checkWinCondition() {
         System.out.println("Mirrors hit: " + mirrorsHit + " Count mirrors: " + countMirrors());
-        System.out.println("Targets hit: " + targetsHit + " Count targets: " + game_info[4]);
-        if (mirrorsHit >= countMirrors() && targetsHit == game_info[4]){
+        System.out.println("Targets hit: " + targetsHit + " Count targets: " + game_info.getTargets());
+        if (mirrorsHit >= countMirrors() && targetsHit == game_info.getTargets()) {
             System.out.println("Win condition met");
             win = true;
         }
@@ -194,7 +198,7 @@ public class Board {
 
     public String getLevel() {
         if (level.equals("game_state")) {
-            level = game_info[5]+"";
+            level = game_info.getLevel()+"";
         }
         return level;
     }
@@ -239,37 +243,17 @@ public class Board {
             // the position needs to be empty for a tile to be placed
             if (tiles[cursorPos.y][cursorPos.x] == null) {
                 // Check if a new tile can be placed
-                if (t instanceof LaserTile && getLaserTile() != null) {
-                    //System.out.println("Laser already exists");
-                    return;
-                } else if (t instanceof MirrorTile) {
-                    if (game_info[0] == 0) {
-                        //System.out.println("No more mirror tiles");
-                        return;
-                    } else {
-                        game_info[0]--;
-                    }
+                List<Tile> tilesWithIsMirror = TileInfo.getTiles(true);
 
-                } else if (t instanceof SplitterTile) {
-                    if (game_info[1] == 0) {
-                        //System.out.println("No more splitter tiles");
-                        return;
-                    } else {
-                        game_info[1]--;
-                    }
-                } else if (t instanceof CheckPointTile) {
-                    if (game_info[2] == 0) {
-                        //System.out.println("No more checkpoint tiles");
-                        return;
-                    } else {
-                        game_info[2]--;
-                    }
-                } else if (t instanceof DoubleTile) {
-                    if (game_info[3] == 0) {
-                        //System.out.println("No more double tiles");
-                        return;
-                    } else {
-                        game_info[3]--;
+
+
+                if (t instanceof LaserTile && getLaserTile() != null) {
+                    return;
+                } else {
+                    for (int i = 0; i < tilesWithIsMirror.size(); i++) {
+                        if (tilesWithIsMirror.get(i).getClass() == t.getClass() && game_info.getTileFromDictionary(tilesWithIsMirror.get(i).getClass().getSimpleName()) != 0) {
+                            game_info.decrementAtKey(t.getClass().getSimpleName());
+                        }
                     }
                 }
 
@@ -289,15 +273,16 @@ public class Board {
         //check if there is a tile and if it is moveable
         if (tiles[cursorPos.y][cursorPos.x] != null && tiles[cursorPos.y][cursorPos.x].getIsMovable()) {
             // add one extra to placeable tiles
-            if (tiles[cursorPos.y][cursorPos.x] instanceof MirrorTile) {
-                game_info[0]++;
-            } else if (tiles[cursorPos.y][cursorPos.x] instanceof SplitterTile) {
-                game_info[1]++;
-            } else if (tiles[cursorPos.y][cursorPos.x] instanceof CheckPointTile) {
-                game_info[2]++;
-            } else if (tiles[cursorPos.y][cursorPos.x] instanceof DoubleTile) {
-                game_info[3]++;
+            List<Tile> tilesWithIsMirror = TileInfo.getTiles(true);
+
+            Tile t = tiles[cursorPos.y][cursorPos.x];
+
+            for (int i = 0; i < tilesWithIsMirror.size(); i++) {
+                if (tilesWithIsMirror.get(i).getClass() == t.getClass()) {
+                    game_info.incrementAtKey(t.getClass().getSimpleName());
+                }
             }
+
             //remove tile
             tiles[cursorPos.y][cursorPos.x] = null;
         }

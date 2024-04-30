@@ -1,9 +1,10 @@
 package Model.Logic;
 
-import Model.Tiles.CellBlockerTile;
-import Model.Tiles.LaserTile;
-import Model.Tiles.SplitterTile;
+import Model.Tiles.GameTiles.CellBlockerTile;
+import Model.Tiles.GameTiles.LaserTile;
+import Model.Tiles.GameTiles.SplitterTile;
 import Model.Tiles.Tile;
+import Model.Tiles.TileInfo;
 
 import java.awt.*;
 import java.util.*;
@@ -74,7 +75,7 @@ public class LaserCalculator {
 
                     // Fromdir and todir handles which direction the laser is coming from and going to
                     String fromDir = String.valueOf(current.getOrientation());
-                    String toDir = String.valueOf(current.getOrientation()) + "_";
+                    String toDir = String.valueOf(current.getOrientation()) + "__";
 
 
                     // Is there a tile at the current position?
@@ -94,14 +95,34 @@ public class LaserCalculator {
                         if (tile.getTarget()[laserCorrected] == 1) {
                             // If so, increment the targets hit
                             targetsHit++;
-                            toDir = "8_";
+                            toDir = "8__";
                         }
 
 
-                        if (tile instanceof SplitterTile) {
-                            // If the tile is a splitter, add a new lasers here aswell as the rotated one in a moment.
+                        if (tile.getIsSplitter() == 1) {
+                            // Add the straight direction one:
                             Laser adding = new Laser(current.getX() + orientationToPoint(current.getOrientation()).x, current.getY() + orientationToPoint(current.getOrientation()).y, current.getOrientation());
                             if (canAddLaser(lasersList, adding)) {lasers.add(adding); lasersList.add(adding);}
+                        } else  if (tile.getIsSplitter() == 2 && tile.getPass()[laserCorrected] == 1) {
+                            // Add the reverse rotation direction one:
+                            int rotateBy = tile.getMirror()[laserCorrected];
+                            int nextLaserOrientation = (current.getOrientation() + rotateBy+2) % 4;
+
+                            Laser adding = new Laser(current.getX() + orientationToPoint(nextLaserOrientation).x, current.getY() + orientationToPoint(nextLaserOrientation).y, nextLaserOrientation);
+                            if (canAddLaser(lasersList, adding)) {lasers.add(adding); lasersList.add(adding);}
+                        } else if (tile.getIsSplitter() == 3) {
+
+                            // Add the reverse rotation direction one:
+                            int rotateBy = tile.getMirror()[laserCorrected];
+                            int nextLaserOrientation = (current.getOrientation() + rotateBy+2) % 4;
+
+                            Laser adding = new Laser(current.getX() + orientationToPoint(nextLaserOrientation).x, current.getY() + orientationToPoint(nextLaserOrientation).y, nextLaserOrientation);
+                            if (canAddLaser(lasersList, adding)) {lasers.add(adding); lasersList.add(adding);}
+
+                            // Add the straight direction one:
+                            adding = new Laser(current.getX() + orientationToPoint(current.getOrientation()).x, current.getY() + orientationToPoint(current.getOrientation()).y, current.getOrientation());
+                            if (canAddLaser(lasersList, adding)) {lasers.add(adding); lasersList.add(adding);}
+
                         }
 
                         if (tile.getPass()[laserCorrected] == 0) {
@@ -117,7 +138,15 @@ public class LaserCalculator {
                             if (canAddLaser(lasersList, adding)) {lasers.add(adding); lasersList.add(adding);}                            //System.out.println("At mirror, adding next: " + adding.toString());
 
                             toDir = String.valueOf(nextLaserOrientation);
-                            toDir += (tile instanceof SplitterTile) ? fromDir : "_";
+                            if (tile.getIsSplitter() == 0){
+                                toDir += "__";
+                            } else if (tile.getIsSplitter() == 1) {
+                                toDir += fromDir + "_";
+                            } else if (tile.getIsSplitter() == 2) {
+                                toDir += "_" + (String.valueOf((nextLaserOrientation+2)%4));
+                            } else if (tile.getIsSplitter() == 3) {
+                                toDir += fromDir + (String.valueOf((nextLaserOrientation+2)%4));
+                            }
                         }
 
 
@@ -189,8 +218,12 @@ public class LaserCalculator {
     // Helper function to check if all mirrors are used
     private static boolean allMirrorsUsed(Board board){ // REMOVE
         int placeabletiles = 0;
-        for (int i = 0; i < 4; i++) {
-            placeabletiles += board.get_game_info_by_index(i);
+
+
+        List<Tile> tilesWithIsMirror = TileInfo.getTiles(true);
+
+        for (int i = 0; i < tilesWithIsMirror.size(); i++) {
+            placeabletiles += board.get_game_info().getTileFromDictionary(tilesWithIsMirror.get(i).getClass().getSimpleName());
         }
 
         // CHECK FOR MIRRORS THAT ARE ROTATED AND RETURN FALSE IF ANY ARE

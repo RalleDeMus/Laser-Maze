@@ -84,7 +84,13 @@ public class PickLevelSteps {
 
         String currentLevel = board.getLevel();
         int[] expectedTiles = levelConfigs.get(currentLevel);
-        int[] actualTiles = board.get_game_info();
+        int[] actualTiles = new int[]{ board.get_game_info().getTileFromDictionary("MirrorTile"),
+                board.get_game_info().getTileFromDictionary("SplitterTile"),
+                board.get_game_info().getTileFromDictionary("CheckPointTile"),
+                board.get_game_info().getTileFromDictionary("DoubleTile"),
+                board.get_game_info().getTargets()};
+
+        System.out.println("Expected tiles: " + Arrays.toString(expectedTiles) + " Actual tiles: " + Arrays.toString(actualTiles));
 
         for (int i = 0; i < expectedTiles.length; i++) {
             assertEquals(expectedTiles[i], actualTiles[i], "Mismatch in tile count for type " + i + " at level " + currentLevel);

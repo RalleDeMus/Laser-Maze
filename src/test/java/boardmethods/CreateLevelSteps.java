@@ -1,12 +1,14 @@
 package boardmethods;
 
 import Model.Logic.*;
-import Model.Tiles.LaserTile;
-import Model.Tiles.MirrorTile;
+import Model.Tiles.GameTiles.LaserTile;
+import Model.Tiles.GameTiles.MirrorTile;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import java.util.Optional;
 
 import static org.junit.Assert.*;
 
@@ -48,16 +50,16 @@ public class CreateLevelSteps {
         levelMakerLogic.incrementTargets();
         levelMakerLogic.decrementTargets();
         levelMakerLogic.incrementTargets();
-        assertEquals(board.get_game_info()[4], 1);
+        assertEquals(board.get_game_info().getTargets(), 1);
 
     }
 
 
     @And("the user increments number of placeable MirrorTiles")
     public void theUserIncrementsNumberOfPlaceableMirrorTiles() {
-        levelMakerLogic.changeTileCount(0, true);
+        levelMakerLogic.changeTileCount("MirrorTile", true);
 
-        assertEquals(levelMakerLogic.getTileCounts()[0], 1);
+        assertEquals((int)(levelMakerLogic.getTileCounts().get("MirrorTile")), 1);
     }
 
     @Then("the user should be able to save the temporary level")
@@ -71,7 +73,8 @@ public class CreateLevelSteps {
         board.setCardLevel("temp");
         assertTrue(board.getTiles()[1][1] instanceof LaserTile);
         assertTrue(board.getTiles()[3][3] instanceof MirrorTile);
-        assertEquals(board.get_game_info_by_index(0), 1);
+        assertEquals(board.get_game_info().getTileFromDictionary("MirrorTile"), 1);
+
     }
 
     @When("the user places the correct tiles")
@@ -83,7 +86,7 @@ public class CreateLevelSteps {
         board.addTile(false);
         rotatetimes(3);
         assertEquals(board.getTiles()[3][1].getOrientation(), 3);
-        assertEquals(board.get_game_info_by_index(0), 0);
+        assertEquals(board.get_game_info().getTileFromDictionary("MirrorTile"), 0);
         assertTrue(board.getSelectedTile() instanceof MirrorTile);
 
     }
@@ -109,7 +112,7 @@ public class CreateLevelSteps {
         board = new Board(customLevel);
         assertTrue(board.getTiles()[1][1] instanceof LaserTile);
         assertTrue(board.getTiles()[3][3] instanceof MirrorTile);
-        assertEquals(board.get_game_info_by_index(0),1);
+        assertEquals(board.get_game_info().getTileFromDictionary("MirrorTile"),1);
     }
 
     @And("plays the level")
@@ -121,7 +124,7 @@ public class CreateLevelSteps {
         board.addTile(false);
         rotatetimes(3);
         assertEquals(board.getTiles()[3][1].getOrientation(), 3);
-        assertEquals(board.get_game_info_by_index(0), 0);
+        assertEquals(board.get_game_info().getTileFromDictionary("MirrorTile"), 0);
     }
 
     @Then("the player can complete the level")

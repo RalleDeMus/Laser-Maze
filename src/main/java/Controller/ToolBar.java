@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Logic.Board;
 import Model.Tiles.*;
+import Model.Tiles.GameTiles.*;
 import View.Renderers.BoardRenderer;
 
 import javax.swing.*;
@@ -51,9 +52,13 @@ public class ToolBar extends MouseAdapter  {
                 if (board.laserNeeded()) {
                     tiles.add(new LaserTile(true, true));
                 }
-                for (int i = 0; i < 4; i++) {
-                    for (int j = 0; j < board.get_game_info_by_index(i); j++) {
-                        tiles.add(intToTile(i));
+
+
+                List<Tile> tilesWithIsMirror = TileInfo.getTiles(true);
+
+                for (int i = 0; i < tilesWithIsMirror.size(); i++) {
+                    for (int j = 0; j < board.get_game_info().getTileFromDictionary(tilesWithIsMirror.get(i).getClass().getSimpleName()); j++) {
+                        tiles.add(TileInfo.TileFromKey(tilesWithIsMirror.get(i).getClass().getSimpleName()));
                     }
 
                 }
@@ -71,23 +76,7 @@ public class ToolBar extends MouseAdapter  {
         }
     }
 
-    //converts an integer to a tile
-    public static Tile intToTile (int i) {
-        switch(i) {
-            case 0:
-                return new MirrorTile(true,true);
-            case 1:
-                return new SplitterTile(true, true);
-            case 2:
-                return new CheckPointTile(true, true);
-            case 3:
-                return new DoubleTile(true,true);
-            case 4:
-                return new LaserTile(true,true);
-            default:
-                return null;
-        }
-    }
+
 
 
 }

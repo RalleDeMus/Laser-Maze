@@ -1,6 +1,7 @@
 package Model.Logic;
 
 import Model.Tiles.Tile;
+import Model.Tiles.TileInfo;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -8,6 +9,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Class for handling saving of game states to JSON files.
@@ -27,7 +30,7 @@ public class JSONSaving {
 
         int boardSize = board.getBoardSize();
         Tile[][] tiles = board.getTiles();
-        int[] game_info = board.get_game_info();
+        GameInfo game_info = board.get_game_info();
 
         for (int i = 0; i < boardSize; i++) {
             for (int j = 0; j < boardSize; j++) {
@@ -50,12 +53,16 @@ public class JSONSaving {
 
         // Create "extra tiles" object
         JSONObject game_info_JSON = new JSONObject();
-        game_info_JSON.put("MirrorTiles", game_info[0]);
-        game_info_JSON.put("SplitterTiles", game_info[1]);
-        game_info_JSON.put("CheckPointTiles", game_info[2]);
-        game_info_JSON.put("DoubleTile", game_info[3]);
-        game_info_JSON.put("targets", game_info[4]);
-        game_info_JSON.put("level", game_info[5]);
+        // Foreach tile type, add the number of placeable tiles to the map
+        TileInfo.getTiles(true).forEach(tile -> {
+            if (game_info.getTileFromDictionary(tile.getClass().getSimpleName()) != 0) {
+                game_info_JSON.put(tile.getClass().getSimpleName() + "s", game_info.getTileFromDictionary(tile.getClass().getSimpleName()));
+            }
+
+        });
+
+        game_info_JSON.put("targets", game_info.getTargets());
+        game_info_JSON.put("level", game_info.getLevel());
 
         // Create the root JSON object to hold both "gameinfo" and "extra tiles"
         JSONObject boardState = new JSONObject();
@@ -104,7 +111,7 @@ public class JSONSaving {
      * Then we save this new Tile array to a JSON file with the name "temp.json".
      */
 
-    public static void saveLevelWithFreeRotations(Board board, int[] tileCounts, int targets) {
+    public static void saveLevelWithFreeRotations(Board board, Map<String, Integer> tilesInfo, int targets) {
         Tile[][] tiles = board.getTiles();
 
 
@@ -125,8 +132,15 @@ public class JSONSaving {
         }
 
         // Set game info to match
-        // game info is array with len 6.
-        board.set_game_info(new int[]{tileCounts[0], tileCounts[1], tileCounts[2], tileCounts[3], targets, 0});
+
+//        Map<String, Integer> tilesInfo = new HashMap<>();
+//        tilesInfo.put("MirrorTile", tileCounts[0]);
+//        tilesInfo.put("SplitterTile", tileCounts[1]);
+//        tilesInfo.put("CheckPointTile", tileCounts[2]);
+//        tilesInfo.put("DoubleTile", tileCounts[3]);
+
+        GameInfo game_info = new GameInfo(0,targets,tilesInfo);
+        board.set_game_info(game_info);
 
         saveGameState("temp",board);
 

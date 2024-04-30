@@ -10,11 +10,18 @@ public interface TileInterface {
     int[] getPass();
     int[] getTarget();
 
+    boolean getIsMirror();
+
     boolean getIsMovable();
 
     boolean getIsRotatable();
     void setIsMoveable(boolean isMoveable);
     void setIsRotatable(boolean isRotatable);
+
+
+    int getIsSplitter();
+
+    void SetupTile();
 
 
 

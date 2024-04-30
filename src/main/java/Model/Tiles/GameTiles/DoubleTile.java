@@ -1,6 +1,7 @@
-package Model.Tiles;
+package Model.Tiles.GameTiles;
 
 import Controller.AssetServer;
+import Model.Tiles.Tile;
 
 /**
  * Class for the double mirror tile.
@@ -9,20 +10,20 @@ import Controller.AssetServer;
 public class DoubleTile extends Tile {
     public DoubleTile(boolean isMoveable, boolean isRotateable) {
         super( isMoveable,  isRotateable);
-        this.mirror = new int[]{3, 1, 3, 1};
-        this.pass = new int[]{1, 1, 1, 1};
-        this.target = new int[]{0,0,0,0};
-        this.setImage(AssetServer.getInstance().getImage("doubleMirror"));
-        this.setRotatedImage(AssetServer.getInstance().getImage("doubleMirrorFree"));
     }
 
     public DoubleTile(boolean isMoveable, boolean isRotateable, int orientation) {
-        super( isMoveable,  isRotateable, 0);
+        super( isMoveable,  isRotateable, orientation);
+    }
+
+    @Override
+    public void SetupTile() {
         this.mirror = new int[]{3, 1, 3, 1};
         this.pass = new int[]{1, 1, 1, 1};
         this.target = new int[]{0,0,0,0};
+        this.splitter = 0;
+        this.isMirror = true;
         this.setImage(AssetServer.getInstance().getImage("doubleMirror"));
         this.setRotatedImage(AssetServer.getInstance().getImage("doubleMirrorFree"));
-        this.rotate(orientation,5);
     }
 }

@@ -1,6 +1,7 @@
 package Model.Logic;
 
 import Model.Tiles.*;
+import Model.Tiles.GameTiles.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -8,6 +9,8 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Class for handling the card and its contents.
@@ -16,10 +19,7 @@ import java.nio.file.Paths;
 public class Card {
 
      private String content; // The level being used to create the card. We use this to load from the json levels.
-     private int targetMirrorTiles = 0; // The number of target mirrors in the level
-     private int splitterTiles = 0; // The number of splitters in the level
-     private int checkPointTiles = 0; // The number of checkpoints in the level
-     private int doubleTiles = 0; // The number of double tiles in the level
+     private Map<String, Integer> placeableTiles; // The number of placeable tiles for the current level
      private int targets; // The number of targets in the level
      private int level; // The level number
 
@@ -55,57 +55,54 @@ public class Card {
      */
     public Tile[][] getCard(){
 
-            JSONObject jsonObject = new JSONObject(content);
-            JSONObject gameInfo = jsonObject.getJSONObject("gameinfo");
-            JSONArray tilesArray = gameInfo.getJSONArray("tiles");
+        JSONObject jsonObject = new JSONObject(content);
+        JSONObject gameInfo = jsonObject.getJSONObject("gameinfo");
+        JSONArray tilesArray = gameInfo.getJSONArray("tiles");
 
-            for (int i = 0; i < tilesArray.length(); i++) {
-                JSONObject tileObject = tilesArray.getJSONObject(i);
-                int col = tileObject.getInt("col");
-                int row = tileObject.getInt("row");
-                int orientation = tileObject.getInt("orientation");
-                boolean rotatable = tileObject.getBoolean("rotatable");
-                if(rotatable){
-                    orientation = 4;
-                }
-                String type = tileObject.getString("type");
-
-                switch (type) {
-                    case "LaserTile":
-                        this.tiles[row][col] = new LaserTile(false, rotatable, orientation);
-
-                        break;
-                    case "CellBlockerTile":
-                        this.tiles[row][col] = new CellBlockerTile(false);
-
-                        break;
-                    case "CheckPointTile":
-                        this.tiles[row][col] = new CheckPointTile(false, rotatable, orientation);
-
-                        break;
-                    case "SplitterTile":
-                        this.tiles[row][col] = new SplitterTile(false, rotatable, orientation);
-
-                        break;
-                    case "MirrorTile":
-                        this.tiles[row][col] = new MirrorTile(false, rotatable, orientation);
-
-                        break;
-                    case "DoubleTile":
-                        this.tiles[row][col] = new DoubleTile(false, rotatable, orientation);
-
-                        break;
-
-                }
+        for (int i = 0; i < tilesArray.length(); i++) {
+            JSONObject tileObject = tilesArray.getJSONObject(i);
+            int col = tileObject.getInt("col");
+            int row = tileObject.getInt("row");
+            int orientation = tileObject.getInt("orientation");
+            boolean rotatable = tileObject.getBoolean("rotatable");
+            if(rotatable){
+                orientation = 4;
             }
+            String type = tileObject.getString("type");
 
-            JSONObject extraTiles = jsonObject.getJSONObject("extra tiles");
-            this.checkPointTiles = extraTiles.getInt("CheckPointTiles");
-            this.splitterTiles = extraTiles.getInt("SplitterTiles");
-            this.targetMirrorTiles = extraTiles.getInt("MirrorTiles");
-            this.doubleTiles = extraTiles.getInt("DoubleTile");
-            this.targets = extraTiles.getInt("targets");
-            this.level = extraTiles.getInt("level");
+            this.tiles[row][col] = TileInfo.TileFromKey(type);
+
+            this.tiles[row][col].rotate(orientation,5);
+
+            this.tiles[row][col].setIsRotatable(rotatable);
+            this.tiles[row][col].setIsMoveable(false);
+
+
+        }
+
+        JSONObject extraTiles = jsonObject.getJSONObject("extra tiles");
+
+
+        this.placeableTiles = new HashMap<>();
+        // Foreach tile type, add the number of placeable tiles to the map
+        TileInfo.getTiles(true).forEach(tile -> {
+                if (extraTiles.has(tile.getClass().getSimpleName() + "s")){
+
+                    this.placeableTiles.put(tile.getClass().getSimpleName(), extraTiles.getInt(tile.getClass().getSimpleName() + "s"));
+                }
+                else{
+                    this.placeableTiles.put(tile.getClass().getSimpleName(), 0);
+                }
+
+        });
+        //Print alle we added to placeableTiles
+//        for (Map.Entry<String, Integer> entry : placeableTiles.entrySet()) {
+//            System.out.println("Key = " + entry.getKey() +
+//                    ", Value = " + entry.getValue());
+//        }
+
+        this.targets = extraTiles.getInt("targets");
+        this.level = extraTiles.getInt("level");
 
          return this.tiles;
 
@@ -114,15 +111,12 @@ public class Card {
     /**
      * Gets the number of placeable tiles and targets for the current level aswell as the level number.
      */
-     public int[] getPlaceableTiles(){
+     public GameInfo getPlaceableTiles(){
 
-         int[] game_info = new int[6];
-         game_info[0] = targetMirrorTiles;
-         game_info[1] = splitterTiles;
-         game_info[2] = checkPointTiles;
-         game_info[3] = doubleTiles;
-         game_info[4] = targets;
-         game_info[5] = level;
-         return game_info;
+
+        GameInfo gameInfo = new GameInfo(level, targets, placeableTiles);
+
+
+         return gameInfo;
      }
 }

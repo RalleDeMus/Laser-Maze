@@ -2,7 +2,7 @@ package LaserMethods;
 
 import Model.Logic.Board;
 import Model.Logic.LaserCalculator;
-import Model.Tiles.SplitterTile;
+import Model.Tiles.GameTiles.SplitterTile;
 import io.cucumber.java.en.*;
 
 import static org.junit.Assert.*;

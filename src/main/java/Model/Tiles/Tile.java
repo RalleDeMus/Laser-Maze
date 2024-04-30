@@ -17,28 +17,26 @@ abstract public class Tile implements TileInterface, Cloneable{
     private BufferedImage image; // Image of the tile
     private BufferedImage rotatedImage; // Image of the tile if it is rotatable
 
-    private int orientation; // Orrientation of the tile. 0 is right, 1 is down, 2 is left, 3 is up, 4 is free rotation.
+    private int orientation; // Orientation of the tile. 0 is right, 1 is down, 2 is left, 3 is up, 4 is free rotation.
 
     protected int[] mirror; // Mirror values of the tile. Used to define the laser path. 1 is rotate 90 degrees, 3 is rotate 270 degrees.
     protected int[] pass; // Pass values of the tile. Used to define the laser path.
 
     protected int[] target; // Target values of the tile. Used to check if we hit a target.
 
+    protected int splitter; // Splitter value of the tile. Used to define the laser path.
+    protected boolean isMirror; // If the tile is a mirror or laser/cell blocker
+
     public Tile(boolean isMoveable, boolean isRotateable, int orientation){
-        this.orientation = orientation;
-        this.mirror = new int[]{};
-        this.pass = new int[]{};
-        this.target = new int[]{};
+        SetupTile();
         this.isMoveable = isMoveable;
         this.isRotateable = isRotateable;
+        this.rotate(orientation,5);
 
     }
 
     public Tile(boolean isMoveable, boolean isRotateable){
-        this.orientation = 0;
-        this.mirror = new int[]{};
-        this.pass = new int[]{};
-        this.target = new int[]{};
+        SetupTile();
         this.isMoveable = isMoveable;
         this.isRotateable = isRotateable;
     }
@@ -66,6 +64,7 @@ abstract public class Tile implements TileInterface, Cloneable{
 
 
 
+
     @Override
     public int[] getMirror() {
 
@@ -80,6 +79,21 @@ abstract public class Tile implements TileInterface, Cloneable{
     public int[] getTarget() {
 
         return target;
+    }
+
+    @Override
+    public int getIsSplitter() {
+        return splitter;
+    }
+
+    @Override
+    public void SetupTile() {
+
+    }
+
+    @Override
+    public boolean getIsMirror() {
+        return isMirror;
     }
 
 
@@ -165,5 +179,7 @@ abstract public class Tile implements TileInterface, Cloneable{
 
 
     }
+
+
 
 }

@@ -39,7 +39,7 @@
   "extra tiles": {
     "CheckPointTiles": 1,
     "MirrorTiles": 3,
-    "DoubleTile": 0,
+    "DoubleTiles": 0,
     "SplitterTiles": 0,
     "targets": 1,
     "level": 10
